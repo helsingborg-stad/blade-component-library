@@ -71,3 +71,20 @@ if (!function_exists('utility')) {
     }
 }
 ```
+
+## Implement replacement views
+This package is designed to be overrided with a theme or plugins own views. Simply add a new path as below. You have an ability to prepend or append the existing search arrays. The path's will be searched chronologically. 
+
+```php
+//Adds a new view search path
+Utility::addViewPath(
+    MUNICIPIO_PATH . 'views/utility',
+    false //Prepend = true
+); 
+
+//Adds a new controller search path
+Utility::addControllerPath(
+    MUNICIPIO_PATH . 'library/Controller/Utility/',
+    false //Prepend = true
+);
+```
