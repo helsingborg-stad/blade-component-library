@@ -2,7 +2,7 @@
 
 namespace BladeComponentLibrary;
 
-use Philo\Blade\Blade as Blade;
+use HelsingborgStad\Blade\Blade as Blade;
 
 class Register
 {

@@ -15,5 +15,7 @@
         }
     },
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "helsingborg-stad/laravel-blade": "^5.5"
+    }
 }
