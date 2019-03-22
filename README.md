@@ -1,9 +1,9 @@
-#Blade component library
+Blade component library
 ================
 
 This is a library containing load functions and library of views with their controllers. Enables swift and precise development of static user interfaces. 
 
-# Example usage
+##Example usage
 ```php
 use helsingborg-stad/ComponentLibrary/Register as Register;
 
@@ -47,6 +47,27 @@ class RegisterUtility
             ],
             'date-time.blade.php' 
         );
+    }
+}
+```
+
+##Blade Version
+This library uses blade version 5.5 wich requires PHP 7.0. If you like to use a lower version, components will have to be replaced by a publicly avabile function. 
+
+```php
+if (!function_exists('utility')) {
+    /**
+     * Get a utility component
+     * 
+     * @param string $slug       Slug of utility
+     * @param array  $attributes The settings of the utility
+     * 
+     * @return string
+     */
+    function utility($slug, $attributes = array())
+    {
+       $utility = new Municipio\Theme\Utility($slug, $attributes);
+       return $utility->render(); 
     }
 }
 ```
