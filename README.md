@@ -72,7 +72,7 @@ if (!function_exists('utility')) {
 }
 ```
 
-## Implement replacement views
+## Implement replacement views & controllers
 This package is designed to be overrided with a theme or plugins own views. Simply add a new path as below. You have an ability to prepend or append the existing search arrays. The path's will be searched chronologically. 
 
 ```php
