@@ -85,7 +85,6 @@ if (!function_exists('component')) {
 You can then untilize the public function in your theme blade files in the following manner. 
 
 ```php
-
 {!! 
     utility('button', [
         'isDisabled' => false,
@@ -94,7 +93,6 @@ You can then untilize the public function in your theme blade files in the follo
         'target' => "_blank"
     ])
 !!}
-
 ```
 
 ## Implement replacement views & controllers
