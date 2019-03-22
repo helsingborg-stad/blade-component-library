@@ -104,7 +104,7 @@ Utility::addControllerPath(
 - Laravel Blade
 
 ## Dependencies
-- Laravel Blade 5.5 (incldued in package)
+- Laravel Blade 5.5 (included in package)
 
 ## Releases
 
