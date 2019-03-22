@@ -54,7 +54,7 @@ class RegisterUtility
                 'hasDate' => true, 
                 'isHumanReadable' => true
             ],
-            'date-time.blade.php' 
+            'date-time.blade.php'
         );
     }
 }
@@ -70,10 +70,11 @@ if (!function_exists('utility')) {
      * 
      * @param string $slug       Slug of utility
      * @param array  $attributes The settings of the utility
+     * @param string $uid        A unique identifier. Enables WordPress or other filter system to uniquly identify a location of the component to make adjustments to a single component. 
      * 
      * @return string
      */
-    function utility($slug, $attributes = array())
+    function utility($slug, $attributes = array(), $uid = "a-unique-id")
     {
        $utility = new Municipio\Theme\Utility($slug, $attributes);
        return $utility->render(); 
