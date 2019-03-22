@@ -14,25 +14,25 @@ composer reqire helsingborg-stad/blade-component-library
 
 ## Example usage
 ```php
-use helsingborg-stad/ComponentLibrary/Register as Register;
+use BladeComponentLibrary/Register as Register;
 
 class RegisterUtility
 {
     public function __construct()
     {
-        Utility::setCachePath(
+        Register::setCachePath(
             WP_CONTENT_DIR . '/uploads/cache/blade-cache/utility'
         );
 
-        Utility::addViewPath(
+        Register::addViewPath(
             MUNICIPIO_PATH . 'views/utility'
         ); 
 
-        Utility::addControllerPath(
+        Register::addControllerPath(
             MUNICIPIO_PATH . 'library/Controller/Utility/'
         );
 
-        Utility::add(
+        Register::add(
             'button',
             [
                 'isPrimary' => true,
@@ -47,7 +47,7 @@ class RegisterUtility
             'button.blade.php' // You can leave this out, it will automatically be generated from slug. 
         );
 
-        Utility::add(
+        Register::add(
             'date',
             [
                 'hasTime' => false,
@@ -64,7 +64,7 @@ class RegisterUtility
 This library uses blade version 5.5 wich requires PHP 7.0. If you like to use a lower version, components will have to be replaced by a publicly avabile function. 
 
 ```php
-if (!function_exists('utility')) {
+if (!function_exists('component')) {
     /**
      * Get a utility component
      * 
@@ -74,29 +74,48 @@ if (!function_exists('utility')) {
      * 
      * @return string
      */
-    function utility($slug, $attributes = array(), $uid = "a-unique-id")
+    function component($slug, $attributes = array(), $uid = "a-unique-id")
     {
-       $utility = new Municipio\Theme\Utility($slug, $attributes);
-       return $utility->render(); 
+       $component = new BladeComponentLibrary\Render($slug, $attributes);
+       return $component->render(); 
     }
 }
+```
+
+You can then untilize the public function in your theme blade files in the following manner. 
+
+```php
+
+{!! 
+    utility('button', [
+        'isDisabled' => false,
+        'label' => "Go to website",
+        'href' => "https://helsingborg.se"
+        'target' => "_blank"
+    ])
+!!}
+
 ```
 
 ## Implement replacement views & controllers
 This package is designed to be overrided with a theme or plugins own views. Simply add a new path as below. You have an ability to prepend or append the existing search arrays. The path's will be searched chronologically. 
 
 ```php
+
+use BladeComponentLibrary/Register as Register;
+
 //Adds a new view search path
-Utility::addViewPath(
+Register::addViewPath(
     MUNICIPIO_PATH . 'views/utility',
     false //Prepend = true
 ); 
 
 //Adds a new controller search path
-Utility::addControllerPath(
+Register::addControllerPath(
     MUNICIPIO_PATH . 'library/Controller/Utility/',
     false //Prepend = true
 );
+
 ```
 
 ## Built With 
