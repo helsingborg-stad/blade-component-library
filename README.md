@@ -97,3 +97,23 @@ Utility::addControllerPath(
     false //Prepend = true
 );
 ```
+
+## Built With 
+
+- PHP 
+- Laravel Blade
+
+## Dependencies
+- Laravel Blade 5.5 (incldued in package)
+
+## Releases
+
+https://github.com/helsingborg-stad/blade-component-library/releases
+
+## Authors
+
+- Sebastian Thulin 
+
+## License 
+
+This project is licensed under the MIT License - see the LICENSE file for details
