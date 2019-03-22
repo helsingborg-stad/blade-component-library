@@ -1,7 +1,16 @@
-Blade component library
+BETA: Blade component library
 ================
 
 This is a library containing load functions and library of views with their controllers. Enables swift and precise development of static user interfaces across multiple products. The package is designed to be used standalone or with WordPress as CMS engine. 
+
+Important note: This is a view package! Not a single line of CSS or Javascript will be appended. We (will, not complete yet) have a separate package to provide these feature in a syleguide format. 
+
+## Getting started
+Recommended method of usage is with composer. Add the requirement below, to enable a new set of awesome features. 
+
+```
+composer reqire helsingborg-stad/blade-component-library
+```
 
 ## Example usage
 ```php
