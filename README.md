@@ -1,7 +1,7 @@
 Blade component library
 ================
 
-This is a library containing load functions and library of views with their controllers. Enables swift and precise development of static user interfaces. 
+This is a library containing load functions and library of views with their controllers. Enables swift and precise development of static user interfaces across multiple products. The package is designed to be used standalone or with WordPress as CMS engine. 
 
 ## Example usage
 ```php
