@@ -3,7 +3,7 @@ Blade component library
 
 This is a library containing load functions and library of views with their controllers. Enables swift and precise development of static user interfaces. 
 
-##Example usage
+## Example usage
 ```php
 use helsingborg-stad/ComponentLibrary/Register as Register;
 
@@ -51,7 +51,7 @@ class RegisterUtility
 }
 ```
 
-##Blade Version
+## Blade Version
 This library uses blade version 5.5 wich requires PHP 7.0. If you like to use a lower version, components will have to be replaced by a publicly avabile function. 
 
 ```php
