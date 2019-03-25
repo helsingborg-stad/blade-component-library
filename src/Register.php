@@ -59,15 +59,22 @@ class Register
      * 
      * @return string The updated object with view paths
      */
-    public static function addViewPath($path) : array
+    public static function addViewPath($path, $prepend = true) : array
     {
         //Sanitize path
         $path = rtrim($path, "/");
 
         //Push to location array
-        if (array_push(self::$viewPaths, $path)) {
-            return self::$viewPaths;
+        if($prepend === true) {
+            if (array_unshift(self::$viewPaths, $path)) {
+                return self::$viewPaths;
+            }
+        } else {
+            if (array_push(self::$viewPaths, $path)) {
+                return self::$viewPaths;
+            }
         }
+        
 
         //Error if something went wrong
         throw new \Exception("Error appending view path: " . $path);
@@ -78,16 +85,22 @@ class Register
      * 
      * @return string The updated object with controller paths
      */
-    public static function addControllerPath($path) : array 
+    public static function addControllerPath($path, $prepend = true) : array 
     {
         //Sanitize path
         $path = rtrim($path, "/");
 
         //Push to location array
-        if (array_push(self::$controllerPaths, $path)) {
-            return self::$controllerPaths;
+        if($prepend === true) {
+            if (array_unshift(self::$controllerPaths, $path)) {
+                return self::$controllerPaths;
+            }
+        } else {
+            if (array_push(self::$controllerPaths, $path)) {
+                return self::$controllerPaths;
+            }
         }
-
+        
         //Error if something went wrong
         throw new \Exception("Error appending controller path: " . $path);
     }
