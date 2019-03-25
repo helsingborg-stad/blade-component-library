@@ -14,25 +14,27 @@ composer reqire helsingborg-stad/blade-component-library
 
 ## Example usage
 ```php
-use BladeComponentLibrary/Register as Register;
+<?php
+
+namespace Municipio\Theme;
 
 class RegisterUtility
 {
     public function __construct()
     {
-        Register::setCachePath(
+        \BladeComponentLibrary\Register::setCachePath(
             WP_CONTENT_DIR . '/uploads/cache/blade-cache/utility'
         );
 
-        Register::addViewPath(
+        \BladeComponentLibrary\Register::addViewPath(
             MUNICIPIO_PATH . 'views/utility'
         ); 
 
-        Register::addControllerPath(
+        \BladeComponentLibrary\Register::addControllerPath(
             MUNICIPIO_PATH . 'library/Controller/Utility/'
         );
 
-        Register::add(
+        \BladeComponentLibrary\Register::add(
             'button',
             [
                 'isPrimary' => true,
@@ -47,14 +49,14 @@ class RegisterUtility
             'button.blade.php' // You can leave this out, it will automatically be generated from slug. 
         );
 
-        Register::add(
+        \BladeComponentLibrary\Register::add(
             'date',
             [
                 'hasTime' => false,
                 'hasDate' => true, 
                 'isHumanReadable' => true
             ],
-            'date-time.blade.php'
+            'date-time.blade.php' 
         );
     }
 }
