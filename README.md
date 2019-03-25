@@ -27,11 +27,13 @@ class RegisterUtility
         );
 
         \BladeComponentLibrary\Register::addViewPath(
-            MUNICIPIO_PATH . 'views/utility'
+            MUNICIPIO_PATH . 'views/utility',
+            true //true = prepend, false = append, default = prepend
         ); 
 
         \BladeComponentLibrary\Register::addControllerPath(
-            MUNICIPIO_PATH . 'library/Controller/Utility/'
+            MUNICIPIO_PATH . 'library/Controller/Utility/',
+            true //true = prepend, false = append, default = prepend
         );
 
         \BladeComponentLibrary\Register::add(
