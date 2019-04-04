@@ -1,1 +1,1 @@
-<a href="https://google.se">The internet</a>
+<a href="https://google.se">{{$foo}}</a>
