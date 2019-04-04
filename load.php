@@ -1,5 +1,13 @@
 <?php 
-    include __DIR__ . '/src/Init.php'; 
-    include __DIR__ . '/src/Register.php'; 
-    include __DIR__ . '/src/Render.php';
-    include __DIR__ . '/src/Public.php'; 
+
+    //DEfine basepath
+    define('BCL_BASEPATH', dirname(__FILE__) . '/');
+
+    //Autload controllers etc
+    require_once BCL_BASEPATH . 'vendor/autoload.php';
+
+    //Include base classes
+    include BCL_BASEPATH . '/src/Init.php';
+    include BCL_BASEPATH . '/src/Register.php';
+    include BCL_BASEPATH . '/src/Render.php';
+    include BCL_BASEPATH . '/src/Public.php';

@@ -60,7 +60,7 @@ class Render
 
         //Run controller & fetch data
         if($controller != false) {
-            $controller = (string) $this->getNamespace($controller) . "\\" . $this->utilityControllerName;
+            $controller = (string) ("\\" . $this->getNamespace($controller) . "\\" . $this->utilityControllerName);
             $controller = new $controller;
             $controllerData = $controller->getData();
         } else {
@@ -74,7 +74,7 @@ class Render
                 (array)  array_merge($this->utilityArgs, $controllerData)
             )->render();
         } else {
-            echo "View " . $this->utilityViewName . "not found."; 
+            echo '<span style="color: #ff0000;"> View ' . $this->utilityViewName . 'not found.</span>'; 
         }
     }
 
