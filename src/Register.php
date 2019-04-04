@@ -37,11 +37,6 @@ class Register
             'args' => (object) $defaultArgs,
             'view' => (string) $view
         );
-
-        //Add blade directive 
-        Blade::directive('message_type', function($type_id) {
-            return "<input id=\"message_type\" type=\"hidden\" name=\"type_id\" value=\"{$type_id}\">";
-        });
     }
 
     /**

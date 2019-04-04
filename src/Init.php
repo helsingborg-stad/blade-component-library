@@ -9,16 +9,18 @@ class Init
 
     public function __construct()
     {
-        /*Register::setCachePath(
-            WP_CONTENT_DIR . '/uploads/cache/blade-cache/utility'
-        );*/ 
+        include 'Public.php'; 
+
+        Register::setCachePath(
+            sys_get_temp_dir() . '/blade-component-library/cache/'
+        ); 
 
         Register::addViewPath(
-            dirname(__FILE__) . "View" . DIRECTORY_SEPARATOR
+            __DIR__ . "View" . DIRECTORY_SEPARATOR
         ); 
 
         Register::addControllerPath(
-            dirname(__FILE__) . "Controller" . DIRECTORY_SEPARATOR
+            __DIR__ . "Controller" . DIRECTORY_SEPARATOR
         );
 
         Register::add(

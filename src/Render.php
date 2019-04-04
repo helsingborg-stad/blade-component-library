@@ -68,10 +68,14 @@ class Render
         }
 
         //Render view 
-        return $blade->view()->make(
-            (string) $this->utilityViewName, 
-            (array)  array_merge($this->utilityArgs, $controllerData)
-        )->render();
+        if($blade->view()->exists($this->utilityViewName)) {
+            return $blade->view()->make(
+                (string) $this->utilityViewName, 
+                (array)  array_merge($this->utilityArgs, $controllerData)
+            )->render();
+        } else {
+            echo "View " . $this->utilityViewName . "not found."; 
+        }
     }
 
     /**
@@ -93,7 +97,7 @@ class Render
     {
         if (!file_exists(Register::$cachePath)) {
             if (!mkdir(Register::$cachePath, 0764, true)) {
-                throw new Exception("Could not create cache folder: " . Register::$cachePath);
+                throw new \Exception("Could not create cache folder: " . Register::$cachePath);
             }
         }
 
