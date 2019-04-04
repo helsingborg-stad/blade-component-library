@@ -47,6 +47,16 @@ class Init
             ],
             'date-time.blade.php'
         );
+
+        Register::add(
+            'card',
+            [
+                'hasTime' => false,
+                'hasDate' => true, 
+                'isHumanReadable' => true
+            ],
+            'card.blade.php'
+        );
     }
     
 }
