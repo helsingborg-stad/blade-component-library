@@ -16,6 +16,6 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "helsingborg-stad/laravel-blade": "^5.5"
+        "eftec/bladeone": "^3.22"
     }
 }

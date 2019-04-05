@@ -2,8 +2,6 @@
 
 namespace BladeComponentLibrary;
 
-use HelsingborgStad\Blade\Blade as Blade;
-
 class Init
 {
 

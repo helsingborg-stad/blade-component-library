@@ -1,7 +1,7 @@
 <?php 
 namespace BladeComponentLibrary;
 
-use HelsingborgStad\Blade\Blade as Blade;
+Use eftec\bladeone\BladeOne as Blade;
 
 class Render
 {
@@ -67,15 +67,19 @@ class Render
             $controllerData = array(); 
         }
 
+        $blade->directive('component', function ($slug, $attributes = array()) {
+            return "<?php echo component($slug); ?>";
+        });
+
         //Render view 
-        if($blade->view()->exists($this->utilityViewName)) {
-            return $blade->view()->make(
-                (string) $this->utilityViewName, 
-                (array)  array_merge($this->utilityArgs, $controllerData)
-            )->render();
-        } else {
+        //if($blade->view()->exists($this->utilityViewName)) {
+            return $blade->run(
+                (string) $this->utilityViewName,
+                (array) array_merge($this->utilityArgs, $controllerData)
+            ); 
+        /*} else {
             echo '<span style="color: #ff0000;"> View ' . $this->utilityViewName . 'not found.</span>'; 
-        }
+        }*/ 
     }
 
     /**

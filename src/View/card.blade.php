@@ -9,3 +9,4 @@
         @endif
     </div>
 </div>
+@component('button')
