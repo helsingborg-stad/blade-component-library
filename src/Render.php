@@ -21,6 +21,9 @@ class Render
             die("Utility '" . $slug . "' is not registered.");
         }
 
+
+        var_dump($args); 
+
         //Set current utility
         $this->utility = $utility->{$slug};
 
@@ -67,9 +70,15 @@ class Render
             $controllerData = array(); 
         }
 
-        $blade->directive('component', function ($slug, $attributes = array()) {
-            return "<?php echo component($slug); ?>";
+
+        //Generate directive
+        $blade->directiveRT('button', function ($expression) {
+            $expression = json_encode($expression); 
+            return "<?php echo component('button', '" . $expression . "'); ?>";
         });
+
+
+        
 
         //Render view 
         //if($blade->view()->exists($this->utilityViewName)) {

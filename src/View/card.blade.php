@@ -9,4 +9,4 @@
         @endif
     </div>
 </div>
-@component('button')
+@button(['text' => "Hello", 'href' => 'http://helsingborg.se', 'slot' => 'test'])

@@ -1,1 +1,1 @@
-<a href="https://google.se">{{$foo}}</a>
+<a href="{{ $href or '#' }}">{{$slot}}</a>
