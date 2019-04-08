@@ -28,8 +28,6 @@ class BaseController
         //Store locally
         $data = $this->data; 
 
-        var_dump($this->createFilterName($this) . DIRECTORY_SEPARATOR . "Data"); 
-
         //Applies a general wp filter
         if(function_exists('apply_filters')) {
             apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . "Data", $data);
