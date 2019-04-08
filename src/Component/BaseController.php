@@ -43,17 +43,17 @@ class BaseController
     }
 
     /**
-     * Returns the data
+     * Returns the classes
      * 
-     * @return array Data
+     * @return string Css classes
      */
     public function getClass()
     {
         //Store locally
         if(isset($this->data['class']) && is_array($this->data['class'])) {
-            $class = $this->data['class']; 
+            $class = (array) $this->data['class']; 
         } else {
-            $class = array(); 
+            $class = array();
         }
 
         //Applies a general wp filter
@@ -67,7 +67,7 @@ class BaseController
         }
 
         //Return manipulated data array
-        return (array) $data; 
+        return (string) implode(" ", (array) $class);
     }
 
     /**
