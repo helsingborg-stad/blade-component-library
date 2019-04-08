@@ -1,9 +1,10 @@
 <?php
 
-namespace BladeComponentLibrary\Controller;
+namespace BladeComponentLibrary\Component\Button;
 
-class Button extends BaseController 
+class Button extends \BladeComponentLibrary\Component\BaseController  
 {
     public function init() {
+        $this->data['text'] = "hello"; 
     }
 }

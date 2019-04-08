@@ -11,6 +11,8 @@ class Render
     private $utilityArgs;
     private $utilityControllerName;
 
+    private $blade; 
+
     public function __construct($slug, $args) {
 
         //Get utility object
@@ -50,7 +52,7 @@ class Render
     public function render()
     {
         //Init blade 
-        $blade = new Blade(
+        $this->blade = new Blade(
             (array) Register::$viewPaths, 
             (string) Register::$cachePath
         );
@@ -66,25 +68,61 @@ class Render
         } else {
             $controllerData = array(); 
         }
-        
-        //Create directive
-        $blade->directiveRT(strtolower($this->utilityControllerName) , function ($expression) {
-            $expression = json_encode($expression); 
-            return "<?php echo component('button', '" . $expression . "'); ?>";
+
+        //Test directive
+        $this->blade->directive('test', function ($expression) {
+            return "<?php echo 'test'; ?>";
         });
 
-        //Create component alias
-        $blade->addInclude(
-            strtolower($this->utilityControllerName) . '.' . strtolower($this->utilityControllerName), 
-            strtolower($this->utilityControllerName)
-        );
+        //Register directive
+        $this->registerDirectives(); 
+
+        //REgister include aliases
+        $this->registerIncludeAliases(); 
 
         //Render view 
-        return $blade->run(
+        return $this->blade->run(
             (string) $this->utilityViewName,
             (array) array_merge($this->utilityArgs, $controllerData)
         );
     }
+
+    /**
+     * Registers all components as directives
+     * 
+     * @return bool
+     */
+    public function registerDirectives() : bool 
+    {
+        //Create directive
+        foreach(Register::$data as $componentSlug => $settings) {
+            $this->blade->directive($componentSlug, function ($expression) use ($componentSlug) {
+                $expression = json_encode($expression); 
+                return "<?php echo component('".$componentSlug."', 'test'); ?>";
+            });
+        }
+
+        return true;
+    }
+
+    /**
+     * Registers all components as include aliases
+     * 
+     * @return bool
+     */
+    public function registerIncludeAliases() : bool 
+    {
+        //Create include alias
+        foreach(Register::$data as $componentSlug => $settings) {
+            $this->blade->addInclude(
+                $componentSlug  . '.' . $componentSlug, 
+                $componentSlug 
+            );
+        }
+
+        return true;
+    }
+
 
     /**
      * Remove .blade.php from view name

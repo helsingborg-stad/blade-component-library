@@ -8,7 +8,9 @@ class BaseController
      * Holds the view's data
      * @var array
      */
-    protected $data = array();
+    protected $data = array(
+        'class' => []
+    );
 
     /**
      * Run init

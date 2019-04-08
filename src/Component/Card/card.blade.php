@@ -9,5 +9,8 @@
         @if($content)
         <p class="c-card__text">{{$content}}</p>
         @endif
+
+        Test directive here: @button(['type' => 'danger'])
+
     </div>
 </div>
