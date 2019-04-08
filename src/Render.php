@@ -66,12 +66,18 @@ class Render
         } else {
             $controllerData = array(); 
         }
-
+        
         //Create directive
-        $blade->directiveRT('button', function ($expression) {
+        $blade->directiveRT(strtolower($this->utilityControllerName) , function ($expression) {
             $expression = json_encode($expression); 
             return "<?php echo component('button', '" . $expression . "'); ?>";
         });
+
+        //Create component alias
+        $blade->addInclude(
+            strtolower($this->utilityControllerName) . '.' . strtolower($this->utilityControllerName), 
+            strtolower($this->utilityControllerName)
+        );
 
         //Render view 
         return $blade->run(
