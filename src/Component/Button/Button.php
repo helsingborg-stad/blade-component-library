@@ -5,8 +5,5 @@ namespace BladeComponentLibrary\Controller;
 class Button extends BaseController 
 {
     public function init() {
-
-        var_dump($data); 
-
     }
 }
