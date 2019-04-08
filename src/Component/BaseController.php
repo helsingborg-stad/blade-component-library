@@ -1,6 +1,6 @@
 <?php
 
-namespace BladeComponentLibrary\Controller;
+namespace BladeComponentLibrary\Component;
 
 class BaseController
 {

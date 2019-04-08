@@ -14,11 +14,11 @@ class Init
         ); 
 
         Register::addViewPath(
-            __DIR__ . DIRECTORY_SEPARATOR . "View" . DIRECTORY_SEPARATOR
+            __DIR__ . DIRECTORY_SEPARATOR . "Component" . DIRECTORY_SEPARATOR
         ); 
 
         Register::addControllerPath(
-            __DIR__ . DIRECTORY_SEPARATOR . "Controller" . DIRECTORY_SEPARATOR
+            __DIR__ . DIRECTORY_SEPARATOR . "Component" . DIRECTORY_SEPARATOR
         );
 
         Register::add(

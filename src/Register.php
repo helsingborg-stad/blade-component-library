@@ -24,8 +24,8 @@ class Register
         //Check if valid slug name
         if (self::sanitizeSlug($slug) != $slug) {
             throw new \Exception("Invalid slug (" . $slug . ") provided, must be a lowercase string only containing letters and hypens.");
-        } 
-
+        }
+ 
         //Check if valid view name
         if ((self::sanitizeSlug($view) . ".blade.php") != $view) {
             throw new \Exception("Invalid view name (" . $view . ") provided, must be a lowercase string only containing letters and hypens (with exception for .blade.php filetype suffix).");
@@ -33,9 +33,10 @@ class Register
 
         //Adds to full object
         self::$data->{$slug} = (object) array(
-            'slug' => (string) $slug,
-            'args' => (object) $defaultArgs,
-            'view' => (string) $view
+            'slug'       => (string) $slug,
+            'args'       => (object) $defaultArgs,
+            'view'       => (string) $slug . DIRECTORY_SEPARATOR . $view,
+            'controller' => (string) $slug
         );
     }
 
@@ -70,7 +71,6 @@ class Register
             }
         }
         
-
         //Error if something went wrong
         throw new \Exception("Error appending view path: " . $path);
     }

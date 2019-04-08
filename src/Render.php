@@ -21,9 +21,6 @@ class Render
             die("Utility '" . $slug . "' is not registered.");
         }
 
-
-        var_dump($args); 
-
         //Set current utility
         $this->utility = $utility->{$slug};
 
@@ -38,7 +35,7 @@ class Render
 
         //Get the utility controller name
         $this->utilityControllerName = $this->camelCase(
-            $this->cleanViewName($this->utility->view)
+            $this->cleanViewName($this->utility->controller)
         ); 
 
         //Create & get cache path
@@ -77,18 +74,11 @@ class Render
             return "<?php echo component('button', '" . $expression . "'); ?>";
         });
 
-
-        
-
         //Render view 
-        //if($blade->view()->exists($this->utilityViewName)) {
-            return $blade->run(
-                (string) $this->utilityViewName,
-                (array) array_merge($this->utilityArgs, $controllerData)
-            ); 
-        /*} else {
-            echo '<span style="color: #ff0000;"> View ' . $this->utilityViewName . 'not found.</span>'; 
-        }*/ 
+        return $blade->run(
+            (string) $this->utilityViewName,
+            (array) array_merge($this->utilityArgs, $controllerData)
+        );
     }
 
     /**
@@ -156,7 +146,7 @@ class Render
 
             foreach (Register::$controllerPaths as $path) {
    
-                $file = $path . '/' . $controller . '.php';
+                $file = $path . DIRECTORY_SEPARATOR . $controller . DIRECTORY_SEPARATOR .$controller  . '.php';
 
                 if (!file_exists($file)) {
                     continue;
