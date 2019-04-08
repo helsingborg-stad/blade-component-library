@@ -15,8 +15,6 @@ if (!function_exists('component')) {
             $attributes = $jsonData; 
         }
 
-        var_dump($attributes); 
-
         //Render component
         $component = new \BladeComponentLibrary\Render($slug, $attributes);
         return $component->render(); 
