@@ -127,6 +127,16 @@ For example; Button component located in "./src/Component/Card" will get the fil
 
 A generic filter will also be called for the data object called "BladeComponentLibrary/Component/Data". This has the side effect of reserving the data namespace. Therefore you cannot create a component called Data.  
 
+## View variables
+
+All component views will be allocated with some basic parameters. These are listed below. Everything else added to the $data array will automatically be added as a $var named with the key value.
+
+| Variable       | Description                                    |
+|----------------|------------------------------------------------|
+| $class         | An array of classes that wraps the component.  |
+| $compiledClass | An string of classes that wraps the component. |
+    
+
 ## Built With 
 
 - PHP 

@@ -16,6 +16,7 @@ class BaseController
     public function __construct()
     {
         $this->init();
+        $this->data['compiledClass'] = $this->getClass();
     }
 
     /**
