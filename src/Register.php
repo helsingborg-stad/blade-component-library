@@ -144,12 +144,12 @@ class Register
 
                 //Read config
                 if(!$configJson = file_get_contents($configFile)) {
-                    throw new \Exception("Configuration file unreadable at " . $path);
+                    throw new \Exception("Configuration file unreadable at " . $configFile);
                 }
 
                 //Check if valid json
                 if(!$configJson = json_decode($configJson, true)) {
-                    throw new \Exception("Invalid formatting of configuration file in " . $path);
+                    throw new \Exception("Invalid formatting of configuration file in " . $configFile);
                 }
 
                 //Register the component
