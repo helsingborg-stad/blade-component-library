@@ -90,7 +90,7 @@ You can then untilize the public function in your theme blade files in the follo
 
 ```php
 {!! 
-    utility('button', [
+    component('button', [
         'isDisabled' => false,
         'label' => "Go to website",
         'href' => "https://helsingborg.se"
@@ -138,12 +138,10 @@ All component views will be allocated with some basic parameters. These are list
     
 
 ## Built With 
-
-- PHP 
-- Laravel Blade
+- Laravel Blade 5.8 (using Blade One Standalone package)
 
 ## Dependencies
-- Laravel Blade 5.5 (included in package)
+- PHP 7.3
 
 ## Releases
 
