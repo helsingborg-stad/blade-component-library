@@ -120,6 +120,13 @@ Register::addControllerPath(
 
 ```
 
+## WordPress Compability
+Each component will get their respective WordPress filter registered if WordPress core is included before this library. We simply look for the built-in functions called apply_fitlers. The filter will be named as their respective folder location. 
+
+For example; Button component located in "./src/Component/Card" will get the filter "BladeComponentLibrary/Component/Card/Data" applied before render. The last part of the slug "Data" can be changed to "Class" to just filter the sub array "classes" of the data object. 
+
+A generic filter will also be called for the data object called "BladeComponentLibrary/Component/Data". This has the side effect of reserving the data namespace. Therefore you cannot create a component called Data.  
+
 ## Built With 
 
 - PHP 
