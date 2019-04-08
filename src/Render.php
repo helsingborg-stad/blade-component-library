@@ -98,7 +98,7 @@ class Render
         foreach(Register::$data as $componentSlug => $settings) {
             $this->blade->directive($componentSlug, function ($expression) use ($componentSlug) {
                 $expression = json_encode($expression); 
-                return "<?php echo component('".$componentSlug."', 'test'); ?>";
+                return "<?php echo component('".$componentSlug."', '".$expression."'); ?>";
             });
         }
 
