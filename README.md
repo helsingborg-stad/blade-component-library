@@ -12,7 +12,7 @@ Recommended method of usage is with composer. Add the requirement below, to enab
 composer reqire helsingborg-stad/blade-component-library
 ```
 
-## Example usage
+## Example usage (register a component)
 ```php
 <?php
 
@@ -64,39 +64,25 @@ class RegisterUtility
 }
 ```
 
-## Blade Version
-This library uses blade version 5.5 wich requires PHP 7.0. If you like to use a lower version, components will have to be replaced by a publicly avabile function. 
+## Example usage (render component)
+A registered component can be utilized as a component or directive just as in laravel. They do however have the added functionality to load the controller before render to enshure that stuff is formatted and defined.
 
+### Render a directive
 ```php
-if (!function_exists('component')) {
-    /**
-     * Get a utility component
-     * 
-     * @param string $slug       Slug of utility
-     * @param array  $attributes The settings of the utility
-     * @param string $uid        A unique identifier. Enables WordPress or other filter system to uniquly identify a location of the component to make adjustments to a single component. 
-     * 
-     * @return string
-     */
-    function component($slug, $attributes = array(), $uid = "a-unique-id")
-    {
-       $component = new BladeComponentLibrary\Render($slug, $attributes);
-       return $component->render(); 
-    }
-}
+@button(['text' => "Button text", 'href' => "https://helsingborg.se"]); 
 ```
 
-You can then untilize the public function in your theme blade files in the following manner. 
-
+### Render as component
 ```php
-{!! 
-    component('button', [
-        'isDisabled' => false,
-        'label' => "Go to website",
-        'href' => "https://helsingborg.se"
-        'target' => "_blank"
-    ])
-!!}
+@component('button')
+    
+    Button text
+
+    @slot('href')
+        https://helsingborg.se
+    @endslot
+
+@endcomponent
 ```
 
 ## Implement replacement views & controllers
