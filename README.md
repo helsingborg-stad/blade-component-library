@@ -120,6 +120,58 @@ Register::addControllerPath(
 
 ```
 
+## Add a builtin component
+The most efficient and proposed way of adding a compning is by a PR to this package. It will then be available for everyone to be used. A internal component requires three different files. 
+
+- View 
+- Controller
+- Configuration
+
+### The view 
+The view sould be as simple as possible, in most cases just a few if-statements. For more advanced solution, please consider to use directive components as childs to a larger component. 
+
+**Example:** 
+
+```php
+<a class="{{ $class }}" target="{{ $target }}" href="{{ $href or '#' }}">{{ $slot or $text }}</a>
+```
+
+### The controller 
+The controller should handle all logic associated with a component. This file soule purpose is to remove any logic from the view. 
+
+**Example:** 
+
+```php
+namespace BladeComponentLibrary\Component\Button;
+
+class Button extends \BladeComponentLibrary\Component\BaseController 
+{
+    public function init() {
+        $this->data['foo'] = "bar"; 
+    }
+}
+```
+
+### The configuration 
+A simple configuration of the slug for the component (used as directive & component name). The default parameters and the view name (defaults to the slug name). The configuration should be written in a valid json format. This file must contain the keys "slug", "default" (default parameters) and "view". 
+
+**Example:** 
+
+```json
+{
+    "slug":"button",
+    "default":{
+       "isPrimary":true,
+       "isDisabled":false,
+       "isOutlined":true,
+       "label":"Button text",
+       "href":"https:\/\/google.se",
+       "target":"_self"
+    },
+    "view":"button.blade.php"
+ }
+```
+
 ## WordPress Compability
 Each component will get their respective WordPress filter registered if WordPress core is included before this library. We simply look for the built-in functions called apply_fitlers. The filter will be named as their respective folder location. 
 
