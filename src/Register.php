@@ -10,12 +10,18 @@ class Register
     public static $cachePath = ""; 
     public static $viewPaths = [];
     public static $controllerPaths = [];
+    private static $reservedNames = ["data"];
 
     public static function add($slug, $defaultArgs, $view = null)
     {
         //Create utility data object
         if(is_null(self::$data)) {
             self::$data = (object) array();
+        }
+
+        //Prohibit reserved names
+        if(in_array($slug, self::$reservedNames)) {
+            throw new \Exception("Invalid slug (" . $slug . ") provided, cannot be used as a view name since it is reserved for internal purposes.");
         }
 
         //Get view name
