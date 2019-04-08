@@ -67,8 +67,7 @@ class Render
             $controllerData = array(); 
         }
 
-
-        //Generate directive
+        //Create directive
         $blade->directiveRT('button', function ($expression) {
             $expression = json_encode($expression); 
             return "<?php echo component('button', '" . $expression . "'); ?>";

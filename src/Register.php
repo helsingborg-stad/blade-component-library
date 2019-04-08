@@ -107,6 +107,66 @@ class Register
     }
 
     /**
+     * Registers components directory
+     * 
+     * @return string The sluts of all registered components
+     */
+    public static function registerInternalComponents($path) : array 
+    {
+        //Declare
+        $result = array(); 
+
+        //Sanitize path
+        $basePath = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . "*";
+
+        //Glob
+        $locations = glob($basePath); 
+
+        //Loop over each path
+        if(is_array($locations) && !empty($locations)) {
+            foreach($locations as $path) {
+
+                //Check if folder
+                if(!is_dir($path)) {
+                    continue; 
+                }
+
+                //Locate config file
+                $configFile = glob($path . DIRECTORY_SEPARATOR . "*.json"); 
+
+                //Get first occurance of config
+                if(is_array($configFile) && !empty($configFile)) {
+                    $configFile = array_pop($configFile); 
+                } else {
+                    throw new \Exception("No config file found in " . $path);
+                }
+
+                //Read config
+                if(!$configJson = file_get_contents($configFile)) {
+                    throw new \Exception("Configuration file unreadable at " . $path);
+                }
+
+                //Check if valid json
+                if(!$configJson = json_decode($configJson, true)) {
+                    throw new \Exception("Invalid formatting of configuration file in " . $path);
+                }
+
+                //Register the component
+                self::add(
+                    $configJson['slug'],
+                    $configJson['default'],
+                    $configJson['view'] ? $configJson['view'] : $configJson['slug'] . "blade.php"
+                );
+
+                //Log 
+                $result[] = $configJson['slug']; 
+            }
+        }
+
+        return $result; 
+    }
+
+    /**
      * Use defined view or, generate from slug
      * 
      * @return string The view name included filetype

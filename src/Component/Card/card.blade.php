@@ -1,5 +1,7 @@
 <div class="c-card">
+    @if($image)
     <img class="c-card__image" src="{{$image}}">
+    @endif
     <div class="c-card__body">
         @if($title)
         <h4 class="c-card__title">{{$title}}</h4>
@@ -9,4 +11,3 @@
         @endif
     </div>
 </div>
-@button(['text' => "Hello", 'href' => 'http://helsingborg.se', 'slot' => 'test'])

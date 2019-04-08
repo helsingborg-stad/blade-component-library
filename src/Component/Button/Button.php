@@ -6,10 +6,7 @@ class Button extends BaseController
 {
     public function init() {
 
-
-
-
-        $this->data['foo'] = "bar"; 
+        var_dump($data); 
 
     }
 }

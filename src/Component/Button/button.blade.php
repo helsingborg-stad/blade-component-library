@@ -1,1 +1,1 @@
-<a href="{{ $href or '#' }}">{{$slot}}</a>
+<a class="{{ $class }}" target="{{ $target }}" href="{{ $href or '#' }}">{{ $slot or $text }}</a>

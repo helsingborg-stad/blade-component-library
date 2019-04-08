@@ -1,0 +1,12 @@
+{
+    "slug":"button",
+    "default":{
+       "isPrimary":true,
+       "isDisabled":false,
+       "isOutlined":true,
+       "label":"Button text",
+       "href":"https:\/\/google.se",
+       "target":"_self"
+    },
+    "view":"button.blade.php"
+ }

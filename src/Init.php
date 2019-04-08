@@ -21,40 +21,29 @@ class Init
             __DIR__ . DIRECTORY_SEPARATOR . "Component" . DIRECTORY_SEPARATOR
         );
 
-        Register::add(
-            'button',
-            [
-                'isPrimary' => true,
-                'isDisabled' => false, 
-                'isOutlined' => true,
+        Register::registerInternalComponents(
+            __DIR__ . DIRECTORY_SEPARATOR . "Component" . DIRECTORY_SEPARATOR
+        ); 
 
-                'label' => "Button text",
-                'href' => "https://google.se",
+        /* 
+            Manually register component
+            
+            Register::add(
+                'button',
+                [
+                    'isPrimary' => true,
+                    'isDisabled' => false, 
+                    'isOutlined' => true,
 
-                'target' => "_self"
-            ],
-            'button.blade.php' // You can leave this out, it will automatically be generated from slug. 
-        );
+                    'label' => "Button text",
+                    'href' => "https://google.se",
 
-        Register::add(
-            'date',
-            [
-                'hasTime' => false,
-                'hasDate' => true, 
-                'isHumanReadable' => true
-            ],
-            'date-time.blade.php'
-        );
+                    'target' => "_self"
+                ],
+                'button.blade.php' // You can leave this out, it will automatically be generated from slug. 
+            );
+        */
 
-        Register::add(
-            'card',
-            [
-                'hasTime' => false,
-                'hasDate' => true, 
-                'isHumanReadable' => true
-            ],
-            'card.blade.php'
-        );
     }
     
 }

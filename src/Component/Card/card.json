@@ -1,0 +1,10 @@
+{
+    "slug":"card",
+    "default":{
+        "image":false,
+        "hasTime":false,
+        "hasDate":true,
+        "isHumanReadable":true
+    },
+    "view":"card.blade.php"
+ }
