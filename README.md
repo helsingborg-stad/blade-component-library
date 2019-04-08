@@ -67,12 +67,12 @@ class RegisterUtility
 ## Example usage (render component)
 A registered component can be utilized as a component or directive just as in laravel. They do however have the added functionality to load the controller before render to enshure that stuff is formatted and defined.
 
-### Render a directive
+### Render as a directive
 ```php
 @button(['text' => "Button text", 'href' => "https://helsingborg.se"]); 
 ```
 
-### Render as component
+### Render as a component
 ```php
 @component('button')
     
