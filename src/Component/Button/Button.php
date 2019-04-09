@@ -6,5 +6,6 @@ class Button extends \BladeComponentLibrary\Component\BaseController
 {
     public function init() {
         $this->data['text'] = "hello"; 
+        $this->data['class'][] = "btn"; 
     }
 }

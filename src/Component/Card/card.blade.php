@@ -12,5 +12,17 @@
 
         Test directive here: @button(['type' => 'danger'])
 
+
+
+        @component('button.button')
+    
+            Button text
+
+            @slot('href')
+                https://helsingborg.se
+            @endslot
+
+        @endcomponent
+
     </div>
 </div>
