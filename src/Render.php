@@ -69,11 +69,6 @@ class Render
             $controllerData = array(); 
         }
 
-        //Test directive
-        $this->blade->directive('test', function ($expression) {
-            return "<?php echo 'test'; ?>";
-        });
-
         //Register directive
         $this->registerDirectives(); 
 
@@ -96,7 +91,7 @@ class Render
     {
         //Create directive
         foreach(Register::$data as $componentSlug => $settings) {
-            $this->blade->directive("co" . $componentSlug, function ($expression) use ($componentSlug) {
+            $this->blade->directive("component_" . $componentSlug, function ($expression) use ($componentSlug) {
                 eval("\$params = [$expression];");
 
                 $params = serialize($params); 
