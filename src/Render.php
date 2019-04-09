@@ -96,9 +96,12 @@ class Render
     {
         //Create directive
         foreach(Register::$data as $componentSlug => $settings) {
-            $this->blade->directive($componentSlug, function ($expression) use ($componentSlug) {
-                $expression = json_encode($expression); 
-                return "<?php echo component('".$componentSlug."', '".$expression."'); ?>";
+            $this->blade->directive("co" . $componentSlug, function ($expression) use ($componentSlug) {
+                eval("\$params = [$expression];");
+
+                $params = serialize($params); 
+
+                return "<?php echo component(\"{$componentSlug}\", '{$params}'); ?>";
             });
         }
 

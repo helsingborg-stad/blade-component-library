@@ -10,9 +10,7 @@
         <p class="c-card__text">{{$content}}</p>
         @endif
 
-        Test directive here: @button(['type' => 'danger'])
-
-
+        Test directive here: @cobutton(['href' => 'http://sebastianthulin.se', 'slot' => "Min hemsida"])
 
         @component('button.button')
     

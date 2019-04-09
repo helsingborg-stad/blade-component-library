@@ -10,11 +10,11 @@ if (!function_exists('component')) {
      */
     function component($slug, $attributes = array())
     {
-        //If data is sent as json, make it an array. 
-        if(is_string($attributes) && $jsonData = json_decode($attributes)) {
-            $attributes = $jsonData; 
+        if(!is_array($attributes)) {
+            $attributes = unserialize($attributes); 
+            $attributes = array_pop($attributes); 
         }
-
+        
         //Render component
         $component = new \BladeComponentLibrary\Render($slug, $attributes);
         return $component->render(); 
