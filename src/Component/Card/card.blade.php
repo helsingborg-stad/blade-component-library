@@ -1,6 +1,6 @@
 <div class="c-card">
     @if($image)
-    <img class="c-card__image" src="{{$image}}">
+    <img class="c-card__image" src="{{$image}}" alt="">
     @endif
     <div class="c-card__body">
         @if($title)
@@ -10,7 +10,7 @@
         <p class="c-card__text">{{$content}}</p>
         @endif
 
-        Test directive here: @cobutton(['href' => 'http://sebastianthulin.se', 'slot' => "Min hemsida"])
+        Test directive here: @component_button(['href' => 'http://sebastianthulin.se', 'slot' => "Min hemsida"])
 
         @component('button.button')
     
