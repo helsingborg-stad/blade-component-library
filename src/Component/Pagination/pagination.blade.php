@@ -4,7 +4,7 @@
     <ul>
         @foreach($list as $item) 
           @if($loop->index == $current) 
-          <li class="{{$currentClass}}"><a aria-label="{{ $item['label'] or '' }}" aria-current="true">{{ $loop->index }}</a></li>
+          <li class="{{$currentClass}}"><a href="{{ $item['href'] or '#' }}" aria-label="{{ $item['label'] or '' }}" aria-current="true">{{ $loop->index }}</a></li>
           @else
           <li><a href="{{ $item['href'] or '#' }}" aria-label="{{ $item['label'] or '' }}">{{ $loop->index }}</a></li>
           @endif
