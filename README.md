@@ -113,16 +113,26 @@ There are multiple ways of inputting data to a component.
   
 1. The default configuration of the component.
 These settings are made in the configuration json 
-in each component folder. 
+in each component folder. All variables used in the 
+controller SHOULD be declared here. This is to
+avoid undeclared variabe varnings. 
  
 2. By populating the directive (in view file). 
 This should be data that idicates states like
-isDisabled => true etc.
+isDisabled => true etc. This is the main location 
+of end user customization. 
 
 3. By data manipulation in the controller connected
 to each component. This data can be in every form,
 but should focus on translating other input to view 
-data. This file can contain clear-text-classes.  
+data. This file can contain clear-text-classes. 
+
+Example: 
+```php
+if($isDisabled) { 
+    $this->classList[] = 'disabled'; 
+}
+```
   
 4. If the component library is running inside WordPress. 
 There is a additional filter that can be used to externally 
