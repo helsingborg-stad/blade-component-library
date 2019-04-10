@@ -8,7 +8,7 @@ class Init
     public function __construct()
     {
         Register::setCachePath(
-            __DIR__ . '/cache/'
+            sys_get_temp_dir() . '/cache/'
         ); 
 
         Register::addViewPath(
