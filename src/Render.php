@@ -11,6 +11,10 @@ class Render
     private $utilityArgs;
     private $utilityControllerName;
 
+    private $viewArgs; 
+    private $controllerArgs; 
+    private $defaultArgs; 
+
     private $blade; 
 
     public function __construct($slug, $args) {
@@ -26,9 +30,6 @@ class Render
         //Set current utility
         $this->utility = $utility->{$slug};
 
-        //Merge arguments
-        $this->utilityArgs = $this->mergeArgs($this->utility->args, $args);
-
         //Set current utility slug
         $this->utilitySlug = $slug;
 
@@ -40,22 +41,21 @@ class Render
             $this->cleanViewName($this->utility->controller)
         ); 
 
+        //Get data 
+        $this->defaultArgs = (array) $utility->{$slug}->args; 
+        $this->viewArgs = (array) $args;
+        $this->controllerArgs = (array) $this->getControllerArgs(); 
+
         //Create & get cache path
         $this->createUtilityCachePath(); 
     }
 
     /**
-     * Render a view
+     * Get data from controller
      * 
      * @return string The rendered view 
      */
-    public function render()
-    {
-        //Init blade 
-        $this->blade = new Blade(
-            (array) Register::$viewPaths, 
-            (string) Register::$cachePath
-        );
+    public function getControllerArgs() : array {
 
         //Locate the controller
         $controller = $this->locateController($this->utilityControllerName); 
@@ -64,10 +64,24 @@ class Render
         if($controller != false) {
             $controller = (string) ("\\" . $this->getNamespace($controller) . "\\" . $this->utilityControllerName);
             $controller = new $controller;
-            $controllerData = $controller->getData();
-        } else {
-            $controllerData = array(); 
+            return $controller->getData();
         }
+
+        return array(); 
+    }
+
+    /**
+     * Render a view
+     * 
+     * @return string The rendered view 
+     */
+    public function render() : string
+    {
+        //Init blade 
+        $this->blade = new Blade(
+            (array) Register::$viewPaths, 
+            (string) Register::$cachePath
+        );
 
         //Register directive
         $this->registerDirectives(); 
@@ -78,7 +92,7 @@ class Render
         //Render view 
         return $this->blade->run(
             (string) $this->utilityViewName,
-            (array) array_merge($this->utilityArgs, $controllerData)
+            (array) array_merge($this->defaultArgs, $this->viewArgs, $this->controllerArgs)
         );
     }
 
