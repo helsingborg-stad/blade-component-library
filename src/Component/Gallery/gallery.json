@@ -1,0 +1,7 @@
+{
+    "slug":"gallery",
+    "default":{
+       "list":[]
+    },
+    "view":"gallery.blade.php"
+ }
