@@ -1,0 +1,7 @@
+{
+    "slug":"accordion",
+    "default":{
+       "list":[]
+    },
+    "view":"accordion.blade.php"
+ }
