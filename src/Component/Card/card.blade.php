@@ -11,11 +11,26 @@
         <p class="c-card__text">{{$content}}</p>
         @endif
 
-        @component_button(['href' => 'http://helsingborg.se/?variant=1', 'label' => "Button one", 'isOutlined' => true, 'isPrimary' => false])
+        @component_button([
+            'href' => 'http://helsingborg.se/?variant=1', 
+            'label' => "Button one", 
+            'isOutlined' => true, 
+            'isPrimary' => false
+        ])
 
-        @component_button(['href' => 'http://helsingborg.se/?variant=2', 'label' => "Button two", 'isOutlined' => true, 'isPrimary' => true])
+        @component_button([
+            'href' => 'http://helsingborg.se/?variant=2', 
+            'label' => "Button two", 
+            'isOutlined' => true, 
+            'isPrimary' => true
+        ])
 
-        @component_button(['href' => 'http://helsingborg.se/?variant=3', 'label' => "Button three", 'isOutlined' => false, 'isPrimary' => true])
+        @component_button([
+            'href' => 'http://helsingborg.se/?variant=3', 
+            'label' => "Button three", 
+            'isOutlined' => false, 
+            'isPrimary' => true
+        ])
 
         @component_table([
             'list' => [
