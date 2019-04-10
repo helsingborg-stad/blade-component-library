@@ -10,7 +10,7 @@
         <p class="c-card__text">{{$content}}</p>
         @endif
 
-        Test directive here: @component_button(['href' => 'http://sebastianthulin.se', 'slot' => "Min hemsida"])
+        Test directive here: @component_button(['href' => 'http://sebastianthulin.se', 'slot' => "Min hemsida", 'isOutlined' => false])
 
         @component('button.button')
     

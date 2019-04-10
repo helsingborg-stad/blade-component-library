@@ -1,0 +1,26 @@
+<div class="c-card">
+ <?php if($image): ?>
+ <img class="c-card__image" src="<?php echo static::e($image); ?>" alt="">
+ <?php endif; ?>
+ <div class="c-card__body">
+ <?php if($title): ?>
+ <h4 class="c-card__title"><?php echo static::e($title); ?></h4>
+ <?php endif; ?>
+ <?php if($content): ?>
+ <p class="c-card__text"><?php echo static::e($content); ?></p>
+ <?php endif; ?>
+
+ Test directive here: <?php echo component("button", 'a:1:{i:0;a:3:{s:4:"href";s:25:"http://sebastianthulin.se";s:4:"slot";s:11:"Min hemsida";s:10:"isOutlined";b:0;}}'); ?>
+
+ <?php  $this->startComponent('button.button'); ?>
+ 
+ Button text
+
+ <?php  $this->slot('href'); ?>
+ https://helsingborg.se
+ <?php  $this->endSlot(); ?>
+
+ <?php  echo $this->renderComponent(); ?>
+
+ </div>
+</div>

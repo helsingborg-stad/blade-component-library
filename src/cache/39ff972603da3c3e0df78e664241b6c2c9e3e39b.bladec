@@ -1,0 +1,1 @@
+<a class="<?php echo static::e($class); ?>" target="<?php echo static::e(isset($target) ? $target : '_top'); ?>" href="<?php echo static::e(isset($href) ? $href : '#'); ?>"><?php echo static::e(isset($slot) ? $slot : 'Undefined'); ?></a>

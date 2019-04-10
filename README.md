@@ -106,6 +106,42 @@ Register::addControllerPath(
 
 ```
 
+## Data flow
+Base controller components
+This controller handles all data flow to every component. 
+There are multiple ways of inputting data to a component. 
+  
+1. The default configuration of the component.
+These settings are made in the configuration json 
+in each component folder. 
+ 
+2. By populating the directive (in view file). 
+This should be data that idicates states like
+isDisabled => true etc.
+
+3. By data manipulation in the controller connected
+to each component. This data can be in every form,
+but should focus on translating other input to view 
+data. This file can contain clear-text-classes.  
+  
+4. If the component library is running inside WordPress. 
+There is a additional filter that can be used to externally 
+manipulate the data as a last step before output. 
+ 
+Filter (General):
+BladeComponentLibrary/Component/Data - Takes $data
+
+Filter (Component specific): 
+BladeComponentLibrary/Component/ComponentName/Data - Takes $data
+    
+Filter class (General):
+BladeComponentLibrary/Component/Class - Takes $class
+
+Filter class (Component specific): 
+BladeComponentLibrary/Component/ComponentName/Class - Takes $class
+
+Class filters extracts the class variable from $data object. 
+
 ## Add a builtin component
 The most efficient and proposed way of adding a compning is by a PR to this package. It will then be available for everyone to be used. A internal component requires three different files. 
 
