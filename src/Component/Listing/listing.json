@@ -1,0 +1,8 @@
+{
+    "slug":"listing",
+    "default":{
+       "list":[],
+       "elementType":"ul"
+    },
+    "view":"listing.blade.php"
+ }

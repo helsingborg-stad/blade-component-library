@@ -43,5 +43,14 @@
             ]
         ])
 
+        @component_listing([
+            'list' => [
+                ['href' => 'https://google.se', 'label' => 'Main page'],
+                ['href' => 'https://google.se', 'label' => 'Sub page'],
+                ['href' => 'https://google.se', 'label' => 'Sub sub page'],
+            ],
+            'elementType' => "ol"
+        ])
+
     </div>
 </div>
