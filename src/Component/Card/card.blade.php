@@ -22,7 +22,8 @@
                 ['Goodbye', 'Bye', 'See ya!']
             ],
             'headings' => ['Formal', 'Casual', 'Redneck'],
-            'showFooter' => true
+            'showFooter' => true,
+            'isSmall' => true
         ])
 
     </div>

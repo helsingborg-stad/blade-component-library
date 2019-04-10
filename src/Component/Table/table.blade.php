@@ -1,5 +1,5 @@
 @if($list)
-  <table>
+  <table class="{{ $class }}">
     @if($showCaption)
     <caption>{{ $caption }}</caption>
     @endif

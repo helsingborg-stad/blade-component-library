@@ -5,7 +5,12 @@
        "headings":[],
        "showFooter":false,
        "showHeader":true,
-       "showCaption":false
+       "showCaption":false,
+       "hasZebraStripes":true,
+       "hasHoverEffect":false,
+       "isBordered":true,
+       "isLarge":false,
+       "isSmall":false
     },
     "view":"table.blade.php"
  }
