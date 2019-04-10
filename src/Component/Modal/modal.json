@@ -1,12 +1,7 @@
 {
-    "slug":"button",
+    "slug":"modal",
     "default":{
-       "isPrimary":true,
-       "isDisabled":false,
-       "isOutlined":true,
-       "label":"Button text",
-       "href":"https:\/\/google.se",
-       "target":"_self"
+       "heading":""
     },
-    "view":"button.blade.php"
+    "view":"modal.blade.php"
  }

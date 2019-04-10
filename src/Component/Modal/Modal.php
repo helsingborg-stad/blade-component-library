@@ -1,8 +1,8 @@
 <?php
 
-namespace BladeComponentLibrary\Component\Button;
+namespace BladeComponentLibrary\Component\Modal;
 
-class Button extends \BladeComponentLibrary\Component\BaseController  
+class Modal extends \BladeComponentLibrary\Component\BaseController  
 {
     
     public function init() {

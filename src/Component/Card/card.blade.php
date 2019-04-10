@@ -16,5 +16,14 @@
 
         @component_button(['href' => 'http://helsingborg.se/?variant=3', 'label' => "Button three", 'isOutlined' => false, 'isPrimary' => true])
 
+        @component_table([
+            'list' => [
+                ['Hello', 'Hi!', 'Howdy'],
+                ['Goodbye', 'Bye', 'See ya!']
+            ],
+            'headings' => ['Formal', 'Casual', 'Redneck'],
+            'showFooter' => true
+        ])
+
     </div>
 </div>

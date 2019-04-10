@@ -1,0 +1,11 @@
+{
+    "slug":"table",
+    "default":{
+       "list":[],
+       "headings":[],
+       "showFooter":false,
+       "showHeader":true,
+       "showCaption":false
+    },
+    "view":"table.blade.php"
+ }
