@@ -1,8 +1,8 @@
 <?php
 
-namespace BladeComponentLibrary\Component\Button;
+namespace BladeComponentLibrary\Component\Breadcrumb;
 
-class Button extends \BladeComponentLibrary\Component\BaseController  
+class Breadcrumb extends \BladeComponentLibrary\Component\BaseController  
 {
     
     public function init() {

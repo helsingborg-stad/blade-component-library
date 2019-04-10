@@ -26,5 +26,13 @@
             'isSmall' => true
         ])
 
+        @component_breadcrumb([
+            'list' => [
+                ['href' => 'https://google.se', 'label' => 'Main page'],
+                ['href' => 'https://google.se', 'label' => 'Sub page'],
+                ['href' => 'https://google.se', 'label' => 'Sub sub page'],
+            ]
+        ])
+
     </div>
 </div>
