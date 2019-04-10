@@ -87,5 +87,7 @@
             ]
         ])
 
+        @component_code([])
+
     </div>
 </div>
