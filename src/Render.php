@@ -44,7 +44,9 @@ class Render
         //Get data
         $this->defaultArgs = (array) $component->{$slug}->args;
         $this->viewArgs = (array) $args;
-        $this->controllerArgs = (array) $this->getControllerArgs();
+        $this->controllerArgs = (array) $this->getControllerArgs(
+            array_merge($this->defaultArgs, $this->viewArgs)
+        );
 
         //Create & get cache path
         $this->createComponentCachePath();
@@ -55,7 +57,7 @@ class Render
      *
      * @return string Array of controller data
      */
-    public function getControllerArgs() : array {
+    public function getControllerArgs($data) : array {
 
         //Locate the controller
         $controller = $this->locateController($this->componentControllerName);
@@ -63,7 +65,7 @@ class Render
         //Run controller & fetch data
         if ($controller != false) {
             $controller = (string) ("\\" . $this->getNamespace($controller) . "\\" . $this->componentControllerName);
-            $controller = new $controller;
+            $controller = new $controller($data);
             return $controller->getData();
         }
 
@@ -86,13 +88,13 @@ class Render
         //Register directive
         $this->registerDirectives();
 
-        //REgister include aliases
+        //Register include aliases
         $this->registerIncludeAliases();
 
         //Render view
         return $this->blade->run(
             (string) $this->componentViewName,
-            (array) array_merge($this->defaultArgs, $this->viewArgs, $this->controllerArgs)
+            (array) $this->controllerArgs
         );
     }
 
@@ -108,7 +110,10 @@ class Render
             $this->blade->directive("component_" . $componentSlug, function ($expression) use ($componentSlug) {
                 eval("\$params = [$expression];");
 
-                $params = serialize($params);
+                //
+                if(is_array($params)) {
+                    $params = serialize($params);
+                } 
 
                 return "<?php echo component(\"{$componentSlug}\", '{$params}'); ?>";
             });

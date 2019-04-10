@@ -16,13 +16,14 @@ class BaseController
     /**
      * Run init
      */
-    public function __construct()
+    public function __construct($data)
     {
-        $this->data = array_merge(
-            $this->getComponentConfig($this),
-            $this->data
-        ); 
+        //Load input data 
+        if(!is_null($data) && is_array($data)) {
+            $this->data = array_merge($this->data, $data); 
+        }
 
+        //Run
         $this->init();
     }
 
@@ -58,7 +59,7 @@ class BaseController
      * 
      * @return string Css classes
      */
-    public function getClass()
+    private function getClass()
     {
         //Store locally
         if(isset($this->data['classList']) && is_array($this->data['classList'])) {
@@ -100,56 +101,4 @@ class BaseController
         //Create string
         return implode(DIRECTORY_SEPARATOR, $name); 
     } 
-
-    /**
-     * Load default vars from config
-     * 
-     * @return string
-     */
-    private function getComponentConfig($class) : array
-    {
-
-        //Get name of component loading
-        $parts = array_unique(
-            array_filter(
-                explode(
-                    "\\", 
-                    str_replace(__NAMESPACE__, "", get_class($class))
-                )
-            )
-        );
-
-        //Check if can get
-        if($componentName = array_pop($parts)) {
-
-            //Locate config file
-            $configFile = glob(BCL_BASEPATH . "src" . DIRECTORY_SEPARATOR . "Component" . DIRECTORY_SEPARATOR . $componentName . DIRECTORY_SEPARATOR . "*.json"); 
-
-            //Get first occurance of config
-            if(is_array($configFile) && !empty($configFile)) {
-                $configFile = array_pop($configFile); 
-            } else {
-                throw new \Exception("No config file found in " . $path);
-            }
-
-            //Read config
-            if(!$configJson = file_get_contents($configFile)) {
-                throw new \Exception("Configuration file unreadable at " . $configFile);
-            }
-
-            //Check if valid json
-            if(!$configJson = json_decode($configJson, true)) {
-                throw new \Exception("Invalid formatting of configuration file in " . $configFile);
-            }
-
-            //Check for default data 
-            if($configJson['default']) {
-                return $configJson['default']; 
-            }
-
-        } 
-
-        return array(); 
-    } 
-    
 }
