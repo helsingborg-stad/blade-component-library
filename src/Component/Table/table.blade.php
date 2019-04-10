@@ -1,3 +1,4 @@
+<!-- table.blade.php -->
 @if($list)
   <table class="{{ $class }}">
     @if($showCaption)
@@ -8,7 +9,7 @@
     <thead>
       <tr>
         @foreach($headings as $heading)
-          <th scope="col">{{ $heading }}</th>
+          <th scope="col" class="column-{{ $loop->index }}">{{ $heading }}</th>
         @endforeach
       </tr>
     </thead>
@@ -16,9 +17,9 @@
 
     <tbody>
       @foreach($list as $row) 
-        <tr>
+        <tr class="line-{{ $loop->index }}">
           @foreach($row as $column) 
-            <th scope="row">{{ $column or '' }}</th>
+            <th scope="row" class="column-{{ $loop->index }}">{{ $column or '' }}</th>
           @endforeach
         </tr>
       @endforeach
@@ -28,7 +29,7 @@
       <tfoot>
         <tr>
           @foreach($headings as $heading)
-            <th scope="col">{{ $heading }}</th>
+            <th scope="col" class="column-{{ $loop->index }}">{{ $heading }}</th>
           @endforeach
         </tr>
       </tfoot>

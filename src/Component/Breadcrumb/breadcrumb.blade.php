@@ -1,3 +1,5 @@
+<!-- breadcrumb.blade.php -->
+@if($list)
 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
   <ol>
     @foreach($list as $item) 
@@ -9,3 +11,6 @@
     @endforeach
   </ol>
 </nav>
+@else
+<!-- No breadcrumb data -->
+@endif

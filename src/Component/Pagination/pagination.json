@@ -1,0 +1,9 @@
+{
+    "slug":"pagination",
+    "default":{
+       "list":[],
+       "current":1,
+       "currentClass":"current-page"
+    },
+    "view":"pagination.blade.php"
+ }
