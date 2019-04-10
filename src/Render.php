@@ -53,7 +53,7 @@ class Render
     /**
      * Get data from controller
      * 
-     * @return string The rendered view 
+     * @return string Array of controller data
      */
     public function getControllerArgs() : array {
 
