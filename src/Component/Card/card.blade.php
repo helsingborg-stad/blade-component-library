@@ -10,17 +10,11 @@
         <p class="c-card__text">{{$content}}</p>
         @endif
 
-        Test directive here: @component_button(['href' => 'http://sebastianthulin.se', 'slot' => "Min hemsida", 'isOutlined' => true, 'isPrimary' => false])
+        @component_button(['href' => 'http://helsingborg.se/?variant=1', 'label' => "Button one", 'isOutlined' => true, 'isPrimary' => false])
 
-        @component('button.button')
-    
-            Button text
+        @component_button(['href' => 'http://helsingborg.se/?variant=2', 'label' => "Button two", 'isOutlined' => true, 'isPrimary' => true])
 
-            @slot('href')
-                https://helsingborg.se
-            @endslot
-
-        @endcomponent
+        @component_button(['href' => 'http://helsingborg.se/?variant=3', 'label' => "Button three", 'isOutlined' => false, 'isPrimary' => true])
 
     </div>
 </div>

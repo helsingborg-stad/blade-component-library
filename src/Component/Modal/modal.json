@@ -4,9 +4,9 @@
        "isPrimary":true,
        "isDisabled":false,
        "isOutlined":true,
-       "label":"Undefined label",
+       "label":"Button text",
        "href":"https:\/\/google.se",
-       "target":""
+       "target":"_self"
     },
     "view":"button.blade.php"
  }

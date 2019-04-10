@@ -10,6 +10,9 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
+        //Default label 
+        $this->data['text'] = "Undefined label"; 
+
         //Class list
         $this->data['classList'][] = "btn"; 
 
