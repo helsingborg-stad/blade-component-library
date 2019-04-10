@@ -100,5 +100,7 @@
             ]
         ])
 
+        @component_icon(['icon' => 'home', 'label' => 'Mutch icon, wow!'])
+
     </div>
 </div>

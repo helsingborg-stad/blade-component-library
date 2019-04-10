@@ -1,0 +1,12 @@
+{
+    "slug":"icon",
+    "default":{
+       "isBadge":false,
+       "size":1,
+       "label":"",
+       "icon":"",
+       "classPrefix":"pricon-",
+       "classSuffix":""
+    },
+    "view":"icon.blade.php"
+ }

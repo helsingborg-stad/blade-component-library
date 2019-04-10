@@ -1,0 +1,1 @@
+<i class="{{ $class }} {{$classPrefix}}{{$icon}}{{$classSuffix}}"></i>{{$label}}
