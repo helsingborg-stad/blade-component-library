@@ -67,5 +67,10 @@
             'elementType' => "ol"
         ])
 
+        @component_notice([
+            'content' => "This is the content of this masterpiece called notice.",
+            'isWarning' => true
+        ])
+
     </div>
 </div>

@@ -1,0 +1,11 @@
+{
+    "slug":"notice",
+    "default":{
+       "isSuccess":false,
+       "isWarning":false,
+       "isDanger":false,
+       "isInfo":false,
+       "content":""
+    },
+    "view":"notice.blade.php"
+ }
