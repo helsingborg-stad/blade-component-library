@@ -13,6 +13,12 @@ class Hero extends \BladeComponentLibrary\Component\BaseController
         //Class list
         $this->data['classList'][] = "hero"; 
 
+        //Text alignment
+        $this->data['classList'][] = "text-align-" . $textAlignment; 
+
+        //Vertical text alignment
+        $this->data['classList'][] = "vertical-align-" . $verticalTextAlignment; 
+
         //Check if enough data to display
         if($headline || $content || $background) {
             $this->data['componentShow'] = true; 

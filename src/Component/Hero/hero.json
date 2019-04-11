@@ -8,7 +8,9 @@
        "backgroundColor":"#eee",
        "componentElement":"section",
        "headingElement":"h1",
-       "contentElement":"div"
+       "contentElement":"div",
+       "textAlignment":"left",
+       "verticalTextAlignment":"top"
     },
     "view":"hero.blade.php"
  }
