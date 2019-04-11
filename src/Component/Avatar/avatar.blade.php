@@ -9,8 +9,8 @@
     @endif
 
     @if($initials)
-        <div class="{{$baseClass}}__initials">
+        <span class="{{$baseClass}}__initials">
             {{$initials}}
-        </div>
+        </span>
     @endif
 </div>

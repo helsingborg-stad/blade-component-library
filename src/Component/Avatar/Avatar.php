@@ -15,6 +15,8 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
         //Get initials
         if($name) {
             $this->data['initials'] = $this->createInitials($name); 
+        } else {
+            $this->data['initials'] = "";
         }
     }
 

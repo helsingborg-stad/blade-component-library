@@ -114,5 +114,9 @@
             'name' => "Sebastian Thulin"
         ])
 
+        @component_avatar([
+            'image' => "https://picsum.photos/70/70?image=64"
+        ])
+
     </div>
 </div>
