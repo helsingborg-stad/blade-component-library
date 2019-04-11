@@ -172,13 +172,6 @@ The view sould be as simple as possible, in most cases just a few if-statements.
 <a class="{{ $class }}" target="{{ $target }}" href="{{ $href or '#' }}">{{ $slot or $text }}</a>
 ```
 
-**Default available variables**
-The base controllers provide automatically calculated variables and provid them to the view. They are in contrast from the default variable common to all components. 
-
-- $class - A string of all classes appended to $classList
-- $classList - A array format of the above, should be used in views as little as possible. 
-- $baseClass - The first item in classList. This is intended to be used when BEM class style is used. Should be suffixed for every element like {{$baseClass}}__item. 
-
 ### The controller 
 The controller should handle all logic associated with a component. This file soule purpose is to remove any logic from the view. 
 
@@ -230,7 +223,7 @@ All component views will be allocated with some basic parameters. These are list
 |----------------|------------------------------------------------|
 | $class         | An array of classes that wraps the component.  |
 | $compiledClass | An string of classes that wraps the component. |
-    
+| $baseClass     | A string of first class assigned.              |
 
 ## Built With 
 - Laravel Blade 5.8 (using Blade One Standalone package)
