@@ -4,7 +4,8 @@
        "height":50,
        "headline":"I'm a hero, i have superpowers like being awesome.",
        "content":"Donec sed odio dui. Maecenas sed diam eget risus varius blandit sit amet non magna. ",
-       "background":"",
+       "backgroundImage":"",
+       "backgroundColor":"#eee",
        "componentElement":"section",
        "headingElement":"h1",
        "contentElement":"div"
