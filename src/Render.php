@@ -1,7 +1,7 @@
 <?php
 namespace BladeComponentLibrary;
 
-Use eftec\bladeone\BladeOne as Blade;
+use BC\Blade\Blade as Blade; 
 
 class Render
 {
@@ -81,10 +81,9 @@ class Render
     {
 
         //Remove cache in dev version
-        $this->maybeClearCache();
+        //$this->maybeClearCache();
 
-        //Init blade
-        $this->blade = new Blade(
+        $this->blade = $blade = new Blade(
             (array) Register::$viewPaths,
             (string) Register::$cachePath
         );
@@ -96,10 +95,10 @@ class Render
         $this->registerIncludeAliases();
 
         //Render view
-        return $this->blade->run(
+        return $blade->make(
             (string) $this->componentViewName,
             (array) $this->controllerArgs
-        );
+        )->render();
     }
 
     /**

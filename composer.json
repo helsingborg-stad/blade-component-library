@@ -16,6 +16,6 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "eftec/bladeone": "^3.22"
+        "benjamincrozat/blade": "^2.0"
     }
 }
