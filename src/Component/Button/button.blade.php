@@ -1,1 +1,5 @@
-<a class="{{ $class }}" target="{{ $target }}" href="{{ $href or '#' }}">{{ $label or 'Undefined label' }}</a>
+<{{$componentElement}} class="{{ $class }}" target="{{ $target }}" href="{{ $href or '#' }}">
+    <span class="{{$baseClass}}__label">
+        {{ $label or 'Undefined label' }}
+    </span>
+</{{$componentElement}}>

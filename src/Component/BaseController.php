@@ -10,6 +10,7 @@ class BaseController
      */
     protected $data = array(
         'class' => "", //Auto compiled from class list on data fetch
+        'baseClass' => "",
         'classList' => [] //An array of class names (push classes here)
     );
 
@@ -49,6 +50,7 @@ class BaseController
 
         //Generate classes string
         $data['class'] = $this->getClass(); 
+        $data['baseClass'] = $this->getBaseClass();
 
         //Return manipulated data array
         return (array) $data;
@@ -59,7 +61,7 @@ class BaseController
      * 
      * @return string Css classes
      */
-    private function getClass()
+    private function getClass($implode = true)
     {
         //Store locally
         if(isset($this->data['classList']) && is_array($this->data['classList'])) {
@@ -70,16 +72,37 @@ class BaseController
 
         //Applies a general wp filter
         if(function_exists('apply_filters')) {
-            apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . "Class", $class);
+            $class = apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . "Class", $class);
         }
 
         //Applies a general wp filter
         if(function_exists('apply_filters')) {
-            apply_filters("BladeComponentLibrary/Component/Class", $class);
+            $class = apply_filters("BladeComponentLibrary/Component/Class", $class);
         }
 
-        //Return manipulated data array
+        //Return manipulated classes as array
+        if($implode === false) {
+            return (array) $class; 
+        }
+
+        //Return manipulated data array as string
         return (string) implode(" ", (array) $class);
+    }
+
+    /**
+     * Returns the classes
+     * 
+     * @return string Css classes
+     */
+    private function getBaseClass()
+    {
+        $classes = $this->getClass(false); 
+
+        if(is_array($classes) && !empty($classes)) {
+            return reset($classes); 
+        }
+
+        return ""; 
     }
 
     /**

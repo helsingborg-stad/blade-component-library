@@ -1,0 +1,9 @@
+{
+    "slug":"avatar",
+    "default":{
+       "image":"",
+       "icon":"",
+       "name":""
+    },
+    "view":"avatar.blade.php"
+ }

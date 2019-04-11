@@ -6,7 +6,8 @@
        "isOutlined":true,
        "label":"Undefined label",
        "href":"https:\/\/google.se",
-       "target":""
+       "target":"",
+       "componentElement":"a"
     },
     "view":"button.blade.php"
  }

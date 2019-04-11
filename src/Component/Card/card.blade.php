@@ -110,5 +110,9 @@
             ]
         ])
 
+        @component_avatar([
+            'name' => "Sebastian Thulin"
+        ])
+
     </div>
 </div>
