@@ -90,9 +90,9 @@ class BaseController
     }
 
     /**
-     * Returns the classes
+     * Returns the first class assigned, used as base class
      * 
-     * @return string Css classes
+     * @return string A single css class
      */
     private function getBaseClass()
     {
