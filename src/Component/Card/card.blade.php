@@ -118,5 +118,10 @@
             'image' => "https://picsum.photos/70/70?image=64"
         ])
 
+        @component_heading([
+            'label' => "Yo, im a heading.",
+            'level' => 3
+        ])
+
     </div>
 </div>

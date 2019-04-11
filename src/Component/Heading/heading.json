@@ -1,0 +1,8 @@
+{
+    "slug":"heading",
+    "default":{
+       "label":"Undefined heading",
+       "level":1
+    },
+    "view":"heading.blade.php"
+ }
