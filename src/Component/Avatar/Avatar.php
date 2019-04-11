@@ -18,6 +18,31 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
         } else {
             $this->data['initials'] = "";
         }
+
+        //Reset 
+        $this->renderMostImportant(); //Decides how to switch beteen data inputs
+    }
+
+    private function renderMostImportant() {
+
+        //Reset icon, initials if image set
+        if($this->data['image']) {
+            $this->data['icon'] = "";
+            $this->data['initials'] = ""; 
+        }
+
+        //Reset image, initials if icon set
+        if($this->data['icon']) {
+            $this->data['image'] = "";
+            $this->data['initials'] = ""; 
+        }
+
+        //Reset icon, image if initals set
+        if($this->data['initials']) {
+            $this->data['image'] = "";
+            $this->data['icon'] = ""; 
+        }
+
     }
 
     private function createInitials($name) {
