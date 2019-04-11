@@ -102,5 +102,7 @@
 
         @component_icon(['icon' => 'home', 'label' => 'Mutch icon, wow!'])
 
+        @component_hero(['background' => 'https://picsum.photos/900/600?image=993'])
+
     </div>
 </div>
