@@ -79,6 +79,10 @@ class Render
      */
     public function render() : string
     {
+
+        //Remove cache in dev version
+        $this->maybeClearCache();
+
         //Init blade
         $this->blade = new Blade(
             (array) Register::$viewPaths,
@@ -234,5 +238,41 @@ class Render
         }
 
         return null;
+    }
+
+    /**
+     * Clears blade cache if in dev domain
+     *
+     * @return boolean True if cleared, false otherwise
+     */
+    private function maybeClearCache($objectPath = null)
+    {
+
+        if(strpos($_SERVER['HTTP_HOST'], '.local') !== false){
+
+            $dir = rtrim(Register::$cachePath, "/") . DIRECTORY_SEPARATOR; 
+
+            if (is_dir($dir)) { 
+
+                $objects = array_diff(scandir($dir), array('..', '.'));
+
+                if(is_array($objects) && !empty($objects)) {
+
+                    foreach ($objects as $object) {
+                        $objectPath = $dir."/".$object;
+
+                        if(is_dir($objectPath)) {
+                            $this->maybeClearCache($objectPath); 
+                        } else {
+                            unlink($objectPath);
+                        }
+                    }
+                }
+
+                rmdir($dir); 
+            }
+        }
+        
+        return false; 
     }
 }

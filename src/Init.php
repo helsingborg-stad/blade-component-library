@@ -8,7 +8,7 @@ class Init
     public function __construct()
     {
         Register::setCachePath(
-            sys_get_temp_dir() . '/cache/'
+            sys_get_temp_dir() . '/blade-component-library-cache/'
         ); 
 
         Register::addViewPath(
