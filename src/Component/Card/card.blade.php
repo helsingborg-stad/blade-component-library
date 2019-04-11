@@ -104,5 +104,11 @@
 
         @component_hero(['backgroundImage' => 'https://picsum.photos/900/600?image=993'])
 
+        @component_video([
+            'formats' => [
+                ['src' => "https://storage.googleapis.com/coverr-main/mp4/Self-Serve-in-Arizona.mp4", 'type' => "mp4"],
+            ]
+        ])
+
     </div>
 </div>
