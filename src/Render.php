@@ -1,7 +1,8 @@
 <?php
+
 namespace BladeComponentLibrary;
 
-use \HelsingborgStad\GlobalBladeEngine as Blade; 
+use \HelsingborgStad\GlobalBladeEngine as Blade;
 
 class Render
 {
@@ -12,17 +13,17 @@ class Render
     private $componentControllerName;
 
     private $viewArgs;
-    private $controllerArgs;
-    private $defaultArgs;
+//    private $controllerArgs;
+//    private $defaultArgs;
 
-    public function __construct($slug, $args) {
-
+    public function __construct($slug, $args)
+    {
         //Get component object
         $component = Register::$data;
 
         //Check if component exists
-        if(!isset($component->{$slug})) {
-            die("Component '" . $slug . "' is not registered.");
+        if (!isset($component->{$slug})) {
+            die("Component '".$slug."' is not registered.");
         }
 
         //Set current component
@@ -40,11 +41,8 @@ class Render
         );
 
         //Get data
-        $this->defaultArgs = (array) $component->{$slug}->args;
-        $this->viewArgs = (array) $args;
-        $this->controllerArgs = (array) $this->getControllerArgs(
-            array_merge($this->defaultArgs, $this->viewArgs)
-        );
+        //$this->defaultArgs = (array) $component->{$slug}->args;
+        $this->viewArgs = (array)$args;
     }
 
     /**
@@ -52,15 +50,19 @@ class Render
      *
      * @return string Array of controller data
      */
-    public function getControllerArgs($data) : array {
-
+    public function getControllerArgs($data, $controllerName): array
+    {
         //Locate the controller
-        $controller = $this->locateController($this->componentControllerName);
+        $controller = $this->locateController($controllerName);
+
+//        var_dump($controllerName);
+//        var_dump($controller);
 
         //Run controller & fetch data
         if ($controller != false) {
-            $controller = (string) ("\\" . $this->getNamespace($controller) . "\\" . $this->componentControllerName);
+            $controller = (string)("\\".$this->getNamespace($controller)."\\".$controllerName);
             $controller = new $controller($data);
+
             return $controller->getData();
         }
 
@@ -72,13 +74,58 @@ class Render
      *
      * @return string The rendered view
      */
-    public function render() : string
-    {        
+    public function render(): string
+    {
+        // TODO View data blir fel på underkomponeneter
+        // Fix aliases
+        // Hämta data från $view i view composern
+
+        foreach (Register::$data as $componentSlug => $settings) {
+
+            Blade::instance()->composer(
+                $componentSlug.'.'.$componentSlug,
+                function ($view) use ($settings) {
+
+                    $controllerName = $this->camelCase(
+                        $this->cleanViewName($settings->controller)
+                    );
+
+                    // Get default settings
+                    $defaultArgs = (array)$settings->args;
+
+                    // todo fix view args
+                    // $this->viewArgs
+
+                    // var_dump($view);
+                    $viewData = $this->accessProtected($view, 'data');
+                    //var_dump($viewData);
+
+                    // Get controller data
+                    $controllerArgs = (array)$this->getControllerArgs(
+                        //array_merge($defaultArgs, $this->viewArgs, (array)$viewData),
+                        array_merge($defaultArgs, (array)$viewData),
+                        $controllerName
+                    );
+
+                    $view->with($controllerArgs);
+                }
+            );
+        }
+
         //Render
         return Blade::instance()->make(
-            (string) $this->componentViewName,
-            (array) $this->controllerArgs
+            (string)$this->componentViewName
+        //(array) $this->controllerArgs
         )->render();
+    }
+
+    public function accessProtected($obj, $prop)
+    {
+        $reflection = new \ReflectionClass($obj);
+        $property = $reflection->getProperty($prop);
+        $property->setAccessible(true);
+
+        return $property->getValue($obj);
     }
 
     /**
@@ -86,22 +133,9 @@ class Render
      *
      * @return string Simple view name without appended filetype
      */
-    public function cleanViewName($viewName) : string
+    public function cleanViewName($viewName): string
     {
-        return (string) str_replace('.blade.php', '', $viewName);
-    }
-
-    /**
-     * Merge attributes fallback to default
-     *
-     * @return string Arguments array merged with default and local
-     */
-    private function mergeArgs($defaultArgs, $localArgs) : array
-    {
-        return array_merge(
-            (array) $defaultArgs,
-            (array) $localArgs
-        );
+        return (string)str_replace('.blade.php', '', $viewName);
     }
 
     /**
@@ -109,10 +143,12 @@ class Render
      *
      * @return string The expected controller name
      */
-    public function camelCase($viewName) : string
+    public function camelCase($viewName): string
     {
-        return (string) str_replace(
-            " ", "", ucwords(
+        return (string)str_replace(
+            " ",
+            "",
+            ucwords(
                 str_replace('-', ' ', $viewName)
             )
         );
@@ -126,15 +162,16 @@ class Render
     public function locateController($controller)
     {
 
-        if(is_array(Register::$controllerPaths) && !empty(Register::$controllerPaths)) {
+        if (is_array(Register::$controllerPaths) && !empty(Register::$controllerPaths)) {
 
             foreach (Register::$controllerPaths as $path) {
 
-                $file = $path . DIRECTORY_SEPARATOR . $controller . DIRECTORY_SEPARATOR .$controller  . '.php';
+                $file = $path.DIRECTORY_SEPARATOR.$controller.DIRECTORY_SEPARATOR.$controller.'.php';
 
                 if (!file_exists($file)) {
                     continue;
                 }
+
                 return $file;
             }
         }
