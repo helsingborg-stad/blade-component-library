@@ -2,6 +2,8 @@
 
 namespace BladeComponentLibrary;
 
+use \HelsingborgStad\GlobalBladeEngine as Blade; 
+
 class Register
 {
     public static $data;
@@ -122,12 +124,52 @@ class Register
                     $configJson['view'] ? $configJson['view'] : $configJson['slug'] . "blade.php"
                 );
 
+                //Map to directive
+                self::registerDirective($configJson['slug']); 
+
                 //Log 
                 $result[] = $configJson['slug']; 
             }
         }
 
         return $result; 
+    }
+
+      /**
+     * Registers all components as directives
+     *
+     * @return bool
+     */
+    public static function registerDirective($componentSlug) : bool
+    {
+        //Create directive
+        Blade::instance()->directive("component_" . $componentSlug, function ($expression) use ($componentSlug) {
+            eval("\$params = [$expression];");
+
+            //Serialize params
+            if(is_array($params)) {
+                $params = serialize($params);
+            } 
+
+            return "<?php echo component(\"{$componentSlug}\", '{$params}'); ?>";
+        });
+
+        return true;
+    }
+
+    /**
+     * Registers all components as include aliases
+     *
+     * @return bool
+     */
+    public function registerIncludeAlias($componentSlug) : bool
+    {
+        Blade::instance()->addInclude(
+            $componentSlug  . '.' . $componentSlug,
+            $componentSlug
+        );
+
+        return true;
     }
 
     /**
