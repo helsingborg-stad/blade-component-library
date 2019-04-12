@@ -74,61 +74,12 @@ class Render
      */
     public function render() : string
     {        
-        //Register directive
-        $this->registerDirectives();
-
-        //Register include aliases
-        $this->registerIncludeAliases();
-
         //Render
         return Blade::instance()->make(
             (string) $this->componentViewName,
             (array) $this->controllerArgs
         )->render();
     }
-
-    /**
-     * Registers all components as directives
-     *
-     * @return bool
-     */
-    public function registerDirectives() : bool
-    {
-        //Create directive
-        foreach (Register::$data as $componentSlug => $settings) {
-            Blade::instance()->directive("component_" . $componentSlug, function ($expression) use ($componentSlug) {
-                eval("\$params = [$expression];");
-
-                //Serialize params
-                if(is_array($params)) {
-                    $params = serialize($params);
-                } 
-
-                return "<?php echo component(\"{$componentSlug}\", '{$params}'); ?>";
-            });
-        }
-
-        return true;
-    }
-
-    /**
-     * Registers all components as include aliases
-     *
-     * @return bool
-     */
-    public function registerIncludeAliases() : bool
-    {
-        //Create include alias
-        foreach (Register::$data as $componentSlug => $settings) {
-            Blade::instance()->addInclude(
-                $componentSlug  . '.' . $componentSlug,
-                $componentSlug
-            );
-        }
-
-        return true;
-    }
-
 
     /**
      * Remove .blade.php from view name
