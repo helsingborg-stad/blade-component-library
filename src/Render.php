@@ -1,7 +1,7 @@
 <?php
 namespace BladeComponentLibrary;
 
-use BC\Blade\Blade as Blade; 
+use \HelsingborgStad\GlobalBladeEngine as Blade; 
 
 class Render
 {
@@ -76,19 +76,21 @@ class Render
      */
     public function render() : string
     {
-        $this->blade = $blade = new Blade(
-            (array) Register::$viewPaths,
-            (string) Register::$cachePath
-        );
-
+        //Adds view path
+        if(is_array(Register::$viewPaths) && !empty(Register::$viewPaths)) {
+            foreach(Register::$viewPaths as $viewPath) {
+                Blade::addViewPath($viewPath);
+            }
+        }
+        
         //Register directive
         $this->registerDirectives();
 
         //Register include aliases
         $this->registerIncludeAliases();
 
-        //Render view
-        return $blade->make(
+        //Render
+        return Blade::instance()->make(
             (string) $this->componentViewName,
             (array) $this->controllerArgs
         )->render();
@@ -103,10 +105,10 @@ class Render
     {
         //Create directive
         foreach (Register::$data as $componentSlug => $settings) {
-            $this->blade->directive("component_" . $componentSlug, function ($expression) use ($componentSlug) {
+            Blade::instance()->directive("component_" . $componentSlug, function ($expression) use ($componentSlug) {
                 eval("\$params = [$expression];");
 
-                //
+                //Serialize params
                 if(is_array($params)) {
                     $params = serialize($params);
                 } 
@@ -127,7 +129,7 @@ class Render
     {
         //Create include alias
         foreach (Register::$data as $componentSlug => $settings) {
-            $this->blade->addInclude(
+            Blade::instance()->addInclude(
                 $componentSlug  . '.' . $componentSlug,
                 $componentSlug
             );
