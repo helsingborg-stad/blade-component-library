@@ -15,8 +15,6 @@ class Render
     private $controllerArgs;
     private $defaultArgs;
 
-    private $blade;
-
     public function __construct($slug, $args) {
 
         //Get component object
@@ -75,14 +73,7 @@ class Render
      * @return string The rendered view
      */
     public function render() : string
-    {
-        //Adds view path
-        if(is_array(Register::$viewPaths) && !empty(Register::$viewPaths)) {
-            foreach(Register::$viewPaths as $viewPath) {
-                Blade::addViewPath($viewPath);
-            }
-        }
-        
+    {        
         //Register directive
         $this->registerDirectives();
 

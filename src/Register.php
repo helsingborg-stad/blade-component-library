@@ -2,8 +2,6 @@
 
 namespace BladeComponentLibrary;
 
-use HelsingborgStad\Blade\Blade as Blade;
-
 class Register
 {
     public static $data;
@@ -45,41 +43,6 @@ class Register
             'view'       => (string) $slug . DIRECTORY_SEPARATOR . $view,
             'controller' => (string) $slug
         );
-    }
-
-    /**
-     * Updates the cache path 
-     * 
-     * @return string The new cache path
-     */
-    public static function setCachePath($path) : string
-    {
-        return self::$cachePath = $path;
-    }
-
-    /**
-     * Appends the view path object
-     * 
-     * @return string The updated object with view paths
-     */
-    public static function addViewPath($path, $prepend = true) : array
-    {
-        //Sanitize path
-        $path = rtrim($path, "/");
-
-        //Push to location array
-        if($prepend === true) {
-            if (array_unshift(self::$viewPaths, $path)) {
-                return self::$viewPaths;
-            }
-        } else {
-            if (array_push(self::$viewPaths, $path)) {
-                return self::$viewPaths;
-            }
-        }
-        
-        //Error if something went wrong
-        throw new \Exception("Error appending view path: " . $path);
     }
 
     /**
