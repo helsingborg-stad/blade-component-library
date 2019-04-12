@@ -16,6 +16,5 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "helsingborg-stad/global-blade-engine": "^1.2"
     }
 }
