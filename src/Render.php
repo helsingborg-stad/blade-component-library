@@ -47,9 +47,6 @@ class Render
         $this->controllerArgs = (array) $this->getControllerArgs(
             array_merge($this->defaultArgs, $this->viewArgs)
         );
-
-        //Create & get cache path
-        $this->createComponentCachePath();
     }
 
     /**
@@ -79,10 +76,6 @@ class Render
      */
     public function render() : string
     {
-
-        //Remove cache in dev version
-        //$this->maybeClearCache();
-
         $this->blade = $blade = new Blade(
             (array) Register::$viewPaths,
             (string) Register::$cachePath
@@ -155,22 +148,6 @@ class Render
     }
 
     /**
-     * Create a cache dir
-     *
-     * @return string Local path to the cache path
-     */
-    private function createComponentCachePath() : string
-    {
-        if (!file_exists(Register::$cachePath)) {
-            if (!mkdir(Register::$cachePath, 0764, true)) {
-                throw new \Exception("Could not create cache folder: " . Register::$cachePath);
-            }
-        }
-
-        return (string) Register::$cachePath;
-    }
-
-    /**
      * Merge attributes fallback to default
      *
      * @return string Arguments array merged with default and local
@@ -237,41 +214,5 @@ class Render
         }
 
         return null;
-    }
-
-    /**
-     * Clears blade cache if in dev domain
-     *
-     * @return boolean True if cleared, false otherwise
-     */
-    private function maybeClearCache($objectPath = null)
-    {
-
-        if(strpos($_SERVER['HTTP_HOST'], '.local') !== false){
-
-            $dir = rtrim(Register::$cachePath, "/") . DIRECTORY_SEPARATOR; 
-
-            if (is_dir($dir)) { 
-
-                $objects = array_diff(scandir($dir), array('..', '.'));
-
-                if(is_array($objects) && !empty($objects)) {
-
-                    foreach ($objects as $object) {
-                        $objectPath = $dir."/".$object;
-
-                        if(is_dir($objectPath)) {
-                            $this->maybeClearCache($objectPath); 
-                        } else {
-                            unlink($objectPath);
-                        }
-                    }
-                }
-
-                rmdir($dir); 
-            }
-        }
-        
-        return false; 
     }
 }
