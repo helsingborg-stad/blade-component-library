@@ -145,7 +145,7 @@ class Register
      */
     private static function registerIncludeAlias($componentSlug) : bool
     {
-        Blade::instance()->include(
+        Blade::instance()->component(
             $componentSlug  . '.' . $componentSlug,
             $componentSlug
         );
@@ -183,7 +183,7 @@ class Register
     public static function registerViewComposer($component)
     {
         Blade::instance()->composer(
-            $component->slug.'.'.$component->slug,
+            $component->slug . '.' . $component->slug,
             function ($view) use ($component) {
 
                 $controllerName = self::camelCase(
