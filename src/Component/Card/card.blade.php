@@ -1,14 +1,33 @@
 <!-- card.blade.php -->
-<div class="c-card" data-equal-item>
+<div class="{{$class}}" data-equal-item>
     @if($image)
-    <img class="c-card__image" src="{{$image}}" alt="">
-    @endif
-    <div class="c-card__body">
-        @if($title)
-        <h4 class="c-card__title">{{$title}}</h4>
+        @if($href) 
+            <a class="{{$baseClass}}__link" href="{{$href}}">
+                <img class="{{$baseClass}}__image" src="{{$image}}" alt="{{$alt}}">
+            </a>
+        @else
+        <img class="{{$baseClass}}__image" src="{{$image}}" alt="{{$alt}}">
         @endif
+    @endif
+    <div class="{{$baseClass}}__body">
+        @if($title)
+            @if($href) 
+                <a class="{{$baseClass}}__link" href="{{$href}}">
+                    <h4 class="{{$baseClass}}__title">{{$title}}</h4>
+                </a>
+            @else
+            <h4 class="{{$baseClass}}__title">{{$title}}</h4>
+            @endif
+        @endif
+
         @if($content)
-        <p class="c-card__text">{{$content}}</p>
+            @if($href) 
+                <a class="{{$baseClass}}__link" href="{{$href}}">
+                    <p class="{{$baseClass}}__text">{{$content}}</p>
+                </a>
+            @else
+            <p class="{{$baseClass}}__text">{{$content}}</p>
+            @endif
         @endif
     </div>
 </div>
