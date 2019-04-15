@@ -46,8 +46,8 @@ class Register
             'controller' => (string) $slug
         );
 
-        //Add include aliases
-        self::registerIncludeAlias($slug); 
+        //Add include alias
+        self::registerIncludeAlias($slug);
     }
 
     /**
