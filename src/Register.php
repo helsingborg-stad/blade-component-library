@@ -250,7 +250,7 @@ class Register
     }
 
     /**
-     * Tries to locate a controller
+     * Locates a controller
      *
      * @return string Controller path
      */
