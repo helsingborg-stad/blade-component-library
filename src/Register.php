@@ -124,37 +124,12 @@ class Register
                     $configJson['view'] ? $configJson['view'] : $configJson['slug'] . "blade.php"
                 );
 
-                //Map to directive
-                self::registerDirective($configJson['slug']); 
-
                 //Log 
                 $result[] = $configJson['slug']; 
             }
         }
 
         return $result; 
-    }
-
-      /**
-     * Registers all components as directives
-     *
-     * @return bool
-     */
-    public static function registerDirective($componentSlug) : bool
-    {
-        //Create directive
-        Blade::instance()->directive($componentSlug, function ($expression) use ($componentSlug) {
-            eval("\$params = [$expression];");
-
-            //Serialize params
-            if(is_array($params)) {
-                $params = serialize($params);
-            } 
-
-            return "<?php echo component(\"{$componentSlug}\", '{$params}'); ?>";
-        });
-
-        return true;
     }
 
     /**
@@ -164,7 +139,7 @@ class Register
      */
     public function registerIncludeAlias($componentSlug) : bool
     {
-        Blade::instance()->addInclude(
+        Blade::instance()->include(
             $componentSlug  . '.' . $componentSlug,
             $componentSlug
         );
