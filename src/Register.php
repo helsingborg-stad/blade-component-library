@@ -187,7 +187,7 @@ class Register
             function ($view) use ($component) {
 
                 $controllerName = self::camelCase(
-                    Render::cleanViewName($component->slug)
+                    self::cleanViewName($component->slug)
                 );
                 
                 $viewData = self::accessProtected($view, 'data');
@@ -289,5 +289,15 @@ class Register
         }
 
         return null;
+    }
+
+    /**
+     * Remove .blade.php from view name
+     *
+     * @return string Simple view name without appended filetype
+     */
+    public static function cleanViewName($viewName): string
+    {
+        return (string) str_replace('.blade.php', '', $viewName);
     }
 }

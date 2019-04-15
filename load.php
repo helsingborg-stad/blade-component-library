@@ -1,6 +1,6 @@
 <?php 
 
-    //DEfine basepath
+    //Define basepath
     define('BCL_BASEPATH', dirname(__FILE__) . '/');
 
     //Autload controllers etc
@@ -9,5 +9,4 @@
     //Include base classes
     include BCL_BASEPATH . '/src/Init.php';
     include BCL_BASEPATH . '/src/Register.php';
-    include BCL_BASEPATH . '/src/Render.php';
     
