@@ -13,6 +13,8 @@ class Register
 
     private static $_reservedNames = ["data"];
 
+    private static $_controllers = [];
+
     public static function add($slug, $defaultArgs, $view = null)
     {
         //Create utility data object
@@ -47,7 +49,7 @@ class Register
         );
 
         //Add include alias
-        self::registerIncludeAlias($slug);
+        self::registerComponentAlias($slug);
 
         // Register view composer
         self::registerViewComposer(self::$data->{$slug});
@@ -139,21 +141,6 @@ class Register
     }
 
     /**
-     * Registers all components as include aliases
-     *
-     * @return bool
-     */
-    private static function registerIncludeAlias($componentSlug) : bool
-    {
-        Blade::instance()->component(
-            $componentSlug  . '.' . $componentSlug,
-            $componentSlug
-        );
-
-        return true;
-    }
-
-    /**
      * Use defined view or, generate from slug
      * 
      * @return string The view name included filetype
@@ -180,6 +167,19 @@ class Register
         );
     }
 
+    /**
+     * Registers all components as include aliases
+     *
+     * @return bool
+     */
+    private static function registerComponentAlias($componentSlug)
+    {
+        Blade::instance()->component(
+            $componentSlug  . '.' . $componentSlug,
+            $componentSlug
+        );
+    }
+
     public static function registerViewComposer($component)
     {
         Blade::instance()->composer(
@@ -193,8 +193,8 @@ class Register
                 $viewData = self::accessProtected($view, 'data');
 
                 // Get controller data
-                $controllerArgs = (array)self::getControllerArgs(
-                    array_merge((array)$component->args, (array)$viewData),
+                $controllerArgs = (array) self::getControllerArgs(
+                    array_merge((array) $component->args, (array) $viewData),
                     $controllerName
                 );
 
@@ -204,33 +204,41 @@ class Register
     }
 
     /**
+     * Proxy for accessing provate props
+     *
+     * @return string Array of values
+     */
+    public static function accessProtected($obj, $prop)
+    {
+        $reflection = new \ReflectionClass($obj);
+        $property = $reflection->getProperty($prop);
+        $property->setAccessible(true);
+        return $property->getValue($obj);
+    }
+
+    /**
      * Get data from controller
      *
      * @return string Array of controller data
      */
     public static function getControllerArgs($data, $controllerName): array
     {
-        //Locate the controller
-        $controller = self::locateController($controllerName);
-
         //Run controller & fetch data
-        if ($controller != false) {
-            $controller = (string)("\\".self::getNamespace($controller)."\\".$controllerName);
-            $controller = new $controller($data);
+        if ($controllerLocation = self::locateController($controllerName)) {
+
+            $controllerId = md5($controllerLocation); 
+
+            if(in_array($controllerId, self::$_controllers)) {
+                $controller = self::$_controllers[$controllerId]; 
+            } else {
+                $controller = (string)("\\".self::getNamespace($controllerLocation)."\\".$controllerName);
+                $controller = new $controller($data);
+            }
 
             return $controller->getData();
         }
 
         return array();
-    }
-
-    public static function accessProtected($obj, $prop)
-    {
-        $reflection = new \ReflectionClass($obj);
-        $property = $reflection->getProperty($prop);
-        $property->setAccessible(true);
-
-        return $property->getValue($obj);
     }
 
     /**
