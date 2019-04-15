@@ -45,7 +45,7 @@ class BaseController
 
         //Applies a general wp filter
         if(function_exists('apply_filters')) {
-            $data ? apply_filters("BladeComponentLibrary/Component/Data", $data);
+            $data = apply_filters("BladeComponentLibrary/Component/Data", $data);
         }
 
         //Generate classes string
