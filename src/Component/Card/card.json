@@ -4,7 +4,9 @@
         "image":false,
         "hasTime":false,
         "hasDate":true,
-        "isHumanReadable":true
+        "isHumanReadable":true,
+        "href":"",
+        "alt":""
     },
     "view":"card.blade.php"
  }

@@ -143,7 +143,7 @@ class Register
     public static function registerDirective($componentSlug) : bool
     {
         //Create directive
-        Blade::instance()->directive("component_" . $componentSlug, function ($expression) use ($componentSlug) {
+        Blade::instance()->directive($componentSlug, function ($expression) use ($componentSlug) {
             eval("\$params = [$expression];");
 
             //Serialize params
