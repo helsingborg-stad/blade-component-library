@@ -125,7 +125,10 @@ class Register
                 );
 
                 //Map to directive
-                self::registerDirective($configJson['slug']); 
+                self::registerDirective($configJson['slug']);
+
+                // Register view composer
+                self::registerViewComposers($configJson);
 
                 //Log 
                 $result[] = $configJson['slug']; 
@@ -197,5 +200,120 @@ class Register
             "", 
             str_replace(".blade.php", "", $string)
         );
+    }
+
+    public static function registerViewComposers($component)
+    {
+            Blade::instance()->composer(
+                $component['slug'].'.'.$component['slug'],
+                function ($view) use ($component) {
+
+                    $controllerName = self::camelCase(
+                        Render::cleanViewName($component['slug'])
+                    );
+                    
+                    var_dump($controllerName);
+
+                    $viewData = self::accessProtected($view, 'data');
+                    //var_dump($viewData);
+
+                    // Get controller data
+                    $controllerArgs = (array)self::getControllerArgs(
+                        array_merge($component['default'], (array)$viewData),
+                        $controllerName
+                    );
+
+                    $view->with($controllerArgs);
+                }
+            );
+        
+    }
+
+    /**
+     * Get data from controller
+     *
+     * @return string Array of controller data
+     */
+    public static function getControllerArgs($data, $controllerName): array
+    {
+        //Locate the controller
+        $controller = self::locateController($controllerName);
+
+        //Run controller & fetch data
+        if ($controller != false) {
+            $controller = (string)("\\".self::getNamespace($controller)."\\".$controllerName);
+            $controller = new $controller($data);
+
+            return $controller->getData();
+        }
+
+        return array();
+    }
+
+    public static function accessProtected($obj, $prop)
+    {
+        $reflection = new \ReflectionClass($obj);
+        $property = $reflection->getProperty($prop);
+        $property->setAccessible(true);
+
+        return $property->getValue($obj);
+    }
+
+    /**
+     * Creates a camelcased string from hypen based string
+     *
+     * @return string The expected controller name
+     */
+    public static function camelCase($viewName): string
+    {
+        return (string)str_replace(
+            " ",
+            "",
+            ucwords(
+                str_replace('-', ' ', $viewName)
+            )
+        );
+    }
+
+    /**
+     * Tries to locate a controller
+     *
+     * @return string Controller path
+     */
+    public static function locateController($controller)
+    {
+        if (is_array(Register::$controllerPaths) && !empty(Register::$controllerPaths)) {
+
+            foreach (Register::$controllerPaths as $path) {
+
+                $file = $path.DIRECTORY_SEPARATOR.$controller.DIRECTORY_SEPARATOR.$controller.'.php';
+
+                if (!file_exists($file)) {
+                    continue;
+                }
+
+                return $file;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Get a class's namespace
+     *
+     * @param  string $classPath Path to the class php file
+     *
+     * @return string            Namespace or null
+     */
+    public static function getNamespace($classPath)
+    {
+        $src = file_get_contents($classPath);
+
+        if (preg_match('/namespace\s+(.+?);/', $src, $m)) {
+            return $m[1];
+        }
+
+        return null;
     }
 }
