@@ -48,6 +48,9 @@ class Register
 
         //Add include alias
         self::registerIncludeAlias($slug);
+
+        // Register view composer
+        self::registerViewComposer(self::$data->{$slug});
     }
 
     /**
@@ -177,31 +180,27 @@ class Register
         );
     }
 
-    public static function registerViewComposers($component)
+    public static function registerViewComposer($component)
     {
-            Blade::instance()->composer(
-                $component['slug'].'.'.$component['slug'],
-                function ($view) use ($component) {
+        Blade::instance()->composer(
+            $component->slug.'.'.$component->slug,
+            function ($view) use ($component) {
 
-                    $controllerName = self::camelCase(
-                        Render::cleanViewName($component['slug'])
-                    );
-                    
-                    var_dump($controllerName);
+                $controllerName = self::camelCase(
+                    Render::cleanViewName($component->slug)
+                );
+                
+                $viewData = self::accessProtected($view, 'data');
 
-                    $viewData = self::accessProtected($view, 'data');
-                    //var_dump($viewData);
+                // Get controller data
+                $controllerArgs = (array)self::getControllerArgs(
+                    array_merge($component->default, (array)$viewData),
+                    $controllerName
+                );
 
-                    // Get controller data
-                    $controllerArgs = (array)self::getControllerArgs(
-                        array_merge($component['default'], (array)$viewData),
-                        $controllerName
-                    );
-
-                    $view->with($controllerArgs);
-                }
-            );
-        
+                $view->with($controllerArgs);
+            }
+        );
     }
 
     /**
