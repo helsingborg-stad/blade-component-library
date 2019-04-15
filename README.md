@@ -22,10 +22,6 @@ class RegisterUtility
 {
     public function __construct()
     {
-        \BladeComponentLibrary\Register::setCachePath(
-            WP_CONTENT_DIR . '/uploads/cache/blade-cache/utility'
-        );
-
         \BladeComponentLibrary\Register::addViewPath(
             MUNICIPIO_PATH . 'views/utility',
             true //true = prepend, false = append, default = prepend
@@ -207,7 +203,9 @@ A simple configuration of the slug for the component (used as directive & compon
 ## WordPress Compability
 Each component will get their respective WordPress filter registered if WordPress core is included before this library. We simply look for the built-in functions called apply_fitlers. The filter will be named as their respective folder location. 
 
-For example; Button component located in "./src/Component/Card" will get the filter "BladeComponentLibrary/Component/Card/Data" applied before render. The last part of the slug "Data" can be changed to "Class" to just filter the sub array "classes" of the data object. 
+For example; Card component located in "./src/Component/Card" will get the filter "BladeComponentLibrary/Component/Card/Data" applied before render. The last part of the slug "Data" can be changed to "Class" to just filter the sub array "classes" of the data object. 
+
+A specific filter for each key in the data object will also be created. Fir instance if the data object includes the key 'foo' a filter will be created like this: BladeComponentLibrary/Component/Card/Foo. This will not include the key "data" as it's reserved by above filter.
 
 A generic filter will also be called for the data object called "BladeComponentLibrary/Component/Data". This has the side effect of reserving the data namespace. Therefore you cannot create a component called Data.  
 
@@ -222,10 +220,10 @@ All component views will be allocated with some basic parameters. These are list
 | $baseClass     | A string of first class assigned.              |
 
 ## Built With 
-- Laravel Blade 5.8 (using Blade One Standalone package)
+- Laravel Blade 5.*
 
 ## Dependencies
-- PHP 7.3
+- PHP 7.0
 
 ## Releases
 
@@ -234,6 +232,9 @@ https://github.com/helsingborg-stad/blade-component-library/releases
 ## Authors
 
 - Sebastian Thulin 
+- Johan Silvergrund
+- Jonatan Hanson 
+- Nikolas Ramstedt 
 
 ## License 
 
