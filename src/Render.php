@@ -40,9 +40,45 @@ class Render
             $this->cleanViewName($this->component->controller)
         );
 
+        $this->applyViewComposers();
+
         //Get data
         //$this->defaultArgs = (array) $component->{$slug}->args;
         $this->viewArgs = (array)$args;
+    }
+
+    public function registerViewComposers()
+    {
+        foreach (Register::$data as $componentSlug => $settings) {
+            Blade::instance()->composer(
+                $componentSlug.'.'.$componentSlug,
+                function ($view) use ($settings) {
+
+                    $controllerName = $this->camelCase(
+                        $this->cleanViewName($settings->controller)
+                    );
+
+                    // Get default settings
+                    $defaultArgs = (array)$settings->args;
+
+                    // todo fix view args
+                    // $this->viewArgs
+
+                    // var_dump($view);
+                    $viewData = $this->accessProtected($view, 'data');
+                    //var_dump($viewData);
+
+                    // Get controller data
+                    $controllerArgs = (array)$this->getControllerArgs(
+                    //array_merge($defaultArgs, $this->viewArgs, (array)$viewData),
+                        array_merge($defaultArgs, (array)$viewData),
+                        $controllerName
+                    );
+
+                    $view->with($controllerArgs);
+                }
+            );
+        }
     }
 
     /**
@@ -76,42 +112,6 @@ class Render
      */
     public function render(): string
     {
-        // TODO View data blir fel på underkomponeneter
-        // Fix aliases
-        // Hämta data från $view i view composern
-
-        foreach (Register::$data as $componentSlug => $settings) {
-
-            Blade::instance()->composer(
-                $componentSlug.'.'.$componentSlug,
-                function ($view) use ($settings) {
-
-                    $controllerName = $this->camelCase(
-                        $this->cleanViewName($settings->controller)
-                    );
-
-                    // Get default settings
-                    $defaultArgs = (array)$settings->args;
-
-                    // todo fix view args
-                    // $this->viewArgs
-
-                    // var_dump($view);
-                    $viewData = $this->accessProtected($view, 'data');
-                    //var_dump($viewData);
-
-                    // Get controller data
-                    $controllerArgs = (array)$this->getControllerArgs(
-                        //array_merge($defaultArgs, $this->viewArgs, (array)$viewData),
-                        array_merge($defaultArgs, (array)$viewData),
-                        $controllerName
-                    );
-
-                    $view->with($controllerArgs);
-                }
-            );
-        }
-
         //Render
         return Blade::instance()->make(
             (string)$this->componentViewName
