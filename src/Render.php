@@ -40,7 +40,7 @@ class Render
             $this->cleanViewName($this->component->controller)
         );
 
-        $this->applyViewComposers();
+        $this->registerViewComposers();
 
         //Get data
         //$this->defaultArgs = (array) $component->{$slug}->args;
