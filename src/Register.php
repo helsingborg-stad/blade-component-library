@@ -194,7 +194,7 @@ class Register
 
                 // Get controller data
                 $controllerArgs = (array)self::getControllerArgs(
-                    array_merge($component->default, (array)$viewData),
+                    array_merge((array)$component->args, (array)$viewData),
                     $controllerName
                 );
 
