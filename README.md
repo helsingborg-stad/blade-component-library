@@ -5,10 +5,6 @@ This is a library containing load functions and library of views with their cont
 
 Important note: This is a view package! Not a single line of CSS or Javascript will be appended. We (will, not complete yet) have a separate package to provide these feature in a syleguide format. 
 
-## Known issues
-- A component must be called by the custom directive prefixed with @component_{button} in order to load the controller. The auto generated @{button} will work but no controller will be loaded. 
-- The custom directive do not work with dynamic data inserted. You may use the builtin directive to load the conmponent without the controller in this case for now. 
-
 ## Getting started
 Recommended method of usage is with composer. Add the requirement below, to enable a new set of awesome features. 
 

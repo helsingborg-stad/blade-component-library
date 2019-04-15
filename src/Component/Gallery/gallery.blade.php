@@ -4,7 +4,7 @@
     @foreach($list as $item)
       <li class="item-{{ $loop->index }}">
         <a href="{{$item['largeImage']}}">
-          @component_image([
+          @image([
               'src'=> $item['smallImage'],
               'alt' => $item['alt'],
               'caption' => $item['caption']
