@@ -45,6 +45,9 @@ class Register
             'view'       => (string) $slug . DIRECTORY_SEPARATOR . $view,
             'controller' => (string) $slug
         );
+
+        //Add include alias
+        self::registerIncludeAlias($slug);
     }
 
     /**
@@ -124,13 +127,7 @@ class Register
                     $configJson['view'] ? $configJson['view'] : $configJson['slug'] . "blade.php"
                 );
 
-                //Map to directive
-                self::registerDirective($configJson['slug']);
-
-                // Register view composer
-                self::registerViewComposers($configJson);
-
-                //Log 
+                //Log
                 $result[] = $configJson['slug']; 
             }
         }
@@ -138,36 +135,14 @@ class Register
         return $result; 
     }
 
-      /**
-     * Registers all components as directives
-     *
-     * @return bool
-     */
-    public static function registerDirective($componentSlug) : bool
-    {
-        //Create directive
-        Blade::instance()->directive($componentSlug, function ($expression) use ($componentSlug) {
-            eval("\$params = [$expression];");
-
-            //Serialize params
-            if(is_array($params)) {
-                $params = serialize($params);
-            } 
-
-            return "<?php echo component(\"{$componentSlug}\", '{$params}'); ?>";
-        });
-
-        return true;
-    }
-
     /**
      * Registers all components as include aliases
      *
      * @return bool
      */
-    public function registerIncludeAlias($componentSlug) : bool
+    private static function registerIncludeAlias($componentSlug) : bool
     {
-        Blade::instance()->addInclude(
+        Blade::instance()->include(
             $componentSlug  . '.' . $componentSlug,
             $componentSlug
         );
