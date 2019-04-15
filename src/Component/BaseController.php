@@ -40,17 +40,28 @@ class BaseController
 
         //Applies a general wp filter
         if(function_exists('apply_filters')) {
-            apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . "Data", $data);
+            $data = apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . "Data", $data);
         }
 
         //Applies a general wp filter
         if(function_exists('apply_filters')) {
-            apply_filters("BladeComponentLibrary/Component/Data", $data);
+            $data ? apply_filters("BladeComponentLibrary/Component/Data", $data);
         }
 
         //Generate classes string
         $data['class'] = $this->getClass(); 
         $data['baseClass'] = $this->getBaseClass();
+
+        //Applies single filter for each data item (class and data exepted)
+        if(function_exists('apply_filters')) {
+            if(is_array($data) && !empty($data)) {
+                foreach($data as $key => $item) {
+                    if(in_array($key, array("data", "classes"))) {
+                        $data[$key] = apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . ucfirst($key), $data[$key]);
+                    }
+                }
+            }
+        }
 
         //Return manipulated data array
         return (array) $data;
