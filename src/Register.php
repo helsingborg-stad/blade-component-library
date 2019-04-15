@@ -45,6 +45,9 @@ class Register
             'view'       => (string) $slug . DIRECTORY_SEPARATOR . $view,
             'controller' => (string) $slug
         );
+
+        //Add include aliases
+        self::registerIncludeAlias($slug); 
     }
 
     /**
@@ -137,7 +140,7 @@ class Register
      *
      * @return bool
      */
-    public function registerIncludeAlias($componentSlug) : bool
+    public static function registerIncludeAlias($componentSlug) : bool
     {
         Blade::instance()->include(
             $componentSlug  . '.' . $componentSlug,
