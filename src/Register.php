@@ -140,7 +140,7 @@ class Register
      *
      * @return bool
      */
-    public static function registerIncludeAlias($componentSlug) : bool
+    private static function registerIncludeAlias($componentSlug) : bool
     {
         Blade::instance()->include(
             $componentSlug  . '.' . $componentSlug,
