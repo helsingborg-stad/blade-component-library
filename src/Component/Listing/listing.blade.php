@@ -3,13 +3,13 @@
   <{{$elementType}} class="{{ $class }}">
       @foreach($list as $item)
         @if($item['href'])
-        <li class="item-{{ $loop->index }}">
-          <a href="{{ $item['href'] or '#' }}" aria-label="{{ $item['label'] or '' }}">
-            {{ $item['label'] or '' }}
+        <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
+          <a href="{{ $item['href'] }}" aria-label="{{ $item['label'] }}" class="{{$baseClass}}__link {{$baseClass}}__link-{{ $loop->index }}">
+            {{ $item['label'] }}
           </a>
         </li>
         @else
-        <li class="item-{{ $loop->index }}">{{ $item['label'] or '' }}</li>
+        <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">{{ $item['label'] }}</li>
         @endif
       @endforeach
   </{{$elementType}}>
