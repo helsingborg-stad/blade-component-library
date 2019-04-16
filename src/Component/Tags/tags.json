@@ -1,0 +1,11 @@
+{
+    "slug":"tags",
+    "default":{
+        "componentElement": "div",
+        "beforeLabel": "#",
+        "afterLabel": ""
+    },
+    "description":{
+    },
+    "view":"tags.blade.php"
+ }
