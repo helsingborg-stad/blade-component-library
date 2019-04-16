@@ -2,7 +2,7 @@
 @if($list)
   <{{$elementType}} class="{{ $class }}">
       @foreach($list as $item)
-        @if($item['href'])
+        @if(isset($item['href']))
         <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
           <a href="{{ $item['href'] }}" aria-label="{{ $item['label'] }}" class="{{$baseClass}}__link {{$baseClass}}__link-{{ $loop->index }}">
             {{ $item['label'] }}
