@@ -8,7 +8,7 @@ class Tooltip extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        $this->data['classList'][] = "tooltip";
+        $this->data['classList'][] = "c-tooltip";
         $this->data['isLink'] = $this->data['componentElement'] === 'a';
     }
 }
