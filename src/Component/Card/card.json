@@ -2,13 +2,12 @@
     "slug":"card",
     "default":{
         "image":false,
-        "hasTime":false,
-        "hasDate":true,
-        "isHumanReadable":true,
         "href":"",
         "alt":"",
+        
         "content":"",
         "title":"",
+
         "slot": "",
         "top":"",
         "bottom":""
