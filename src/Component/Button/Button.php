@@ -32,5 +32,10 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         if($isOutlined) {
             $this->data['classList'][] = "btn-outline"; 
         }
+
+        //Primary btn
+        if($isCircle) {
+            $this->data['classList'][] = "btn-round"; 
+        }
     }
 }
