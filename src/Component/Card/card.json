@@ -1,7 +1,7 @@
 {
     "slug":"card",
     "default":{
-        "image":false,
+        "image":"",
         "href":"",
         "alt":"",
 
@@ -13,7 +13,16 @@
         "bottom":""
     },
     "description":{
-        "image":"A url to a image element."
+        "image":"A url to a image.",
+        "href":"Link to a larger version of the image.",
+        "alt":"The alt text.",
+
+        "content":"The card content", 
+        "title":"The card title",
+
+        "slot":"Empty slot placed in the middle of card.",
+        "top":"Empty slot placed in the top of card.",
+        "bottom":"Empty slot placed in the bottom of card."
     },
     "view":"card.blade.php"
  }
