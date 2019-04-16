@@ -19,7 +19,7 @@
       @foreach($list as $row) 
         <tr class="line-{{ $loop->index }}">
           @foreach($row as $column) 
-            <th scope="row" class="column-{{ $loop->index }}">{{ $column or '' }}</th>
+            <td scope="row" class="column-{{ $loop->index }}">{{ $column }}</td>
           @endforeach
         </tr>
       @endforeach
