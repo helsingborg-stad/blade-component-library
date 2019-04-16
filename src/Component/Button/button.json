@@ -11,5 +11,16 @@
        "componentElement":"a",
        "labelElement":"span"
     },
+    "description":{
+      "isPrimary":"If the button is primary",
+      "isDisabled":"If the button should be disabled",
+      "isOutlined":"Outlined style button ",
+      "isCircle":"Round button",
+      "label":"The label of the button",
+      "href":"Where should the button link to?",
+      "target":"Open a new tab or not?",
+      "componentElement":"The tag to use for this component",
+      "labelElement":"The element containing the label"
+    },
     "view":"button.blade.php"
  }
