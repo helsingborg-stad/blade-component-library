@@ -9,6 +9,7 @@
               'alt' => $item['alt'],
               'caption' => $item['caption']
           ])
+          @endimage
         </a>
       </li>
     @endforeach
