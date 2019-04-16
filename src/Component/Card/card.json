@@ -12,7 +12,7 @@
         "top":"",
         "bottom":""
     },
-    "descriptions":{
+    "description":{
         "image":"A url to a image element."
     },
     "view":"card.blade.php"
