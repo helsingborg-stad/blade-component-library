@@ -12,6 +12,9 @@ Recommended method of usage is with composer. Add the requirement below, to enab
 composer reqire helsingborg-stad/blade-component-library
 ```
 
+## Known issues
+- Components/directives must be called with an @endcomponent tag. Directives without end-tag will not work. 
+
 ## Example usage (register a component)
 ```php
 <?php
