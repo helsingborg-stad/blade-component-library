@@ -7,7 +7,8 @@
        "label":"Undefined label",
        "href":"https:\/\/google.se",
        "target":"_top",
-       "componentElement":"a"
+       "componentElement":"a",
+       "labelElement":"span"
     },
     "view":"button.blade.php"
  }
