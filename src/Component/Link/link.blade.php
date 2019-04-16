@@ -1,3 +1,3 @@
-<{{$componentElement}} class="{{ $class }}" target="{{ $target }}" href="{{ $href }}">
+<a class="{{ $class }}" target="{{ $target }}" href="{{ $href }}">
     {{$slot}}
-</{{$componentElement}}>
+</a>
