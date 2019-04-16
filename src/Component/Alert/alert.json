@@ -1,0 +1,10 @@
+{
+    "slug":"alert",
+    "default":{
+       "title":"",
+       "content":"",
+       "dismiss":"",
+       "accept":""
+    },
+    "view":"alert.blade.php"
+ }

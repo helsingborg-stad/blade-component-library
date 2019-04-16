@@ -19,6 +19,13 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
             $this->data['initials'] = "";
         }
 
+        //Create label
+        if($name) {
+            $this->data['label'] = $name; 
+        } else {
+            $this->data['label'] = "Unknown user"; 
+        }
+
         //Reset 
         $this->renderMostImportant(); //Decides how to switch beteen data inputs
     }
