@@ -4,13 +4,16 @@
         "image":false,
         "href":"",
         "alt":"",
-        
+
         "content":"",
         "title":"",
 
         "slot": "",
         "top":"",
         "bottom":""
+    },
+    "descriptions":{
+        "image":"A url to a image element."
     },
     "view":"card.blade.php"
  }
