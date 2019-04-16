@@ -7,7 +7,11 @@
         "isHumanReadable":true,
         "href":"",
         "alt":"",
-        "content":""
+        "content":"",
+        "title":"",
+        "slot": "",
+        "top":"",
+        "bottom":""
     },
     "view":"card.blade.php"
  }

@@ -1,5 +1,8 @@
 <!-- card.blade.php -->
 <div class="{{$class}}" data-equal-item>
+
+    {{$top}}
+
     @if($image)
         @if($href) 
             <a class="{{$baseClass}}__link" href="{{$href}}">
@@ -10,6 +13,9 @@
         @endif
     @endif
     <div class="{{$baseClass}}__body">
+
+        {{ $slot }}
+
         @if($title)
             @if($href) 
                 <a class="{{$baseClass}}__link" href="{{$href}}">
@@ -30,4 +36,7 @@
             @endif
         @endif
     </div>
+
+    {{ $bottom }}
+
 </div>

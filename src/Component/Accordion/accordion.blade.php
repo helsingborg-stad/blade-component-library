@@ -1,19 +1,25 @@
 
 <!-- accordion.blade.php -->
 @if($list)
-  <div class="{{ $class }}">
+  <{{$componentElement}} class="{{ $class }}">
     @foreach($list as $section) 
-      <section class="section" aria-labelledby="section-heading-{{ $loop->index }}">
+      <{{$sectionElement}} class="{{$baseClass}}__section" aria-labelledby="{{$baseClass}}__heading-{{ $loop->index }}">
         
-        <h2 id="section-heading-{{ $loop->index }}">{{$section['heading']}}</h2>
+        <{{$sectionHeadingElement}} id="{{$baseClass}}__heading-{{$loop->index}}" class="{{$baseClass}}__heading {{$baseClass}}__heading-{{ $loop->index }}">
+          {{$beforeHeading}}
+          {{ $section['heading'] }}
+          {{$afterHeading}}
+        </{{$sectionHeadingElement}}>
         
-        <div id="content-{{ $loop->index }}" class="content content-{{ $loop->index }}">
-          {{ $section['content'] or 'Undefined content' }}
-        </div>
+        <{{$sectionContentElement}} class="{{$baseClass}}__content {{$baseClass}}__content-{{ $loop->index }}">
+          {{$beforeContent}}
+          {{ $section['content'] }}
+          {{$afterContent}}
+        </{{$sectionContentElement}}>
 
-      </section>
+      </{{$sectionElement}}>
     @endforeach
-  </div>
+  </{{$componentElement}}>
 @else
   <!-- No accordion list data -->
 @endif

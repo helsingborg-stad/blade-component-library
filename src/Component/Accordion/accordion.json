@@ -1,7 +1,15 @@
 {
     "slug":"accordion",
     "default":{
-       "list":[]
+       "list":[],
+       "beforeHeading":"",
+       "afterHeading":"",
+       "beforeContent":"",
+       "afterContent":"",
+       "componentElement":"div",
+       "sectionElement":"section",
+       "sectionHeadingElement":"h2",
+       "sectionContentElement":"div"
     },
     "view":"accordion.blade.php"
  }
