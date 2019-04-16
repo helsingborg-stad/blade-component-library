@@ -13,6 +13,11 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         //Class list
         $this->data['classList'][] = "btn"; 
 
+        //Default link
+        if(!$href) {
+            $this->data['href'] = "#"; 
+        }
+
         //Primary btn
         if($isPrimary) {
             $this->data['classList'][] = "btn-primary"; 
