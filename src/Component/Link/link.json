@@ -1,0 +1,11 @@
+{
+    "slug":"link",
+    "default":{
+       "slot":"Undefined label",
+       "href":"#",
+       "target":"_top",
+       "componentElement":"a",
+       "labelElement":"span"
+    },
+    "view":"link.blade.php"
+ }
