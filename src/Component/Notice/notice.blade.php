@@ -1,7 +1,9 @@
 <!-- notice.blade.php -->
-@if($content)
+@if($slot)
 <div class="{{ $class }}">
-    {{ $content or '' }}
+    <span class="{{$baseClass}}__label">
+        {{ $slot }}
+    </span>
 </div>
 @else
 <!-- No notice content -->
