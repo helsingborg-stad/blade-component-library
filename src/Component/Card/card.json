@@ -6,7 +6,8 @@
         "hasDate":true,
         "isHumanReadable":true,
         "href":"",
-        "alt":""
+        "alt":"",
+        "content":""
     },
     "view":"card.blade.php"
  }
