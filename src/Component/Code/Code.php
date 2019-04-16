@@ -12,5 +12,10 @@ class Code extends \BladeComponentLibrary\Component\BaseController
 
         //Class list
         $this->data['classList'][] = "code"; 
+
+        //Escape
+        if($escape) {
+            $this->data['slot'] = htmlentities($slot); 
+        }
     }
 }

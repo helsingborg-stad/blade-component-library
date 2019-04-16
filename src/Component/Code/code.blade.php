@@ -1,3 +1,5 @@
 <!-- code.blade.php -->
+<{{$componentElement}} class="{{$class}}">
 <p>{{$content}}</p>
-<pre><code data-type="{{ $language }}">{{$code}}</code></pre>
+<{{$preTagElement}}><code data-type="{{ $language }}">{!!$slot!!}</code></{{$preTagElement}}>
+</{{$componentElement}}>
