@@ -5,7 +5,7 @@
     @foreach($list as $section) 
       <{{$sectionElement}} class="{{$baseClass}}__section" aria-labelledby="{{$baseClass}}__heading-{{ $loop->index }}">
         
-        <{{$sectionHeadingElement}} id="{{$baseClass}}__heading-{{$loop->index}}" class="{{$baseClass}}__heading {{$baseClass}}__heading-{{ $loop->index }}" js-toggle="{{$baseClass}}__heading-{{$loop->index}}" js-toggle-class="{{$baseClass}}__heading--active">
+        <{{$sectionHeadingElement}} id="{{$baseClass}}__heading-{{$loop->index}}" class="{{$baseClass}}__heading {{$baseClass}}__heading-{{ $loop->index }}" js-bind="toggle" js-toggle-target="{{$baseClass}}__heading-{{$loop->index}}" js-toggle-class="{{$baseClass}}__heading--is-active">
           {{$beforeHeading}}
           {{ $section['heading'] }}
           {{$afterHeading}}
