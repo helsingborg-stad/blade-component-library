@@ -3,12 +3,14 @@
     "default":{
        "slot":"Undefined label",
        "href":"#",
-       "target":"_top"
+       "target":"_top",
+       "classList": []
     },
     "description":{
       "slot":"The label/content of the link",
       "href":"Where should the link go to?",
-      "target":"Open a new tab or not?"
+      "target":"Open a new tab or not?",
+      "classList": "List of classes"
     },
     "view":"link.blade.php"
  }

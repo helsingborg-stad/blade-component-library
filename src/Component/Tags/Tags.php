@@ -8,6 +8,7 @@ class Tags extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        $this->data['classList'][] = "c-tags";
+        // Add base class
+        array_unshift($this->data['classList'], 'c-tags');
     }
 }
