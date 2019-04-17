@@ -12,5 +12,17 @@
        "textAlignment":"left",
        "verticalTextAlignment":"top"
     },
+    "description":{
+      "height":"Vh-height of the hero",
+      "headline":"The headline to show",
+      "content":"The content",
+      "backgroundImage":"A large background image (hi-res)",
+      "backgroundColor":"The body background color (shows when loading image)",
+      "componentElement":"The element wrapping hero content.",
+      "headingElement":"The heading element",
+      "contentElement":"The content element",
+      "textAlignment":"Text alignment attribute",
+      "verticalTextAlignment":"Vertical alignment attribute."
+   },
     "view":"hero.blade.php"
  }
