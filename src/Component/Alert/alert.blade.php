@@ -1,28 +1,28 @@
 <!-- alert.blade.php -->
 <div class="{{ $class }}">
 
-    if($title) 
+    @if($title) 
         <h2 class="{{$baseClass}}__heading">
             {{$title}}
         </h2>
     @endif
 
-    if($content) 
+    @if($slot)
         <article class="{{$baseClass}}__content">
-            {{$content}}
+            {{$slot}}
         </article>
     @endif
 
-    @if($dismiss) {
-        @button('href' => "#dismiss", 'isPrimary' => false)
+    @if($dismiss) 
+        @button(['href' => "#dismiss", 'isPrimary' => false])
             {{$dismiss}}
         @endbutton
-    }
+    @endif
 
-    @if($accept) {
-        @button('href' => "#accept", 'isPrimary' => true)
+    @if($accept)
+        @button(['href' => "#accept", 'isPrimary' => true])
             {{$accept}}
         @endbutton
-    }
+    @endif
 
 </div>

@@ -5,7 +5,7 @@
        "isDisabled":false,
        "isOutlined":true,
        "isCircle":false,
-       "label":"Undefined label",
+       "slot":"Undefined label",
        "href":"https:\/\/google.se",
        "target":"_top",
        "componentElement":"a",

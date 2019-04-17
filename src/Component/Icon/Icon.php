@@ -13,6 +13,9 @@ class Icon extends \BladeComponentLibrary\Component\BaseController
         //Class list
         $this->data['classList'][] = "icon"; 
 
+        //Backwards support
+        $this->data['classList'][] = "pricon"; 
+
         //Append space before label
         if($label = trim($label)) {
             $this->data['label'] = " " . $label; 

@@ -1,6 +1,6 @@
 <?php
 
-namespace BladeComponentLibrary\Component\Avatar;
+namespace BladeComponentLibrary\Component\Alert;
 
 class Alert extends \BladeComponentLibrary\Component\BaseController  
 {
