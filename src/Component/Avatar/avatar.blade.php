@@ -5,7 +5,10 @@
     @endif
 
     @if($icon) 
-        <i class="{{$baseClass}}__icon {{ $icon }}" aria-label="{{ $label }}"></i>
+        <span class="{{$baseClass}}__icon" aria-label="{{ $label }}">
+            @icon($icon)
+            @endicon
+        </span>
     @endif
 
     @if($initials)
