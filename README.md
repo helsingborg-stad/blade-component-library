@@ -221,6 +221,7 @@ All component views will be allocated with some basic parameters. These are list
 | $class         | An array of classes that wraps the component.  |
 | $compiledClass | An string of classes that wraps the component. |
 | $baseClass     | A string of first class assigned.              |
+| $attribute     | A string of attributes                         |
 
 ## Built With 
 - Laravel Blade 5.*
