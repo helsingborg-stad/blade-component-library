@@ -1,6 +1,8 @@
 <!-- alert.blade.php -->
 <div class="{{ $class }}">
 
+    {!! $top !!}
+
     @if($title) 
         <h2 class="{{$baseClass}}__heading">
             {{$title}}
@@ -24,5 +26,7 @@
             {{$accept}}
         @endbutton
     @endif
+
+    {!! $bottom !!}
 
 </div>
