@@ -12,5 +12,8 @@ class Heading extends \BladeComponentLibrary\Component\BaseController
 
         //Class list
         $this->data['classList'][] = "heading"; 
+
+        $this->data['classList'][] = "heading--size-" . $level; 
+
     }
 }
