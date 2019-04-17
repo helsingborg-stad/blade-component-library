@@ -4,5 +4,9 @@
        "label":"Undefined heading",
        "level":1
     },
+    "description":{
+      "label":"What to shout!",
+      "level":"1 - 6 (H[n]) element."
+   },
     "view":"heading.blade.php"
  }
