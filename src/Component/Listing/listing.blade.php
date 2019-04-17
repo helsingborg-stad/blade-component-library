@@ -5,11 +5,17 @@
         @if(isset($item['href']))
         <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
           <a href="{{ $item['href'] }}" aria-label="{{ $item['label'] }}" class="{{$baseClass}}__link {{$baseClass}}__link-{{ $loop->index }}">
-            {{ $item['label'] }}
+            <span class="{{$baseClass}}__label">
+              {{ $item['label'] }}
+            </span>
           </a>
         </li>
         @else
-        <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">{{ $item['label'] }}</li>
+        <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
+          <span class="{{$baseClass}}__label">
+            {{ $item['label'] }}
+          </span>
+        </li>
         @endif
       @endforeach
   </{{$elementType}}>
