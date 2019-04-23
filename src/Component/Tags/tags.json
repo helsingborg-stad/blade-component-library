@@ -3,14 +3,12 @@
     "default":{
         "componentElement": "div",
         "beforeLabel": "#",
-        "afterLabel": "",
-        "classList": []
+        "afterLabel": ""
     },
     "description":{
         "componentElement": "",
         "beforeLabel": "",
-        "afterLabel": "",
-        "classList": ""
+        "afterLabel": ""
     },
     "view":"tags.blade.php"
  }
