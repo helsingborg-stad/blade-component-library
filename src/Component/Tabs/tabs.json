@@ -1,0 +1,12 @@
+{
+    "slug":"tabs",
+    "default":{
+        "componentElement": "div",
+        "tabs": []
+    },
+    "description":{
+        "componentElement": "The tag for the component",
+        "tabs": "List containing tabs with tab title and content."
+    },
+    "view":"tabs.blade.php"
+ }
