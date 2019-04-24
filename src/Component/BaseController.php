@@ -40,12 +40,12 @@ class BaseController
 
         //Applies a general wp filter
         if(function_exists('apply_filters')) {
-            apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . "Data", $data);
+            $data = apply_filters("BladeComponentLibrary/Component/Data", $data);
         }
 
         //Applies a general wp filter
         if(function_exists('apply_filters')) {
-            apply_filters("BladeComponentLibrary/Component/Data", $data);
+            $data = apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . "Data", $data);
         }
 
         //Generate classes string
