@@ -1,0 +1,14 @@
+{
+    "slug":"testimonials",
+    "default":{
+        "flickitySettings": [],
+        "componentElement": "div",
+        "testimonials": []
+    },
+    "description":{
+        "flickitySettings": "List of flickity settings",
+        "componentElement": "The tag for the component",
+        "testimonials": "List containing testimonial items"
+    },
+    "view":"testimonials.blade.php"
+ }
