@@ -12,12 +12,12 @@ class Loader extends \BladeComponentLibrary\Component\BaseController
         $shapes = array('circular', 'linear');
         $sizes = array('xs', 'sm', 'md', 'lg', 'xl');
 
-        if (in_array($this->data['shape'], $shapes)) {
-            $this->data['classList'][] = 'loader' . '--' . $this->data['shape'];
+        if (in_array($shape, $shapes)) {
+            $this->data['classList'][] = 'loader' . '--' . $shape;
         }
 
-        if (in_array($this->data['size'], $sizes)) {
-           $this->data['classList'][] = 'loader' . '--' . $this->data['size'];
+        if (in_array($size, $sizes)) {
+           $this->data['classList'][] = 'loader' . '--' . $size;
         }
 
         // Add base class

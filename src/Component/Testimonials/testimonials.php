@@ -9,7 +9,7 @@ class Testimonials extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        $this->data['testimonials'] = !empty($this->data['testimonials']) && is_array($this->data['testimonials']) ? $this->data['testimonials'] : array();
+        $this->data['testimonials'] = !empty($testimonials) && is_array($testimonials) ? $testimonials : array();
 
         // Sanitize testimonials data
         $this->data['testimonials'] = array_map(
@@ -21,7 +21,7 @@ class Testimonials extends \BladeComponentLibrary\Component\BaseController
                 'image' => $testimonial['image'] ?? ''
             );
             },
-            $this->data['testimonials']
+            $testimonials
         );
 
         // Add base class
