@@ -15,7 +15,7 @@ class Testimonials extends \BladeComponentLibrary\Component\BaseController
         $this->data['testimonials'] = array_map(
             function ($testimonial) {
                 return array(
-                'name' => $testomonial['name'] ?? '',
+                'name' => $testimonial['name'] ?? '',
                 'title' => $testimonial['title'] ?? '',
                 'testimonial' => $testimonial['testimonial'] ?? '',
                 'image' => $testimonial['image'] ?? ''
