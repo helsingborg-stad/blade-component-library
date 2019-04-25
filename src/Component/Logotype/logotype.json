@@ -1,0 +1,10 @@
+{
+    "slug": "logotype",
+    "default": {
+        "src": false,
+        "alt": "",
+        "caption": "",
+        "placeholderText": "Image missing"
+    },
+    "view": "logotype.blade.php"
+}
