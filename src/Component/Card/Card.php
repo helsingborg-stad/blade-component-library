@@ -15,5 +15,13 @@ class Card extends \BladeComponentLibrary\Component\BaseController
         if($href) {
             $this->data['classList'][] = $baseClass . "--link"; 
         }
+
+        //Show body?
+        if(!empty(array_filter([$title, $content, $byline]))) {
+            $this->data['showBody'] = true; 
+        } else {
+            $this->data['showBody'] = false; 
+        }
+        
     }
 }

@@ -7,6 +7,7 @@
 
         "content":"",
         "title":"",
+        "byline":"",
 
         "slot": "",
         "top":"",
@@ -19,6 +20,7 @@
 
         "content":"The card content", 
         "title":"The card title",
+        "byline":"Small(er) text below the title, single row.",
 
         "slot":"Empty slot placed in the middle of card.",
         "top":"Empty slot placed in the top of card.",
