@@ -1,16 +1,28 @@
 <!-- pagination.blade.php -->
 @if($list)
-<nav class="{{ $class }}" role="navigation" aria-label="Pagination Navigation">
-    <ul>
+<{{$componentElement}} class="{{ $class }}" role="navigation" aria-label="Pagination Navigation">
+    <{{$listElement}} class="{{$baseClass}}__list">
         @foreach($list as $item) 
-          @if($loop->index == $current)
-          <li class="{{ $currentClass }}"><a href="{{ $item['href'] or '#' }}" aria-label="{{ $item['label'] or '' }}" aria-current="true">{{ $loop->index }}</a></li>
+          @if($loop->index+1 == $current)
+          <{{$listItem}} class="{{$baseClass}}__item {{ $currentClass }}">
+            <a class="{{$baseClass}}__link" href="{{ $item['href'] }}" aria-label="{{ $item['label'] }}" aria-current="true">
+              <span class="{{$baseClass}}__label">
+                {{ $loop->index+1 }}
+              </span>
+            </a>
+          </{{$listItem}}>
           @else
-          <li><a href="{{ $item['href'] or '#' }}" aria-label="{{ $item['label'] or '' }}">{{ $loop->index }}</a></li>
+          <{{$listItem}} class="{{$baseClass}}__item">
+            <a class="{{$baseClass}}__link" href="{{ $item['href'] }}" aria-label="{{ $item['label'] }}">
+              <span class="{{$baseClass}}__label">
+                {{ $loop->index+1 }}
+              </span>
+            </a>
+          </{{$listItem}}>
           @endif
         @endforeach
-    </ul>
-</nav>
+    </{{$listElement}}>
+</{{$componentElement}}>
 @else
 <!-- No pagination data -->
 @endif

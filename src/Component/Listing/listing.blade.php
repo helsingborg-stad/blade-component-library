@@ -2,14 +2,20 @@
 @if($list)
   <{{$elementType}} class="{{ $class }}">
       @foreach($list as $item)
-        @if($item['href'])
-        <li class="item-{{ $loop->index }}">
-          <a href="{{ $item['href'] or '#' }}" aria-label="{{ $item['label'] or '' }}">
-            {{ $item['label'] or '' }}
+        @if(isset($item['href']))
+        <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
+          <a href="{{ $item['href'] }}" aria-label="{{ $item['label'] }}" class="{{$baseClass}}__link">
+            <span class="{{$baseClass}}__label">
+              {{ $item['label'] }}
+            </span>
           </a>
         </li>
         @else
-        <li class="item-{{ $loop->index }}">{{ $item['label'] or '' }}</li>
+        <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
+          <span class="{{$baseClass}}__label">
+            {{ $item['label'] }}
+          </span>
+        </li>
         @endif
       @endforeach
   </{{$elementType}}>

@@ -3,11 +3,11 @@
     <{{$componentElement}} class="{{ $class }}" style="background-image: url('{!!$backgroundImage!!}'); background-color: {{$backgroundColor}}; height: {{$height}}vh;">
 
         @if($headline)
-        <{{$headingElement}}>{{$headline}}</{{$headingElement}}>
+        <{{$headingElement}} class="{{$baseClass}}__headline">{{$headline}}</{{$headingElement}}>
         @endif
 
         @if($content)
-        <{{$contentElement}}>{!! $content !!}</{{$contentElement}}>
+        <{{$contentElement}} class="{{$baseClass}}__content">{!! $content !!}</{{$contentElement}}>
         @endif
 
     </{{$componentElement}}>

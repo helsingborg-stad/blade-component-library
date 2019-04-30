@@ -13,24 +13,24 @@ class Notice extends \BladeComponentLibrary\Component\BaseController
         //Class list
         $this->data['classList'][] = "notice"; 
 
-        //Primary btn
+        //Success
         if($isSuccess) {
-            $this->data['classList'][] = "success"; 
+            $this->data['classList'][] = "is-success"; 
         }
 
-        //Disabled btn
+        //Warning
         if($isWarning) {
-            $this->data['classList'][] = "warning"; 
+            $this->data['classList'][] = "is-warning"; 
         }
 
-        //Disabled btn
+        //Danger
         if($isDanger) {
-            $this->data['classList'][] = "danger"; 
+            $this->data['classList'][] = "is-danger"; 
         }
 
-        //Disabled btn
+        //Info
         if($isInfo) {
-            $this->data['classList'][] = "info"; 
+            $this->data['classList'][] = "is-info"; 
         }
     }
 }

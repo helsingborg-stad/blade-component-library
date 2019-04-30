@@ -11,7 +11,9 @@ class BaseController
     protected $data = array(
         'class' => "", //Auto compiled from class list on data fetch
         'baseClass' => "",
-        'classList' => [] //An array of class names (push classes here)
+        'classList' => [], //An array of class names (push classes here),
+        'attribute' => "",
+        'attributeList' => []
     );
 
     /**
@@ -51,6 +53,20 @@ class BaseController
         //Generate classes string
         $data['class'] = $this->getClass(); 
         $data['baseClass'] = $this->getBaseClass();
+
+        //Create attibute string
+        $data['attribute'] = $this->getAttribute(); 
+
+        //Applies single filter for each data item (class and data exepted)
+        if(function_exists('apply_filters')) {
+            if(is_array($data) && !empty($data)) {
+                foreach($data as $key => $item) {
+                    if(in_array($key, array("data", "classes"))) {
+                        $data[$key] = apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . ucfirst($key), $data[$key]);
+                    }
+                }
+            }
+        }
 
         //Return manipulated data array
         return (array) $data;
@@ -103,6 +119,38 @@ class BaseController
         }
 
         return ""; 
+    }
+
+    private function getAttribute($implode = true) {
+
+        //Store locally
+        if(isset($this->data['attributeList']) && is_array($this->data['attributeList'])) {
+            $attribute = (array) $this->data['attributeList']; 
+        } else {
+            $attribute = array();
+        }
+
+        //Applies a general wp filter
+        if(function_exists('apply_filters')) {
+            $attribute = apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . "Attribute", $attribute);
+        }
+
+        //Applies a general wp filter
+        if(function_exists('apply_filters')) {
+            $attribute = apply_filters("BladeComponentLibrary/Component/Attribute", $attribute);
+        }
+
+        //Return manipulated classes as array
+        if($implode === false) {
+            return (array) $attribute; 
+        }
+
+        //Return manipulated data array as string
+        return (string) implode(' ', array_map(
+            function ($v, $k) { return sprintf('%s="%s"', $k, $v); },
+            $attribute,
+            array_keys($attribute)
+        ));
     }
 
     /**

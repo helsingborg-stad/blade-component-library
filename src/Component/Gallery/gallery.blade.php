@@ -2,13 +2,14 @@
 @if($list)
   <section class="{{ $class }}">
     @foreach($list as $item)
-      <li class="item-{{ $loop->index }}">
-        <a href="{{$item['largeImage']}}">
-          @component_image([
+      <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
+        <a class="{{$baseClass}}__link {{$baseClass}}__link-{{ $loop->index }}" href="{{$item['largeImage']}}">
+          @image([
               'src'=> $item['smallImage'],
               'alt' => $item['alt'],
               'caption' => $item['caption']
           ])
+          @endimage
         </a>
       </li>
     @endforeach

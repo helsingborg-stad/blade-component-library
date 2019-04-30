@@ -1,16 +1,16 @@
 <!-- breadcrumb.blade.php -->
 @if($list)
-<nav class="{{ $class }}" aria-label="Breadcrumb">
-  <ol>
+<{{$componentElement}} class="{{ $class }}" aria-label="{{$label}}">
+  <{{$listType}}>
     @foreach($list as $item) 
-    <li data-level="{{ $loop->depth }}" class="{{$baseClass}}__item {{$baseClass}}__item--{{ $loop->index }} {{$baseClass}}__item--depth-{{ $loop->depth }}">
-        <a class="{{$baseClass}}__link" href="{{ $item['href'] or '#' }}" {{ $loop->last ? 'aria-current=page' : '' }}>
-          {{ $item['label'] or '' }}
+    <{{$listItemType}} data-level="{{ $loop->depth }}" class="{{$baseClass}}__item {{$baseClass}}__item_{{ $loop->index }} {{$baseClass}}__item_depth-{{ $loop->depth }}">
+        <a class="{{$baseClass}}__link" href="{{ $item['href'] }}" {{ $loop->last ? 'aria-current=page' : '' }}>
+          {{ $item['label'] }}
         </a>
-    </li>
+    </{{$listItemType}}>
     @endforeach
-  </ol>
-</nav>
+  </{{$listType}}>
+</{{$componentElement}}>
 @else
 <!-- No breadcrumb data -->
 @endif

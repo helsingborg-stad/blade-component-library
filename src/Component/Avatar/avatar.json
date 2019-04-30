@@ -2,8 +2,13 @@
     "slug":"avatar",
     "default":{
        "image":"",
-       "icon":"",
+       "icon":[],
        "name":""
     },
+    "description":{
+      "image":"A url to a profile image.",
+      "icon":"Attributes for @icon component (separate reference).",
+      "name":"Persons full name"
+   },
     "view":"avatar.blade.php"
  }

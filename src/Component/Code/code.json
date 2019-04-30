@@ -2,8 +2,11 @@
     "slug":"code",
     "default":{
        "content":"Undocumented code...",
-       "code":"echo 'Whoops, theres no code here. Where is it?'",
-       "language":"php"
+       "slot":"echo 'Whoops, theres no code here. Where is it?'",
+       "language":"php",
+       "escape":false,
+       "componentElement":"div",
+       "preTagElement":"pre"
     },
     "view":"code.blade.php"
  }

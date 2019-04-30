@@ -13,6 +13,11 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         //Class list
         $this->data['classList'][] = "btn"; 
 
+        //Default link
+        if(!$href) {
+            $this->data['href'] = "#"; 
+        }
+
         //Primary btn
         if($isPrimary) {
             $this->data['classList'][] = "btn-primary"; 
@@ -26,6 +31,11 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         //Disabled btn
         if($isOutlined) {
             $this->data['classList'][] = "btn-outline"; 
+        }
+
+        //Primary btn
+        if($isCircle) {
+            $this->data['classList'][] = "btn-round"; 
         }
     }
 }

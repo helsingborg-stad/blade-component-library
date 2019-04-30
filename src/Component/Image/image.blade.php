@@ -1,11 +1,13 @@
 <!-- image.blade.php -->
 <figure class="{{ $class }}">
     @if($src) 
-        <img src="{{$src}}" alt="{{$alt}}" />
+        <img src="{{$src}}" alt="{{$alt}}" class="{{$baseClass}}__image" />
         @if($caption)
-            <figcaption>{{$caption}}</figcaption>
+            <figcaption class="{{$baseClass}}__caption">{{$caption}}</figcaption>
         @endif
     @else
-    <div class="placeholder" aria-label="{{$alt}}">{{ $placeholderText }}</div>
+        @if($placeholderText)
+            <div class="{{$baseClass}}__placeholder" aria-label="{{$alt}}">{{ $placeholderText }}</div>
+        @endif
     @endif
 </figure>

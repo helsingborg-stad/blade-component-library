@@ -6,10 +6,10 @@
     @endif
 
     @if($showHeader)
-    <thead>
+    <thead class="{{$baseClass}}__head">
       <tr>
         @foreach($headings as $heading)
-          <th scope="col" class="column-{{ $loop->index }}">{{ $heading }}</th>
+          <th scope="col" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}">{{ $heading }}</th>
         @endforeach
       </tr>
     </thead>
@@ -17,19 +17,19 @@
 
     <tbody>
       @foreach($list as $row) 
-        <tr class="line-{{ $loop->index }}">
+        <tr class="{{$baseClass}}__line {{$baseClass}}__line-{{ $loop->index }}">
           @foreach($row as $column) 
-            <th scope="row" class="column-{{ $loop->index }}">{{ $column or '' }}</th>
+            <td scope="row" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}">{{ $column }}</td>
           @endforeach
         </tr>
       @endforeach
     </tbody>
 
     @if($showFooter)
-      <tfoot>
+      <tfoot class="{{$baseClass}}__foot">
         <tr>
           @foreach($headings as $heading)
-            <th scope="col" class="column-{{ $loop->index }}">{{ $heading }}</th>
+            <th scope="col" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}">{{ $heading }}</th>
           @endforeach
         </tr>
       </tfoot>

@@ -1,0 +1,14 @@
+{
+    "slug": "loader",
+    "default": {
+        "componentElement": "div",
+        "shape": "",
+        "size": ""
+    },
+    "description": {
+        "componentElement": "The tag for the component",
+        "shape": "Visual shape for the loader (circular, linear)",
+        "size": "Size for the loader (xs, sm, md, lg, xl)"
+    },
+    "view": "loader.blade.php"
+}

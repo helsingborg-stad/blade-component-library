@@ -1,7 +1,12 @@
 {
     "slug":"breadcrumb",
     "default":{
-       "list":[]
+       "list":[],
+       "label":"Breadcrumb",
+
+       "componentElement":"nav",
+       "listType":"ol",
+       "listItemType":"li"
     },
     "view":"breadcrumb.blade.php"
  }

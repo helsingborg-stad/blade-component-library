@@ -13,6 +13,8 @@ class Register
 
     private static $_reservedNames = ["data"];
 
+    private static $_controllers = [];
+
     public static function add($slug, $defaultArgs, $view = null)
     {
         //Create utility data object
@@ -45,6 +47,12 @@ class Register
             'view'       => (string) $slug . DIRECTORY_SEPARATOR . $view,
             'controller' => (string) $slug
         );
+
+        //Add include alias
+        self::registerComponentAlias($slug);
+
+        // Register view composer
+        self::registerViewComposer(self::$data->{$slug});
     }
 
     /**
@@ -124,52 +132,12 @@ class Register
                     $configJson['view'] ? $configJson['view'] : $configJson['slug'] . "blade.php"
                 );
 
-                //Map to directive
-                self::registerDirective($configJson['slug']); 
-
-                //Log 
+                //Log
                 $result[] = $configJson['slug']; 
             }
         }
 
         return $result; 
-    }
-
-      /**
-     * Registers all components as directives
-     *
-     * @return bool
-     */
-    public static function registerDirective($componentSlug) : bool
-    {
-        //Create directive
-        Blade::instance()->directive($componentSlug, function ($expression) use ($componentSlug) {
-            eval("\$params = [$expression];");
-
-            //Serialize params
-            if(is_array($params)) {
-                $params = serialize($params);
-            } 
-
-            return "<?php echo component(\"{$componentSlug}\", '{$params}'); ?>";
-        });
-
-        return true;
-    }
-
-    /**
-     * Registers all components as include aliases
-     *
-     * @return bool
-     */
-    public function registerIncludeAlias($componentSlug) : bool
-    {
-        Blade::instance()->addInclude(
-            $componentSlug  . '.' . $componentSlug,
-            $componentSlug
-        );
-
-        return true;
     }
 
     /**
@@ -197,5 +165,147 @@ class Register
             "", 
             str_replace(".blade.php", "", $string)
         );
+    }
+
+    /**
+     * Registers all components as include aliases
+     *
+     * @return bool
+     */
+    private static function registerComponentAlias($componentSlug)
+    {
+        Blade::instance()->component(
+            $componentSlug  . '.' . $componentSlug,
+            $componentSlug
+        );
+    }
+
+    public static function registerViewComposer($component)
+    {
+        Blade::instance()->composer(
+            $component->slug . '.' . $component->slug,
+            function ($view) use ($component) {
+
+                $controllerName = self::camelCase(
+                    self::cleanViewName($component->slug)
+                );
+                
+                $viewData = self::accessProtected($view, 'data');
+
+                // Get controller data
+                $controllerArgs = (array) self::getControllerArgs(
+                    array_merge((array) $component->args, (array) $viewData),
+                    $controllerName
+                );
+
+                $view->with($controllerArgs);
+            }
+        );
+    }
+
+    /**
+     * Proxy for accessing provate props
+     *
+     * @return string Array of values
+     */
+    public static function accessProtected($obj, $prop)
+    {
+        $reflection = new \ReflectionClass($obj);
+        $property = $reflection->getProperty($prop);
+        $property->setAccessible(true);
+        return $property->getValue($obj);
+    }
+
+    /**
+     * Get data from controller
+     *
+     * @return string Array of controller data
+     */
+    public static function getControllerArgs($data, $controllerName): array
+    {
+        //Run controller & fetch data
+        if ($controllerLocation = self::locateController($controllerName)) {
+
+            $controllerId = md5($controllerLocation); 
+
+            if(in_array($controllerId, self::$_controllers)) {
+                $controller = self::$_controllers[$controllerId]; 
+            } else {
+                $controller = (string)("\\".self::getNamespace($controllerLocation)."\\".$controllerName);
+                $controller = new $controller($data);
+            }
+
+            return $controller->getData();
+        }
+
+        return array();
+    }
+
+    /**
+     * Creates a camelcased string from hypen based string
+     *
+     * @return string The expected controller name
+     */
+    public static function camelCase($viewName): string
+    {
+        return (string)str_replace(
+            " ",
+            "",
+            ucwords(
+                str_replace('-', ' ', $viewName)
+            )
+        );
+    }
+
+    /**
+     * Locates a controller
+     *
+     * @return string Controller path
+     */
+    public static function locateController($controller)
+    {
+        if (is_array(Register::$controllerPaths) && !empty(Register::$controllerPaths)) {
+
+            foreach (Register::$controllerPaths as $path) {
+
+                $file = $path.DIRECTORY_SEPARATOR.$controller.DIRECTORY_SEPARATOR.$controller.'.php';
+
+                if (!file_exists($file)) {
+                    continue;
+                }
+
+                return $file;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Get a class's namespace
+     *
+     * @param  string $classPath Path to the class php file
+     *
+     * @return string            Namespace or null
+     */
+    public static function getNamespace($classPath)
+    {
+        $src = file_get_contents($classPath);
+
+        if (preg_match('/namespace\s+(.+?);/', $src, $m)) {
+            return $m[1];
+        }
+
+        return null;
+    }
+
+    /**
+     * Remove .blade.php from view name
+     *
+     * @return string Simple view name without appended filetype
+     */
+    public static function cleanViewName($viewName): string
+    {
+        return (string) str_replace('.blade.php', '', $viewName);
     }
 }
