@@ -5,8 +5,16 @@
        "size":1,
        "label":"",
        "icon":"",
-       "classPrefix":"pricon-",
+       "classPrefix":"pricon pricon-",
        "classSuffix":""
     },
+    "description":{
+      "isBadge":"If it has a badge like aperance",
+      "size":"Sizes: xs, sm, md, lg, xl, xxl",
+      "label":"A label on the icon",
+      "icon":"The icon name",
+      "classPrefix":"String before the name of the icon class",
+      "classSuffix":"String after the name of the icon class"
+   },
     "view":"icon.blade.php"
  }
