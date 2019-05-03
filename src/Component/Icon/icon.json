@@ -2,7 +2,7 @@
     "slug":"icon",
     "default":{
        "isBadge":false,
-       "size":1,
+       "size":"md",
        "label":"",
        "icon":"",
        "classPrefix":"pricon pricon-",
