@@ -110,7 +110,7 @@ class BaseController
      * 
      * @return string A single css class
      */
-    private function getBaseClass()
+    protected function getBaseClass()
     {
         $classes = $this->getClass(false); 
 
