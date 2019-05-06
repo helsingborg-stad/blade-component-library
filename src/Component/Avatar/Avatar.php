@@ -10,7 +10,7 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         //Class list
-        $this->data['classList'][] = "avatar";
+        $this->data['classList'][] = "c-avatar";
 
         //Get initials
         if($name) {

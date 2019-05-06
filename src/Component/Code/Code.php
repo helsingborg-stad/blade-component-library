@@ -11,7 +11,7 @@ class Code extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         //Class list
-        $this->data['classList'][] = "code"; 
+        $this->data['classList'][] = "c-code"; 
 
         //Escape
         if($escape) {

@@ -11,7 +11,7 @@ class Image extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         //Class list
-        $this->data['classList'][] = "image"; 
+        $this->data['classList'][] = "c-image"; 
 
         //Add placeholder class
         if(!$src) {

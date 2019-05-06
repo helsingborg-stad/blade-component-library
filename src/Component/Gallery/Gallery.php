@@ -8,6 +8,6 @@ class Gallery extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        $this->data['classList'][] = "gallery"; 
+        $this->data['classList'][] = "c-gallery"; 
     }
 }

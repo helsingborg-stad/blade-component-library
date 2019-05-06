@@ -10,10 +10,10 @@ class Alert extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         //Class list
-        $this->data['classList'][] = "alert";
+        $this->data['classList'][] = "c-alert";
 
         if($hasBackdrop) {
-            $this->data['classList'][] = "backdrop";
+            $this->data['classList'][] = $this->getBaseClass() . "--backdrop";
         }
     }
 }

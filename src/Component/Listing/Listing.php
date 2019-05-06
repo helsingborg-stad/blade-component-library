@@ -9,6 +9,6 @@ class Listing extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        $this->data['classList'][] = "list"; 
+        $this->data['classList'][] = "c-list"; 
     }
 }
