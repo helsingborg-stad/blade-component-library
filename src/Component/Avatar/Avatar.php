@@ -26,6 +26,13 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
             $this->data['label'] = "Unknown user"; 
         }
 
+        //Set size
+        if($size) {
+            $this->data['classList'][] = $this->getBaseClass() . "--size-" . $size; 
+        } else {
+            $this->data['classList'][] = $this->getBaseClass() . "--size-sm";
+        }
+
         //Reset 
         $this->renderMostImportant(); //Decides how to switch beteen data inputs
     }
