@@ -13,7 +13,7 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
         //Mark as link
         if($href) {
-            $this->data['classList'][] = $baseClass . "--link"; 
+            $this->data['classList'][] = $this->getBaseClass() . "--link"; 
         }
 
         //Show body?
