@@ -29,8 +29,11 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
         //Set size
         if($size) {
             $this->data['classList'][] = $this->getBaseClass() . "--size-" . $size; 
-        } else {
-            $this->data['classList'][] = $this->getBaseClass() . "--size-sm";
+        }
+
+        //Set icon size (depending on avatar size)
+        if($size && is_array($icon) && !empty($icon) && !isset($icon['size'])) {
+            $this->data['icon']['size'] = $size; 
         }
 
         //Reset 
