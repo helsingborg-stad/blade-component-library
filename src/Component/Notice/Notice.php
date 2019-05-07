@@ -11,26 +11,26 @@ class Notice extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         //Class list
-        $this->data['classList'][] = "notice"; 
+        $this->data['classList'][] = "c-notice"; 
 
         //Success
         if($isSuccess) {
-            $this->data['classList'][] = "is-success"; 
+            $this->data['classList'][] = $this->getBaseClass() . "--success"; 
         }
 
         //Warning
         if($isWarning) {
-            $this->data['classList'][] = "is-warning"; 
+            $this->data['classList'][] = $this->getBaseClass() . "--warning"; 
         }
 
         //Danger
         if($isDanger) {
-            $this->data['classList'][] = "is-danger"; 
+            $this->data['classList'][] = $this->getBaseClass() . "--danger"; 
         }
 
         //Info
         if($isInfo) {
-            $this->data['classList'][] = "is-info"; 
+            $this->data['classList'][] = $this->getBaseClass() . "--info"; 
         }
     }
 }

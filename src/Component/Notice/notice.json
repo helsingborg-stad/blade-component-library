@@ -5,14 +5,16 @@
        "isWarning":false,
        "isDanger":false,
        "isInfo":false,
-       "slot":"Undefined notice message"
+       "slot":"Undefined notice message",
+       "icon":false
     },
     "description":{
       "isSuccess":"Green'ish message",
       "isWarning":"Yellow'ish message",
       "isDanger":"Red'ish message",
       "isInfo":"Blue'ish message",
-      "slot":"The content to show"
+      "slot":"The content to show",
+      "icon":"Icon component data"
    },
     "view":"notice.blade.php"
  }
