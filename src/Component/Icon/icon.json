@@ -6,7 +6,8 @@
        "label":"",
        "icon":"",
        "classPrefix":"pricon pricon-",
-       "classSuffix":""
+       "classSuffix":"",
+       "componentElement":"i"
     },
     "description":{
       "isBadge":"If it has a badge like aperance",
@@ -14,7 +15,9 @@
       "label":"A label on the icon",
       "icon":"The icon name",
       "classPrefix":"String before the name of the icon class",
-      "classSuffix":"String after the name of the icon class"
+      "classSuffix":"String after the name of the icon class",
+      "componentElement":"Icon HTML tag"
    },
     "view":"icon.blade.php"
  }
+
