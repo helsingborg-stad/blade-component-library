@@ -1,4 +1,4 @@
-<!-- header.blade.php -->
+<!-- footer.blade.php -->
 <{{$componentElement}} class="{{ $class }}">
 
   @if($includeContainer)

@@ -1,7 +1,7 @@
 {
-    "slug":"header",
+    "slug":"footer",
     "default":{
-       "componentElement":"header",
+       "componentElement":"footer",
        "includeContainer":true,
        "logotypeHref":"/"
     },
@@ -10,5 +10,5 @@
       "includeContainer":"If content in the header should be rendered inside a container element.",
       "logotypeHref":"The url to link the logotype to."
    },
-    "view":"header.blade.php"
+    "view":"footer.blade.php"
  }
