@@ -5,14 +5,16 @@
        "items":[],
        "elementType":"nav",
        "activeClass":"--active",
-       "wrapper":true
+       "wrapper":true,
+       "isHorizontal": false
     },
     "description":{
       "activeIndex":"The currently active index",
       "items":"List of arrays containing at least 'label' and 'href' but can also contain 'href'.",
       "elementType":"The type of wrapper.",
       "activeClass":"The name of currently active class.",
-      "wrapper":"Wrap component with <nav> etc."
+      "wrapper":"Wrap component with <nav> etc.",
+      "isHorizontal":"If the menu should render as horizontal. Default to vertical menu."
    },
     "view":"menu.blade.php"
  }

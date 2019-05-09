@@ -9,7 +9,8 @@
         "multiple": false,
         "beforeLabel": "",
         "afterLabel": "",
-        "label": ""
+        "label": "",
+        "icon":false
     },
     "description": {
         "componentElement": "The tag for the component",
@@ -20,7 +21,8 @@
         "multiple": "Allow single or multiple files",
         "beforeLabel": "Insert nefore label",
         "afterLabel": "Input label",
-        "label": "Insert after label"
+        "label": "Insert after label",
+        "icon": "@link:component/icon"
     },
     "view": "fileinput.blade.php"
 }
