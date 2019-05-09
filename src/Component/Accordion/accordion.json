@@ -1,15 +1,15 @@
 {
-    "slug":"accordion",
-    "default":{
-       "list":[],
-       "beforeHeading":"",
-       "afterHeading":"",
-       "beforeContent":"",
-       "afterContent":"",
-       "componentElement":"div",
-       "sectionElement":"section",
-       "sectionHeadingElement":"h2",
-       "sectionContentElement":"div"
+    "slug": "accordion",
+    "default": {
+        "list": [],
+        "beforeHeading": "<h4>",
+        "afterHeading": "</h4>",
+        "beforeContent": "<p>",
+        "afterContent": "</p>",
+        "componentElement": "div",
+        "sectionElement": "div",
+        "sectionHeadingElement": "div",
+        "sectionContentElement": "div"
     },
-    "view":"accordion.blade.php"
- }
+    "view": "accordion.blade.php"
+}
