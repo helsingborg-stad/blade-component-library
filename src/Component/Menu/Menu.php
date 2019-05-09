@@ -11,5 +11,12 @@ class Menu extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         $this->data['classList'][] = "c-menu"; 
+
+        //Horizontal menu
+        if($isHorizontal) {
+            $this->data['classList'][] = $this->getBaseClass() . "--horizontal"; 
+        } else {
+            $this->data['classList'][] = $this->getBaseClass() . "--vertical";
+        }
     }
 }

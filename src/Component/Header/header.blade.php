@@ -1,11 +1,21 @@
 <!-- header.blade.php -->
 <{{$componentElement}} class="{{ $class }}">
-  <div class="grid">
-    <div class="grid-xs-3">
-      {{$logotype}}
+
+  @if($includeContainer)
+    <div class="container">
+  @endif
+    <div class="grid">
+      <div class="grid-xs-3">
+        <a href="{{$logotypeHref}}">
+          {{$logotype}}
+        </a>
+      </div>
+      <div class="grid-xs-9">
+        {{$menu}}
+      </div>
     </div>
-    <div class="grid-xs-9">
-      {{$menu}}
+  @if($includeContainer)
     </div>
-  </div>
+  @endif
+
 </{{$componentElement}}>

@@ -1,7 +1,14 @@
 {
     "slug":"header",
     "default":{
-       "componentElement":"header"
+       "componentElement":"header",
+       "includeContainer":true,
+       "logotypeHref":"/"
     },
+    "descriptions":{
+      "componentElement":"The element tag to render",
+      "includeContainer":"If content in the header should be rendered inside a container element.",
+      "logotypeHref":"The url to link the logotype to."
+   },
     "view":"header.blade.php"
  }
