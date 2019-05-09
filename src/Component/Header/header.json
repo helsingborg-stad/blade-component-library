@@ -1,0 +1,7 @@
+{
+    "slug":"header",
+    "default":{
+       "componentElement":"div"
+    },
+    "view":"header.blade.php"
+ }

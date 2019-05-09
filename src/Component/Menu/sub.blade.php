@@ -1,5 +1,5 @@
 {{--- Sub list (Recursive) ---}}
-@if(isset($item['children']))
+@if(isset($item['children']) && is_array($item['children']))
     @menu([
         'wrapper' => false,
         'items' => $item['children'],

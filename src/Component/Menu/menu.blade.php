@@ -3,9 +3,9 @@
   @if($wrapper)
   <{{$elementType}} class="{{ $class }}">
   @endif
-    <ul>
+    <ul class="{{ $baseClass }}__list">
       @foreach($items as $item)
-        <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
+        <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }} {{ isset($item['active']) ? $baseClass . $activeClass : '' }}">
           <a href="{{ $item['href'] }}" aria-label="{{ $item['label'] }}" class="{{$baseClass}}__link">
             <span class="{{$baseClass}}__label">
                 {{ $item['label'] }}
