@@ -1,0 +1,12 @@
+{
+    "slug":"paper",
+    "default":{
+        "slot":"",
+        "padding":false
+    },
+    "description":{
+        "slot":"Paper content",
+        "padding":"Numeric value of padding sizes. Se padding doc for more info."
+    },
+    "view":"paper.blade.php"
+ }

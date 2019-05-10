@@ -7,15 +7,15 @@
 
     @if($image)
         @if($href)
-            <a class="{{$baseClass}}__link" href="{{$href}}">
+            <a class="{{$baseClass}}__link {{$baseClass}}__image-link" href="{{$href}}">
                 <img class="{{$baseClass}}__image" src="{{$image}}" alt="{{$alt}}">
             </a>
         @else
             <img class="{{$baseClass}}__image" src="{{$image}}" alt="{{$alt}}">
         @endif
     @endif
-        
-    @if($slot)
+
+    @if($slot != "")
         <div class="{{$baseClass}}__middle">{{ $slot }}</div>
     @endif
 
