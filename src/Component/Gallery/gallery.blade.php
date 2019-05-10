@@ -1,7 +1,8 @@
 <!-- gallery.blade.php -->
 @if($list)
   <section class="{{ $class }}">
-    @foreach($list as $item)
+  <ul>  
+  @foreach($list as $item)
       <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
         <a class="{{$baseClass}}__link {{$baseClass}}__link-{{ $loop->index }}" href="{{$item['largeImage']}}">
           @image([
@@ -13,6 +14,7 @@
         </a>
       </li>
     @endforeach
+    </ul>
   </section>
 @else
 <!-- No gallery data -->
