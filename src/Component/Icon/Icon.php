@@ -30,11 +30,9 @@ class Icon extends \BladeComponentLibrary\Component\BaseController
 
         //Size class
         if(isset($sizes[$size])) {
-            $this->data['classList'][] = $this->getBaseClass() . "--size-".$sizes[$size];
             $this->data['classList'][] = $this->getBaseClass() . "--size-".$size;
         } else {
-            $this->data['classList'][] = $this->getBaseClass() . "--size-32";
-            $this->data['classList'][] = $this->getBaseClass() . "--size-md";
+            $this->data['classList'][] = $this->getBaseClass() . "--size-inherit";
         }
     }
 }
