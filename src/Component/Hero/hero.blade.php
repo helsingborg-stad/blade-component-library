@@ -10,13 +10,17 @@
                 <{{$headingElement}} class="{{$baseClass}}__headline">{{$headline}}</{{$headingElement}}>
                 @endif
 
+                @if($byline)
+                <{{$bylineElement}} class="{{$baseClass}}__byline">{{$byline}}</{{$bylineElement}}>
+                @endif
+
                 @if($content)
                 <{{$contentElement}} class="{{$baseClass}}__paragraph">{!! $content !!}</{{$contentElement}}>
                 @endif
             
             </div>
 
-            <div class="{{ $baseClass }}__complementary-image" style="background-image: url('{!!$complementaryImage!!}');"></div>
+            <div class="{{ $baseClass }}__complementary-image u-display-none-xs u-display-none-sm" style="background-image: url('{!!$complementaryImage!!}');"></div>
 
         </div>
 
