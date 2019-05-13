@@ -2,6 +2,18 @@
 @if($list)
 <{{$componentElement}} class="{{ $class }}" role="navigation" aria-label="Pagination Navigation">
     <{{$listElement}} class="{{$baseClass}}__list">
+
+        @if($previous)
+          <{{$listItem}} class="{{$baseClass}}__item {{ $currentClass }}">
+            <a class="{{$baseClass}}__link" href="{{ $previous }}" aria-label="Previous page">
+              <span class="{{$baseClass}}__label">
+                @icon(['icon' => 'chevron-left'])
+                @endicon
+              </span>
+            </a>
+          </{{$listItem}}>
+        @endif
+
         @foreach($list as $item) 
           @if($loop->index+1 == $current)
           <{{$listItem}} class="{{$baseClass}}__item {{ $currentClass }}">
@@ -21,6 +33,19 @@
           </{{$listItem}}>
           @endif
         @endforeach
+
+
+        @if($next)
+          <{{$listItem}} class="{{$baseClass}}__item {{ $currentClass }}">
+            <a class="{{$baseClass}}__link" href="{{ $next }}" aria-label="Next page">
+              <span class="{{$baseClass}}__label">
+                @icon(['icon' => 'chevron-right'])
+                @endicon
+              </span>
+            </a>
+          </{{$listItem}}>
+        @endif
+
     </{{$listElement}}>
 </{{$componentElement}}>
 @else

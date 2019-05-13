@@ -9,11 +9,26 @@ class Pagination extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        $this->data['classList'][] = "pagination"; 
+        //Set class
+        $this->data['classList'][] = "c-pagination"; 
 
+        //Default to page one
         if(!$current) {
             $this->data['current'] = 1; 
         }
 
+        //Previous data
+        if($this->data['current'] != 1) {
+            $this->data['previous'] = $linkPrefix . ($this->data['current'] - 1); 
+        } else {
+            $this->data['previous'] = false; 
+        }
+
+        //Next data
+        if((count($this->data['list'])) != $this->data['current']) {
+            $this->data['next'] = $linkPrefix . ($this->data['current'] + 1); 
+        } else {
+            $this->data['next'] = false; 
+        }
     }
 }

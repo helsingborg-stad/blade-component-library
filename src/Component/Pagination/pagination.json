@@ -6,7 +6,8 @@
        "currentClass":"is-active",
        "componentElement":"nav",
        "listElement":"ul",
-       "listItem":"li"
+       "listItem":"li",
+       "linkPrefix":"?pagination="
     },
     "description":{
       "list":"Array with pages",
@@ -14,7 +15,8 @@
       "currentClass":"The current classname",
       "componentElement":"The tag for the component",
       "listElement":"List element tag",
-      "listItem":"List item tag"
+      "listItem":"List item tag",
+      "linkPrefix":"Pagination uses a link prefix on prev next buttons before the numeric index, add it here."
    },
     "view":"pagination.blade.php"
  }
