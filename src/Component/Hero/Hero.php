@@ -11,7 +11,7 @@ class Hero extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         //Class list
-        $this->data['classList'][] = "hero"; 
+        $this->data['classList'][] = "c-hero"; 
 
         //Text alignment
         $this->data['classList'][] = "text-align-" . $textAlignment; 
