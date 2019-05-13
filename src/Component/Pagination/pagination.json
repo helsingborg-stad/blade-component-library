@@ -3,7 +3,7 @@
     "default":{
        "list":[],
        "current":1,
-       "currentClass":"is-active",
+       "currentClass":"--is-active",
        "componentElement":"nav",
        "listElement":"ul",
        "listItem":"li",

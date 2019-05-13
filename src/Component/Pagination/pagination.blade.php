@@ -4,7 +4,7 @@
     <{{$listElement}} class="{{$baseClass}}__list">
 
         @if($previous)
-          <{{$listItem}} class="{{$baseClass}}__item {{ $currentClass }}">
+          <{{$listItem}} class="{{$baseClass}}__item {{$baseClass}}__item--previous">
             <a class="{{$baseClass}}__link" href="{{ $previous }}" aria-label="Previous page">
               <span class="{{$baseClass}}__label">
                 @icon(['icon' => 'chevron-left'])
@@ -16,7 +16,7 @@
 
         @foreach($list as $item) 
           @if($loop->index+1 == $current)
-          <{{$listItem}} class="{{$baseClass}}__item {{ $currentClass }}">
+          <{{$listItem}} class="{{$baseClass}}__item {{$baseClass}}__item{{ $currentClass }}">
             <a class="{{$baseClass}}__link" href="{{ $item['href'] }}" aria-label="{{ $item['label'] }}" aria-current="true">
               <span class="{{$baseClass}}__label">
                 {{ $loop->index+1 }}
@@ -36,7 +36,7 @@
 
 
         @if($next)
-          <{{$listItem}} class="{{$baseClass}}__item {{ $currentClass }}">
+          <{{$listItem}} class="{{$baseClass}}__item {{$baseClass}}__item--next">
             <a class="{{$baseClass}}__link" href="{{ $next }}" aria-label="Next page">
               <span class="{{$baseClass}}__label">
                 @icon(['icon' => 'chevron-right'])
