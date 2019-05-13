@@ -20,7 +20,9 @@
             
             </div>
 
-            <div class="{{ $baseClass }}__complementary-image u-display-none-xs u-display-none-sm" style="background-image: url('{!!$complementaryImage!!}');"></div>
+            @if($complementaryImage != "")
+                <div class="{{ $baseClass }}__complementary-image u-display-none-xs u-display-none-sm" style="background-image: url('{!!$complementaryImage!!}');"></div>
+            @endif
 
         </div>
 
