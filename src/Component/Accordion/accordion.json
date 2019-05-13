@@ -2,8 +2,8 @@
     "slug": "accordion",
     "default": {
         "list": [],
-        "beforeHeading": "<h4>",
-        "afterHeading": "</h4>",
+        "beforeHeading": "<p>",
+        "afterHeading": "</p>",
         "beforeContent": "<p>",
         "afterContent": "</p>",
         "componentElement": "div",
