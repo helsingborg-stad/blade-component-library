@@ -4,7 +4,8 @@
        "src":false,
        "alt":"",
        "caption":"",
-       "placeholderText":"Image missing"
+       "placeholderText":"Image missing",
+       "fullWidth": false
     },
     "view":"image.blade.php"
  }

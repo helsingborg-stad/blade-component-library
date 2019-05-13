@@ -15,12 +15,18 @@ class Image extends \BladeComponentLibrary\Component\BaseController
 
         //Add placeholder class
         if(!$src) {
-            $this->data['classList'][] = "is-placeholder"; 
+            $this->data['classList'][] = $this->getBaseClass() . "--is-placeholder"; 
+        }
+
+        //Make full width
+        if($fullWidth) {
+            $this->data['classList'][] = $this->getBaseClass() . "--full-width"; 
         }
 
         //Inherit the alt text
         if(!$alt && $caption) {
             $this->data['alt'] = $this->data['caption'];
         }
+        
     }
 }
