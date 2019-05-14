@@ -2,9 +2,8 @@
     @if($isLink)
         href="{{ $href }}"
     @endif
-    class="{{ $class }}"
+    class="{{ $class }} {{ '__tooltip-'.$placement }}"
     js-bind-hover="tooltip"
-    title="{{ $title }}"
-    data-placement="{{ $placement }}">
+    title="{{ $title }}">
     {{$beforeContent}} {{ $slot }} {{$afterContent}}
 </{{ $componentElement }}>
