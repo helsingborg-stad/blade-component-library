@@ -14,7 +14,8 @@
        "headingElement":"h1",
        "bylineElement":"h2",
        "contentElement":"div",
-       "verticalTextAlignment":"middle"
+       "verticalTextAlignment":"middle",
+       "brandSymbol":false
     },
     "description":{
       "height":"Vh-height of the hero",
@@ -29,7 +30,8 @@
       "headingElement":"The heading element",
       "bylineElement":"The byline element",
       "contentElement":"The content element",
-      "verticalTextAlignment":"Vertical alignment attribute."
+      "verticalTextAlignment":"Vertical alignment attribute.",
+      "brandSymbol":"Path to a local svg. Default to show in lower right. Must be SVG."
    },
     "view":"hero.blade.php"
  }

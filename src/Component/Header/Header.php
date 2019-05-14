@@ -10,5 +10,11 @@ class Header extends \BladeComponentLibrary\Component\BaseController
         
         $this->data['classList'][] = "c-header"; 
 
+        //Location logic
+        $this->data['levelContent'] = array(
+            1 => [],
+            2 => ['logotype', 'menu'],
+            3 => []
+        );
     }
 }

@@ -34,5 +34,20 @@ class Hero extends \BladeComponentLibrary\Component\BaseController
         if($gradientColor) {
             $this->data['classList'][] = $this->getBaseClass() . "--gradient-" . $gradientColor; 
         }
+
+        //Get brand
+        if($brandSymbol) {
+            $this->data['brandSymbol'] = $this->fetchBrandSymbol($brandSymbol); 
+            $this->data['classList'][] = $this->getBaseClass() . "--brand"; 
+        } else {
+            $this->data['brandSymbol'] = false; 
+        }
+    }
+
+    public function fetchBrandSymbol($path) {
+        if(file_exists($path)) {
+            return "data:image/svg+xml;base64," . base64_encode(file_get_contents($path)); 
+        }
+        return false; 
     }
 }
