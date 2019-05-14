@@ -1,10 +1,10 @@
 {
     "slug":"form",
     "default":{
-        "image":"",
+        "image":""
     },
     "description":{
-        "image":"",
+        "image":""
     },
     "view":"form.blade.php"
  }
