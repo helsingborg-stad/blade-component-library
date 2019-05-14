@@ -12,7 +12,7 @@ class Logotype extends \BladeComponentLibrary\Component\BaseController
 
         //Add placeholder class
         if(!$src) {
-            $this->data['classList'][] = "is-placeholder";
+            $this->data['classList'][] = $this->getBaseClass() . "--is-placeholder";
         }
 
         //Inherit the alt text
@@ -21,6 +21,6 @@ class Logotype extends \BladeComponentLibrary\Component\BaseController
         }
 
         // Add base class
-        array_unshift($this->data['classList'], 'logotype');
+        array_unshift($this->data['classList'], 'c-logotype');
     }
 }
