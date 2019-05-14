@@ -1,22 +1,21 @@
 <!-- accordion.blade.php -->
 @if($list)
-  <{{$componentElement}} class="{{ $class }}">
+<{{$componentElement}} class="{{ $class }}" js-expand-container="{{ $class }}" js-toggle-class="kalaskalle">
     @foreach($list as $section)
-      <{{$sectionElement}} class="{{$baseClass}}__section" aria-labelledby="{{$baseClass}}__section-{{ $loop->index }}" js-bind="click" js-bind="tab" js-toggle-class="{{$baseClass}}__section--is-active" js-toggle-siblings="true">
+      <{{$sectionElement}} class="{{$baseClass}}__section" aria-labelledby="{{$baseClass}}__section-{{ $loop->index }}">
 
-        <{{$sectionHeadingElement}} id="{{$baseClass}}__header-{{$loop->index}}" class="{{$baseClass}}__header {{$baseClass}}__header-{{ $loop->index }}">
-                <div class="{{$baseClass}}__title">
-                    {!!$beforeHeading!!}
-                    {{ $section['heading'] }}
-                    {!!$afterHeading!!}
-                </div>
-                <div class="{{$baseClass}}__icon">
-                    @icon(['icon' => 'chevron-right', 'size' => 'md', 'classList' => [$baseClass . '__arrow']])
-                    @endicon
-                </div>
+<{{$sectionHeadingElement}} class="{{$baseClass}}__button" aria-controls="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-expanded="false" js-expand-button="{{$baseClass}}__button">
+            <span class="{{$baseClass}}__button-wrapper">
+                {!!$beforeHeading!!}
+                {{ $section['heading'] }}
+                {!!$afterHeading!!}
+
+                @icon(['icon' => 'chevron-right', 'size' => 'md', 'classList' => [$baseClass . '__icon']])
+                @endicon
+            </span>
         </{{$sectionHeadingElement}}>
 
-        <{{$sectionContentElement}} class="{{$baseClass}}__content {{$baseClass}}__content-{{ $loop->index }}">
+            <{{$sectionContentElement}} class="{{$baseClass}}__content" id="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-hidden="true">
           {!!$beforeContent!!}
           {{ $section['content'] }}
           {!!$afterContent!!}
