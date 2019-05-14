@@ -1,10 +1,10 @@
 <!-- accordion.blade.php -->
 @if($list)
-<{{$componentElement}} class="{{ $class }}" js-expand-container="{{ $class }}" js-toggle-class="kalaskalle">
+<{{$componentElement}} class="{{ $class }}" js-expand-container="{{ $baseClass }}">
     @foreach($list as $section)
       <{{$sectionElement}} class="{{$baseClass}}__section" aria-labelledby="{{$baseClass}}__section-{{ $loop->index }}">
 
-<{{$sectionHeadingElement}} class="{{$baseClass}}__button" aria-controls="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-expanded="false" js-expand-button="{{$baseClass}}__button">
+<{{$sectionHeadingElement}} class="{{$baseClass}}__button" aria-controls="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-expanded="false" js-expand-button="{{ $baseClass }}__button">
             <span class="{{$baseClass}}__button-wrapper">
                 {!!$beforeHeading!!}
                 {{ $section['heading'] }}
