@@ -1,6 +1,6 @@
 <!-- hero.blade.php -->
 @if($componentShow)
-    <{{$componentElement}} class="{{ $class }}" style="background-image: url('{!!$backgroundImage!!}'); background-color: {{$backgroundColor}}; height: {{$height}}vh;">
+    <{{$componentElement}} class="{{ $class }}">
 
         <div class="{{$baseClass}}__body">
 
@@ -24,6 +24,17 @@
                 <div class="{{ $baseClass }}__complementary-image u-display-none-xs u-display-none-sm" style="background-image: url('{!!$complementaryImage!!}');"></div>
             @endif
 
+            <!-- Scoped component styles -->
+            <style scoped>
+                .{{$baseClass}}:before {
+                    background-image: url('{{$brandSymbol}}'); 
+                }
+                .{{$baseClass}} {
+                    background-image: url('{{$backgroundImage}}'); 
+                    background-color: {{$backgroundColor}}; 
+                    height: {{$height}}vh;
+                }
+            </style>
         </div>
 
     </{{$componentElement}}>
