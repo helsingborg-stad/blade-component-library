@@ -8,21 +8,21 @@
             <input type="checkbox" class="hidden-box" id="check-first" checked/>
             <label for="check-first" class="check--label">
             <span class="check--label-box"></span>
-            <span class="check--label-text">First Checkbox</span>
+            <span class="check--label-text">I have a candy.</span>
             </label>
         </li>
         <li class="list-item">
             <input type="checkbox" class="hidden-box" id="check-second" />
             <label for="check-second" class="check--label">
             <span class="check--label-box"></span>
-            <span class="check--label-text">Second Checkbox</span>
+            <span class="check--label-text">I Need more candy!</span>
             </label>
         </li>
         <li class="list-item">
             <input type="checkbox" class="hidden-box" id="check-third" />
             <label for="check-third" class="check--label">
             <span class="check--label-box"></span>
-            <span class="check--label-text">Third Checkbox</span>
+            <span class="check--label-text">I'm greedy, Give me more candy!!!!</span>
             </label>
         </li>
     </ul>
