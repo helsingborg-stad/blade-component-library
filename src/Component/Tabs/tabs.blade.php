@@ -1,6 +1,6 @@
 <!-- tabs.blade.php -->
 @if($tabs)
-    <{{$componentElement}} class="{{ $class }}">
+    <{{$componentElement}} class="{{ $class }}" {!! $attribute !!}>
         <div class="nav nav--{{$baseClass}}">
             @foreach($tabs as $tab)
                 <div class="nav__item" data-tab="tab-{{$loop->index}}">

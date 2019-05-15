@@ -1,6 +1,6 @@
 <!-- pagination.blade.php -->
 @if($list)
-  <{{$elementType}} class="{{ $class }}">
+  <{{$elementType}} class="{{ $class }}" {!! $attribute !!}>
      
       @foreach($list as $item)
 

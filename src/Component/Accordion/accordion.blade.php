@@ -1,6 +1,6 @@
 <!-- accordion.blade.php -->
 @if($list)
-<{{$componentElement}} class="{{ $class }}" js-expand-container="{{ $baseClass }}">
+<{{$componentElement}} class="{{ $class }}" js-expand-container="{{ $baseClass }}" {!! $attribute !!}>
     @foreach($list as $section)
       <{{$sectionElement}} class="{{$baseClass}}__section">
 

@@ -147,10 +147,13 @@ class BaseController
 
         //Return manipulated data array as string
         return (string) implode(' ', array_map(
-            function ($v, $k) { return sprintf('%s="%s"', $k, $v); },
-            $attribute,
-            array_keys($attribute)
-        ));
+            function ($v, $k) { 
+                    return sprintf('%s="%s"', $k, $v); 
+                },
+                array_values($attribute),
+                array_keys($attribute)
+            )
+        );
     }
 
     /**

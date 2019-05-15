@@ -1,6 +1,6 @@
 <!-- pagination.blade.php -->
 @if($list)
-<{{$componentElement}} class="{{ $class }}" role="navigation" aria-label="Pagination Navigation">
+<{{$componentElement}} class="{{ $class }}" role="navigation" aria-label="Pagination Navigation" {!! $attribute !!}>
     <{{$listElement}} class="{{$baseClass}}__list">
 
         @if($previous)

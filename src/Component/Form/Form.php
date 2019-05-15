@@ -11,5 +11,12 @@ class Form extends \BladeComponentLibrary\Component\BaseController
         //Give base class
         $this->data['classList'][] = "c-form"; 
         
+        //Attributes
+        $this->data['attributeList'] = array(
+            'method' => 'post',
+            'action' => '#',
+            'target' => '_self'
+        );
+
     }
 }

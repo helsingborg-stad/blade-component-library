@@ -1,6 +1,6 @@
 <!-- stripe.blade.php -->
 
-<{{$componentElement}} class="{{ $class }}">
+<{{$componentElement}} class="{{ $class }}" {!! $attribute !!}>
     <{{$componentElement}}></{{$componentElement}}>
     <{{$componentElement}}></{{$componentElement}}>
     <{{$componentElement}}></{{$componentElement}}>

@@ -1,5 +1,5 @@
 <!-- alert.blade.php -->
-<div class="{{ $class }}">
+<div class="{{ $class }}" {!! $attribute !!}>
 
     {!! $top !!}
 

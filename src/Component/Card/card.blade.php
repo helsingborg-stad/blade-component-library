@@ -1,5 +1,5 @@
 <!-- card.blade.php -->
-<div class="{{$class}}" data-equal-item>
+<div class="{{$class}}" {!! $attribute !!}>
 
     @if($top)
         <div class="{{$baseClass}}__top">{{ $top }}</div>
