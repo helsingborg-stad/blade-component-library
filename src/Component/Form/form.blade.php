@@ -26,12 +26,32 @@
             </label>
         </li>
     </ul>
+    
 
-    <div class="c-radio">
-        <input type="radio" name="radio-showcase">
-        <label for="radio-showcase"></label> 
-    </div>
-
+    <ul class="c-radiobutton">
+        <li class="list-item">
+            <input type="radio" class="hidden-box" id="first" checked/>
+            <label for="first" class="check--label">
+            <span class="check--label-box"></span>
+            <span class="check--label-text">Radio Ibiza</span>
+            </label>
+        </li>
+        <li class="list-item">
+            <input type="radio" class="hidden-box" id="second" />
+            <label for="second" class="check--label">
+            <span class="check--label-box"></span>
+            <span class="check--label-text">Radio Berlin</span>
+            </label>
+        </li>
+        <li class="list-item">
+            <input type="radio" class="hidden-box" id="third" />
+            <label for="third" class="check--label">
+            <span class="check--label-box"></span>
+            <span class="check--label-text">Radio London</span>
+            </label>
+        </li>
+    </ul>
+    
 
     <input type="color">
     <input type="date">
