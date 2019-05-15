@@ -7,7 +7,13 @@
     <input type="date">
     <input type="datetime-local">
     <input type="email">
-    <input type="file">
+    @fileinput([
+            'classList' => ['unlist'],
+            'display' => 'area',
+            'multiple' => true,
+            'label' => 'Choose files...'
+        ])
+    @endfileinput
     <input type="hidden">
     <input type="image">
     <input type="month">
