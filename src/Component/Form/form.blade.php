@@ -4,10 +4,16 @@
     <input type="button" class="c-button">
     
     <div class="c-checkbox">
-    <label for="test-check"></label> <input type="checkbox" name="test-check">
+        <input type="checkbox" name="check-showcase">
+        <label for="check-showcase"></label> 
     </div>
 
-    <input type="radio"  name="test-radio"><label for="test-radio"></label>
+    <div class="c-radio">
+        <input type="radio" name="radio-showcase">
+        <label for="radio-showcase"></label> 
+    </div>
+
+
     <input type="color">
     <input type="date">
     <input type="datetime-local">
