@@ -3,10 +3,29 @@
     {!! $slot !!}
     <input type="button" class="c-button">
     
-    <div class="c-checkbox">
-        <input type="checkbox" name="check-showcase">
-        <label for="check-showcase"></label> 
-    </div>
+    <ul class="c-checkbox">
+        <li class="list-item">
+            <input type="checkbox" class="hidden-box" id="first" checked/>
+            <label for="first" class="check--label">
+            <span class="check--label-box"></span>
+            <span class="check--label-text">First Checkbox</span>
+            </label>
+        </li>
+        <li class="list-item">
+            <input type="checkbox" class="hidden-box" id="second" />
+            <label for="second" class="check--label">
+            <span class="check--label-box"></span>
+            <span class="check--label-text">Second Checkbox</span>
+            </label>
+        </li>
+        <li class="list-item">
+            <input type="checkbox" class="hidden-box" id="third" />
+            <label for="third" class="check--label">
+            <span class="check--label-box"></span>
+            <span class="check--label-text">Third Checkbox</span>
+            </label>
+        </li>
+    </ul>
 
     <div class="c-radio">
         <input type="radio" name="radio-showcase">
