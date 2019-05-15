@@ -3,6 +3,7 @@
     {!! $slot !!}
     <input type="button" class="c-button">
     
+    <h3>Checkboxes</h3>
     <ul class="c-checkbox">
         <li class="list-item">
             <input type="checkbox" class="hidden-box" id="check-first" checked/>
@@ -27,7 +28,7 @@
         </li>
     </ul>
     
-
+    <h3>Radiobuttons</h3>
     <ul class="c-radiobutton">
         <li class="list-item">
             <input type="radio" class="hidden-box" name="cool-radio" id="radio-first" checked/>
