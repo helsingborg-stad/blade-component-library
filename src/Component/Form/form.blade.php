@@ -33,12 +33,12 @@
         <li class="c-radiobutton__list-item">
             <input type="radio" class="c-radiobutton__hidden-box" name="cool-radio" id="radio-first" checked/>
             <label for="radio-first" class="c-radiobutton__label">
-            <span class="check--label-box"></span>
-            <span class="check--label-text">Radio Ibiza</span>
+            <span class="c-radiobutton__label-box"></span>
+            <span class="c-radiobutton__label-text">Radio Ibiza</span>
             </label>
         </li>
         <li class="c-radiobutton__list-item">
-            <input type="radio" class="hidden-box" name="cool-radio" id="radio-second" />
+            <input type="radio" class="c-radiobutton__hidden-box" name="cool-radio" id="radio-second" />
             <label for="radio-second" class="c-radiobutton__label">
             <span class="c-radiobutton__label-box"></span>
             <span class="c-radiobutton__label-text">Radio Berlin</span>
