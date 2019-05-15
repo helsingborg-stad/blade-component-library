@@ -5,22 +5,22 @@
     
     <ul class="c-checkbox">
         <li class="list-item">
-            <input type="checkbox" class="hidden-box" id="first" checked/>
-            <label for="first" class="check--label">
+            <input type="checkbox" class="hidden-box" id="check-first" checked/>
+            <label for="check-first" class="check--label">
             <span class="check--label-box"></span>
             <span class="check--label-text">First Checkbox</span>
             </label>
         </li>
         <li class="list-item">
-            <input type="checkbox" class="hidden-box" id="second" />
-            <label for="second" class="check--label">
+            <input type="checkbox" class="hidden-box" id="check-second" />
+            <label for="check-second" class="check--label">
             <span class="check--label-box"></span>
             <span class="check--label-text">Second Checkbox</span>
             </label>
         </li>
         <li class="list-item">
-            <input type="checkbox" class="hidden-box" id="third" />
-            <label for="third" class="check--label">
+            <input type="checkbox" class="hidden-box" id="check-third" />
+            <label for="check-third" class="check--label">
             <span class="check--label-box"></span>
             <span class="check--label-text">Third Checkbox</span>
             </label>
@@ -30,22 +30,22 @@
 
     <ul class="c-radiobutton">
         <li class="list-item">
-            <input type="radio" class="hidden-box" id="first" checked/>
-            <label for="first" class="check--label">
+            <input type="radio" class="hidden-box" name="cool-radio" id="radio-first" checked/>
+            <label for="radio-first" class="check--label">
             <span class="check--label-box"></span>
             <span class="check--label-text">Radio Ibiza</span>
             </label>
         </li>
         <li class="list-item">
-            <input type="radio" class="hidden-box" id="second" />
-            <label for="second" class="check--label">
+            <input type="radio" class="hidden-box" name="cool-radio" id="radio-second" />
+            <label for="radio-second" class="check--label">
             <span class="check--label-box"></span>
             <span class="check--label-text">Radio Berlin</span>
             </label>
         </li>
         <li class="list-item">
-            <input type="radio" class="hidden-box" id="third" />
-            <label for="third" class="check--label">
+            <input type="radio" class="hidden-box" name="cool-radio" id="radio-third" />
+            <label for="radio-third" class="check--label">
             <span class="check--label-box"></span>
             <span class="check--label-text">Radio London</span>
             </label>
