@@ -7,21 +7,21 @@
         <li class="list-item">
             <input type="checkbox" class="hidden-box" id="check-first" checked/>
             <label for="check-first" class="check--label">
-         
+            <span class="check--label-box"></span>
             <span class="check--label-text">I have some candy.</span>
             </label>
         </li>
         <li class="list-item">
             <input type="checkbox" class="hidden-box" id="check-second" />
             <label for="check-second" class="check--label">
-          
+            <span class="check--label-box"></span>
             <span class="check--label-text">I Need more candy!</span>
             </label>
         </li>
         <li class="list-item">
             <input type="checkbox" class="hidden-box" id="check-third" />
             <label for="check-third" class="check--label">
-           
+            <span class="check--label-box"></span>
             <span class="check--label-text">I'm greedy, Give me more candy!!!!</span>
             </label>
         </li>
@@ -32,19 +32,21 @@
         <li class="list-item">
             <input type="radio" class="hidden-box" name="cool-radio" id="radio-first" checked/>
             <label for="radio-first" class="check--label">
-           
+            <span class="check--label-box"></span>
             <span class="check--label-text">Radio Ibiza</span>
             </label>
         </li>
         <li class="list-item">
             <input type="radio" class="hidden-box" name="cool-radio" id="radio-second" />
             <label for="radio-second" class="check--label">
+            <span class="check--label-box"></span>
             <span class="check--label-text">Radio Berlin</span>
             </label>
         </li>
         <li class="list-item">
             <input type="radio" class="hidden-box" name="cool-radio" id="radio-third" />
             <label for="radio-third" class="check--label">
+            <span class="check--label-box"></span>
             <span class="check--label-text">Radio London</span>
             </label>
         </li>
