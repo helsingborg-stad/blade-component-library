@@ -1,6 +1,6 @@
 <!-- notice.blade.php -->
 @if($slot)
-<div class="{{ $class }}">
+<div class="{{ $class }}" {!! $attribute !!}>
 
     @if($icon)
         @icon($icon)

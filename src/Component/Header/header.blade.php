@@ -1,5 +1,5 @@
 <!-- header.blade.php -->
-<{{$componentElement}} class="{{ $class }}">
+<{{$componentElement}} class="{{ $class }}" {!! $attribute !!}>
 
   @if(!empty($levelContent[1]))
   <div class="{{ $baseClass }}__wrapper {{ $baseClass }}__wrapper--level-1">

@@ -1,5 +1,5 @@
 <!-- image.blade.php -->
-<figure class="{{ $class }}">
+<figure class="{{ $class }}" {!! $attribute !!}>
     @if($src) 
         <img src="{{$src}}" alt="{{$alt}}" class="{{$baseClass}}__image" />
         @if($caption)

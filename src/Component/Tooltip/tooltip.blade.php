@@ -4,6 +4,6 @@
     @endif
     class="{{ $class }} {{ 'c-tooltip__'.$placement }}"
     js-bind-hover="tooltip"
-    data-title="{{ $title }}">
+    data-title="{{ $title }}" {!! $attribute !!}>
     {{$beforeContent}} {{ $slot }} {{$afterContent}}
 </{{ $componentElement }}>

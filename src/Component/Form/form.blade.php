@@ -1,5 +1,5 @@
 <!-- form.blade.php -->
-<form class="{{$class}}" method="" action="" target="">
+<form class="{{$class}}" {!! $attribute !!}>
     {!! $slot !!}
     <input type="button" class="c-button">
     

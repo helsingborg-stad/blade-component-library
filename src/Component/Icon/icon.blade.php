@@ -1,6 +1,6 @@
 <!-- icon.blade.php -->
 @if($icon)
-    <{{$componentElement}} class="{{ $class }} {{$classPrefix}}{{$icon}}{{$classSuffix}}">
+    <{{$componentElement}} class="{{ $class }} {{$classPrefix}}{{$icon}}{{$classSuffix}}" {!! $attribute !!}>
     @if($slot)
     <span class="{{$baseClass}}__label">{{$slot}}</span>
     @endif

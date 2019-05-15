@@ -1,6 +1,6 @@
 <!-- hero.blade.php -->
 @if($componentShow)
-    <{{$componentElement}} class="{{ $class }}">
+    <{{$componentElement}} class="{{ $class }}" {!! $attribute !!}>
 
         <div class="{{$baseClass}}__body">
 

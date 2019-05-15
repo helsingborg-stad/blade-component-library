@@ -1,6 +1,6 @@
 <!-- testimonials.blade.php -->
 @if($testimonials)
-    <{{$componentElement}} class="{{$class}}">
+    <{{$componentElement}} class="{{$class}}" {!! $attribute !!}>
             <div class="grid js-autoslide-xs js-autoslide-sm js-autoslide-md" data-flickity="{{ $flickitySettings }}">
                 @foreach($testimonials as $testimonial)
                     <div class="testimonial js-slider grid-xs-12 grid-sm-6 grid-lg-3">

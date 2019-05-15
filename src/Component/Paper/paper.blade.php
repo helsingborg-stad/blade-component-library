@@ -1,4 +1,4 @@
 <!-- card.blade.php -->
-<div class="{{$class}}">
+<div class="{{$class}}" {!! $attribute !!}>
     {{ $slot }}
 </div>
