@@ -2,9 +2,9 @@
 @if($list)
 <{{$componentElement}} class="{{ $class }}" js-expand-container="{{ $baseClass }}">
     @foreach($list as $section)
-      <{{$sectionElement}} class="{{$baseClass}}__section" aria-labelledby="{{$baseClass}}__section-{{ $loop->index }}">
+      <{{$sectionElement}} class="{{$baseClass}}__section">
 
-<{{$sectionHeadingElement}} class="{{$baseClass}}__button" aria-controls="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-expanded="false" js-expand-button="{{ $baseClass }}__button">
+        <{{$sectionHeadingElement}} class="{{$baseClass}}__button" aria-controls="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-expanded="false" js-expand-button="{{ $baseClass }}__button">
             <span class="{{$baseClass}}__button-wrapper">
                 {!!$beforeHeading!!}
                 {{ $section['heading'] }}
@@ -15,7 +15,7 @@
             </span>
         </{{$sectionHeadingElement}}>
 
-            <{{$sectionContentElement}} class="{{$baseClass}}__content" id="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-hidden="true">
+        <{{$sectionContentElement}} class="{{$baseClass}}__content" id="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-hidden="true">
           {!!$beforeContent!!}
           {{ $section['content'] }}
           {!!$afterContent!!}
