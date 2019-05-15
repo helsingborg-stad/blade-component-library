@@ -2,7 +2,8 @@
 <form class="{{$class}}" method="" action="" target="">
     {!! $slot !!}
     <input type="button" class="c-button">
-    <input type="checkbox">
+    <label><input type="checkbox"></label>
+    <label><input type="radio"></label>
     <input type="color">
     <input type="date">
     <input type="datetime-local">
