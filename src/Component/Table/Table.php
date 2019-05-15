@@ -9,7 +9,7 @@ class Table extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        $this->data['classList'][] = "table";  
+        $this->data['classList'][] = "c-table";  
 
         //Zebra stripes
         if($hasZebraStripes) {
