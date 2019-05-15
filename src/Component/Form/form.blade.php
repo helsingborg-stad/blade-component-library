@@ -8,7 +8,7 @@
             <input type="checkbox" class="hidden-box" id="check-first" checked/>
             <label for="check-first" class="check--label">
             <span class="check--label-box"></span>
-            <span class="check--label-text">I have a candy.</span>
+            <span class="check--label-text">I have some candy.</span>
             </label>
         </li>
         <li class="list-item">
