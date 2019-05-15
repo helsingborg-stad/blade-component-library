@@ -10,7 +10,7 @@
     },
     "description":{
       "activeIndex":"The currently active index",
-      "items":"List of arrays containing at least 'label' and 'href' but can also contain 'href'.",
+      "items":"List of arrays containing at least 'label' and 'href' option 'icon' name as string.",
       "elementType":"The type of wrapper.",
       "activeClass":"The name of currently active class.",
       "wrapper":"Wrap component with <nav> etc.",
