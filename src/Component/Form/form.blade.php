@@ -4,7 +4,7 @@
     <input type="button" class="c-button">
     
     <div class="c-checkbox">
-    <label for="test-check"><input type="checkbox" name="test-check"></label>  
+    <label for="test-check"></label> <input type="checkbox" name="test-check">
     </div>
 
     <input type="radio"  name="test-radio"><label for="test-radio"></label>
