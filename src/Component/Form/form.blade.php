@@ -5,25 +5,25 @@
     
     <h3>Checkboxes</h3>
     <ul class="c-checkbox">
-        <li class="c-check__list-item">
-            <input type="checkbox" class="c-check__hidden-box" id="check-first" checked/>
-            <label for="check-first" class="c-check__label">
-            <span class="c-check__label-box"></span>
-            <span class="c-check__label-text">I have some candy.</span>
+        <li class="c-checkbox__list-item">
+            <input type="checkbox" class="c-checkbox__hidden-box" id="check-first" checked/>
+            <label for="check-first" class="c-checkbox__label">
+            <span class="c-checkbox__label-box"></span>
+            <span class="c-checkbox__label-text">I have some candy.</span>
             </label>
         </li>
-        <li class="c-check__list-item">
-            <input type="checkbox" class="c-check__hidden-box" id="check-second" />
-            <label for="check-second" class="c-check__label">
-            <span class="c-check__label-box"></span>
-            <span class="c-check__label-text">I Need more candy!</span>
+        <li class="c-checkbox__list-item">
+            <input type="checkbox" class="c-checkbox__hidden-box" id="check-second" />
+            <label for="check-second" class="c-checkbox__label">
+            <span class="c-checkbox__label-box"></span>
+            <span class="c-checkbox__label-text">I Need more candy!</span>
             </label>
         </li>
-        <li class="c-check__list-item">
-            <input type="checkbox" class="c-check__hidden-box" id="check-third" />
-            <label for="check-third" class="c-check__label">
-            <span class="c-check__label-box"></span>
-            <span class="c-check__label-text">I'm greedy, Give me more candy!!!!</span>
+        <li class="c-checkbox__list-item">
+            <input type="checkbox" class="c-checkbox__hidden-box" id="check-third" />
+            <label for="check-third" class="c-checkbox__label">
+            <span class="c-checkbox__label-box"></span>
+            <span class="c-checkbox__label-text">I'm greedy, Give me more candy!!!!</span>
             </label>
         </li>
     </ul>
