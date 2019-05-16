@@ -44,8 +44,8 @@ class Register
         self::$data->{$slug} = (object) array(
             'slug'       => (string) $slug,
             'args'       => (object) $defaultArgs,
-            'view'       => (string) $slug . DIRECTORY_SEPARATOR . $view,
-            'controller' => (string) $slug
+            'view'       => (string) ucfirst($slug) . DIRECTORY_SEPARATOR . $view,
+            'controller' => (string) ucfirst($slug)
         );
 
         //Add include alias
