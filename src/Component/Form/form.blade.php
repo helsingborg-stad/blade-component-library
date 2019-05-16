@@ -54,7 +54,7 @@
 
     <h3>Text fields</h3>
     <div class="c-input-text">
-        <input class="cp-input-text__field" type="email">
+        <input class="cp-input-text__field" type="email" placeholder="email">
         <label class="cp-input-text__label">E-mail</label>
     </div>
 
