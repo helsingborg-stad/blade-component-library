@@ -76,7 +76,11 @@
     <input type="search">
     <input type="submit">
     <input type="tel">
-    <input type="text">
+    <h3>Input field</h3>
+    <div>
+    <input placeholder="johan 123" type="text">
+    <div class="cp-form-line-ripple"></div>
+    </div>
     <input type="time">
     <input type="url">
     <input type="week">
