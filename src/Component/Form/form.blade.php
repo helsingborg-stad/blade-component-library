@@ -34,21 +34,21 @@
             <input type="radio" class="c-radiobutton__hidden-box" name="cool-radio" id="radio-first" checked/>
             <label for="radio-first" class="c-radiobutton__label">
             <span class="c-radiobutton__label-box"></span>
-            <span class="c-radiobutton__label-text">Radio Ibiza</span>
+            <span class="c-radiobutton__label-text">I like candy!</span>
             </label>
         </li>
         <li class="c-radiobutton__list-item">
             <input type="radio" class="c-radiobutton__hidden-box" name="cool-radio" id="radio-second" />
             <label for="radio-second" class="c-radiobutton__label">
             <span class="c-radiobutton__label-box"></span>
-            <span class="c-radiobutton__label-text">Radio Berlin</span>
+            <span class="c-radiobutton__label-text">I'm not sure I like candy</span>
             </label>
         </li>
         <li class="c-radiobutton__list-item">
             <input type="radio" class="c-radiobutton__hidden-box" name="cool-radio" id="radio-third" />
             <label for="radio-third" class="c-radiobutton__label">
             <span class="c-radiobutton__label-box"></span>
-            <span class="c-radiobutton__label-text">Radio London</span>
+            <span class="c-radiobutton__label-text">I hate candy!</span>
             </label>
         </li>
     </ul>
