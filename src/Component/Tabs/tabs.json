@@ -1,12 +1,16 @@
 {
-    "slug":"tabs",
-    "default":{
+    "slug": "tabs",
+    "default": {
+        "id": "",
         "componentElement": "div",
-        "tabs": []
+        "tabs": [],
+        "headingElement": "button",
+        "contentElement": "div"
     },
-    "description":{
+    "description": {
+        "id": "ID for the component",
         "componentElement": "The tag for the component",
         "tabs": "List containing tabs with tab title and content."
     },
-    "view":"tabs.blade.php"
- }
+    "view": "tabs.blade.php"
+}
