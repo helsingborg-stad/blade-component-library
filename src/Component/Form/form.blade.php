@@ -1,8 +1,7 @@
 <!-- form.blade.php -->
 <form class="{{$class}}" {!! $attribute !!}>
     {!! $slot !!}
-    <input type="button" class="c-button">
-    
+
     <h3>Checkboxes</h3>
     <ul class="c-checkbox">
         <li class="c-checkbox__list-item">
@@ -52,23 +51,21 @@
             </label>
         </li>
     </ul>
-    
 
-    <input type="color">
-    <input type="date">
-    <input type="datetime-local">
-    <input type="email">
-    @fileinput([
-            'classList' => ['unlist'],
-            'display' => 'area',
-            'multiple' => true,
-            'label' => 'Choose files...'
-        ])
-    @endfileinput
+    <h3>Text fields</h3>
+    <div class="c-input-text">
+        <input class="cp-input-text__field" type="email">
+        <label class="cp-input-text__label">E-mail</label>
+    </div>
 
     <div class="c-input-text">
         <input class="cp-input-text__field" type="date" value="<?php echo date('Y-m-d'); ?>">
         <label class="cp-input-text__label">Date</label>
+    </div>
+
+    <div class="c-input-text">
+        <input class="cp-input-text__field" type="week" placeholder="week">
+        <label class="cp-input-text__label">Week</label>
     </div>
 
     <div class="c-input-text">
@@ -85,13 +82,6 @@
         <input class="cp-input-text__field" type="password" placeholder="password">
         <label class="cp-input-text__label">Password</label>
     </div>
-
-    <div class="c-input-range">
-        <input type="range">
-    </div>
-
-
-    <input type="reset">
 
     <div class="c-input-text">
         <input class="cp-input-text__field" type="search" placeholder="search">
@@ -114,12 +104,29 @@
         <label class="cp-input-text__label">Url</label>
     </div>
 
-    <input type="time">
-    <input type="url">
-    <input type="week">
-
+    <h3>Text area</h3>
     <textarea></textarea>
 
+    <h3>Range Slider</h3>
+    <div class="c-input-range">
+        <input type="range">
+    </div>
+
+    <h3>Color picker</h3>
+    <input type="color">
+
+    <h3>File upload</h3>
+    @fileinput([
+    'classList' => ['unlist'],
+    'display' => 'area',
+    'multiple' => true,
+    'label' => 'Choose files...'
+    ])
+    @endfileinput
+
+
+    <h3>Form buttons</h3>
     <input type="reset">
     <input type="submit" value="Submit">
+    <input type="button" class="c-button" value="Submit form">
 </form>
