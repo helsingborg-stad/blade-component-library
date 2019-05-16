@@ -44,8 +44,8 @@ class Register
         self::$data->{$slug} = (object) array(
             'slug'       => (string) $slug,
             'args'       => (object) $defaultArgs,
-            'view'       => (string) ucfirst($slug) . DIRECTORY_SEPARATOR . $view,
-            'controller' => (string) ucfirst($slug)
+            'view'       => (string) $slug . DIRECTORY_SEPARATOR . $view,
+            'controller' => (string) $slug
         );
 
         //Add include alias
@@ -175,7 +175,7 @@ class Register
     private static function registerComponentAlias($componentSlug)
     {
         Blade::instance()->component(
-            $componentSlug  . '.' . $componentSlug,
+            ucfirst($componentSlug)  . '.' . $componentSlug,
             $componentSlug
         );
     }
@@ -183,7 +183,7 @@ class Register
     public static function registerViewComposer($component)
     {
         Blade::instance()->composer(
-            $component->slug . '.' . $component->slug,
+            ucfirst($component->slug) . '.' . $component->slug,
             function ($view) use ($component) {
 
                 $controllerName = self::camelCase(
@@ -264,6 +264,7 @@ class Register
      */
     public static function locateController($controller)
     {
+
         if (is_array(Register::$controllerPaths) && !empty(Register::$controllerPaths)) {
 
             foreach (Register::$controllerPaths as $path) {
