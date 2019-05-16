@@ -65,22 +65,55 @@
             'label' => 'Choose files...'
         ])
     @endfileinput
-    <input type="hidden">
-    <input type="image">
-    <input type="month">
-    <input type="number">
-    <input type="password">
-    <input type="radio">
-    <input type="range">
-    <input type="reset">
-    <input type="search">
-    <input type="submit">
-    <input type="tel">
-    <h3>Input field</h3>
-    <div>
-    <input placeholder="johan 123" type="text">
-    <div class="cp-form-line-ripple"></div>
+
+    <div class="c-input-text">
+        <input class="cp-input-text__field" type="date" value="<?php echo date('Y-m-d'); ?>">
+        <label class="cp-input-text__label">Date</label>
     </div>
+
+    <div class="c-input-text">
+        <input class="cp-input-text__field" type="time" placeholder="time">
+        <label class="cp-input-text__label">Time</label>
+    </div>
+
+    <div class="c-input-text">
+        <input class="cp-input-text__field" type="number" placeholder="number">
+        <label class="cp-input-text__label">Number</label>
+    </div>
+
+    <div class="c-input-text">
+        <input class="cp-input-text__field" type="password" placeholder="password">
+        <label class="cp-input-text__label">Password</label>
+    </div>
+
+    <div class="c-input-range">
+        <input type="range">
+    </div>
+
+
+    <input type="reset">
+
+    <div class="c-input-text">
+        <input class="cp-input-text__field" type="search" placeholder="search">
+        <label class="cp-input-text__label">Search</label>
+    </div>
+
+
+    <div class="c-input-text">
+        <input class="cp-input-text__field" type="tel" placeholder="phone">
+        <label class="cp-input-text__label">Phone</label>
+    </div>
+
+    <div class="c-input-text">
+        <input class="cp-input-text__field" type="text" placeholder="text">
+        <label class="cp-input-text__label">Text field</label>
+    </div>
+
+    <div class="c-input-text">
+        <input class="cp-input-text__field" type="url" placeholder="url">
+        <label class="cp-input-text__label">Url</label>
+    </div>
+
     <input type="time">
     <input type="url">
     <input type="week">
