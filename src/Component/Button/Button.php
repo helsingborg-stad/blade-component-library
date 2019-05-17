@@ -42,5 +42,11 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         if($isPlain) {
             $this->data['classList'][] = $this->getBaseClass() . "--plain"; 
         }
+
+        //Has ripple
+        if($hasRipple) {
+            $this->data['classList'][] = "ripple"; 
+            $this->data['classList'][] = "ripple--before"; 
+        }
     }
 }
