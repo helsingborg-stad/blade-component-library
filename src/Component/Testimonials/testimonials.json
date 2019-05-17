@@ -1,7 +1,6 @@
 {
     "slug": "testimonials",
     "default": {
-        "flickitySettings": "",
         "componentElement": "div",
         "testimonials": [],
         "perRow": 1,
@@ -9,7 +8,6 @@
         "titleElement": "h3"
     },
     "description": {
-        "flickitySettings": "List of flickity settings",
         "componentElement": "The tag for the component",
         "testimonials": "List containing testimonial items",
         "perRow": "Number of columns per row. Must be integer divisible by 12",
