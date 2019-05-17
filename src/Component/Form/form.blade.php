@@ -116,7 +116,7 @@
     </div>
 
     <h3>Color picker</h3>
-    <div class="c-input-text">
+    <div class="c-input-color">
         <input type="color">
     </div>
 
