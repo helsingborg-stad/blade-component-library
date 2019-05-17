@@ -1,7 +1,20 @@
 {
     "slug":"modal",
     "default":{
-       "heading":""
+       "heading":"",
+       "slot":"",
+       "top":"",
+       "bottom":"",
+       "overlay":"light",
+       "isPanel":false
     },
+    "description":{
+      "heading":"The title of the modal",
+      "slot":"The main content of the modal",
+      "top":"Extra slot at the top of the modal (above title)",
+      "bottom":"Extra slot at the bottom of the modal (below content)",
+      "overlay":"Overlay color (dark, light)",
+      "isPanel":"Removes padding, to enable a panel like behaviour."
+   },
     "view":"modal.blade.php"
  }
