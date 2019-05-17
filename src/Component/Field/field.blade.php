@@ -1,6 +1,6 @@
 <!-- field.blade.php -->
 <div class="{{$class}}">
-    @if($textarea)
+    @if(!$textarea)
         <input {!! $attribute !!} >
     @else
         <textarea {!! $attribute !!} ></textarea>
