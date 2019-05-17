@@ -11,7 +11,9 @@
 
         "slot": "",
         "top":"",
-        "bottom":""
+        "bottom":"",
+
+        "hasRipple":true
     },
     "description":{
         "image":"A url to a image.",
