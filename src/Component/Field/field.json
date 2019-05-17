@@ -1,0 +1,12 @@
+{
+    "slug":"field",
+    "default":{
+
+        "textarea" : false
+    },
+    "description":{
+
+        "textarea" : "Set to true, you create a textarea"
+    },
+    "view":"field.blade.php"
+ }
