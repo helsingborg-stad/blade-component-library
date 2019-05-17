@@ -1,18 +1,18 @@
 {
-    "slug": "logotype",
-    "default": {
-        "src": false,
-        "alt": "",
-        "caption": "",
+    "slug":"logotype",
+    "default":{
+        "src":false,
+        "alt":"",
+        "caption":"",
         "title":"",
-        "placeholderText": "Image missing"
+        "placeholderText":"Image missing"
     },
-    "description": {
-        "src": "A image source",
-        "alt": "Alt text for the image",
-        "caption": "A label below the logotype. eg company name",
+    "description":{
+        "src":"A image source",
+        "alt":"Alt text for the image",
+        "caption":"A label below the logotype. eg company name",
         "title":"A title (not displayed)",
-        "placeholderText": "What to show if an invalid url is entered."
+        "placeholderText":"What to show if an invalid url is entered."
     },
-    "view": "logotype.blade.php"
+    "view":"logotype.blade.php"
 }

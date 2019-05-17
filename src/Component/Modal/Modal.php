@@ -10,25 +10,17 @@ class Modal extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        //Default label 
-        $this->data['text'] = "Undefined label"; 
-
         //Class list
-        $this->data['classList'][] = "btn"; 
+        $this->data['classList'][] = "c-modal"; 
 
-        //Primary btn
-        if($isPrimary) {
-            $this->data['classList'][] = "btn-primary"; 
+        //Panel
+        if($isPanel) {
+            $this->data['classList'][] = $this->getBaseClass() . "--is-panel"; 
+        } else {
+            $this->data['classList'][] = $this->getBaseClass() . "--is-modal"; 
         }
 
-        //Disabled btn
-        if($isDisabled) {
-            $this->data['classList'][] = "btn-disabled"; 
-        }
-
-        //Disabled btn
-        if($isOutlined) {
-            $this->data['classList'][] = "btn-outline"; 
-        }
+        //Overlay
+        $this->data['classList'][] = $this->getBaseClass() . "--overlay-" . $overlay; 
     }
 }

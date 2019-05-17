@@ -17,7 +17,7 @@
                 {{ $item['label'] }}
             </span>
           </a>
-          @include('menu.sub') {{--- Recursive action ---}}
+          @include('Menu.sub') {{--- Recursive action ---}}
         </li>
       @endforeach
     </ul>
