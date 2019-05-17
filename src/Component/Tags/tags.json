@@ -1,14 +1,14 @@
 {
-    "slug":"tags",
-    "default":{
+    "slug": "tags",
+    "default": {
         "componentElement": "div",
-        "beforeLabel": "#",
+        "beforeLabel": "# ",
         "afterLabel": ""
     },
-    "description":{
+    "description": {
         "componentElement": "",
         "beforeLabel": "",
         "afterLabel": ""
     },
-    "view":"tags.blade.php"
- }
+    "view": "tags.blade.php"
+}
