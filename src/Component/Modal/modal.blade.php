@@ -17,9 +17,9 @@
         @endif
 
         @if($slot)
-            <article class="{{$baseClass}}__content">
+            <div class="{{$baseClass}}__content">
                 {{$slot}}
-            </article>
+            </div>
         @endif
 
         {!! $bottom !!}

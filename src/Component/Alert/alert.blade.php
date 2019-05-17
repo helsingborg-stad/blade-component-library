@@ -1,32 +1,32 @@
 <!-- alert.blade.php -->
 <div class="{{ $class }}" {!! $attribute !!}>
 
-    {!! $top !!}
+    <div class="{{$baseClass}}__inner">
 
-    @if($title) 
-        <h2 class="{{$baseClass}}__heading">
-            {{$title}}
-        </h2>
-    @endif
+        @if($title) 
+            <h2 class="{{$baseClass}}__heading">
+                {{$title}}
+            </h2>
+        @endif
 
-    @if($slot)
-        <article class="{{$baseClass}}__content">
-            {{$slot}}
-        </article>
-    @endif
+        @if($slot)
+            <div class="{{$baseClass}}__content">
+                {{$slot}}
+            </div>
+        @endif
 
-    @if($dismiss) 
-        @button(['href' => "#dismiss", 'isPrimary' => false])
-            {{$dismiss}}
-        @endbutton
-    @endif
+        @if($dismiss) 
+            @button(['href' => "#dismiss", 'isPrimary' => false])
+                {{$dismiss}}
+            @endbutton
+        @endif
 
-    @if($accept)
-        @button(['href' => "#accept", 'isPrimary' => true])
-            {{$accept}}
-        @endbutton
-    @endif
+        @if($accept)
+            @button(['href' => "#accept", 'isPrimary' => true])
+                {{$accept}}
+            @endbutton
+        @endif
 
-    {!! $bottom !!}
+    </div>
 
 </div>

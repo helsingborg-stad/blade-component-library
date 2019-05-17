@@ -12,8 +12,7 @@ class Alert extends \BladeComponentLibrary\Component\BaseController
         //Class list
         $this->data['classList'][] = "c-alert";
 
-        if($hasBackdrop) {
-            $this->data['classList'][] = $this->getBaseClass() . "--backdrop";
-        }
+        //Overlay
+        $this->data['classList'][] = $this->getBaseClass() . "--overlay-" . $overlay; 
     }
 }

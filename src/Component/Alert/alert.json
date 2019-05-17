@@ -5,9 +5,7 @@
        "slot":"",
        "dismiss":"",
        "accept":"",
-       "hasBackdrop":false,
-       "top":"",
-       "bottom":""
+       "overlay":"light"
     },
     "description":{
       "title":"The title of the alert or confirm.",
