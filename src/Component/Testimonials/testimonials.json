@@ -3,12 +3,18 @@
     "default": {
         "flickitySettings": "",
         "componentElement": "div",
-        "testimonials": []
+        "testimonials": [],
+        "perRow": 1,
+        "nameElement": "h2",
+        "titleElement": "h3"
     },
     "description": {
         "flickitySettings": "List of flickity settings",
         "componentElement": "The tag for the component",
-        "testimonials": "List containing testimonial items"
+        "testimonials": "List containing testimonial items",
+        "perRow": "Number of columns per row. Must be integer divisible by 12",
+        "nameElement": "Name element",
+        "titleElement": "Title element"
     },
     "view": "testimonials.blade.php"
 }
