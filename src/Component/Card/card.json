@@ -26,7 +26,8 @@
 
         "slot":"Empty slot placed in the middle of card.",
         "top":"Empty slot placed in the top of card.",
-        "bottom":"Empty slot placed in the bottom of card."
+        "bottom":"Empty slot placed in the bottom of card.",
+        "hasRipple":"Enable / disable ripple fx"
     },
     "view":"card.blade.php"
  }
