@@ -1,5 +1,9 @@
 <!-- field.blade.php -->
 <div class="{{$class}}">
-    <input {!! $attribute !!} >
+    @if({{$textarea}}) 
+        <input {!! $attribute !!} >
+    @else
+        <textarea {!! $attribute !!} ></textarea>
+    @endif
     <label>{{$label}}</label>
 </div>
