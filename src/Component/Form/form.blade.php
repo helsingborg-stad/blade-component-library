@@ -106,7 +106,9 @@
     </div>
 
     <h3>Text area</h3>
-    <textarea></textarea>
+    <div class="c-input-text">
+        <textarea></textarea>
+    </div>
 
     <h3>Range Slider</h3>
     <div class="c-input-range">
@@ -114,7 +116,7 @@
     </div>
 
     <h3>Color picker</h3>
-    <div class="c-input-text">
+    <div class="c-input-color">
         <input type="color">
     </div>
 
