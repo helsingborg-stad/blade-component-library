@@ -11,17 +11,15 @@
         "roundedTopRight": false,
         "roundedBottomLeft": false,
         "roundedBottomRight": false,
-        "roundedCircle": false,
-        "roundedRadius": "md"
+        "roundedRadius": ""
     },
     "description": {
-        "rounded": "Image has radius on all corners",
-        "roundedTopLeft": "Image has radius on top left corner",
-        "roundedTopRight": "Image has radius on top right corners",
-        "roundedBottomLeft": "Image has radius on bottom left corners",
-        "roundedBottomRight": "Image has radius on bottom right corners",
-        "roundedCircle": "Image has radius as a circle",
-        "roundedRadius": "Radius of rounded (xs, sm, md, lg)"
+        "rounded": "Image radius on all 4 corners",
+        "roundedTopLeft": "Image radius on top left corner",
+        "roundedTopRight": "Image radius on top right corners",
+        "roundedBottomLeft": "Image radius on bottom left corners",
+        "roundedBottomRight": "Image radius on bottom right corners",
+        "roundedRadius": "Radius size: xs, sm, md and lg"
     },
     "view": "image.blade.php"
 }
