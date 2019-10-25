@@ -1,11 +1,27 @@
 {
-    "slug":"image",
-    "default":{
-       "src":false,
-       "alt":"",
-       "caption":"",
-       "placeholderText":"Image missing",
-       "fullWidth": false
+    "slug": "image",
+    "default": {
+        "src": false,
+        "alt": "",
+        "caption": "",
+        "placeholderText": "Image missing",
+        "fullWidth": false,
+        "rounded": false,
+        "roundedTopLeft": false,
+        "roundedTopRight": false,
+        "roundedBottomLeft": false,
+        "roundedBottomRight": false,
+        "roundedCircle": false,
+        "roundedRadius": "md"
     },
-    "view":"image.blade.php"
- }
+    "description": {
+        "rounded": "Image has radius on all corners",
+        "roundedTopLeft": "Image has radius on top left corner",
+        "roundedTopRight": "Image has radius on top right corners",
+        "roundedBottomLeft": "Image has radius on bottom left corners",
+        "roundedBottomRight": "Image has radius on bottom right corners",
+        "roundedCircle": "Image has radius as a circle",
+        "roundedRadius": "Radius of rounded (xs, sm, md, lg)"
+    },
+    "view": "image.blade.php"
+}
