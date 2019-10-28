@@ -7,15 +7,23 @@ class Icon extends \BladeComponentLibrary\Component\BaseController
 
     public function init() {
 
-        //Extract array for eazy access (fetch only)
+        //Extract array for easy access (fetch only)
         extract($this->data);
+
+        //Add base class
+        array_unshift($this->data['classList'], "c-icon");
 
         //Append space before label
         if($label = trim($label)) {
             $this->data['label'] = " " . $label;
         }
 
-        //Avabile sizes
+        // Set color based on provided name
+        if(isset($color)) {
+            $this->data['classList'][] = $this->getBaseClass() . "--color-" .  strtolower($color);
+        }
+
+        //Available sizes
         $sizes = [
             'xs' => '16',
             'sm' => '24',
@@ -24,9 +32,6 @@ class Icon extends \BladeComponentLibrary\Component\BaseController
             'xl' => '64',
             'xxl' => '80',
         ];
-
-        //Add base class
-        array_unshift($this->data['classList'], "c-icon");
 
         //Size class
         if(isset($sizes[$size])) {
