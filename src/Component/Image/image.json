@@ -11,7 +11,8 @@
         "roundedTopRight": false,
         "roundedBottomLeft": false,
         "roundedBottomRight": false,
-        "roundedRadius": ""
+        "roundedRadius": "",
+        "modalId": ""
     },
     "description": {
         "rounded": "Image radius on all 4 corners",
@@ -19,7 +20,8 @@
         "roundedTopRight": "Image radius on top right corners",
         "roundedBottomLeft": "Image radius on bottom left corners",
         "roundedBottomRight": "Image radius on bottom right corners",
-        "roundedRadius": "Radius size: xs, sm, md and lg"
+        "roundedRadius": "Radius size: xs, sm, md and lg",
+        "modalId": "modal id, if you want the image to be opened in a modal"
     },
     "view": "image.blade.php"
 }
