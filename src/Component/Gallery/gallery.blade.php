@@ -1,20 +1,41 @@
 <!-- gallery.blade.php -->
 @if($list)
-  <ul class="{{ $class }}" {!! $attribute !!}>
-    @foreach($list as $item)
-      <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
-        <a class="{{$baseClass}}__link {{$baseClass}}__link-{{ $loop->index }}" href="{{$item['largeImage']}}">
-          @image([
-              'src'=> $item['smallImage'],
-              'alt' => $item['alt'],
-              'caption' => $item['caption'],
-              'fullWidth' => true
-          ])
-          @endimage
-        </a>
-      </li>
-    @endforeach
-  </ul>
+    @php
+        $unique = $loop->iteration.uniqid();
+    @endphp
+
+    <ul class="{{ $class }}" {!! $attribute !!}>
+        @foreach($list as $key => $item)
+            <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
+
+                @image([
+                    'src'=> $item['smallImage'],
+                    'alt' => $item['alt'],
+                    'caption' => $item['caption'],
+                    'fullWidth' => true,
+                    'attributeList' => ['data-open' => 'gallery_'.$unique, 'data-imgSrc' =>  $item['largeImage']]
+                    ])
+                @endimage
+
+            </li>
+        @endforeach
+    </ul>
+
+    @modal([
+        'isPanel' => false,
+        'overlay' => 'dark',
+        'animation' => 'scale-up',
+        'navigation' => true,
+        'id' => 'gallery_'.$unique
+    ])
+
+        @image([
+            'src'=> '',
+            'alt' => "This is a image in a modal"
+        ])
+        @endimage
+
+    @endmodal
 @else
-<!-- No gallery data -->
+    <!-- No gallery data -->
 @endif
