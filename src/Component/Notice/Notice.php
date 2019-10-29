@@ -13,32 +13,38 @@ class Notice extends \BladeComponentLibrary\Component\BaseController
         //Class list
         $this->data['classList'][] = "c-notice"; 
 
+        //Message
+        if(isset($message) && $message){
+            $this->data['message'] = ucfirst($message);
+        }
+
         //Success
         if($isSuccess) {
             $this->data['classList'][] = $this->getBaseClass() . "--success"; 
-            $this->data['icon'] = ($icon) ? $icon : 'check';          
-            $this->data['message'] = (isset($message) && $message) ? $message : 'This is the content of this masterpiece called notice.';          
+            $this->data['icon'] = ($icon) ? $icon : 'check';                 
         }
 
         //Warning
         if($isWarning) {
             $this->data['icon'] = ($icon) ? $icon : 'check';         
             $this->data['classList'][] = $this->getBaseClass() . "--warning"; 
-            $this->data['message'] = (isset($message) && $message) ? $message : 'This is the content of this masterpiece called notice.';   
         }
 
         //Danger
         if($isDanger) {
             $this->data['classList'][] = $this->getBaseClass() . "--danger"; 
             $this->data['icon'] = ($icon) ? $icon : 'check';  
-            $this->data['message'] = (isset($message) && $message) ? $message : 'This is the content of this masterpiece called notice.';          
         }
 
         //Info
         if($isInfo) {
             $this->data['classList'][] = $this->getBaseClass() . "--info"; 
             $this->data['icon'] = ($icon) ? $icon : 'check';  
-            $this->data['message'] = (isset($message) && $message) ? $message : 'This is the content of this masterpiece called notice.';          
+        }
+
+        //Slide
+        if(isset($slide)){
+            $this->data['classList'][] = $this->getBaseClass() . "__slide--from-" . $slide; 
         }
     }
 }
