@@ -4,7 +4,7 @@
         $unique = $loop->iteration.uniqid();
     @endphp
 
-    <ul class="{{ $class }}" {!! $attribute !!}>
+    <ul class="{{ $class }}" {!! $attribute !!} data-modal="true">
         @foreach($list as $key => $item)
             <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
 
