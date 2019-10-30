@@ -1,7 +1,7 @@
 <!-- gallery.blade.php -->
 @if($list)
     @php
-        $unique = $loop->iteration.uniqid();
+        $uniqueId = "gallery_".uniqid();
     @endphp
 
     <ul class="{{ $class }}" {!! $attribute !!}>
@@ -13,7 +13,7 @@
                     'alt' => $item['alt'],
                     'caption' => $item['caption'],
                     'fullWidth' => true,
-                    'attributeList' => ['data-open' => 'gallery_'.$unique, 'data-imgSrc' =>  $item['largeImage']]
+                    'attributeList' => ['data-open' => $uniqueId, 'data-imgSrc' =>  $item['largeImage']]
                     ])
                 @endimage
 
@@ -26,7 +26,7 @@
         'overlay' => 'dark',
         'animation' => 'scale-up',
         'navigation' => true,
-        'id' => 'gallery_'.$unique
+        'id' => $uniqueId
     ])
 
         @image([
