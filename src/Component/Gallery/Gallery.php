@@ -10,4 +10,9 @@ class Gallery extends \BladeComponentLibrary\Component\BaseController
 
         $this->data['classList'][] = "c-gallery"; 
     }
+
+    public static function getUnique(){
+    	return uniqid();
+	}
 }
+

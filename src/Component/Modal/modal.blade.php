@@ -39,8 +39,20 @@
         </header>
         
         <section class="modal-content">
+            @if ($navigation)
+            <button class="{{$baseClass}}__prev" data-prev>
+                @icon(['icon' => 'chevron-left', 'size' => 'md'])
+                @endicon
+            </button>
+            @endif
             {!! $top !!}
             {{$slot}}
+            @if ($navigation)
+                <button class="{{$baseClass}}__next" data-next>
+                    @icon(['icon' => 'chevron-right', 'size' => 'md'])
+                    @endicon
+                </button>
+             @endif
         </section>
 
         <footer class="modal-footer">
