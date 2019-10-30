@@ -14,6 +14,7 @@
                     'caption' => $item['caption'],
                     'fullWidth' => true,
                     'attributeList' => ['data-open' => $uniqueId, 'data-imgSrc' =>  $item['largeImage']]
+
                     ])
                 @endimage
 
