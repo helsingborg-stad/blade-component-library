@@ -1,11 +1,27 @@
 {
-    "slug":"image",
-    "default":{
-       "src":false,
-       "alt":"",
-       "caption":"",
-       "placeholderText":"Image missing",
-       "fullWidth": false
+    "slug": "image",
+    "default": {
+        "src": false,
+        "alt": "",
+        "caption": "",
+        "placeholderText": "Image missing",
+        "fullWidth": false,
+        "rounded": false,
+        "roundedTopLeft": false,
+        "roundedTopRight": false,
+        "roundedBottomLeft": false,
+        "roundedBottomRight": false,
+        "roundedRadius": "",
+        "modalId": ""
     },
-    "view":"image.blade.php"
- }
+    "description": {
+        "rounded": "Image radius on all 4 corners",
+        "roundedTopLeft": "Image radius on top left corner",
+        "roundedTopRight": "Image radius on top right corners",
+        "roundedBottomLeft": "Image radius on bottom left corners",
+        "roundedBottomRight": "Image radius on bottom right corners",
+        "roundedRadius": "Radius size: xs, sm, md and lg",
+        "modalId": "modal id, if you want the image to be opened in a modal"
+    },
+    "view": "image.blade.php"
+}

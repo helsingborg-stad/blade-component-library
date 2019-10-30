@@ -34,11 +34,13 @@ class Button extends \BladeComponentLibrary\Component\BaseController
             $this->data['href'] = "#";
         }
 
+
         if (isset($floating) && $floating['animate'] && $floating['hover']) {
             $this->data['classList'][] = $this->getBaseClass() . "--animated-float-on-hover";
         }elseif (isset($floating) && $floating['hover']) {
             $this->data['classList'][] = $this->getBaseClass() . "--float-on-hover";
         }elseif (isset($floating) && $floating){
+
             $this->data['classList'][] = $this->getBaseClass() . "--floating";
         }
 

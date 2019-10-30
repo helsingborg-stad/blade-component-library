@@ -6,15 +6,21 @@
        "top":"",
        "bottom":"",
        "overlay":"light",
-       "isPanel":false
+       "isPanel":false,
+       "id": "",
+       "animation": "",
+       "navigation": false
     },
     "description":{
       "heading":"The title of the modal",
       "slot":"The main content of the modal",
       "top":"Extra slot at the top of the modal (above title)",
       "bottom":"Extra slot at the bottom of the modal (below content)",
-      "overlay":"Overlay color (dark, light)",
-      "isPanel":"Removes padding, to enable a panel like behaviour."
+
+      "isPanel":"Removes padding, to enable a panel like behaviour.",
+      "id": "A unique id which will be used to target the modal to open with the correct data-attr",
+      "animation": "Which animation to use when opening  and closing the modal.",
+      "navigation": "Set to true if used in galleries."
    },
     "view":"modal.blade.php"
  }
