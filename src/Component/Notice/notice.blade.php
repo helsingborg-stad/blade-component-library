@@ -1,16 +1,12 @@
 <!-- notice.blade.php -->
-@if($slot)
-<div class="{{ $class }}" {!! $attribute !!}>
-
-    @if($icon)
-        @icon($icon)
-        @endicon
-    @endif
-    
-    <span class="{{$baseClass}}__label">
-        {{ $slot }}
-    </span>
-</div>
-@else
-<!-- No notice content -->
+@if(isset($message))
+    <div class="{{ $class }} {!! $attribute !!}">
+        <span class="{{$baseClass}}__icon">
+            @icon(['icon' => $icon, 'size' => 'l'])
+            @endicon
+        </span>
+        <span class="{{$baseClass}}__label">
+            {{ $message }}
+        </span>
+    </div>
 @endif
