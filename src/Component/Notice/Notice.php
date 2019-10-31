@@ -14,11 +14,23 @@ class Notice extends \BladeComponentLibrary\Component\BaseController
         $this->data['classList'][] = "c-notice"; 
 
         //Message
-        if(isset($message) && $message){
-            $this->data['message'] = ucfirst($message);
+        if(isset($message) && is_array($message)){
+            $message['text'] = ucfirst($message['text']);
+            $this->data['message'] = $message;
         }
 
-        if(isset($icon) && $icon){
+        if(isset($message['size'])){
+            $this->data['messageSize'] = $this->getBaseClass() . '__message--' . $message['size'];                
+        }
+
+        if(isset($singleUse) && $singleUse){
+            $this->data['lifeTime'] = 'data-notice-single-use';
+        }else{
+            $this->data['lifeTime'] = 'data-notice-immortal';
+        }
+
+        //Set icon size (depending on avatar size)
+        if(is_array($icon) && !empty($icon) && isset($icon['name'])) {
             $this->data['icon'] = $icon;
         }
 
