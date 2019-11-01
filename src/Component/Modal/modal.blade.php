@@ -1,58 +1,63 @@
-<!-- alert.blade.php -->
-{{-- <div class="{{ $class }}" {!! $attribute !!} id="{{ $id }}" data-state="closed" data-target="{{ $id }}">
-
-    <div class="{{$baseClass}}__inner">
-
-        {!! $top !!}
-
-        <button class="{{$baseClass}}__toggle" data-target="{{ $id }}">
-            @icon(['icon' => 'cancel', 'size' => 'lg'])
-            @endicon
-        </button>
-
-        @if($heading) 
-            <h2 class="{{$baseClass}}__heading">
-                {{$heading}}
-            </h2>
-        @endif
-
-        @if($slot)
-            <div class="{{$baseClass}}__content">
-                {{$slot}}
-            </div>
-        @endif
-
-        {!! $bottom !!}
-
-    </div>
-</div> --}}
-
+<!-- modal.blade.php -->
 <div class="{{ $class }}" {!! $attribute !!} id="{{ $id }}">
     <div class="{{$baseClass}}__inner">
         <header class="modal-header">
             {{$heading}}
             
-            <button class="{{$baseClass}}__close" data-close>
-                @icon(['icon' => 'cancel', 'size' => 'lg'])
-                @endicon
-            </button>
+            @button([
+                'href' => '#btn-3',
+                'isOutlined' => false,
+                'isIconButton' =>  true,
+                'icon' => 'close',
+                'size' => 'lg',
+                'color' => 'secondary',
+                'floating' => ['animate' => true, 'hover' => true],
+                'attributeList' => ['data-close' => ''],
+                'classList' => [$baseClass . "__close"],
+            ])
+            @endbutton
         </header>
         
         <section class="modal-content">
+
+            {{-- Previous button --}}
             @if ($navigation)
-            <button class="{{$baseClass}}__prev" data-prev>
-                @icon(['icon' => 'chevron-left', 'size' => 'md'])
-                @endicon
-            </button>
+                @button([
+                    'href' => '#previous',
+                    'isOutlined' => false,
+                    'isIconButton' =>  true,
+                    'icon' => 'chevron-left',
+                    'reverseIcon' => false,
+                    'size' => 'md',
+                    'color' => 'secondary',
+                    'floating' => ['animate' => true, 'hover' => true],
+                    'attributeList' => ['data-prev' => ''],
+                    'classList' => [$baseClass . "__prev"],
+                    'label' => 'Slide to previous'
+                ])
+                @endbutton
             @endif
+
             {!! $top !!}
             {{$slot}}
+
+            {{-- Next button --}}
             @if ($navigation)
-                <button class="{{$baseClass}}__next" data-next>
-                    @icon(['icon' => 'chevron-right', 'size' => 'md'])
-                    @endicon
-                </button>
-             @endif
+                @button([
+                    'href' => '#next',
+                    'isOutlined' => false,
+                    'isIconButton' =>  true,
+                    'icon' => 'chevron-right',
+                    'reverseIcon' => false,
+                    'size' => 'md',
+                    'color' => 'secondary',
+                    'floating' => ['animate' => true, 'hover' => true],
+                    'attributeList' => ['data-next' => ''],
+                    'classList' => [$baseClass . "__next"],
+                    'label' => 'Slide to next'
+                ])
+                @endbutton
+            @endif
         </section>
 
         <footer class="modal-footer">

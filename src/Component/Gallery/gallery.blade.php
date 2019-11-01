@@ -1,9 +1,5 @@
 <!-- gallery.blade.php -->
 @if($list)
-    @php
-        $uniqueId = "gallery_".uniqid();
-    @endphp
-
     <ul class="{{ $class }}" {!! $attribute !!}>
         @foreach($list as $key => $item)
             <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
