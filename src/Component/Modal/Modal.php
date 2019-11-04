@@ -9,9 +9,7 @@ class Modal extends \BladeComponentLibrary\Component\BaseController
 
         //Extract array for eazy access (fetch only)
         extract($this->data);
-
-        //Class list
-        $this->data['classList'][] = "c-modal"; 
+		array_unshift($this->data['classList'], "c-modal");
 
 
         //Panel
