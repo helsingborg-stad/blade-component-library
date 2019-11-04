@@ -11,7 +11,8 @@ class Modal extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         //Class list
-        $this->data['classList'][] = "c-modal"; 
+        array_unshift($this->data['classList'], 'c-modal');
+
 
 
         //Panel
@@ -21,12 +22,18 @@ class Modal extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . "--is-modal"; 
         }
         
-        //Set animation
-        if($animation) {
-            $this->data['classList'][] = $this->getBaseClass() . "__animation--" . $animation; 
-        } else {
-            $this->data['classList'][] = $this->getBaseClass() . "__animation--slide-down"; 
+        //Ensure animation is present
+        $animation ? $animation : $animation = "slide-down";
+
+        $this->data['parentClass'][] = "c-modal__bg";
+
+        if(isset($animation) && $animation) {
+            $this->data['parentClass'][] = "c-modal__bg__animation--" . $animation;
         }
+
+        $this->data['parentClass'] = implode(" ", $this->data['parentClass']);
+
+        //die(var_dump( $this->data['parentClass']));
 
         //Overlay
         $this->data['classList'][] = $this->getBaseClass() . "--overlay-" . $overlay; 
