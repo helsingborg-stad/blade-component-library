@@ -15,9 +15,7 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         $this->data['labelMod'] = "";
         
         if (isset($isIconButton) && $isIconButton) {
-            $hasRipple = false;
-            $isPlain = true; 
-            $this->data['classList'][] = $this->getBaseClass() . "__icon--" . $size;
+            $this->data['classList'][] = $this->getBaseClass() . "__icon"; 
         } elseif (isset($isOutlined) && $isOutlined) {
             $this->data['classList'][] = $this->getBaseClass() . "__outlined--" . $color; 
         }
