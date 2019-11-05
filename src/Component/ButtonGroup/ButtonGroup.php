@@ -2,7 +2,7 @@
 
 namespace BladeComponentLibrary\Component\ButtonGroup;
 
-class Button extends \BladeComponentLibrary\Component\BaseController
+class ButtonGroup extends \BladeComponentLibrary\Component\BaseController
 {
 
     public function init() {
@@ -10,7 +10,12 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         // Base class
-        array_unshift($this->data['classList'], 'c-btn');
+        array_unshift($this->data['classList'], 'c-btn-group');
+        
+        if(isset($borderColor)){
+            $this->data['classList'][] = $this->getBaseClass() . '__border--' . $border['color']; 
+        }
 
+        
     }
 }

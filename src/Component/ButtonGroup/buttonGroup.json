@@ -1,0 +1,34 @@
+
+
+{
+   "slug":"buttonGroup",
+   "default":{
+      "isOutlined":true,
+      "slot":"Undefined label",
+      "href":"https:\/\/google.se",
+      "target":"_top",
+      "componentElement":"a",
+      "labelElement":"span",
+      "hasRipple":true
+   },
+   "description":{
+      "isOutlined":"Outlined style button ",
+      "label":"The label of the button",
+      "href":"Where should the button link to?",
+      "target":"Open a new tab or not?",
+      "componentElement":"The tag to use for this component",
+      "labelElement":"The element containing the label",
+      "hasRipple":"Enable / disable ripple fx",
+      "text": "The content of a button",
+      "icon": "Name of an icon",
+      "color": "The color of an outlined button",
+      "size": "The size of the button; sm, md, lg",
+      "reverseIcon": "Reverse the order of text and icon (default is to the left)",
+      "floating": "Gives the button box-shadow",
+      "isIconButton": "No text, only an icon",
+      "floatOnHover":"An animation on the button that gives the button a box-shadow with transition"
+   },
+   "view":"buttonGroup.blade.php"
+}
+
+
