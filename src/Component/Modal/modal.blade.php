@@ -1,7 +1,8 @@
-<!-- alert.blade.php -->
-<div class="{{ $class }}" {!! $attribute !!} id="{{ $id }}">
-    <div class="{{$baseClass}}__inner">
+<!-- modal.blade.php -->
+<div class="{{ $parentClass }}" id="{{ $id }}">
+    <div class="{{$class}}"  {!! $attribute !!}>
         <header class="modal-header">
+            {{$heading}}
             {{$heading}}
 
             @button(
@@ -19,8 +20,8 @@
             @endbutton
 
         </header>
-        
-        <section class="modal-content">
+
+        <section class="c-modal__content">
             @if ($navigation)
 
                 @button(
@@ -64,3 +65,4 @@
         </footer>
     </div>
 </div>
+
