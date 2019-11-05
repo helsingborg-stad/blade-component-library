@@ -3,6 +3,7 @@
     <div class="{{$class}}"  {!! $attribute !!}>
         <header class="modal-header">
             {{$heading}}
+<<<<<<< HEAD
             {{$heading}}
 
             @button(
@@ -38,9 +39,25 @@
                 )
                 @endbutton
 
+=======
+            
+            <button class="{{$baseClass}}__close" data-close>
+                @icon(['icon' => 'cancel', 'size' => 'lg'])
+                @endicon
+            </button>
+        </header>
+        
+        <section class="c-modal__content">
+            @if ($navigation)
+                <button class="{{$baseClass}}__prev" data-prev>
+                    @icon(['icon' => 'chevron-left', 'size' => 'md'])
+                    @endicon
+                </button>
+>>>>>>> origin/develop
             @endif
-            {!! $top !!}
-            {{$slot}}
+            
+                {{$slot}}
+    
             @if ($navigation)
 
                     @button(
@@ -57,7 +74,7 @@
                     @endbutton
 
                 </button>
-             @endif
+            @endif
         </section>
 
         <footer class="modal-footer">
