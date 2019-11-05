@@ -4,17 +4,15 @@
        "isSuccess":false,
        "isWarning":false,
        "isDanger":false,
-       "isInfo":false,
-       "message":"Undefined notice message",
-       "icon":false
+       "isInfo":false
     },
     "description":{
       "isSuccess":"Green'ish message",
       "isWarning":"Yellow'ish message",
       "isDanger":"Red'ish message",
       "isInfo":"Blue'ish message",
-      "message":"The message",
-      "icon":"Icon component data"
+      "message":"an array with two parameters: text and size",
+      "icon":"An array of the icon properties. See icon component."
    },
     "view":"notice.blade.php"
  }

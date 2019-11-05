@@ -23,14 +23,8 @@ class Notice extends \BladeComponentLibrary\Component\BaseController
             $this->data['messageSize'] = $this->getBaseClass() . '__message--' . $message['size'];                
         }
 
-        if(isset($singleUse) && $singleUse){
-            $this->data['lifeTime'] = 'data-notice-single-use';
-        }else{
-            $this->data['lifeTime'] = 'data-notice-immortal';
-        }
-
         //Set icon size (depending on avatar size)
-        if(is_array($icon) && !empty($icon) && isset($icon['name'])) {
+        if(isset($icon) && is_array($icon) && !empty($icon) && isset($icon['name'])) {
             $this->data['icon'] = $icon;
         }
 
@@ -52,11 +46,6 @@ class Notice extends \BladeComponentLibrary\Component\BaseController
         //Info
         if($isInfo) {
             $this->data['classList'][] = $this->getBaseClass() . "--info"; 
-        }
-
-        //Slide
-        if(isset($slide)){
-            $this->data['classList'][] = $this->getBaseClass() . "__slide--from-" . $slide; 
         }
     }
 }
