@@ -1,58 +1,63 @@
-<!-- alert.blade.php -->
-{{-- <div class="{{ $class }}" {!! $attribute !!} id="{{ $id }}" data-state="closed" data-target="{{ $id }}">
-
-    <div class="{{$baseClass}}__inner">
-
-        {!! $top !!}
-
-        <button class="{{$baseClass}}__toggle" data-target="{{ $id }}">
-            @icon(['icon' => 'cancel', 'size' => 'lg'])
-            @endicon
-        </button>
-
-        @if($heading) 
-            <h2 class="{{$baseClass}}__heading">
-                {{$heading}}
-            </h2>
-        @endif
-
-        @if($slot)
-            <div class="{{$baseClass}}__content">
-                {{$slot}}
-            </div>
-        @endif
-
-        {!! $bottom !!}
-
-    </div>
-</div> --}}
-
-<div class="{{ $class }}" {!! $attribute !!} id="{{ $id }}">
-    <div class="{{$baseClass}}__inner">
+<!-- modal.blade.php -->
+<div class="{{ $parentClass }}" id="{{ $id }}">
+    <div class="{{$class}}"  {!! $attribute !!}>
         <header class="modal-header">
             {{$heading}}
-            
-            <button class="{{$baseClass}}__close" data-close>
-                @icon(['icon' => 'cancel', 'size' => 'lg'])
-                @endicon
-            </button>
+
+            @button(
+                [
+                    'href' => '#',
+                    'isOutlined' => false,
+                    'text' => '',
+                    'icon' => ['name' => 'close', 'color' => 'white', 'size'=>'md'],
+                    'attributeList' => ['data-close' => true],
+                    'isIconButton' => true,
+                    'classList' => [$baseClass.'__close', '']
+
+                ]
+            )
+            @endbutton
+
         </header>
-        
-        <section class="modal-content">
+
+        <section class="c-modal__content">
             @if ($navigation)
-            <button class="{{$baseClass}}__prev" data-prev>
-                @icon(['icon' => 'chevron-left', 'size' => 'md'])
-                @endicon
-            </button>
+
+                @button(
+                    [
+                        'href' => '#',
+                        'isOutlined' => false,
+                        'text' => '',
+                        'icon' => ['name' => 'chevron-left', 'color' => 'white', 'size'=>'xl'],
+                        'attributeList' => ['data-prev' => true],
+                        'isIconButton' => true,
+                        'classList' => [$baseClass.'__prev'],
+                        'size' => 'lg'
+                    ]
+                )
+                @endbutton
+
             @endif
-            {!! $top !!}
-            {{$slot}}
+            
+                {{$slot}}
+    
             @if ($navigation)
-                <button class="{{$baseClass}}__next" data-next>
-                    @icon(['icon' => 'chevron-right', 'size' => 'md'])
-                    @endicon
+
+                    @button(
+                        [
+                            'href' => '#',
+                            'isOutlined' => false,
+                            'text' => '',
+                            'icon' => ['name' => 'chevron-right', 'color' => 'white', 'size'=>'xl'],
+                            'attributeList' => ['data-next' => true],
+                            'isIconButton' => true,
+                            'classList' => [$baseClass.'__next']
+                        ]
+                    )
+                    @endbutton
+
                 </button>
-             @endif
+            @endif
         </section>
 
         <footer class="modal-footer">
@@ -60,3 +65,4 @@
         </footer>
     </div>
 </div>
+
