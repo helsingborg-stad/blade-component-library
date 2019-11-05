@@ -1,7 +1,7 @@
 <!-- notice.blade.php -->
 
     <div class="{{ $class }} {!! $attribute !!}">
-        @if(isset($icon))
+        @if(isset($icon) && is_array($icon) && !empty($icon))
             <span class="{{$baseClass}}__icon">
                 @icon(['icon' => $icon['name'], 'size' => $icon['size'], 'color' => $icon['color']])
                 @endicon

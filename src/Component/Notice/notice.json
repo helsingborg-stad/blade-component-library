@@ -4,7 +4,9 @@
        "isSuccess":false,
        "isWarning":false,
        "isDanger":false,
-       "isInfo":false
+       "isInfo":false,
+       "message":[],
+       "icon":[]
     },
     "description":{
       "isSuccess":"Green'ish message",

@@ -14,7 +14,7 @@ class Notice extends \BladeComponentLibrary\Component\BaseController
         $this->data['classList'][] = "c-notice"; 
 
         //Message
-        if(isset($message) && is_array($message)){
+        if(isset($message) && is_array($message) && !empty($message)){
             $message['text'] = ucfirst($message['text']);
             $this->data['message'] = $message;
         }
