@@ -13,8 +13,13 @@ class ButtonGroup extends \BladeComponentLibrary\Component\BaseController
         array_unshift($this->data['classList'], 'c-btn-group');
         
         if(isset($borderColor)){
-            $this->data['classList'][] = $this->getBaseClass() . '__border--' . $border['color']; 
+            $this->data['classList'][] = $this->getBaseClass() . '__border--' . $borderColor; 
         }
+
+        if(isset($backgroundColor)){
+            $this->data['classList'][] = $this->getBaseClass() . ' .c-btn--' . $backgroundColor; 
+        }
+        
 
         
     }
