@@ -2,9 +2,8 @@
 
 namespace BladeComponentLibrary\Component\Modal;
 
-class Modal extends \BladeComponentLibrary\Component\BaseController  
+class Modal extends \BladeComponentLibrary\Component\BaseController
 {
-    
     public function init() {
 
         //Extract array for eazy access (fetch only)
@@ -38,4 +37,5 @@ class Modal extends \BladeComponentLibrary\Component\BaseController
         //Overlay
         $this->data['classList'][] = $this->getBaseClass() . "--overlay-" . $overlay; 
     }
+
 }

@@ -1,7 +1,7 @@
 <!-- gallery.blade.php -->
 @if($list)
     @php
-        $uniqueId = "gallery_".uniqid();
+        $uniqueId = "gallery_".\BladeComponentLibrary\Component\Gallery\Gallery::getUnique();
     @endphp
 
     <ul class="{{ $class }}" {!! $attribute !!}>
@@ -27,12 +27,12 @@
         'overlay' => 'dark',
         'animation' => 'scale-up',
         'navigation' => true,
-        'id' => $uniqueId
+        'id' => $uniqueId,
+        'classList' => ['c-modal--gallery']
     ])
 
         @image([
             'src'=> '',
-            'alt' => "This is a image in a modal"
         ])
         @endimage
 
