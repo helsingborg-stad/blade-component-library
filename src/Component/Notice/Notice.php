@@ -14,11 +14,17 @@ class Notice extends \BladeComponentLibrary\Component\BaseController
         $this->data['classList'][] = "c-notice"; 
 
         //Message
-        if(isset($message) && $message){
-            $this->data['message'] = ucfirst($message);
+        if(isset($message) && is_array($message) && !empty($message)){
+            $message['text'] = ucfirst($message['text']);
+            $this->data['message'] = $message;
         }
 
-        if(isset($icon) && $icon){
+        if(isset($message['size'])){
+            $this->data['messageSize'] = $this->getBaseClass() . '__message--' . $message['size'];                
+        }
+
+        //Set icon size (depending on avatar size)
+        if(isset($icon) && is_array($icon) && !empty($icon) && isset($icon['name'])) {
             $this->data['icon'] = $icon;
         }
 
@@ -40,11 +46,6 @@ class Notice extends \BladeComponentLibrary\Component\BaseController
         //Info
         if($isInfo) {
             $this->data['classList'][] = $this->getBaseClass() . "--info"; 
-        }
-
-        //Slide
-        if(isset($slide)){
-            $this->data['classList'][] = $this->getBaseClass() . "__slide--from-" . $slide; 
         }
     }
 }

@@ -1,6 +1,6 @@
 <!-- modal.blade.php -->
-<div class="{{ $class }}" {!! $attribute !!} id="{{ $id }}">
-    <div class="{{$baseClass}}__inner">
+<div class="{{ $parentClass }}" id="{{ $id }}">
+    <div class="{{$class}}"  {!! $attribute !!}>
         <header class="modal-header">
             {{$heading}}
             
@@ -18,7 +18,7 @@
             @endbutton
         </header>
         
-        <section class="modal-content">
+        <section class="c-modal__content">
 
             {{-- Previous button --}}
             @if ($navigation)
@@ -65,3 +65,4 @@
         </footer>
     </div>
 </div>
+

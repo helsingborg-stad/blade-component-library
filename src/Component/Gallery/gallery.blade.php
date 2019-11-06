@@ -9,7 +9,10 @@
                     'alt' => $item['alt'],
                     'caption' => $item['caption'],
                     'fullWidth' => true,
-                    'attributeList' => ['data-open' => $uniqueId, 'data-imgSrc' =>  $item['largeImage']]
+                    'attributeList' => ['data-open' => $
+                    
+                    
+                    ueId, 'data-imgSrc' =>  $item['largeImage']]
 
                     ])
                 @endimage
@@ -23,12 +26,12 @@
         'overlay' => 'dark',
         'animation' => 'scale-up',
         'navigation' => true,
-        'id' => $uniqueId
+        'id' => $uniqueId,
+        'classList' => ['c-modal--gallery']
     ])
 
         @image([
             'src'=> '',
-            'alt' => "This is a image in a modal"
         ])
         @endimage
 
