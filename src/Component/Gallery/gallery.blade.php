@@ -1,20 +1,21 @@
 <!-- gallery.blade.php -->
 @if($list)
+    @php
+        $uniqueId = "gallery_".\BladeComponentLibrary\Component\Gallery\Gallery::getUnique();
+    @endphp
+
     <ul class="{{ $class }}" {!! $attribute !!}>
         @foreach($list as $key => $item)
             <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
 
                 @image([
-                    'src'=> $item['smallImage'],
-                    'alt' => $item['alt'],
-                    'caption' => $item['caption'],
-                    'fullWidth' => true,
-                    'attributeList' => ['data-open' => $
-                    
-                    
-                    ueId, 'data-imgSrc' =>  $item['largeImage']]
+                'src'=> $item['smallImage'],
+                'alt' => $item['alt'],
+                'caption' => $item['caption'],
+                'fullWidth' => true,
+                'attributeList' => ['data-open' => $uniqueId, 'data-imgSrc' =>  $item['largeImage']]
 
-                    ])
+                ])
                 @endimage
 
             </li>
@@ -27,13 +28,14 @@
         'animation' => 'scale-up',
         'navigation' => true,
         'id' => $uniqueId,
-        'classList' => ['c-modal--gallery']
+        'classList' => ['c-modal--gallery'],
+
     ])
 
-        @image([
-            'src'=> '',
-        ])
-        @endimage
+    @image([
+    'src'=> '',
+    ])
+    @endimage
 
     @endmodal
 @else
