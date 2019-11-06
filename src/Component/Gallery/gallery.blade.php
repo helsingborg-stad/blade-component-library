@@ -1,9 +1,5 @@
 <!-- gallery.blade.php -->
 @if($list)
-    @php
-        $uniqueId = "gallery_".\BladeComponentLibrary\Component\Gallery\Gallery::getUnique();
-    @endphp
-
     <ul class="{{ $class }}" {!! $attribute !!}>
         @foreach($list as $key => $item)
             <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
@@ -13,7 +9,10 @@
                     'alt' => $item['alt'],
                     'caption' => $item['caption'],
                     'fullWidth' => true,
-                    'attributeList' => ['data-open' => $uniqueId, 'data-imgSrc' =>  $item['largeImage']]
+                    'attributeList' => ['data-open' => $
+                    
+                    
+                    ueId, 'data-imgSrc' =>  $item['largeImage']]
 
                     ])
                 @endimage

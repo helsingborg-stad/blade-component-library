@@ -3,60 +3,60 @@
     <div class="{{$class}}"  {!! $attribute !!}>
         <header class="modal-header">
             {{$heading}}
-
-            @button(
-                [
-                    'href' => '#',
-                    'isOutlined' => false,
-                    'text' => '',
-                    'icon' => ['name' => 'close', 'color' => 'white', 'size'=>'md'],
-                    'attributeList' => ['data-close' => true],
-                    'isIconButton' => true,
-                    'classList' => [$baseClass.'__close', '']
-
-                ]
-            )
-            @endbutton
-
-        </header>
-
-        <section class="c-modal__content">
-            @if ($navigation)
-
-                @button(
-                    [
-                        'href' => '#',
-                        'isOutlined' => false,
-                        'text' => '',
-                        'icon' => ['name' => 'chevron-left', 'color' => 'white', 'size'=>'xl'],
-                        'attributeList' => ['data-prev' => true],
-                        'isIconButton' => true,
-                        'classList' => [$baseClass.'__prev'],
-                        'size' => 'lg'
-                    ]
-                )
-                @endbutton
-
-            @endif
             
-                {{$slot}}
-    
+            @button([
+                'href' => '#btn-3',
+                'isOutlined' => false,
+                'isIconButton' =>  true,
+                'icon' => 'close',
+                'size' => 'lg',
+                'color' => 'secondary',
+                'floating' => ['animate' => true, 'hover' => true],
+                'attributeList' => ['data-close' => ''],
+                'classList' => [$baseClass . "__close"],
+            ])
+            @endbutton
+        </header>
+        
+        <section class="c-modal__content">
+
+            {{-- Previous button --}}
             @if ($navigation)
+                @button([
+                    'href' => '#previous',
+                    'isOutlined' => false,
+                    'isIconButton' =>  true,
+                    'icon' => 'chevron-left',
+                    'reverseIcon' => false,
+                    'size' => 'md',
+                    'color' => 'secondary',
+                    'floating' => ['animate' => true, 'hover' => true],
+                    'attributeList' => ['data-prev' => ''],
+                    'classList' => [$baseClass . "__prev"],
+                    'label' => 'Slide to previous'
+                ])
+                @endbutton
+            @endif
 
-                    @button(
-                        [
-                            'href' => '#',
-                            'isOutlined' => false,
-                            'text' => '',
-                            'icon' => ['name' => 'chevron-right', 'color' => 'white', 'size'=>'xl'],
-                            'attributeList' => ['data-next' => true],
-                            'isIconButton' => true,
-                            'classList' => [$baseClass.'__next']
-                        ]
-                    )
-                    @endbutton
+            {!! $top !!}
+            {{$slot}}
 
-                </button>
+            {{-- Next button --}}
+            @if ($navigation)
+                @button([
+                    'href' => '#next',
+                    'isOutlined' => false,
+                    'isIconButton' =>  true,
+                    'icon' => 'chevron-right',
+                    'reverseIcon' => false,
+                    'size' => 'md',
+                    'color' => 'secondary',
+                    'floating' => ['animate' => true, 'hover' => true],
+                    'attributeList' => ['data-next' => ''],
+                    'classList' => [$baseClass . "__next"],
+                    'label' => 'Slide to next'
+                ])
+                @endbutton
             @endif
         </section>
 
