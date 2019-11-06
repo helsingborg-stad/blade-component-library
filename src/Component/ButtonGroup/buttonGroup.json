@@ -1,0 +1,16 @@
+{
+   "slug":"buttonGroup",
+   "default":{
+      "borderColor": "primary",
+      "background": "primary",
+      "slot": ""
+   },
+   "description":{
+      "borderColor": "Primary or secondary",
+      "background": "Primary or secondary",
+      "slot": "The buttons you want to render in a group"
+   },
+   "view":"buttonGroup.blade.php"
+}
+
+

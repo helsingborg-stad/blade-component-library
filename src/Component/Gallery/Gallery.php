@@ -2,17 +2,16 @@
 
 namespace BladeComponentLibrary\Component\Gallery;
 
-class Gallery extends \BladeComponentLibrary\Component\BaseController  
+class Gallery extends \BladeComponentLibrary\Component\BaseController
 {
-    public function init() {
-        //Extract array for eazy access (fetch only)
-        extract($this->data);
+	public function init() {
+		//Extract array for eazy access (fetch only)
+		extract($this->data);
 
-        $this->data['classList'][] = "c-gallery";
-    }
+		$this->data['classList'][] = "c-gallery";
+	}
 
-    public static function getUnique(){
-    	return uniqid();
+	public static function getUnique(){
+		return uniqid();
 	}
 }
-

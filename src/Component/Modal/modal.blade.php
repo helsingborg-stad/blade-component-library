@@ -4,59 +4,66 @@
         <header class="modal-header">
             {{$heading}}
 
-            @button(
-                [
-                    'href' => '#',
-                    'isOutlined' => false,
-                    'text' => '',
-                    'icon' => ['name' => 'close', 'color' => 'white', 'size'=>'md'],
-                    'attributeList' => ['data-close' => true],
-                    'isIconButton' => true,
-                    'classList' => [$baseClass.'__close', '']
-
-                ]
-            )
+            @button([
+                'href' => '#btn-3',
+                'isOutlined' => false,
+                'isIconButton' =>  true,
+                'icon' => ['name' => 'close', 'color' => 'white', 'size' => 'md'],
+                'size' => 'lg',
+                'color' => 'secondary',
+                'floating' => ['animate' => true, 'hover' => true],
+                'attributeList' => ['data-close' => ''],
+                'classList' => [$baseClass . "__close"],
+                'background' => false,
+                'hasRipple' => true
+            ])
             @endbutton
-
         </header>
 
         <section class="c-modal__content">
-            @if ($navigation)
 
-                @button(
-                    [
-                        'href' => '#',
-                        'isOutlined' => false,
-                        'text' => '',
-                        'icon' => ['name' => 'chevron-left', 'color' => 'white', 'size'=>'xl'],
-                        'attributeList' => ['data-prev' => true],
-                        'isIconButton' => true,
-                        'classList' => [$baseClass.'__prev'],
-                        'size' => 'lg'
-                    ]
-                )
+            {{-- Previous button --}}
+            @if ($navigation)
+                @button([
+                    'href' => '#previous',
+                    'isOutlined' => false,
+                    'isIconButton' =>  true,
+                    'icon' => ['name' => 'chevron-left', 'color' => 'white', 'size' => 'xl'],
+                    'reverseIcon' => false,
+                    'size' => 'md',
+                    'color' => 'secondary',
+                    'floating' => ['animate' => true, 'hover' => true],
+                    'attributeList' => ['data-prev' => ''],
+                    'classList' => [$baseClass . "__prev"],
+                    'label' => 'Slide to previous',
+                    'background' => false,
+                    'hasRipple' => true
+                ])
                 @endbutton
-
             @endif
-            
-                {{$slot}}
-    
+
+            {!! $top !!}
+            {{$slot}}
+
+            {{-- Next button --}}
             @if ($navigation)
+                @button([
+                    'href' => '#next',
+                    'isOutlined' => false,
+                    'isIconButton' =>  true,
+                    'icon' => ['name' => 'chevron-right', 'color' => 'white', 'size' => 'xl'],
+                    'reverseIcon' => false,
+                    'size' => 'md',
+                    'color' => 'secondary',
+                    'floating' => ['animate' => true, 'hover' => true],
+                    'attributeList' => ['data-next' => ''],
+                    'classList' => [$baseClass . "__next"],
+                    'label' => 'Slide to next',
+                    'background' => false,
+                    'hasRipple' => true
 
-                    @button(
-                        [
-                            'href' => '#',
-                            'isOutlined' => false,
-                            'text' => '',
-                            'icon' => ['name' => 'chevron-right', 'color' => 'white', 'size'=>'xl'],
-                            'attributeList' => ['data-next' => true],
-                            'isIconButton' => true,
-                            'classList' => [$baseClass.'__next']
-                        ]
-                    )
-                    @endbutton
-
-                </button>
+                ])
+                @endbutton
             @endif
         </section>
 
@@ -65,4 +72,3 @@
         </footer>
     </div>
 </div>
-

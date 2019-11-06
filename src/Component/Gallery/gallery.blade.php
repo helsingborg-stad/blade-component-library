@@ -9,13 +9,13 @@
             <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
 
                 @image([
-                    'src'=> $item['smallImage'],
-                    'alt' => $item['alt'],
-                    'caption' => $item['caption'],
-                    'fullWidth' => true,
-                    'attributeList' => ['data-open' => $uniqueId, 'data-imgSrc' =>  $item['largeImage']]
+                'src'=> $item['smallImage'],
+                'alt' => $item['alt'],
+                'caption' => $item['caption'],
+                'fullWidth' => true,
+                'attributeList' => ['data-open' => $uniqueId, 'data-imgSrc' =>  $item['largeImage']]
 
-                    ])
+                ])
                 @endimage
 
             </li>
@@ -28,13 +28,14 @@
         'animation' => 'scale-up',
         'navigation' => true,
         'id' => $uniqueId,
-        'classList' => ['c-modal--gallery']
+        'classList' => ['c-modal--gallery'],
+
     ])
 
-        @image([
-            'src'=> '',
-        ])
-        @endimage
+    @image([
+    'src'=> '',
+    ])
+    @endimage
 
     @endmodal
 @else

@@ -20,7 +20,7 @@ class Button extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . "__outlined--" . $color; 
         }
 
-        if (isset($background) && $background) {
+        if (isset($background) && $background && !$isOutlined) {
             $this->data['classList'][] = $this->getBaseClass() . "--" . $background; 
         }
 
@@ -37,8 +37,7 @@ class Button extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . "--animated-float-on-hover";
         }elseif (isset($floating) && $floating['hover']) {
             $this->data['classList'][] = $this->getBaseClass() . "--float-on-hover";
-        }elseif (isset($floating) && $floating){
-
+        }elseif (isset($floating) && is_array($floating)){
             $this->data['classList'][] = $this->getBaseClass() . "--floating";
         }
 
