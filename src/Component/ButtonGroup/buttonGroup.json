@@ -3,7 +3,8 @@
    "default":{
       "borderColor": "primary",
       "background": "primary",
-      "slot": ""
+      "slot": "",
+      "container": ""
    },
    "description":{
       "borderColor": "Primary or secondary",
