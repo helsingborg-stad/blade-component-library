@@ -1,0 +1,37 @@
+
+
+{
+   "slug":"dropdown",
+   "default":{
+      "text": "Button",
+      "size": "md",
+      "color": "primary",
+      "href":"#",
+      "background": "primary",
+      "target":"_top",
+      "componentElement":"a",
+      "labelElement":"span",
+      "isOutlined":false,
+      "hasRipple":false
+   },
+   "description":{
+      "isOutlined":"Removes any background set on the button and sets text, border and background on hover to be the same color.",
+      "label":"The label of the button.",
+      "href":"Where should the button link to?",
+      "target":"Open a new tab or not?",
+      "componentElement":"The tag to use for this component.",
+      "labelElement":"The element containing the label.",
+      "hasRipple":"Enable / disable ripple on click.",
+      "text": "The content of a button.",
+      "icon": "An array of icon properties.",
+      "color": "The color of an outlined button.",
+      "size": "The size of the button; sm, md, lg. Only works on buttons that are not icon buttons",
+      "reverseIcon": "Reverse the order of text and icon (default is to the left)",
+      "floating": "An array with two booleans, animate and hover, if both are set to false then the button will be floating by it's own",
+      "isIconButton": "No text, only an icon, full border radius",
+      "background":"The background color of the button; primary and secondary"
+   },
+   "view":"dropdown.blade.php"
+}
+
+
