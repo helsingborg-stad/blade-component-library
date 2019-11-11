@@ -11,5 +11,14 @@ class Dropdown extends \BladeComponentLibrary\Component\BaseController
 
         // Base class
         array_unshift($this->data['classList'], 'c-dropdown');
+
+        if(isset($direction)){
+            $this->data['direction'] = $direction;
+            $this->data['classList'][] = $this->getBaseClass() . "-btn--" . $direction;
+        }
+
+        if(isset($popup)){
+            $this->data['classList'][] = $this->getBaseClass() . "--on-" . $popup; 
+        }
     }
 }

@@ -9,10 +9,11 @@
       "href":"#",
       "background": "primary",
       "target":"_top",
-      "componentElement":"a",
+      "componentElement":"div",
       "labelElement":"span",
       "isOutlined":false,
-      "hasRipple":false
+      "hasRipple":false,
+      "direction": "bottom"
    },
    "description":{
       "isOutlined":"Removes any background set on the button and sets text, border and background on hover to be the same color.",
