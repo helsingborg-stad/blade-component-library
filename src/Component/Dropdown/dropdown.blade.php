@@ -1,17 +1,12 @@
-<{{$componentElement}} class="{{ $class }}" js-toggle-container>   
+<{{$componentElement}} class="{{ $class }}">   
     
-    @button([
-        'text' => 'Choose an item',
-        'icon' => ['name' => 'arrow-drop-down'],
-        'size' => 'md'
-    ])
-    @endbutton
+    {{$slot}}
     
-    <div class="{{$baseClass}}__list {{$baseClass}}__list--{{$direction}}" js-toggle-single="u-visibility--visible">
+    <div class="{{$baseClass}}__list {{$baseClass}}__list--{{$direction}}">
         <div>
         <ul>
             @foreach ($items as $item)
-                <li js-toggle-trigger>{{$item}}</li>
+            <{{$itemElement}} href="{{$item['link']}}"><li>{{$item['text']}}</li></{{$itemElement}}>
             @endforeach
         </ul>
         </div>

@@ -14,7 +14,9 @@
       "isOutlined":false,
       "hasRipple":false,
       "pressed": "false",
-      "container": ""
+      "container": "",
+      "toggle": false,
+      "floating": true
    },
    "description":{
       "isOutlined":"Removes any background set on the button and sets text, border and background on hover to be the same color.",
@@ -31,7 +33,9 @@
       "reverseIcon": "Reverse the order of text and icon (default is to the left)",
       "floating": "An array with two booleans, animate and hover, if both are set to false then the button will be floating by it's own",
       "isIconButton": "No text, only an icon, full border radius",
-      "background":"The background color of the button; primary and secondary"
+      "background":"The background color of the button; primary and secondary",
+      "toggle": "set to true will make it possible to add js-toggle-trigger to the buttons attribute list",
+      "container": "if toggle is set to true the js-toggle-container attribute will be applied, otherwise it's just a div"
    },
    "view":"button.blade.php"
 }
