@@ -2,14 +2,15 @@
 <div class="{{ $parentClass }}" id="{{ $id }}">
     <div class="{{$class}}"  {!! $attribute !!}>
         <header class="{{$baseClass}}__header">
-
-            @typography([
-                "variant" => "h2",
-                "element" => "h2",
-            ])
-             {{$heading}}
-            @endtypography
-
+            @if ($heading)
+                @typography([
+                    "variant" => "h2",
+                    "element" => "h2",
+                ])
+                 {{$heading}}
+                @endtypography
+            @endif
+            
             @button([
                 'href' => '#btn-3',
                 'isOutlined' => false,
