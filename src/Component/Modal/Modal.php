@@ -21,6 +21,10 @@ class Modal extends \BladeComponentLibrary\Component\BaseController
 			$this->data['classList'][] = $this->getBaseClass() . "--is-modal";
 		}
 
+		if($size) {
+			$this->data['classList'][] = $this->getBaseClass() . "--size-".$size;
+		}
+
 		//Ensure animation is present
 		$animation ? $animation : $animation = "slide-down";
 

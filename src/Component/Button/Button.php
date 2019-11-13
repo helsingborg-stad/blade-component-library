@@ -13,6 +13,13 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         array_unshift($this->data['classList'], 'c-btn');
 
         $this->data['labelMod'] = "";
+
+       
+        $this->data['id'] = uniqid("", true);
+
+        if(isset($toggle) && $toggle){
+            $this->data['attributeList']['js-toggle-self'] = '';
+        }
         
         if (isset($isIconButton) && $isIconButton) {
             $this->data['classList'][] = $this->getBaseClass() . "__icon"; 
@@ -31,7 +38,6 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         if (!$href) {
             $this->data['href'] = "#";
         }
-
 
         if (isset($floating) && $floating['animate'] && $floating['hover']) {
             $this->data['classList'][] = $this->getBaseClass() . "--animated-float-on-hover";
