@@ -18,7 +18,7 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         $this->data['id'] = uniqid("", true);
 
         if(isset($toggle) && $toggle){
-            $this->data['container'] = 'js-toggle-container';
+            $this->data['attributeList']['js-toggle-self'] = '';
         }
         
         if (isset($isIconButton) && $isIconButton) {
