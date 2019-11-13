@@ -1,8 +1,14 @@
 <!-- modal.blade.php -->
 <div class="{{ $parentClass }}" id="{{ $id }}">
     <div class="{{$class}}"  {!! $attribute !!}>
-        <header class="modal-header">
-            {{$heading}}
+        <header class="{{$baseClass}}__header">
+
+            @typography([
+                "variant" => "h2",
+                "element" => "h2",
+            ])
+             {{$heading}}
+            @endtypography
 
             @button([
                 'href' => '#btn-3',
@@ -20,7 +26,7 @@
             @endbutton
         </header>
 
-        <section class="c-modal__content">
+        <section class="{{$baseClass}}__content">
 
             {{-- Previous button --}}
             @if ($navigation)
@@ -67,8 +73,17 @@
             @endif
         </section>
 
-        <footer class="modal-footer">
+        <footer class="{{$baseClass}}__footer">
             {!! $bottom !!}
         </footer>
+        @if ($navigation)
+
+            @steppers(
+            [
+                'type' => 'dots'
+            ])
+            @endsteppers
+
+        @endif
     </div>
 </div>
