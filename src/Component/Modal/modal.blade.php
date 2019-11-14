@@ -2,10 +2,7 @@
 <div class="{{ $parentClass }}" id="{{ $id }}">
     <div class="{{$class}}"  {!! $attribute !!}>
         <header class="{{$baseClass}}__header">
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/develop
             @if ($heading)
                 @typography([
                     "variant" => "h2",
@@ -14,11 +11,7 @@
                  {{$heading}}
                 @endtypography
             @endif
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> origin/develop
             @button([
                 'href' => '#btn-3',
                 'isOutlined' => false,
