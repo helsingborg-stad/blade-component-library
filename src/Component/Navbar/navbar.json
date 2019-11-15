@@ -1,0 +1,16 @@
+{
+    "slug":"navbar",
+    "default":{
+        "logo": "",
+        "logo-placement": "left",
+        "links-placement": "right",
+        "items": []
+    },
+    "description":{
+        "logo":"A link to a logo",
+        "logo-placement": "Where to place the logo",
+        "links-placement": "Where to place the links",
+        "items": "An array of links"
+    },
+    "view":"navbar.blade.php"
+ }
