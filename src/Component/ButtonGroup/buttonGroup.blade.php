@@ -1,3 +1,3 @@
-<div class="{{$class}}" {{$container}}>
+<div class="{{$class}}" {{$container}} {!!$attribute!!}>
     {{$slot}}
 </div>
