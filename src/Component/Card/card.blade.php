@@ -1,7 +1,9 @@
 <!-- card.blade.php -->
 <div class="{{$class}}" {!! $attribute !!}>
 
-    @paper()
+    @paper([
+        'classList' => [$baseClass.'__paper']
+    ])
 
         @if($top)
             <div class="{{$baseClass}}__top">{{ $top }}</div>
@@ -38,8 +40,8 @@
                     @if($href)
                         <a class="{{$baseClass}}__link" href="{{$href}}">
                             @typography([
-                                'variant' => "h2",
-                                'element' => "h4",
+                                'variant' => "h3",
+                                'element' => "h3",
                                 'classList' => [$baseClass."__title"]
                             ])
                                 {{$title}}
@@ -47,13 +49,22 @@
                         </a>
                     @else
                         @typography([
-                            'variant' => "h4",
-                            'element' => "h4",
+                            'variant' => "h3",
+                            'element' => "h3",
                             'classList' => [$baseClass."__title"]
                         ])
                             {{$title}}
                         @endtypography
                     @endif
+                @endif
+
+                @if($byline)
+                        @heading([
+                            'label' => $byline,
+                            'level' => 4,
+                            'classList' => [$baseClass."__byline"]
+                            ])
+                        @endbutton
                 @endif
 
                 @if($content)

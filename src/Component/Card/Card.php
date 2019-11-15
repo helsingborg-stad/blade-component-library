@@ -16,6 +16,9 @@ class Card extends \BladeComponentLibrary\Component\BaseController
         //Show body?
         if(!empty(array_filter([$title, $content, $byline]))) {
             $this->data['showBody'] = true;
+			$this->data['title'] = ($title) ? $title : null;
+			$this->data['content'] = ($byline) ? $content : null;
+			$this->data['byline'] = ($byline) ? $byline : null;
         } else {
             $this->data['showBody'] = false;
         }

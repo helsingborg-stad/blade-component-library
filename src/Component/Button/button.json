@@ -5,9 +5,9 @@
    "default":{
       "text": "Button",
       "size": "md",
-      "color": "primary",
+      "color": "default",
       "href":"#",
-      "background": "primary",
+      "background": "default",
       "target":"_top",
       "componentElement":"button",
       "labelElement":"span",
