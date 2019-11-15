@@ -9,6 +9,39 @@
             <div class="{{$baseClass}}__top">{{ $top }}</div>
         @endif
 
+        @if($title['position'] === 'top' && $title['text'])
+            <div class="{{$baseClass}}__top-title">
+                @if($href)
+                    <a class="{{$baseClass}}__link" href="{{$href}}">
+                        @typography([
+                            'variant' => "h3",
+                            'element' => "h3",
+                            'classList' => [$baseClass."__title"]
+                        ])
+                        {{$title['text']}}
+                        @endtypography
+                    </a>
+                @else
+                    @typography([
+                        'variant' => "h3",
+                        'element' => "h3",
+                        'classList' => [$baseClass."__title"]
+                    ])
+                    {{$title['text']}}
+                    @endtypography
+                @endif
+
+                    @if($byline['position'] === 'top')
+                        @heading([
+                        'label' => $byline["text"],
+                        'level' => 4,
+                        'classList' => [$baseClass."__byline"]
+                        ])
+                        @endbutton
+                    @endif
+            </div>
+        @endif
+
         @if($image)
             @if($href)
             <a class="{{$baseClass}}__link {{$baseClass}}__image-link" href="{{$href}}">
@@ -36,7 +69,7 @@
         @if($showBody)
             <div class="{{$baseClass}}__body">
 
-                @if($title)
+                @if($title['position'] === 'body' && $title['text'])
                     @if($href)
                         <a class="{{$baseClass}}__link" href="{{$href}}">
                             @typography([
@@ -44,7 +77,7 @@
                                 'element' => "h3",
                                 'classList' => [$baseClass."__title"]
                             ])
-                                {{$title}}
+                                {{$title['text']}}
                             @endtypography
                         </a>
                     @else
@@ -53,14 +86,14 @@
                             'element' => "h3",
                             'classList' => [$baseClass."__title"]
                         ])
-                            {{$title}}
+                            {{$title['text']}}
                         @endtypography
                     @endif
                 @endif
 
-                @if($byline)
+                @if($byline['position'] === 'body')
                         @heading([
-                            'label' => $byline,
+                            'label' => $byline["text"],
                             'level' => 4,
                             'classList' => [$baseClass."__byline"]
                             ])
@@ -93,7 +126,9 @@
 
         @if($showFooter)
             <div class="{{$baseClass}}__bottom">
-
+                @if($tbottom)
+                    <div class="{{$baseClass}}__top">{{ $bottom }}</div>
+                @endif
                 @if($buttons)
                     @foreach ($buttons as $button)
 
@@ -103,7 +138,8 @@
                             'toggle' => true,
                             'isOutlined' => true,
                             'color' => 'default',
-                            'attributeList' => ['js-toggle-trigger' => '']
+                            'attributeList' => ['js-toggle-trigger' => ''],
+                            'classList' => [$baseClass."__button"]
                         ])
                         @endbutton
                     @endforeach
