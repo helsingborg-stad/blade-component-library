@@ -23,6 +23,14 @@ class Card extends \BladeComponentLibrary\Component\BaseController
             $this->data['showBody'] = false;
         }
 
+		//Show Footer?
+		if(!empty(array_filter([$buttons]))) {
+			$this->data['showFooter'] = true;
+			$this->data['buttons'] = ($buttons) ? $buttons : null;
+		} else {
+			$this->data['showFooter'] = false;
+		}
+
         //Has ripple
         if($hasRipple) {
             $this->data['classList'][] = "ripple"; 

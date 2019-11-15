@@ -33,7 +33,7 @@
             <div class="{{$baseClass}}__middle">{{ $slot }}</div>
         @endif
 
-        @if($title != ""||$content != "")
+        @if($showBody)
             <div class="{{$baseClass}}__body">
 
                 @if($title)
@@ -91,8 +91,25 @@
             </div>
         @endif
 
-        @if($bottom)
-            <div class="{{$baseClass}}__bottom">{{ $bottom }}</div>
+        @if($showFooter)
+            <div class="{{$baseClass}}__bottom">
+
+                @if($buttons)
+                    @foreach ($buttons as $button)
+
+                        @button([
+                            'href' => $button["href"],
+                            'text' => $button["text"],
+                            'toggle' => true,
+                            'isOutlined' => true,
+                            'color' => 'default',
+                            'attributeList' => ['js-toggle-trigger' => '']
+                        ])
+                        @endbutton
+                    @endforeach
+                @endif
+
+            </div>
         @endif
 
     @endpaper
