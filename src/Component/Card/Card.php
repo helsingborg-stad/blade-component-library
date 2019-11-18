@@ -13,6 +13,15 @@ class Card extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . "--link";
         }
 
+        // create - paper
+		// create - image
+		// create - title
+		// create - byline
+		// create - buttons - Skapa et4t sätt o sätta in rätt element efter data
+
+
+
+
         //Show body?
         if(!empty(array_filter([$title, $content, $byline]))) {
             $this->data['showBody'] = true;
@@ -22,6 +31,10 @@ class Card extends \BladeComponentLibrary\Component\BaseController
         } else {
             $this->data['showBody'] = false;
         }
+
+        if($avatar){
+			$this->data['avatar'] = ($avatar) ? $avatar : null;
+		}
 
 		//Show Footer?
 		if(!empty(array_filter([$buttons]))) {

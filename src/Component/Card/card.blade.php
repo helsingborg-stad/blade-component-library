@@ -5,12 +5,18 @@
         'classList' => [$baseClass.'__paper']
     ])
 
-        @if($top)
-            <div class="{{$baseClass}}__top">{{ $top }}</div>
-        @endif
-
         @if($title['position'] === 'top' && $title['text'])
             <div class="{{$baseClass}}__top-title">
+                @if($avatar)
+
+                    @avatar([
+                        'image' => $avatar["image"],
+                        'name' => $avatar["name"]
+                        ]
+                    )
+                    @endavatar
+
+                @endif
                 @if($href)
                     <a class="{{$baseClass}}__link" href="{{$href}}">
                         @typography([
@@ -33,13 +39,17 @@
 
                     @if($byline['position'] === 'top')
                         @heading([
-                        'label' => $byline["text"],
-                        'level' => 4,
-                        'classList' => [$baseClass."__byline"]
+                            'label' => $byline["text"],
+                            'level' => 4,
+                            'classList' => [$baseClass."__byline"]
                         ])
                         @endbutton
                     @endif
             </div>
+        @endif
+
+        @if($top)
+            <div class="{{$baseClass}}__top">{{ $top }}</div>
         @endif
 
         @if($image)
