@@ -1,0 +1,14 @@
+
+
+{
+   "slug":"splitbutton",
+   "default":{
+      "key": "value"
+   },
+   "description":{
+      "key":"Value"
+   },
+   "view":"splitbutton.blade.php"
+}
+
+

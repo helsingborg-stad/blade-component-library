@@ -12,6 +12,8 @@ class ButtonGroup extends \BladeComponentLibrary\Component\BaseController
         // Base class
         array_unshift($this->data['classList'], 'c-btn-group');
 
+        
+
         if(isset($toggle) && $toggle){
             $this->data['container'] = 'js-toggle-container';
         }
@@ -23,8 +25,6 @@ class ButtonGroup extends \BladeComponentLibrary\Component\BaseController
         if(isset($backgroundColor)){
             $this->data['classList'][] = $this->getBaseClass() . ' .c-btn--' . $backgroundColor; 
         }
-        
-
         
     }
 }
