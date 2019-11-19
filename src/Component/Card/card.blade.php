@@ -30,9 +30,9 @@
                 </a>
             @else
                 @typography([
-                'variant' => "h3",
-                'element' => "h3",
-                'classList' => [$baseClass."__title"]
+                    'variant' => "h3",
+                    'element' => "h3",
+                    'classList' => [$baseClass."__title"]
                 ])
                 {{$title['text']}}
                 @endtypography
@@ -40,9 +40,9 @@
 
             @if($byline['position'] === 'top')
                 @heading([
-                'label' => $byline["text"],
-                'level' => 4,
-                'classList' => [$baseClass."__byline"]
+                    'label' => $byline["text"],
+                    'level' => 4,
+                    'classList' => [$baseClass."__byline"]
                 ])
                 @endheading
             @endif
@@ -53,17 +53,17 @@
         @if($href)
             <a class="{{$baseClass}}__link {{$baseClass}}__image-link" href="{{$href}}">
                 @image([
-                'src'=> $image,
-                'alt' => $alt,
-                'classList' => [$baseClass."__image"]
+                    'src'=> $image,
+                    'alt' => $alt,
+                    'classList' => [$baseClass."__image"]
                 ])
                 @endimage
             </a>
         @else
             @image([
-            'src'=> $image,
-            'alt' => $alt,
-            'classList' => [$baseClass."__image"]
+                'src'=> $image,
+                'alt' => $alt,
+                'classList' => [$baseClass."__image"]
             ])
             @endimage
         @endif
@@ -80,29 +80,29 @@
                 @if($href)
                     <a class="{{$baseClass}}__link" href="{{$href}}">
                         @typography([
-                        'variant' => "h3",
-                        'element' => "h3",
-                        'classList' => [$baseClass."__title"]
+                            'variant' => "h3",
+                            'element' => "h3",
+                            'classList' => [$baseClass."__title"]
                         ])
-                        {{$title['text']}}
+                            {{$title['text']}}
                         @endtypography
                     </a>
                 @else
                     @typography([
-                    'variant' => "h3",
-                    'element' => "h3",
-                    'classList' => [$baseClass."__title"]
+                        'variant' => "h3",
+                        'element' => "h3",
+                        'classList' => [$baseClass."__title"]
                     ])
-                    {{$title['text']}}
+                        {{$title['text']}}
                     @endtypography
                 @endif
             @endif
 
             @if($byline['position'] === 'body')
                 @heading([
-                'label' => $byline["text"],
-                'level' => 4,
-                'classList' => [$baseClass."__byline"]
+                    'label' => $byline["text"],
+                    'level' => 4,
+                    'classList' => [$baseClass."__byline"]
                 ])
                 @endbutton
             @endif
@@ -111,20 +111,20 @@
                 @if($href)
                     <a class="{{$baseClass}}__link" href="{{$href}}">
                         @typography([
-                        'variant' => "p",
-                        'element' => "p",
-                        'classList' => [$baseClass."__text"]
+                            'variant' => "p",
+                            'element' => "p",
+                            'classList' => [$baseClass."__text"]
                         ])
-                        {{$content}}
+                            {{$content}}
                         @endtypography
                     </a>
                 @else
                     @typography([
-                    'variant' => "p",
-                    'element' => "p",
-                    'classList' => [$baseClass."__text"]
+                        'variant' => "p",
+                        'element' => "p",
+                        'classList' => [$baseClass."__text"]
                     ])
-                    {{$content}}
+                        {{$content}}
                     @endtypography
                 @endif
             @endif
@@ -162,6 +162,7 @@
                         'attributeList' => [
                             'onClick' => $icon["trigger"]
                         ],
+                        'classList' => $icon["classList"],
                         'background' => false
                     ])
                     @endbutton

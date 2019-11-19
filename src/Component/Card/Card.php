@@ -17,43 +17,14 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		// create - image
 		// create - title
 		// create - byline
-		// create - buttons - Skapa et4t sätt o sätta in rätt element efter data
+		// create - buttons
+		// create - avatar
+		// create - icons
 
 
-
-
-        //Show body?
-        if(!empty(array_filter([$title, $content, $byline]))) {
-            $this->data['showBody'] = true;
-			$this->data['title'] = ($title) ? $title : null;
-			$this->data['content'] = ($byline) ? $content : null;
-			$this->data['byline'] = ($byline) ? $byline : null;
-        } else {
-            $this->data['showBody'] = false;
-        }
-
-		//Show Footer?
-
-		if(!empty(array_filter([$buttons])) || !empty(array_filter([$icons]))) {
-			$this->data['showFooter'] = true;
-		} else {
-			$this->data['showFooter'] = false;
-		}
-
-		// Buttons
-		if(!empty(array_filter([$buttons]))) {
-			$this->data['buttons'] = ($buttons) ? $buttons : null;
-		}
-
-		// Icons
-		if(!empty(array_filter([$icons]))) {
-			$this->data['icons'] = ($icons) ? $icons : null;
-		}
-
-		// Avatar
-		if(!empty(array_filter([$avatar]))) {
-			$this->data['avatar'] = ($avatar) ? $avatar : null;
-		}
+        //Show body and Footer
+		$this->data['showBody'] = (!empty(array_filter([$title, $content, $byline]))) ? true : false;
+		$this->data['showFooter'] = (!empty(array_filter([$buttons])) || !empty(array_filter([$icons]))) ? true : false;
 
         //Has ripple
         if($hasRipple) {
