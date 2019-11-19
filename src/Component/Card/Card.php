@@ -32,16 +32,27 @@ class Card extends \BladeComponentLibrary\Component\BaseController
             $this->data['showBody'] = false;
         }
 
-        if($avatar){
-			$this->data['avatar'] = ($avatar) ? $avatar : null;
-		}
-
 		//Show Footer?
-		if(!empty(array_filter([$buttons]))) {
+
+		if(!empty(array_filter([$buttons])) || !empty(array_filter([$icons]))) {
 			$this->data['showFooter'] = true;
-			$this->data['buttons'] = ($buttons) ? $buttons : null;
 		} else {
 			$this->data['showFooter'] = false;
+		}
+
+		// Buttons
+		if(!empty(array_filter([$buttons]))) {
+			$this->data['buttons'] = ($buttons) ? $buttons : null;
+		}
+
+		// Icons
+		if(!empty(array_filter([$icons]))) {
+			$this->data['icons'] = ($icons) ? $icons : null;
+		}
+
+		// Avatar
+		if(!empty(array_filter([$avatar]))) {
+			$this->data['avatar'] = ($avatar) ? $avatar : null;
 		}
 
         //Has ripple

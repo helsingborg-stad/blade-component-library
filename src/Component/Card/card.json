@@ -32,7 +32,7 @@
         "bottom":"Empty slot placed in the bottom of card.",
         "hasRipple":"Enable / disable ripple fx",
         "buttons" : "Array with buttons that has parameters like href, text and attributeList.",
-        "icons" : "Array with icons that has parameters like name, attributeList, classList.",
+        "icons" : "Array with icons that has parameters like name, size, attributeList, classList.",
         "avatar" : "Array with the avatar data such as image and name."
     },
     "view":"card.blade.php"
