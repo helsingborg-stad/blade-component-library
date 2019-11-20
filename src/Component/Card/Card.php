@@ -13,16 +13,7 @@ class Card extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . "--link";
         }
 
-        // create - paper
-		// create - image
-		// create - title
-		// create - byline
-		// create - buttons
-		// create - avatar
-		// create - icons
-
-
-        //Show body and Footer
+        //Show body and Footer depending on data
 		$this->data['showBody'] = (!empty(array_filter([$title, $content, $byline]))) ? true : false;
 		$this->data['showFooter'] = (!empty(array_filter([$buttons])) || !empty(array_filter([$icons]))) ? true : false;
 
