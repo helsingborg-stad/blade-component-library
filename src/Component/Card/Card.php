@@ -13,12 +13,9 @@ class Card extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . "--link";
         }
 
-        //Show body?
-        if(!empty(array_filter([$title, $content, $byline]))) {
-            $this->data['showBody'] = true;
-        } else {
-            $this->data['showBody'] = false;
-        }
+        //Show body and Footer depending on data
+		$this->data['showBody'] = (!empty(array_filter([$title, $content, $byline]))) ? true : false;
+		$this->data['showFooter'] = (!empty(array_filter([$buttons])) || !empty(array_filter([$icons]))) ? true : false;
 
         //Has ripple
         if($hasRipple) {
