@@ -19,7 +19,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		$this->data['showFooter'] = (!empty(array_filter([$buttons])) || !empty(array_filter([$icons]))) ? true : false;
 
 		// Image
-
 		$image = (isset($image) && !empty($image)) ? $image : null;
 
 		// Byline
@@ -39,7 +38,7 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		$icon["size"] = (isset($icon["size"]) && !empty($icon["size"])) ? $icon["size"] : null;
 		$icon["trigger"] = (isset($icon["trigger"]) && !empty($icon["trigger"])) ? $icon["trigger"] : null;
 		$icon["classList"] = (isset($icon["classList"]) && !empty($icon["classList"])) ? $icon["classList"] : null;
-		
+
 		//Has ripple
 		if ($hasRipple) {
 			$this->data['classList'][] = "ripple";
