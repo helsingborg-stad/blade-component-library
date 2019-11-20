@@ -13,8 +13,8 @@
         <div class="{{$baseClass}}__top-title @if($avatar) {{$baseClass}}__with-avatar @endif">
             @if($avatar)
                 @avatar([
-                    'image' => $avatar["image"],
-                    'name' => $avatar["name"]
+                    'image' => $avatarImage,
+                    'name' => $avatarName
                 ])
                 @endavatar
             @endif
@@ -137,21 +137,21 @@
                 <div class="{{$baseClass}}__top">{{ $bottom }}</div>
             @endif
             @if($buttons)
-                @foreach ($buttons as $button)
+                @foreach ($buttons as $indexKey => $button)
                     @button([
                         'href' => $button["href"],
                         'text' => $button["text"],
                         'toggle' => true,
                         'isOutlined' => true,
                         'color' => 'default',
-                        'attributeList' => ['js-toggle-trigger' => ''],
+                        'attributeList' => ['tabindex' => $indexKey],
                         'classList' => [$baseClass."__button"]
                     ])
                     @endbutton
                 @endforeach
             @endif
             @if($icons)
-                @foreach ($icons as $icon)
+                @foreach ($icons as $indexKey => $icon)
                     @button([
                         'isIconButton' =>  true,
                         'icon' => [
@@ -160,7 +160,7 @@
                             'size' => $icon["size"],
                         ],
                         'attributeList' => [
-                            'onClick' => $icon["trigger"]
+                            'tabindex' => $indexKey
                         ],
                         'classList' => $icon["classList"],
                         'background' => false
