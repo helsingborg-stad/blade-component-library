@@ -133,7 +133,7 @@
 
     @if($showFooter)
         <div class="{{$baseClass}}__bottom">
-            @if($tbottom)
+            @if($bottom)
                 <div class="{{$baseClass}}__top">{{ $bottom }}</div>
             @endif
             @if($buttons)
@@ -169,7 +169,7 @@
                 @endforeach
             @endif
 
-            @if($tbottom)
+            @if($bottom)
                 {{ $bottom }}
             @endif
 
