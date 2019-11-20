@@ -23,6 +23,28 @@ class Card extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = "ripple--before"; 
         }
 
+        if($byline) {
+			$byline["text"] = (isset($byline["text"]) && !empty($byline["text"])) ? $byline["text"] : null;
+		}
+
+        if($avatar) {
+			$avatar["image"] = (isset($avatar["image"]) && !empty($avatar["image"])) ? $avatar["image"] : null;
+			$avatar["name"] = (isset($avatar["name"]) && !empty($avatar["name"])) ? $avatar["name"] : null;
+		}
+
+        if($button) {
+			$button["href"] = (isset($button["href"]) && !empty($button["href"])) ? $button["href"] : null;
+			$button["text"] = (isset($button["text"]) && !empty($button["text"])) ? $button["text"] : null;
+		}
+
+		if($icon) {
+			$icon["name"] = (isset($icon["name"]) && !empty($icon["name"])) ? $icon["name"] : null;
+			$icon["color"] = (isset($icon["color"]) && !empty($icon["size"])) ? $icon["color"] : null;
+			$icon["size"] = (isset($icon["size"]) && !empty($icon["size"])) ? $icon["size"] : null;
+			$icon["trigger"] = (isset($icon["trigger"]) && !empty($icon["trigger"])) ? $icon["trigger"] : null;
+			$icon["classList"] = (isset($icon["classList"]) && !empty($icon["classList"])) ? $icon["classList"] : null;
+		}
+
         // Add base class
         array_unshift($this->data['classList'], 'c-card');
     }
