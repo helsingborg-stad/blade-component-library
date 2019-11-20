@@ -24,7 +24,5 @@ class ButtonGroup extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . ' .c-btn--' . $backgroundColor; 
         }
         
-
-        
     }
 }
