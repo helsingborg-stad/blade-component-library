@@ -1,8 +1,8 @@
 <?php
 
-namespace BladeComponentLibrary\Component\SplitButton;
+namespace BladeComponentLibrary\Component\Splitbutton;
 
-class SplitButton extends \BladeComponentLibrary\Component\BaseController
+class Splitbutton extends \BladeComponentLibrary\Component\BaseController
 {
 
     public function init() {
