@@ -24,6 +24,9 @@ class Button extends \BladeComponentLibrary\Component\BaseController
             if(isset($toggle) && $toggle){
                 $this->data['attributeList']['js-toggle-self'] = '';
             }
+        } else{
+            $this->data['classList'][] = $this->getBaseClass() . '__text';
+            $this->data['classList'][] = $this->getBaseClass() . '__text--' . $color;
         }
 
         if (isset($background) && $background && !$isOutlined) {
