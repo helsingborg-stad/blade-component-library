@@ -4,6 +4,7 @@ namespace BladeComponentLibrary\Component\Card;
 
 class Card extends \BladeComponentLibrary\Component\BaseController
 {
+
 	public function init()
 	{
 		//Extract array for eazy access (fetch only)
@@ -19,14 +20,14 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		$this->data['showFooter'] = (!empty(array_filter([$buttons])) || !empty(array_filter([$icons]))) ? true : false;
 
 		// Avatar
-		$this->data['avatarImage'] = (isset($avatar["image"]) && !empty($avatar['image'])) ? $avatar['image'] : null;
-		$this->data['avatarName'] = (isset($avatar["name"]) && !empty($avatar['name'])) ? $avatar['name'] : null;
+		$this->data['avatarImage'] = (isset($avatar['image']) && !empty($avatar['image'])) ? $avatar['image'] : null;
+		$this->data['avatarName'] = (isset($avatar['name']) && !empty($avatar['name'])) ? $avatar['name'] : null;
 
 		// Title and Byline
-		$this->data['byline']["position"] = (isset($byline["position"]) && !empty($byline['position'])) ? $byline['position'] : null;
-		$this->data['byline']["text"] = (isset($byline["text"]) && !empty($byline['position'])) ? $byline['text'] : null;
-		$this->data['title']["position"] = (isset($title["position"]) && !empty($title['position'])) ? $title['position'] : null;
-		$this->data['title']["text"] = (isset($title["text"]) && !empty($title['position'])) ? $title['text'] : null;
+		$this->data['byline']['position'] = (isset($byline['position']) && !empty($byline['position'])) ? $byline['position'] : null;
+		$this->data['byline']['text'] = (isset($byline['text']) && !empty($byline['position'])) ? $byline['text'] : null;
+		$this->data['title']['position'] = (isset($title['text']) && !empty($title['position'])) ? $title['position'] : null;
+		$this->data['title']['text'] = (isset($title['text']) && !empty($title['text'])) ? $title['text'] : null;
 
 		// Check if Button icon parameter array has keys
 		$this->data['icons'] = (!empty(array_filter($icons))) ? $icons : false;
@@ -47,6 +48,10 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 				$this->data['buttons'][$key]['name']  = array_key_exists('name', $buttonParams) ? $this->data['buttons'][$key]['name']  : '';
 			}
 		}
+
+
+		$this->data['dropdown']["position"] = (isset($dropdown["position"]) && !empty($dropdown['position'])) ? $dropdown['position'] : null;
+		$this->data['dropdown']["items"] = (isset($dropdown["items"]) && !empty($dropdown['position'])) ? $dropdown['text'] : null;
 
 		//Has ripple
 		if ($hasRipple) {
