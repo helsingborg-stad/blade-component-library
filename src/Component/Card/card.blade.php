@@ -5,195 +5,49 @@
         'classList' => [$baseClass.'__paper']
     ])
 
-    @if($top)
-        <div class="{{$baseClass}}__top">{{ $top }}</div>
-    @endif
-
-    @if($title['position'] === 'top' && $title['text'])
-        <div class="{{$baseClass}}__top-title @if($avatar) {{$baseClass}}__with-avatar @endif">
-            @if($avatar)
-                @avatar([
-                    'image' => $avatarImage,
-                    'name' => $avatarName
-                ])
-                @endavatar
-            @endif
-            @if($href)
-                <a class="{{$baseClass}}__link" href="{{$href}}">
-                    @typography([
-                        'variant' => "h3",
-                        'element' => "h3",
-                        'classList' => [$baseClass."__title"]
-                    ])
-                        {{$title['text']}}
-                    @endtypography
-                </a>
-            @else
-                @typography([
-                    'variant' => "h3",
-                    'element' => "h3",
-                    'classList' => [$baseClass."__title"]
-                ])
-                {{$title['text']}}
-                @endtypography
-            @endif
-
-            @if($byline['position'] === 'top')
-                @heading([
-                    'label' => $byline["text"],
-                    'level' => 4,
-                    'classList' => [$baseClass."__byline"]
-                ])
-                @endheading
-            @endif
-        </div>
-    @endif
-
-    @if($image)
-        @if($href)
-            <a class="{{$baseClass}}__link {{$baseClass}}__image-link" href="{{$href}}">
-                @image([
-                    'src'=> $image,
-                    'alt' => $alt,
-                    'classList' => [$baseClass."__image"]
-                ])
-                @endimage
-            </a>
-        @else
-            @image([
-                'src'=> $image,
-                'alt' => $alt,
-                'classList' => [$baseClass."__image"]
-            ])
-            @endimage
+        @if($top)
+            <div class="{{$baseClass}}__top">{{ $top }}</div>
         @endif
-    @endif
 
-    @if($slot != "")
-        <div class="{{$baseClass}}__middle">{{ $slot }}</div>
-    @endif
+        @if($title['position'] === 'top' && $title['text'])
+            @include('Card.sub.card-top')
+        @endif
 
-    @if($showBody)
-        <div class="{{$baseClass}}__body">
+        @if($image)
+            @include('Card.sub.card-image')
+        @endif
 
-            @if($title['position'] === 'body' && $title['text'])
-                @if($href)
-                    <a class="{{$baseClass}}__link" href="{{$href}}">
-                        @typography([
-                            'variant' => "h3",
-                            'element' => "h3",
-                            'classList' => [$baseClass."__title"]
-                        ])
-                            {{$title['text']}}
-                        @endtypography
-                    </a>
-                @else
-                    @typography([
-                        'variant' => "h3",
-                        'element' => "h3",
-                        'classList' => [$baseClass."__title"]
-                    ])
-                        {{$title['text']}}
-                    @endtypography
+        @if($slot != "")
+            <div class="{{$baseClass}}__middle">{{ $slot }}</div>
+        @endif
+
+        @if($showBody)
+            <div class="{{$baseClass}}__body">
+                @include('Card.sub.card-body')
+            </div>
+        @endif
+
+        @if($showFooter)
+            <div class="{{$baseClass}}__bottom">
+
+                @if($buttons)
+                    @include('Card.sub.card-buttons')
                 @endif
-            @endif
 
-            @if($byline['position'] === 'body')
-                @heading([
-                    'label' => $byline["text"],
-                    'level' => 4,
-                    'classList' => [$baseClass."__byline"]
-                ])
-                @endbutton
-            @endif
-
-            @if($content)
-                @if($href)
-                    <a class="{{$baseClass}}__link" href="{{$href}}">
-                        @typography([
-                            'variant' => "p",
-                            'element' => "p",
-                            'classList' => [$baseClass."__text"]
-                        ])
-                            {{$content}}
-                        @endtypography
-                    </a>
-                @else
-                    @typography([
-                        'variant' => "p",
-                        'element' => "p",
-                        'classList' => [$baseClass."__text"]
-                    ])
-                        {{$content}}
-                    @endtypography
+                @if($icons)
+                    @include('Card.sub.card-icons')
                 @endif
-            @endif
-        </div>
-    @endif
-
-    @if($showFooter)
-        <div class="{{$baseClass}}__bottom">
-            @if($bottom)
-                <div class="{{$baseClass}}__top">{{ $bottom }}</div>
-            @endif
-            @if($buttons)
-                @foreach ($buttons as $indexKey => $button)
-                    @button([
-                        'href' => $button["href"],
-                        'text' => $button["text"],
-                        'toggle' => true,
-                        'isOutlined' => true,
-                        'color' => 'default',
-                        'attributeList' => ['tabindex' => $indexKey],
-                        'classList' => [$baseClass."__button"]
-                    ])
-                    @endbutton
-                @endforeach
-            @endif
-            @if($icons)
-                @foreach ($icons as $indexKey => $icon)
-                    @button([
-                        'isIconButton' =>  true,
-                        'icon' => [
-                            'name' => $icon["name"],
-                            'color' => $icon["color"],
-                            'size' => $icon["size"],
-                        ],
-                        'attributeList' => [
-                            'tabindex' => $indexKey
-                        ],
-                        'classList' => $icon["classList"],
-                        'background' => false
-                    ])
-                    @endbutton
-                @endforeach
-            @endif
 
                 @if($dropdown && $dropdown['position'] === 'bottom')
-                    @dropdown([
-                        'items' => [ ['text' => 'cool', 'link' => '#'], ['text' => 'story', 'link' => '#'], ['text' => 'bro', 'link' => '#']],
-                        'direction' => 'left',
-                        'popup' => 'click'
-                    ])
-                    @button([
-                        'isIconButton' =>  true,
-                        'icon' => [
-                        'name' => 'more-vert',
-                        'size' => 'lg',
-                        ],
-                        'classList' => ['u-float--right'],
-                        'background' => false
-                    ])
-                    @endbutton
-                    @enddropdown
+                    @include('Card.sub.card-dropdown')
                 @endif
 
-            @if($bottom)
-                {{ $bottom }}
-            @endif
+                @if($bottom)
+                    {{ $bottom }}
+                @endif
 
-        </div>
-    @endif
+            </div>
+        @endif
 
     @endpaper
 

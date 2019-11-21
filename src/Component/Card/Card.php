@@ -17,7 +17,7 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 		//Card Body & Card Footer
 		$this->data['showBody'] = (!empty(array_filter([$title, $content, $byline]))) ? true : false;
-		$this->data['showFooter'] = (!empty(array_filter([$buttons])) || !empty(array_filter([$icons]))) ? true : false;
+		$this->data['showFooter'] = (!empty(array_filter([$buttons])) || !empty(array_filter([$icons])) ||  !empty($bottom)) ? true : false;
 
 		// Avatar
 		$this->data['avatarImage'] = (isset($avatar['image']) && !empty($avatar['image'])) ? $avatar['image'] : null;
@@ -49,9 +49,9 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			}
 		}
 
-
+		// Drop-down
 		$this->data['dropdown']["position"] = (isset($dropdown["position"]) && !empty($dropdown['position'])) ? $dropdown['position'] : null;
-		$this->data['dropdown']["items"] = (isset($dropdown["items"]) && !empty($dropdown['position'])) ? $dropdown['text'] : null;
+		$this->data['dropdown']["items"] = (!empty(array_filter($dropdown['items']))) ? $dropdown['items'] : null;
 
 		//Has ripple
 		if ($hasRipple) {
