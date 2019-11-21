@@ -17,7 +17,8 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 		//Card Body & Card Footer
 		$this->data['showBody'] = (!empty(array_filter([$title, $content, $byline]))) ? true : false;
-		$this->data['showFooter'] = (!empty(array_filter([$buttons])) || !empty(array_filter([$icons])) ||  !empty($bottom)) ? true : false;
+		$this->data['showFooter'] = (!empty(array_filter([$buttons]))
+			|| !empty(array_filter([$icons])) ||  !empty($bottom) || !empty($dropdown)) ? true : false;
 
 		// Avatar
 		$this->data['avatarImage'] = (isset($avatar['image']) && !empty($avatar['image'])) ? $avatar['image'] : null;
@@ -33,9 +34,15 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		$this->data['icons'] = (!empty(array_filter($icons))) ? $icons : false;
 		if ($this->data['icons']) {
 			foreach($this->data['icons'] as $key => $iconParams){
-				$this->data['icons'][$key]['color']  = array_key_exists('color', $iconParams) ? $this->data['icons'][$key]['color']  : '';
-				$this->data['icons'][$key]['size']  = array_key_exists('size', $iconParams) ? $this->data['icons'][$key]['size']  : '';
-				$this->data['icons'][$key]['attributeList']  = array_key_exists('name', $iconParams) ? $this->data['icons'][$key]['attributeList']  : '';
+				$this->data['icons'][$key]['color']  = array_key_exists('color', $iconParams) ?
+					$this->data['icons'][$key]['color']  : '';
+				$this->data['icons'][$key]['size']  = array_key_exists('size', $iconParams) ?
+					$this->data['icons'][$key]['size']  : '';
+				$this->data['icons'][$key]['classList']  = array_key_exists('classList', $iconParams) ?
+					$this->data['icons'][$key]['classList']  : '';
+				$this->data['icons'][$key]['attributeList']  = array_key_exists('name', $iconParams) ?
+					$this->data['icons'][$key]['attributeList']  : '';
+
 			}
 		}
 
@@ -43,15 +50,22 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		$this->data['buttons'] = (!empty(array_filter($buttons))) ? $buttons : false;
 		if ($this->data['buttons']) {
 			foreach($this->data['buttons'] as $key => $buttonParams){
-				$this->data['buttons'][$key]['href']  = array_key_exists('href', $buttonParams) ? $this->data['buttons'][$key]['href']  : '';
-				$this->data['buttons'][$key]['text']  = array_key_exists('text', $buttonParams) ? $this->data['buttons'][$key]['text']  : '';
-				$this->data['buttons'][$key]['name']  = array_key_exists('name', $buttonParams) ? $this->data['buttons'][$key]['name']  : '';
+				$this->data['buttons'][$key]['href']  = array_key_exists('href', $buttonParams) ?
+					$this->data['buttons'][$key]['href']  : '';
+				$this->data['buttons'][$key]['text']  = array_key_exists('text', $buttonParams) ?
+					$this->data['buttons'][$key]['text']  : '';
+				$this->data['buttons'][$key]['name']  = array_key_exists('name', $buttonParams) ?
+					$this->data['buttons'][$key]['name']  : '';
 			}
 		}
 
 		// Drop-down
-		$this->data['dropdown']["position"] = (isset($dropdown["position"]) && !empty($dropdown['position'])) ? $dropdown['position'] : null;
-		$this->data['dropdown']["items"] = (!empty(array_filter($dropdown['items']))) ? $dropdown['items'] : null;
+		if(!empty(array_filter($dropdown))){
+			$this->data['dropdown']["position"] = (!empty($dropdown['position'])) ? $dropdown['position'] : null;
+			$this->data['dropdown']["direction"] = (!empty($dropdown['direction'])) ? $dropdown['direction'] : null;
+			$this->data['dropdown']["items"] = (!empty(array_filter($dropdown['items']))) ? $dropdown['items'] : null;
+		}
+
 
 		//Has ripple
 		if ($hasRipple) {

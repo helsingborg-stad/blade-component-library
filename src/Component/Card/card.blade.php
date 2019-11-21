@@ -28,7 +28,8 @@
         @endif
 
         @if($showFooter)
-            <div class="{{$baseClass}}__bottom">
+            <div class="{{$baseClass}}__bottom @if($dropdown && $dropdown['position'] === 'bottom')
+                {{$baseClass}}__with-bottom-dropdown @endif">
 
                 @if($buttons)
                     @include('Card.sub.card-buttons')

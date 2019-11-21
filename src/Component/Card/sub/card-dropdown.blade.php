@@ -1,6 +1,6 @@
 @dropdown([
     'items' => [ ['text' => 'cool', 'link' => '#'], ['text' => 'story', 'link' => '#'], ['text' => 'bro', 'link' => '#']],
-    'direction' => 'left',
+    'direction' => $dropdown['direction'],
     'popup' => 'click'
 ])
 @button([
@@ -8,6 +8,7 @@
     'icon' => [
         'name' => 'more-vert',
         'size' => 'lg',
+        'color' => false
     ],
     'classList' => ['u-float--right'],
     'background' => false
