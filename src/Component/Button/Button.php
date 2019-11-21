@@ -16,15 +16,14 @@ class Button extends \BladeComponentLibrary\Component\BaseController
 
        
         $this->data['id'] = uniqid("", true);
-
-        if(isset($toggle) && $toggle){
-            $this->data['attributeList']['js-toggle-self'] = '';
-        }
         
         if (isset($isIconButton) && $isIconButton) {
             $this->data['classList'][] = $this->getBaseClass() . "__icon"; 
         } elseif (isset($isOutlined) && $isOutlined) {
             $this->data['classList'][] = $this->getBaseClass() . "__outlined--" . $color; 
+            if(isset($toggle) && $toggle){
+                $this->data['attributeList']['js-toggle-self'] = '';
+            }
         }
 
         if (isset($background) && $background && !$isOutlined) {
