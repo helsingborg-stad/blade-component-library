@@ -25,6 +25,9 @@ class Button extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . "__icon"; 
         } elseif (isset($isOutlined) && $isOutlined) {
             $this->data['classList'][] = $this->getBaseClass() . "__outlined--" . $color; 
+        } else{
+            $this->data['classList'][] = $this->getBaseClass() . '__text';
+            $this->data['classList'][] = $this->getBaseClass() . '__text--' . $color;
         }
 
         if (isset($background) && $background && !$isOutlined) {
