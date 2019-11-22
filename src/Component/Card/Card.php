@@ -114,20 +114,20 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	 */
 	public function setTextParameters()
 	{
-		$this->data['byline']['position'] = (isset($this->compParams['byline']['position']) &&
-			!empty($this->compParams['byline']['position'])) ? $this->compParams['byline']['position'] : null;
+		$this->data['byline']['position'] = (!empty($this->compParams['byline']['position'])) ?
+			$this->compParams['byline']['position'] : null;
 
-		$this->data['byline']['text'] = (isset($this->compParams['byline']['text']) &&
-			!empty($this->compParams['byline']['position'])) ? $this->compParams['byline']['text'] : null;
+		$this->data['byline']['text'] = (!empty($this->compParams['byline']['position'])) ?
+			$this->compParams['byline']['text'] : null;
 
-		$this->data['title']['position'] = (isset($this->compParams['title']['text']) &&
-			!empty($this->compParams['title']['position'])) ? $this->compParams['title']['position'] : null;
+		$this->data['title']['position'] = (!empty($this->compParams['title']['position'])) ?
+			$this->compParams['title']['position'] : null;
 
-		$this->data['title']['text'] = (isset($compParams['title']['text']) &&
-			!empty($this->compParams['title']['text'])) ? $this->compParams['title']['text'] : null;
+		$this->data['title']['text'] = (!empty($this->compParams['title']['text'])) ?
+			$this->compParams['title']['text'] : null;
 
-		$this->data['content'] = (isset($this->compParams['content']) &&
-			!empty($this->compParams['content'])) ? $this->compParams['content'] : null;
+		$this->data['content'] = (!empty($this->compParams['content'])) ?
+			$this->compParams['content'] : null;
 
 		return $this->data;
 	}
