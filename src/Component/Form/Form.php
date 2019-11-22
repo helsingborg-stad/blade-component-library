@@ -8,9 +8,6 @@ class Form extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        //Give base class
-        $this->data['classList'][] = "c-form"; 
-        
         //Attributes
         $this->data['attributeList'] = array(
             'method' => 'post',

@@ -9,11 +9,7 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        // Base class
-        array_unshift($this->data['classList'], 'c-btn');
-
         $this->data['labelMod'] = "";
-
        
         $this->data['id'] = uniqid("", true);
         

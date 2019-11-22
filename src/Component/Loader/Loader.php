@@ -19,8 +19,5 @@ class Loader extends \BladeComponentLibrary\Component\BaseController
         if (in_array($size, $sizes)) {
            $this->data['classList'][] = 'loader' . '--' . $size;
         }
-
-        // Add base class
-        array_unshift($this->data['classList'], 'loader');
     }
 }

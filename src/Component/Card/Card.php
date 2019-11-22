@@ -53,8 +53,5 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			$this->data['classList'][] = "ripple";
 			$this->data['classList'][] = "ripple--before";
 		}
-
-		// Add base class
-		array_unshift($this->data['classList'], 'c-card');
 	}
 }

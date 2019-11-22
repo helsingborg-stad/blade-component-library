@@ -112,13 +112,14 @@ class BaseController
      */
     protected function getBaseClass()
     {
-        $classes = $this->getClass(false); 
+        //Get all parts of the location
+        $namespaceParts = explode(
+            "\\", 
+            get_called_class()
+        ); 
 
-        if(is_array($classes) && !empty($classes)) {
-            return reset($classes); 
-        }
-
-        return ""; 
+        //Create string
+        return strtolower("c-" . end($namespaceParts)); 
     }
 
     private function getAttribute($implode = true) {

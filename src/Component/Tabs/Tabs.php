@@ -10,8 +10,5 @@ class Tabs extends \BladeComponentLibrary\Component\BaseController
 
         // Generate unique ID
         $this->data['id'] = uniqid();
-
-        // Add base class
-        array_unshift($this->data['classList'], 'c-tabs');
     }
 }

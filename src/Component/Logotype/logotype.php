@@ -10,9 +10,6 @@ class Logotype extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        // Add base class
-        array_unshift($this->data['classList'], 'c-logotype');
-
         //Add placeholder class
         if(!$src) {
             $this->data['classList'][] = $this->getBaseClass() . "--is-placeholder";

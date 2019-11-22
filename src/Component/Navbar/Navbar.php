@@ -8,9 +8,6 @@ class Navbar extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        // Add base class
-        array_unshift($this->data['classList'], 'c-navbar');
-
         if (isset($logoPosition)) {
             //Placement
             $placementClass = "c-navbar--logo__";

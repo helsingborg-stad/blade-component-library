@@ -9,9 +9,6 @@ class Dropdown extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        // Base class
-        array_unshift($this->data['classList'], 'c-dropdown');
-
         if(isset($direction)){
             $this->data['direction'] = $direction;
             $this->data['classList'][] = $this->getBaseClass() . '-btn--' . $direction;

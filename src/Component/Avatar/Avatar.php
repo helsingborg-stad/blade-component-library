@@ -9,9 +9,6 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        //Class list
-        $this->data['classList'][] = "c-avatar";
-
         //Get initials
         if($name) {
             $this->data['initials'] = $this->createInitials($name); 
