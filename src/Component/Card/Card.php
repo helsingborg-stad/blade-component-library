@@ -14,40 +14,42 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		//Extract array for eazy access (fetch only)
 		extract($this->data);
 
-		$compParams = [
-			'title' => $title,
-			'content' => $content,
-			'byline' => $byline,
-			'dropdown' => $dropdown,
-			'icons' => $icons,
-			'avatar' => $avatar,
-			'buttons' => $buttons,
-			'bottom' => $bottom,
-			'href' => $href,
+		// Encapsulates component data expose it globally for class
+		$this->compParams = [
+			'title' 	=> $title,
+			'content' 	=> $content,
+			'byline' 	=> $byline,
+			'dropdown' 	=> $dropdown,
+			'icons' 	=> $icons,
+			'avatar' 	=> $avatar,
+			'buttons' 	=> $buttons,
+			'bottom' 	=> $bottom,
+			'href' 		=> $href,
 			'hasRipple' => $hasRipple
 		];
 
 		// Check if Different view parts in use
-		$this->setViewContainers($compParams);
+		$this->setViewContainers();
 
 		// Set ClassList for component
-		$this->setClassListParameters($compParams);
+		$this->setClassListParameters();
 
 		// Set Avatar parameters
-		$this->setAvatarParameters($compParams);
+		$this->setAvatarParameters();
 
 		// Set Text parameters for title, byline, content
-		$this->setTextParameters($compParams);
+		$this->setTextParameters();
 
 		// Set Icon parameters
-		$this->setIconParameters($compParams);
+		$this->setIconParameters();
 
 		// Set Button parameters
-		$this->setButtonParameters($compParams);
+		$this->setButtonParameters();
 
 		// Set Dropdown parameters
-		$this->setDropDownParameters($compParams);
+		$this->setDropDownParameters();
 
+		// Reverse Array
 		array_unshift($this->data['classList'], 'c-card');
 	}
 
@@ -57,14 +59,14 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	 * @param $compParams
 	 * @return array
 	 */
-	public function setViewContainers($compParams)
+	public function setViewContainers()
 	{
-		$this->data['showBody'] = (!empty(array_filter([$compParams['title'], $compParams['content'],
-			$compParams['byline']]))) ? true : false;
+		$this->data['showBody'] = (!empty(array_filter([$this->compParams['title'], $this->compParams['content'],
+			$this->compParams['byline']]))) ? true : false;
 
-		$this->data['showFooter'] = (!empty(array_filter([$compParams['buttons']]))
-			|| !empty(array_filter([$compParams['icons']])) || !empty($compParams['bottom']) ||
-			!empty($compParams['dropdown'])) ? true : false;
+		$this->data['showFooter'] = (!empty(array_filter([$this->compParams['buttons']]))
+			|| !empty(array_filter([$this->compParams['icons']])) || !empty($this->compParams['bottom']) ||
+			!empty($this->compParams['dropdown'])) ? true : false;
 
 		return $this->data;
 	}
@@ -75,11 +77,11 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	 * @param $compParams
 	 * @return array
 	 */
-	public function setClassListParameters($compParams)
+	public function setClassListParameters()
 	{
-		$this->data['classList'][] = ($compParams['href']) ? $this->getBaseClass() . "--link" : '';
+		$this->data['classList'][] = ($this->compParams['href']) ? $this->getBaseClass() . "--link" : '';
 
-		if ($compParams['hasRipple']) {
+		if ($this->compParams['hasRipple']) {
 			$this->data['classList'][] = "ripple";
 			$this->data['classList'][] = "ripple--before";
 		}
@@ -93,13 +95,13 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	 * @param $compParams
 	 * @return array
 	 */
-	public function setAvatarParameters($compParams)
+	public function setAvatarParameters()
 	{
-		$this->data['avatarImage'] = (isset($compParams['avatar']['image']) &&
-			!empty($compParams['avatar']['image'])) ? $compParams['avatar']['image'] : null;
+		$this->data['avatarImage'] = (isset($this->compParams['avatar']['image']) &&
+			!empty($this->compParams['avatar']['image'])) ? $this->compParams['avatar']['image'] : null;
 
-		$this->data['avatarName'] = (isset($compParams['avatar']['name']) &&
-			!empty($compParams['avatar']['name'])) ? $compParams['avatar']['name'] : null;
+		$this->data['avatarName'] = (isset($this->compParams['avatar']['name']) &&
+			!empty($this->compParams['avatar']['name'])) ? $this->compParams['avatar']['name'] : null;
 
 		return $this->data;
 	}
@@ -110,22 +112,22 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	 * @param $compParams
 	 * @return array
 	 */
-	public function setTextParameters($compParams)
+	public function setTextParameters()
 	{
-		$this->data['byline']['position'] = (isset($compParams['byline']['position']) &&
-			!empty($compParams['byline']['position'])) ? $compParams['byline']['position'] : null;
+		$this->data['byline']['position'] = (isset($this->compParams['byline']['position']) &&
+			!empty($this->compParams['byline']['position'])) ? $this->compParams['byline']['position'] : null;
 
-		$this->data['byline']['text'] = (isset($compParams['byline']['text']) &&
-			!empty($compParams['byline']['position'])) ? $compParams['byline']['text'] : null;
+		$this->data['byline']['text'] = (isset($this->compParams['byline']['text']) &&
+			!empty($this->compParams['byline']['position'])) ? $this->compParams['byline']['text'] : null;
 
-		$this->data['title']['position'] = (isset($compParams['title']['text']) &&
-			!empty($compParams['title']['position'])) ? $compParams['title']['position'] : null;
+		$this->data['title']['position'] = (isset($this->compParams['title']['text']) &&
+			!empty($this->compParams['title']['position'])) ? $this->compParams['title']['position'] : null;
 
 		$this->data['title']['text'] = (isset($compParams['title']['text']) &&
-			!empty($compParams['title']['text'])) ? $compParams['title']['text'] : null;
+			!empty($this->compParams['title']['text'])) ? $this->compParams['title']['text'] : null;
 
-		$this->data['content'] = (isset($compParams['content']) &&
-			!empty($compParams['content'])) ? $compParams['content'] : null;
+		$this->data['content'] = (isset($this->compParams['content']) &&
+			!empty($this->compParams['content'])) ? $this->compParams['content'] : null;
 
 		return $this->data;
 	}
@@ -136,9 +138,9 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	 * @param $compParams
 	 * @return array
 	 */
-	public function setIconParameters($compParams)
+	public function setIconParameters()
 	{
-		$this->data['icons'] = (!empty(array_filter($compParams['icons']))) ? $compParams['icons'] : false;
+		$this->data['icons'] = (!empty(array_filter($this->compParams['icons']))) ? $this->compParams['icons'] : false;
 
 		if ($this->data['icons']) {
 			foreach ($this->data['icons'] as $key => $iconParams) {
@@ -165,17 +167,17 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	 * @param $compParams
 	 * @return array
 	 */
-	public function setDropDownParameters($compParams)
+	public function setDropDownParameters()
 	{
-		if (!empty(array_filter($compParams['dropdown']))) {
-			$this->data['dropdown']["position"] = (!empty($compParams['dropdown']['position'])) ?
-				$compParams['dropdown']['position'] : null;
+		if (!empty(array_filter($this->compParams['dropdown']))) {
+			$this->data['dropdown']["position"] = (!empty($this->compParams['dropdown']['position'])) ?
+				$this->compParams['dropdown']['position'] : null;
 
-			$this->data['dropdown']["direction"] = (!empty($compParams['dropdown']['direction'])) ?
-				$compParams['dropdown']['direction'] : null;
+			$this->data['dropdown']["direction"] = (!empty($this->compParams['dropdown']['direction'])) ?
+				$this->compParams['dropdown']['direction'] : null;
 
-			$this->data['dropdown']["items"] = (!empty(array_filter($compParams['dropdown']['items']))) ?
-				$compParams['dropdown']['items'] : null;
+			$this->data['dropdown']["items"] = (!empty(array_filter($this->compParams['dropdown']['items']))) ?
+				$this->compParams['dropdown']['items'] : null;
 
 			foreach ($this->data['dropdown']["items"] as $keyDrop => $dropParams) {
 				$this->data['dropdown']['text'] = (!empty($dropParams[$keyDrop]['text'])) ?
@@ -194,9 +196,9 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	 * @param $compParams
 	 * @return array
 	 */
-	public function setButtonParameters($compParams)
+	public function setButtonParameters()
 	{
-		$this->data['buttons'] = (!empty(array_filter($compParams['buttons']))) ? $compParams['buttons'] : false;
+		$this->data['buttons'] = (!empty(array_filter($this->compParams['buttons']))) ? $this->compParams['buttons'] : false;
 		if ($this->data['buttons']) {
 			foreach ($this->data['buttons'] as $key => $buttonParams) {
 				$this->data['buttons'][$key]['href'] = array_key_exists('href', $buttonParams) ?
