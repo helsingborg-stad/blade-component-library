@@ -9,15 +9,20 @@
         @endimage
     </div>
 
+    @php
+        $uniqID = uniqid();
+        $uniqID2 = uniqid();
+    @endphp
+
     @foreach ($items as $itemlist )
-        <div class="{{$baseClass}}__list" js-menu-target="navbar-expand">
-            @foreach ($itemlist as $key => $item)
+        <div class="{{$baseClass}}__list" js-menu-target="navbar-expand-{{$uniqID2}}">
+            @foreach ($itemlist as  $item)
                 @php
                     $uniqID = uniqid()
                 @endphp
                 <div class="{{$baseClass}}__item">
                     
-                    <a href="{{$item['href']}}">{{$key}}</a>
+                    <a href="{{$item['href']}}">{{$item['name']}}</a>
 
                     @if (isset($item['list']))
                         <div class="{{$baseClass}}__toggle">
@@ -28,14 +33,15 @@
                                 'background' => false,
                                 'attributeList' => [
                                     'js-menu-trigger' => "{$baseClass}__subitem--expanded",
-                                    'js-menu-dart' => $uniqID
+                                    'js-menu-dart' => $uniqID,
+                                    'data-load-submenu' => $item['id']
                                 ]
                             ])
                             @endbutton
                         </div>
 
                         <div class="{{$baseClass}}__subcontainer">
-                            @include ('Navbar.subitem', array('item' => $item['list'], 'uniqID' => $uniqID))
+                            @include ('Navbar.subitem', array('item' => $item['list'], 'appendID' => $item['id'], 'uniqID' => $uniqID))
                         </div>
                     @endif
                 </div>
@@ -51,7 +57,7 @@
             'background' => false,
             'attributeList' => [
                 'js-menu-trigger' => "{$baseClass}__list--expanded",
-                'js-menu-dart' => 'navbar-expand'
+                'js-menu-dart' => "navbar-expand-{$uniqID2}"
             ]
         ])
         @endbutton
