@@ -2,13 +2,13 @@
     @button([
         'isIconButton' =>  true,
         'icon' => [
-        'name' => $icon["name"],
-        'color' => $icon["color"],
-        'size' => $icon["size"],
-    ],
-    'attributeList' => [
-        'tabindex' => $indexKey
-    ],
+            'name' => $icon["name"],
+            'color' => $icon["color"],
+            'size' => $icon["size"],
+        ],
+        'attributeList' => [
+            'tabindex' => $indexKey
+        ],
         'classList' => $icon["classList"],
         'background' => false
     ])

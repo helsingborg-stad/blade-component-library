@@ -2,18 +2,18 @@
         @if($href)
             <a class="{{$baseClass}}__link" href="{{$href}}">
                 @typography([
-                'variant' => "h3",
-                'element' => "h3",
-                'classList' => [$baseClass."__title"]
+                    'variant' => "h3",
+                    'element' => "h3",
+                    'classList' => [$baseClass."__title"]
                 ])
                 {{$title['text']}}
                 @endtypography
             </a>
         @else
             @typography([
-            'variant' => "h3",
-            'element' => "h3",
-            'classList' => [$baseClass."__title"]
+                'variant' => "h3",
+                'element' => "h3",
+                'classList' => [$baseClass."__title"]
             ])
             {{$title['text']}}
             @endtypography
@@ -22,9 +22,9 @@
 
     @if($byline['position'] === 'body')
         @heading([
-        'label' => $byline["text"],
-        'level' => 4,
-        'classList' => [$baseClass."__byline"]
+            'label' => $byline["text"],
+            'level' => 4,
+            'classList' => [$baseClass."__byline"]
         ])
         @endbutton
     @endif
@@ -33,20 +33,20 @@
         @if($href)
             <a class="{{$baseClass}}__link" href="{{$href}}">
                 @typography([
-                'variant' => "p",
-                'element' => "p",
-                'classList' => [$baseClass."__text"]
+                    'variant' => "p",
+                    'element' => "p",
+                    'classList' => [$baseClass."__text"]
                 ])
-                {{$content}}
+                    {{$content}}
                 @endtypography
             </a>
         @else
             @typography([
-            'variant' => "p",
-            'element' => "p",
-            'classList' => [$baseClass."__text"]
+                'variant' => "p",
+                'element' => "p",
+                'classList' => [$baseClass."__text"]
             ])
-            {{$content}}
+                {{$content}}
             @endtypography
         @endif
     @endif
