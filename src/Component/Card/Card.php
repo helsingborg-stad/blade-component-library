@@ -193,6 +193,7 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 
 	/**
+	 * Button parameters
 	 * @param $compParams
 	 * @return array
 	 */
