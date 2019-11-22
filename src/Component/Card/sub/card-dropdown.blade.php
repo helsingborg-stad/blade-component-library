@@ -1,5 +1,5 @@
 @dropdown([
-    'items' => [ ['text' => 'cool', 'link' => '#'], ['text' => 'story', 'link' => '#'], ['text' => 'bro', 'link' => '#']],
+    'items' => $dropdown['items'],
     'direction' => $dropdown['direction'],
     'popup' => 'click'
 ])

@@ -64,7 +64,15 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			$this->data['dropdown']["position"] = (!empty($dropdown['position'])) ? $dropdown['position'] : null;
 			$this->data['dropdown']["direction"] = (!empty($dropdown['direction'])) ? $dropdown['direction'] : null;
 			$this->data['dropdown']["items"] = (!empty(array_filter($dropdown['items']))) ? $dropdown['items'] : null;
+
+			foreach($this->data['dropdown']["items"] as $keyDrop => $dropParams){
+				$this->data['dropdown']['text']  = (!empty($dropParams[$keyDrop]['text'])) ?
+					$this->data['dropdown']['text']  : '';
+				$this->data['dropdown']['link']  = (!empty($dropParams[$keyDrop]['link'])) ?
+					$this->data['dropdown']['link']  : '';
+			}
 		}
+
 
 
 		//Has ripple
