@@ -39,9 +39,9 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 				$this->data['icons'][$key]['size']  = array_key_exists('size', $iconParams) ?
 					$this->data['icons'][$key]['size']  : '';
 				$this->data['icons'][$key]['classList']  = array_key_exists('classList', $iconParams) ?
-					$this->data['icons'][$key]['classList']  : '';
-				$this->data['icons'][$key]['attributeList']  = array_key_exists('name', $iconParams) ?
-					$this->data['icons'][$key]['attributeList']  : '';
+					$this->data['icons'][$key]['classList']  : [];
+				$this->data['icons'][$key]['attributeList']  = array_key_exists('attributeList', $iconParams) ?
+					$this->data['icons'][$key]['attributeList']  : [];
 
 			}
 		}
