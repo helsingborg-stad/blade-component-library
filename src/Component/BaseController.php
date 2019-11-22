@@ -81,7 +81,14 @@ class BaseController
     {
         //Store locally
         if(isset($this->data['classList']) && is_array($this->data['classList'])) {
-            $class = (array) $this->data['classList']; 
+            
+            array_unshift(
+                $this->data['classList'], 
+                (string) $this->getBaseClass()
+            ); 
+
+            $class = (array) $this->data['classList'];
+
         } else {
             $class = array();
         }
