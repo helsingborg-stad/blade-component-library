@@ -49,8 +49,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		// Set Dropdown parameters
 		$this->setDropDownParameters();
 
-		// Reverse Array
-		array_unshift($this->data['classList'], 'c-card');
 	}
 
 
@@ -85,6 +83,8 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			$this->data['classList'][] = "ripple";
 			$this->data['classList'][] = "ripple--before";
 		}
+
+		array_unshift($this->data['classList'], 'c-card');
 
 		return $this->data;
 	}
