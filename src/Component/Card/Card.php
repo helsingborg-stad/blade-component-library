@@ -54,7 +54,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 	/**
 	 * View containers such as Body and Footer
-	 * @param $compParams
 	 * @return array
 	 */
 	public function setViewContainers()
@@ -62,8 +61,8 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		$this->data['showBody'] = (!empty(array_filter([$this->compParams['title'], $this->compParams['content'],
 			$this->compParams['byline']]))) ? true : false;
 
-		$this->data['showFooter'] = (!empty(array_filter([$this->compParams['buttons']]))
-			|| !empty(array_filter([$this->compParams['icons']])) || !empty($this->compParams['bottom']) ||
+		$this->data['showFooter'] = (!empty(array_filter([$this->compParams['buttons']])) ||
+			!empty(array_filter([$this->compParams['icons']])) || !empty($this->compParams['bottom']) ||
 			!empty($this->compParams['dropdown'])) ? true : false;
 
 		return $this->data;
@@ -72,7 +71,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 	/**
 	 * ClassList parameters
-	 * @param $compParams
 	 * @return array
 	 */
 	public function setClassListParameters()
@@ -92,7 +90,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 	/**
 	 * Avatar parameters
-	 * @param $compParams
 	 * @return array
 	 */
 	public function setAvatarParameters()
@@ -109,7 +106,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 	/**
 	 * Text Parameters
-	 * @param $compParams
 	 * @return array
 	 */
 	public function setTextParameters()
@@ -135,7 +131,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 	/**
 	 * Icon Parameteters
-	 * @param $compParams
 	 * @return array
 	 */
 	public function setIconParameters()
@@ -164,7 +159,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 	/**
 	 * Dropdown parameters
-	 * @param $compParams
 	 * @return array
 	 */
 	public function setDropDownParameters()
@@ -194,7 +188,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 	/**
 	 * Button parameters
-	 * @param $compParams
 	 * @return array
 	 */
 	public function setButtonParameters()
