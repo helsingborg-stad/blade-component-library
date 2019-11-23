@@ -140,10 +140,10 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		if ($this->data['icons']) {
 			foreach ($this->data['icons'] as $key => $iconParams) {
 				$this->data['icons'][$key]['color'] = array_key_exists('color', $iconParams) ?
-					$this->data['icons'][$key]['color'] : '';
+					$this->data['icons'][$key]['color'] : null;
 
 				$this->data['icons'][$key]['size'] = array_key_exists('size', $iconParams) ?
-					$this->data['icons'][$key]['size'] : '';
+					$this->data['icons'][$key]['size'] : null;
 
 				$this->data['icons'][$key]['classList'] = array_key_exists('classList', $iconParams) ?
 					$this->data['icons'][$key]['classList'] : [];
@@ -175,10 +175,10 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 			foreach ($this->data['dropdown']["items"] as $keyDrop => $dropParams) {
 				$this->data['dropdown']['text'] = (!empty($dropParams[$keyDrop]['text'])) ?
-					$this->data['dropdown']['text'] : '';
+					$this->data['dropdown']['text'] : null;
 
 				$this->data['dropdown']['link'] = (!empty($dropParams[$keyDrop]['link'])) ?
-					$this->data['dropdown']['link'] : '';
+					$this->data['dropdown']['link'] : null;
 			}
 		}
 
@@ -192,17 +192,18 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	 */
 	public function setButtonParameters()
 	{
-		$this->data['buttons'] = (!empty(array_filter($this->compParams['buttons']))) ? $this->compParams['buttons'] : false;
+		$this->data['buttons'] = (!empty(array_filter($this->compParams['buttons']))) ?
+			$this->compParams['buttons'] : false;
 		if ($this->data['buttons']) {
 			foreach ($this->data['buttons'] as $key => $buttonParams) {
 				$this->data['buttons'][$key]['href'] = array_key_exists('href', $buttonParams) ?
-					$this->data['buttons'][$key]['href'] : '';
+					$this->data['buttons'][$key]['href'] : null;
 
 				$this->data['buttons'][$key]['text'] = array_key_exists('text', $buttonParams) ?
-					$this->data['buttons'][$key]['text'] : '';
+					$this->data['buttons'][$key]['text'] : null;
 
 				$this->data['buttons'][$key]['name'] = array_key_exists('name', $buttonParams) ?
-					$this->data['buttons'][$key]['name'] : '';
+					$this->data['buttons'][$key]['name'] : null;
 			}
 		}
 
