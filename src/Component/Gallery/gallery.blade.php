@@ -4,9 +4,9 @@
         $uniqueId = "gallery_".\BladeComponentLibrary\Component\Gallery\Gallery::getUnique();
     @endphp
 
-    <ul class="{{ $class }}" {!! $attribute !!}>
+    <div class="grid {{ $class }}" {!! $attribute !!}>
         @foreach($list as $key => $item)
-            <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
+            <div class="grid-xs-12 grid-sm-3 grid-md-3 {{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
 
                 @image([
                     'src'=> $item['smallImage'],
@@ -14,17 +14,17 @@
                     'caption' => $item['caption'],
                     'fullWidth' => true,
                     'attributeList' => [
-                        'data-open' => $uniqueId,
-                        'data-large-img' =>  $item['largeImage'],
-                        'data-stepping' => $loop->index,
-                        'data-caption' => $item['caption']
-                        ]
+                    'data-open' => $uniqueId,
+                    'data-large-img' =>  $item['largeImage'],
+                    'data-stepping' => $loop->index,
+                    'data-caption' => $item['caption']
+                ]
                 ])
                 @endimage
 
-            </li>
+            </div>
         @endforeach
-    </ul>
+    </div>
 
     @modal([
         'isPanel' => false,
@@ -33,14 +33,14 @@
         'navigation' => true,
         'id' => $uniqueId,
         'classList' => [
-            'c-modal--gallery',
-            'c-modal--stepper'
-        ]
+        'c-modal--gallery',
+        'c-modal--stepper'
+    ]
     ])
 
     @image([
-        'src'=> '',
-        'caption'=> $item['caption']
+    'src'=> '',
+    'caption'=> $item['caption']
     ])
     @endimage
 
