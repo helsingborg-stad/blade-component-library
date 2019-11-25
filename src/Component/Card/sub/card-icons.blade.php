@@ -6,9 +6,6 @@
             'color' => $icon["color"],
             'size' => $icon["size"],
         ],
-        'attributeList' => [
-            'tabindex' => $indexKey
-        ],
         'classList' => $icon["classList"],
         'background' => false
     ])

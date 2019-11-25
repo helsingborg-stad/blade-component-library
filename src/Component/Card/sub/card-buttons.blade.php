@@ -5,7 +5,6 @@
         'toggle' => true,
         'isOutlined' => false,
         'color' => $button["color"],
-        'attributeList' => ['tabindex' => $indexKey],
         'classList' => [$baseClass."__button"]
     ])
     @endbutton
