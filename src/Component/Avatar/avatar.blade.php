@@ -1,5 +1,5 @@
 <!-- avatar.blade.php -->
-<div class="{{ $class }}" {!! $attribute !!}>
+<div id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
     @if($image) 
         <img src="{{ $image }}" class="{{$baseClass}}__image" alt="{{ $label }}" aria-label="{{ $label }}"/>
     @endif

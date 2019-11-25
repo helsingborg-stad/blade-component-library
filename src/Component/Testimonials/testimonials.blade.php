@@ -1,6 +1,6 @@
 <!-- testimonials.blade.php -->
 @if($testimonials)
-    <{{ $componentElement }} class="grid {{ $class }}" {!! $attribute !!}>
+    <{{ $componentElement }} id="{{ $id }}" class="grid {{ $class }}" {!! $attribute !!}>
                 @foreach($testimonials as $testimonial)
                     <div class="{{ $gridClasses }}">
                         @if (($loop->index + 1) % 2 === 0 )

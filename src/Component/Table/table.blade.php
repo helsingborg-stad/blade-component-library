@@ -1,6 +1,6 @@
 <!-- table.blade.php -->
 @if($list)
-  <div class="{{ $class }}" {!! $attribute !!}>
+  <div id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
     <div class="{{$baseClass}}__inner">
       <table class="{{$baseClass}}__table">
         @if($showCaption)

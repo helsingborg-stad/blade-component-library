@@ -1,5 +1,5 @@
 <!-- navbar.blade.php -->
-<nav class="{{$class}}" {!! $attribute !!}>
+<nav id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
     <div class="{{$baseClass}}__logo">
         @image([
             'src'=> $logo,

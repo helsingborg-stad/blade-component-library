@@ -1,5 +1,5 @@
 <!-- card.blade.php -->
-<div class="{{$class}}" {!! $attribute !!}>
+<div id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
 
     @paper([
         'classList' => [$baseClass.'__paper']

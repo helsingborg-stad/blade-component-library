@@ -1,5 +1,5 @@
 <!-- field.blade.php -->
-<div class="{{$class}}">
+<div id="{{ $id }}" class="{{$class}}">
     @if(!$textarea)
         <input {!! $attribute !!} >
     @else
