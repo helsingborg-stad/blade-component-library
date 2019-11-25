@@ -9,6 +9,7 @@ class BaseController
      * @var array
      */
     protected $data = array(
+        'id' => '', //Unique dom id
         'class' => "", //Auto compiled from class list on data fetch
         'baseClass' => "",
         'classList' => [], //An array of class names (push classes here),
@@ -55,7 +56,10 @@ class BaseController
         $data['baseClass'] = $this->getBaseClass();
 
         //Create attibute string
-        $data['attribute'] = $this->getAttribute(); 
+        $data['attribute'] = $this->getAttribute();
+
+        //Create id string
+        $data['id'] = $this->getId();
 
         //Applies single filter for each data item (class and data exepted)
         if(function_exists('apply_filters')) {
@@ -72,6 +76,35 @@ class BaseController
         return (array) $data;
     }
 
+    /**
+     * Returns set or dynamic id
+     * 
+     * @return string Id of the component
+     */
+    private function getId()
+    {
+        //Store locally
+        if(isset($this->data['id']) && !empty($this->data['id'])) {
+            $id = (string) $this->data['id']; 
+        } else {
+            $id =   substr(
+                        strrchr(
+                            get_called_class(),
+                            "\\"
+                        ), 
+                        1
+                    ) 
+                    . "-" .
+                    base_convert(md5(
+                        serialize(
+                            $this->data
+                        )
+                    ), 4, 36); 
+        }
+
+        return (string) strtolower($id);
+    }
+    
     /**
      * Returns the classes
      * 

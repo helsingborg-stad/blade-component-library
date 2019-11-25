@@ -1,6 +1,6 @@
 <!-- video.blade.php -->
 @if($formats)
-    <video class="{{ $class }}" width="{{$width}}" height="{{$height}}" {{$controls}} {{$muted}} {{$autoplay}} {!! $attribute !!}>
+    <video id="{{ $id }}" class="{{ $class }}" width="{{$width}}" height="{{$height}}" {{$controls}} {{$muted}} {{$autoplay}} {!! $attribute !!}>
 
         @foreach($formats as $format)
             <source class="{{ $baseClass }}__source" src="{{$format['src']}}" type="video/{{$format['type']}}">

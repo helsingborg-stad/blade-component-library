@@ -1,4 +1,4 @@
-<div class="{{$class}}" {{$container}} {!!$attribute!!}>
+<div id="{{ $id }}" class="{{$class}}" {{$container}} {!!$attribute!!}>
     {{$slot}}
     @if(isset($isSplitButton) && $isSplitButton)
         @dropdown([
