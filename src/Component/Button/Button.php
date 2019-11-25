@@ -10,7 +10,7 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         // Base class
-        array_unshift($this->data['classList'], 'c-btn');
+        array_unshift($this->data['classList'], 'c-button');
 
         $this->data['labelMod'] = "";
 
