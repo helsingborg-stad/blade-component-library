@@ -204,6 +204,9 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 				$this->data['buttons'][$key]['name'] = array_key_exists('name', $buttonParams) ?
 					$this->data['buttons'][$key]['name'] : null;
+
+				$this->data['buttons'][$key]['color'] = array_key_exists('color', $buttonParams) ?
+					$this->data['buttons'][$key]['color'] : '';
 			}
 		}
 
