@@ -61,5 +61,7 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         if (isset($floatOnHover) && $floatOnHover) {
             $this->data['classList'][] = $this->getBaseClass() . "--float-on-hover";
         }
+
+        $this->data['attributeList']['tabindex'] = "1"; 
     }
 }
