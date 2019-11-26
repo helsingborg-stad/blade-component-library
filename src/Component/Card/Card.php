@@ -23,6 +23,7 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			'icons' 	=> $icons,
 			'avatar' 	=> $avatar,
 			'buttons' 	=> $buttons,
+			'top' 		=> $top,
 			'bottom' 	=> $bottom,
 			'href' 		=> $href,
 			'hasRipple' => $hasRipple
@@ -64,6 +65,9 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		$this->data['showFooter'] = (!empty(array_filter([$this->compParams['buttons']])) ||
 			!empty(array_filter([$this->compParams['icons']])) || !empty($this->compParams['bottom']) ||
 			!empty($this->compParams['dropdown'])) ? true : false;
+
+		$this->data['top'] = (isset($this->compParams['top']) && !empty($this->compParams['top'])) ? $this->compParams['top'] : null;
+		$this->data['bottom'] = (isset($this->compParams['top']) && !empty($this->compParams['bottom'])) ? $this->compParams['bottom'] : null;
 
 		return $this->data;
 	}
