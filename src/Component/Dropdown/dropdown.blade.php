@@ -1,4 +1,4 @@
-<{{$componentElement}} class="{{ $class }}">   
+<{{$componentElement}} id="{{ $id }}" class="{{ $class }}">   
     
     {{$slot}}
     

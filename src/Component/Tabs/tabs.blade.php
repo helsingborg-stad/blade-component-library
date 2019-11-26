@@ -1,6 +1,6 @@
 <!-- tabs.blade.php -->
 @if($tabs)
-    <{{$componentElement}} class="{{ $class }}" role="tablist" js-expand-container {!! $attribute !!}>
+    <{{$componentElement}} id="{{ $id }}" class="{{ $class }}" role="tablist" js-expand-container {!! $attribute !!}>
         <div class="{{ $baseClass }}__header">
             @foreach($tabs as $tab)
                 <{{$headingElement}} role="tab" class="{{$baseClass}}__button" aria-controls="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-expanded="{{ $loop->index === 0 ? 'true' : 'false' }}" js-expand-button>

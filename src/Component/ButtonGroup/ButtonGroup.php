@@ -10,7 +10,9 @@ class ButtonGroup extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         // Base class
-        array_unshift($this->data['classList'], 'c-btn-group');
+        array_unshift($this->data['classList'], 'c-buttongroup');
+
+        
 
         
 
@@ -23,7 +25,7 @@ class ButtonGroup extends \BladeComponentLibrary\Component\BaseController
         }
 
         if(isset($backgroundColor)){
-            $this->data['classList'][] = $this->getBaseClass() . ' .c-btn--' . $backgroundColor; 
+            $this->data['classList'][] = $this->getBaseClass() . ' .c-button--' . $backgroundColor;
         }
         
     }

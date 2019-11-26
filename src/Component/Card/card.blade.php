@@ -1,89 +1,56 @@
 <!-- card.blade.php -->
-<div class="{{$class}}" {!! $attribute !!}>
+<div id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
 
-    @paper()
+    @paper([
+        'classList' => [$baseClass.'__paper']
+    ])
 
         @if($top)
             <div class="{{$baseClass}}__top">{{ $top }}</div>
         @endif
 
+        @if($title['position'] === 'top' && $title['text'])
+            @include('Card.sub.card-top')
+        @endif
+
         @if($image)
-            @if($href)
-            <a class="{{$baseClass}}__link {{$baseClass}}__image-link" href="{{$href}}">
-                @image([
-                    'src'=> $image,
-                    'alt' => $alt,
-                    'classList' => [$baseClass."__image"]
-                ])
-                @endimage
-                </a>
-            @else
-            @image([
-                'src'=> $image,
-                'alt' => $alt,
-                'classList' => [$baseClass."__image"]
-            ])
-            @endimage
-            @endif
+            @include('Card.sub.card-image')
         @endif
 
         @if($slot != "")
             <div class="{{$baseClass}}__middle">{{ $slot }}</div>
         @endif
 
-        @if($title != ""||$content != "")
+        @if($showBody)
             <div class="{{$baseClass}}__body">
-
-                @if($title)
-                    @if($href)
-                        <a class="{{$baseClass}}__link" href="{{$href}}">
-                            @typography([
-                                'variant' => "h2",
-                                'element' => "h4",
-                                'classList' => [$baseClass."__title"]
-                            ])
-                                {{$title}}
-                            @endtypography
-                        </a>
-                    @else
-                        @typography([
-                            'variant' => "h4",
-                            'element' => "h4",
-                            'classList' => [$baseClass."__title"]
-                        ])
-                            {{$title}}
-                        @endtypography
-                    @endif
-                @endif
-
-                @if($content)
-                    @if($href)
-                        <a class="{{$baseClass}}__link" href="{{$href}}">
-                            @typography([
-                                'variant' => "p",
-                                'element' => "p",
-                                'classList' => [$baseClass."__text"]
-                            ])
-                                {{$content}}
-                            @endtypography
-                        </a>
-                    @else
-                            @typography([
-                                'variant' => "p",
-                                'element' => "p",
-                                'classList' => [$baseClass."__text"]
-                            ])
-                                {{$content}}
-                            @endtypography
-                    @endif
-                @endif
+                @include('Card.sub.card-body')
             </div>
         @endif
 
-        @if($bottom)
-            <div class="{{$baseClass}}__bottom">{{ $bottom }}</div>
+        @if($showFooter)
+            <div class="{{$baseClass}}__bottom @if($dropdown && $dropdown['position'] === 'bottom')
+                {{$baseClass}}__with-bottom-dropdown @endif">
+
+                @if($buttons)
+                    @include('Card.sub.card-buttons')
+                @endif
+
+                @if($icons)
+                    @include('Card.sub.card-icons')
+                @endif
+
+                @if($dropdown && $dropdown['position'] === 'bottom')
+                    @include('Card.sub.card-dropdown')
+                @endif
+
+                @if($bottom)
+                    {{ $bottom }}
+                @endif
+
+            </div>
         @endif
 
     @endpaper
 
 </div>
+

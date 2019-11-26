@@ -1,5 +1,5 @@
 <!-- code.blade.php -->
-<{{$componentElement}} class="{{$class}}" {!! $attribute !!}>
+<{{$componentElement}} id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
 @if($content)
 <p class="{{$baseClass}}__description">{{$content}}</p>
 @endif

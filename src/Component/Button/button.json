@@ -5,9 +5,9 @@
    "default":{
       "text": "Button",
       "size": "md",
-      "color": "default",
+      "color": "primary",
       "href":"#",
-      "background": "default",
+      "background": false,
       "target":"_top",
       "componentElement":"button",
       "labelElement":"span",
@@ -34,7 +34,7 @@
       "floating": "An array with two booleans, animate and hover, if both are set to false then the button will be floating by it's own",
       "isIconButton": "No text, only an icon, full border radius",
       "background":"The background color of the button; primary and secondary",
-      "toggle": "set to true will make it possible to add js-toggle-trigger to the buttons attribute list",
+      "toggle": "Only applicable to outline buttons",
       "container": "if toggle is set to true the js-toggle-container attribute will be applied, otherwise it's just a div"
    },
    "view":"button.blade.php"

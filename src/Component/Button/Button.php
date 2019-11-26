@@ -10,21 +10,23 @@ class Button extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         // Base class
-        array_unshift($this->data['classList'], 'c-btn');
+        array_unshift($this->data['classList'], 'c-button');
 
         $this->data['labelMod'] = "";
 
        
         $this->data['id'] = uniqid("", true);
-
-        if(isset($toggle) && $toggle){
-            $this->data['attributeList']['js-toggle-self'] = '';
-        }
         
         if (isset($isIconButton) && $isIconButton) {
             $this->data['classList'][] = $this->getBaseClass() . "__icon"; 
         } elseif (isset($isOutlined) && $isOutlined) {
             $this->data['classList'][] = $this->getBaseClass() . "__outlined--" . $color; 
+            if(isset($toggle) && $toggle){
+                $this->data['attributeList']['js-toggle-self'] = '';
+            }
+        } else{
+            $this->data['classList'][] = $this->getBaseClass() . '__text';
+            $this->data['classList'][] = $this->getBaseClass() . '__text--' . $color;
         }
 
         if (isset($background) && $background && !$isOutlined) {
