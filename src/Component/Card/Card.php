@@ -82,8 +82,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			$this->data['classList'][] = "ripple--before";
 		}
 
-		array_unshift($this->data['classList'], 'c-card');
-
 		return $this->data;
 	}
 
@@ -209,7 +207,7 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 					$this->data['buttons'][$key]['color'] : '';
 			}
 		}
-
+    
 		return $this->data;
 	}
 }

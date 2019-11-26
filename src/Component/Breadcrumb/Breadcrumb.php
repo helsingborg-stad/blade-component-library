@@ -9,8 +9,6 @@ class Breadcrumb extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        $this->data['classList'][] = "c-breadcrumb"; 
-
         //Adds icon directives
         if($list && is_array($list) && !empty($list)) {
 

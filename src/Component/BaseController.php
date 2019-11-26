@@ -114,7 +114,14 @@ class BaseController
     {
         //Store locally
         if(isset($this->data['classList']) && is_array($this->data['classList'])) {
-            $class = (array) $this->data['classList']; 
+            
+            array_unshift(
+                $this->data['classList'], 
+                (string) $this->getBaseClass()
+            ); 
+
+            $class = (array) $this->data['classList'];
+
         } else {
             $class = array();
         }
@@ -145,13 +152,14 @@ class BaseController
      */
     protected function getBaseClass()
     {
-        $classes = $this->getClass(false); 
+        //Get all parts of the location
+        $namespaceParts = explode(
+            "\\", 
+            get_called_class()
+        ); 
 
-        if(is_array($classes) && !empty($classes)) {
-            return reset($classes); 
-        }
-
-        return ""; 
+        //Create string
+        return strtolower("c-" . end($namespaceParts)); 
     }
 
     private function getAttribute($implode = true) {

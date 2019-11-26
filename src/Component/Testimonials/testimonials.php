@@ -29,8 +29,5 @@ class Testimonials extends \BladeComponentLibrary\Component\BaseController
         $grid = is_int(12 / $perRow) ? 12 / $perRow : 12;
 
         $this->data['gridClasses'] = 'grid-xs-12 grid-sm-6 grid-lg-' . $grid;
-
-        // Add base class
-        array_unshift($this->data['classList'], 'c-testimonials');
     }
 }

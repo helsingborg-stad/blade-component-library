@@ -12,8 +12,5 @@ class Fileinput extends \BladeComponentLibrary\Component\BaseController
         if ($display === 'area') {
             $this->data['classList'][] = 'c-fileinput--area';
         }
-
-        // Add base class
-        array_unshift($this->data['classList'], 'c-fileinput');
     }
 }

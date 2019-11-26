@@ -10,9 +10,6 @@ class Hero extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        //Class list
-        $this->data['classList'][] = "c-hero"; 
-
         //Vertical text alignment
         $this->data['classList'][] = $this->getBaseClass() . "--valign-" . $verticalTextAlignment;  
 

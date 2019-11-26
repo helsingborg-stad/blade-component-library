@@ -9,10 +9,7 @@ class Icon extends \BladeComponentLibrary\Component\BaseController
 
         //Extract array for easy access (fetch only)
         extract($this->data);
-
-        //Add base class
-        array_unshift($this->data['classList'], "c-icon");
-
+        
         //Append space before label
         if($label = trim($label)) {
             $this->data['label'] = " " . $label;

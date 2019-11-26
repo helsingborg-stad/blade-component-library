@@ -10,9 +10,6 @@ class Video extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        //Class list
-        $this->data['classList'][] = "video"; 
-
         //Controls
         if($hasControls) {
             $this->data['controls'] = "controls"; 

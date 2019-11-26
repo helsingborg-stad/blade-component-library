@@ -9,7 +9,5 @@ class Accordion extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         $this->data['id'] = uniqid();
-
-        array_unshift($this->data['classList'], 'c-accordion');
     }
 }

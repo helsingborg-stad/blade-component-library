@@ -10,9 +10,6 @@ class Notice extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        //Class list
-        $this->data['classList'][] = "c-notice"; 
-
         //Message
         if(isset($message) && is_array($message) && !empty($message)){
             $message['text'] = ucfirst($message['text']);
