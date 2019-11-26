@@ -15,7 +15,5 @@
             ])
             @endbutton
         @enddropdown
-    @else
-
     @endif
 </div>
