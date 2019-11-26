@@ -11,15 +11,15 @@ class Dropdown extends \BladeComponentLibrary\Component\BaseController
 
         if(isset($direction)){
             $this->data['direction'] = $direction;
-            $this->data['classList'][] = $this->getBaseClass() . '-btn--' . $direction;
+            $this->data['classList'][] = $this->getBaseClass() . '-button--' . $direction;
         }
 
         if(isset($direction) && $popup === 'focus'){
-            $this->data['classList'][] = $this->getBaseClass() . '-btn--' . $direction . '__focus';
+            $this->data['classList'][] = $this->getBaseClass() . '-button--' . $direction . '__focus';
         }
 
         if(isset($direction) && $popup === 'click'){
-            $this->data['classList'][] = $this->getBaseClass() . '-btn--' . $direction . '__click';
+            $this->data['classList'][] = $this->getBaseClass() . '-button--' . $direction . '__click';
         }
 
         if(isset($popup)){
