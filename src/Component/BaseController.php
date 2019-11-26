@@ -18,6 +18,12 @@ class BaseController
     );
 
     /**
+     * Unique id
+     * @var array
+     */
+    private $uid = null; 
+
+    /**
      * Run init
      */
     public function __construct($data)
@@ -58,8 +64,9 @@ class BaseController
         //Create attibute string
         $data['attribute'] = $this->getAttribute();
 
-        //Create id string
-        $data['id'] = $this->getId();
+        //Create id strings
+        $data['id'] = $this->getId(); //"static" id dependent on the content
+        $data['uid'] = $this->getUid(); //"random" id
 
         //Applies single filter for each data item (class and data exepted)
         if(function_exists('apply_filters')) {
@@ -103,6 +110,19 @@ class BaseController
         }
 
         return (string) strtolower($id);
+    }
+
+    /**
+     * Returns and sets a dynamic id
+     * 
+     * @return string Random id
+     */
+    private function getUid()
+    {
+        if(!is_null($this->uid)) {
+            return $this->uid; 
+        }
+        return $this->uid = uniqid();
     }
     
     /**
@@ -170,6 +190,9 @@ class BaseController
         } else {
             $attribute = array();
         }
+
+        //Add unique id
+        $attribute['data-uid'] = $this->getUid(); 
 
         //Applies a general wp filter
         if(function_exists('apply_filters')) {
