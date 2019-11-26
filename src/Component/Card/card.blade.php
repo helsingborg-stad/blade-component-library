@@ -24,6 +24,9 @@
         @if($showBody)
             <div class="{{$baseClass}}__body">
                 @include('Card.sub.card-body')
+                @if($accordion)
+                    @include('Card.sub.card-accordion')
+                @endif
             </div>
         @endif
 
