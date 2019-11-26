@@ -1,5 +1,5 @@
 <!-- logotype.blade.php -->
-<figure class="{{ $class }}" {!! $attribute !!}>
+<figure id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
     @if($src)
         <img src="{{$src}}" alt="{{$alt}}" class="{{$baseClass}}__image" />
         @if($caption)

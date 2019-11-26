@@ -1,3 +1,3 @@
 <!-- loader.blade.php -->
-<{{$componentElement}} class="{{ $class }}" {!! $attribute !!}>
+<{{$componentElement}} id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
 </{{$componentElement}}>
