@@ -1,4 +1,4 @@
 <!-- typography.blade.php -->
-<{{ $element }} class="{{ $class }}" {!! $attribute !!}>
+<{{ $element }} id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
     {{ $slot }}
 </{{ $element }}>

@@ -1,62 +1,90 @@
-<!-- alert.blade.php -->
-{{-- <div class="{{ $class }}" {!! $attribute !!} id="{{ $id }}" data-state="closed" data-target="{{ $id }}">
-
-    <div class="{{$baseClass}}__inner">
-
-        {!! $top !!}
-
-        <button class="{{$baseClass}}__toggle" data-target="{{ $id }}">
-            @icon(['icon' => 'cancel', 'size' => 'lg'])
-            @endicon
-        </button>
-
-        @if($heading) 
-            <h2 class="{{$baseClass}}__heading">
-                {{$heading}}
-            </h2>
-        @endif
-
-        @if($slot)
-            <div class="{{$baseClass}}__content">
-                {{$slot}}
-            </div>
-        @endif
-
-        {!! $bottom !!}
-
-    </div>
-</div> --}}
-
-<div class="{{ $class }}" {!! $attribute !!} id="{{ $id }}">
-    <div class="{{$baseClass}}__inner">
-        <header class="modal-header">
-            {{$heading}}
-            
-            <button class="{{$baseClass}}__close" data-close>
-                @icon(['icon' => 'cancel', 'size' => 'lg'])
-                @endicon
-            </button>
-        </header>
-        
-        <section class="modal-content">
-            @if ($navigation)
-            <button class="{{$baseClass}}__prev" data-prev>
-                @icon(['icon' => 'chevron-left', 'size' => 'md'])
-                @endicon
-            </button>
+<!-- modal.blade.php -->
+<div id="{{ $id }}" class="{{ $parentClass }}">
+    <div class="{{$class}}"  {!! $attribute !!}>
+        <header class="{{$baseClass}}__header">
+            @if ($heading)
+                @typography([
+                    "variant" => "h2",
+                    "element" => "h2",
+                ])
+                 {{$heading}}
+                @endtypography
             @endif
+            
+            @button([
+                'href' => '#btn-3',
+                'isOutlined' => false,
+                'isIconButton' =>  true,
+                'icon' => ['name' => 'close', 'color' => 'white', 'size' => 'md'],
+                'size' => 'lg',
+                'color' => 'secondary',
+                'floating' => ['animate' => true, 'hover' => true],
+                'attributeList' => ['data-close' => ''],
+                'classList' => [$baseClass . "__close"],
+                'background' => false,
+                'hasRipple' => true
+            ])
+            @endbutton
+        </header>
+
+        <section class="{{$baseClass}}__content">
+
+            {{-- Previous button --}}
+            @if ($navigation)
+                @button([
+                    'href' => '#previous',
+                    'isOutlined' => false,
+                    'isIconButton' =>  true,
+                    'icon' => ['name' => 'chevron-left', 'color' => 'white', 'size' => 'xl'],
+                    'reverseIcon' => false,
+                    'size' => 'md',
+                    'color' => 'secondary',
+                    'floating' => ['animate' => true, 'hover' => true],
+                    'attributeList' => ['data-prev' => ''],
+                    'classList' => [$baseClass . "__prev"],
+                    'label' => 'Slide to previous',
+                    'background' => false,
+                    'hasRipple' => true
+                ])
+                @endbutton
+            @endif
+
             {!! $top !!}
             {{$slot}}
+
+            {{-- Next button --}}
             @if ($navigation)
-                <button class="{{$baseClass}}__next" data-next>
-                    @icon(['icon' => 'chevron-right', 'size' => 'md'])
-                    @endicon
-                </button>
-             @endif
+                @button([
+                    'href' => '#next',
+                    'isOutlined' => false,
+                    'isIconButton' =>  true,
+                    'icon' => ['name' => 'chevron-right', 'color' => 'white', 'size' => 'xl'],
+                    'reverseIcon' => false,
+                    'size' => 'md',
+                    'color' => 'secondary',
+                    'floating' => ['animate' => true, 'hover' => true],
+                    'attributeList' => ['data-next' => ''],
+                    'classList' => [$baseClass . "__next"],
+                    'label' => 'Slide to next',
+                    'background' => false,
+                    'hasRipple' => true
+
+                ])
+                @endbutton
+            @endif
         </section>
 
-        <footer class="modal-footer">
+        <footer class="{{$baseClass}}__footer">
             {!! $bottom !!}
         </footer>
+        @if ($navigation)
+
+            @steppers(
+            [
+                'type' => 'dots'
+            ])
+            @endsteppers
+
+        @endif
     </div>
 </div>

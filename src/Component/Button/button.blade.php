@@ -1,4 +1,4 @@
-<{{$componentElement}} class="{{ $class }}" target="{{ $target }}" href="{{ $href }}" {!! $attribute !!}>   
+<{{$componentElement}} {{$container}} id="{{ $id }}" class="{{ $class }}" target="{{ $target }}" js-toggle-single="{{$baseClass}}--{{$background}}__toggled" aria-pressed="{{$pressed}}" href="{{ $href }}" {!! $attribute !!}>   
     <{{$labelElement}} class="{{$baseClass}}__label">
         @if(isset($isIconButton))
             @icon(['icon' => $icon['name'], 'color' => $icon['color'], 'size' => $icon['size'], 
@@ -16,6 +16,10 @@
                 </span>
         @elseif(isset($text))
             {{$text}}
+        @endif
+        
+        @if ($slot)
+            {{ $slot }}
         @endif
     
     </{{$labelElement}}>

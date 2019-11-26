@@ -1,10 +1,10 @@
 <!-- gallery.blade.php -->
 @if($list)
     @php
-        $uniqueId = "gallery_".uniqid();
+        $uniqueId = "gallery_".\BladeComponentLibrary\Component\Gallery\Gallery::getUnique();
     @endphp
 
-    <ul class="{{ $class }}" {!! $attribute !!}>
+    <ul id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
         @foreach($list as $key => $item)
             <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
 
@@ -13,9 +13,13 @@
                     'alt' => $item['alt'],
                     'caption' => $item['caption'],
                     'fullWidth' => true,
-                    'attributeList' => ['data-open' => $uniqueId, 'data-imgSrc' =>  $item['largeImage']]
-
-                    ])
+                    'attributeList' => [
+                        'data-open' => $uniqueId,
+                        'data-large-img' =>  $item['largeImage'],
+                        'data-stepping' => $loop->index,
+                        'data-caption' => $item['caption']
+                        ]
+                ])
                 @endimage
 
             </li>
@@ -27,14 +31,18 @@
         'overlay' => 'dark',
         'animation' => 'scale-up',
         'navigation' => true,
-        'id' => $uniqueId
+        'id' => $uniqueId,
+        'classList' => [
+            'c-modal--gallery',
+            'c-modal--stepper'
+        ]
     ])
 
-        @image([
-            'src'=> '',
-            'alt' => "This is a image in a modal"
-        ])
-        @endimage
+    @image([
+        'src'=> '',
+        'caption'=> $item['caption']
+    ])
+    @endimage
 
     @endmodal
 @else

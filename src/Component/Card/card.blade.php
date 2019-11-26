@@ -1,50 +1,56 @@
 <!-- card.blade.php -->
-<div class="{{$class}}" {!! $attribute !!}>
+<div id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
 
-    @if($top)
-        <div class="{{$baseClass}}__top">{{ $top }}</div>
-    @endif
+    @paper([
+        'classList' => [$baseClass.'__paper']
+    ])
 
-    @if($image)
-        @if($href)
-            <a class="{{$baseClass}}__link {{$baseClass}}__image-link" href="{{$href}}">
-                <img class="{{$baseClass}}__image" src="{{$image}}" alt="{{$alt}}">
-            </a>
-        @else
-            <img class="{{$baseClass}}__image" src="{{$image}}" alt="{{$alt}}">
+        @if($top)
+            <div class="{{$baseClass}}__top">{{ $top }}</div>
         @endif
-    @endif
 
-    @if($slot != "")
-        <div class="{{$baseClass}}__middle">{{ $slot }}</div>
-    @endif
+        @if($title['position'] === 'top' && $title['text'])
+            @include('Card.sub.card-top')
+        @endif
 
-    @if($title != ""||$content != "")
-        <div class="{{$baseClass}}__body">
+        @if($image)
+            @include('Card.sub.card-image')
+        @endif
 
-            @if($title)
-                @if($href)
-                    <a class="{{$baseClass}}__link" href="{{$href}}">
-                        <h4 class="{{$baseClass}}__title">{{$title}}</h4>
-                    </a>
-                @else
-                    <h4 class="{{$baseClass}}__title">{{$title}}</h4>
+        @if($slot != "")
+            <div class="{{$baseClass}}__middle">{{ $slot }}</div>
+        @endif
+
+        @if($showBody)
+            <div class="{{$baseClass}}__body">
+                @include('Card.sub.card-body')
+            </div>
+        @endif
+
+        @if($showFooter)
+            <div class="{{$baseClass}}__bottom @if($dropdown && $dropdown['position'] === 'bottom')
+                {{$baseClass}}__with-bottom-dropdown @endif">
+
+                @if($buttons)
+                    @include('Card.sub.card-buttons')
                 @endif
-            @endif
 
-            @if($content)
-                @if($href)
-                    <a class="{{$baseClass}}__link" href="{{$href}}">
-                        <p class="{{$baseClass}}__text">{{$content}}</p>
-                    </a>
-                @else
-                    <p class="{{$baseClass}}__text">{{$content}}</p>
+                @if($icons)
+                    @include('Card.sub.card-icons')
                 @endif
-            @endif
-        </div>
-    @endif
 
-    @if($bottom)
-        <div class="{{$baseClass}}__bottom">{{ $bottom }}</div>
-    @endif
+                @if($dropdown && $dropdown['position'] === 'bottom')
+                    @include('Card.sub.card-dropdown')
+                @endif
+
+                @if($bottom)
+                    {{ $bottom }}
+                @endif
+
+            </div>
+        @endif
+
+    @endpaper
+
 </div>
+

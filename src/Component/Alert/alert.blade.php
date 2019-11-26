@@ -1,5 +1,5 @@
 <!-- alert.blade.php -->
-<div class="{{ $class }}" {!! $attribute !!}>
+<div id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
 
     <div class="{{$baseClass}}__inner">
 

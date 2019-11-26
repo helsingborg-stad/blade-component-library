@@ -1,7 +1,10 @@
 {
-    "slug":"gallery",
-    "default":{
-       "list":[]
+    "slug": "gallery",
+    "default": {
+        "list": []
     },
-    "view":"gallery.blade.php"
- }
+    "description": {
+        "list": "Array with following keys: largeImage, smallImage, caption and alt"
+    },
+    "view": "gallery.blade.php"
+}
