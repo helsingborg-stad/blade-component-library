@@ -21,12 +21,15 @@
     @endif
 
     @if($byline['position'] === 'body')
-        @heading([
-            'label' => $byline["text"],
-            'level' => 4,
+
+        @typography([
+            'variant' => "h4",
+            'element' => "h4",
             'classList' => [$baseClass."__byline"]
         ])
-        @endbutton
+            {{$byline["text"]}}
+        @endtypography
+
     @endif
 
     @if($content)

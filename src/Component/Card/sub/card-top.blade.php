@@ -29,12 +29,13 @@
 	@endif
 
 	@if($byline['position'] === 'top')
-		@heading([
-			'label' => $byline["text"],
-			'level' => 4,
+		@typography([
+			'variant' => "h4",
+			'element' => "h4",
 			'classList' => [$baseClass."__byline"]
 		])
-		@endheading
+			{{$byline["text"]}}
+		@endtypography
 	@endif
 	@if($dropdown && $dropdown['position'] === 'top')
 		@include('Card.sub.card-dropdown')
