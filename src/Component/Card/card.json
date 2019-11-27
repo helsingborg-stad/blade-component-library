@@ -37,7 +37,7 @@
         "icons" : "Array with icons that has parameters like name, size, attributeList, classList.",
         "avatar" : "Array with the avatar data such as image and name.",
         "dropdown" : "Array with the dropdown parameters as items as an array, direction: top, right, bottom, left, position: top, bottom ",
-        "dropdown" : "Array with the accordion parameters such as heading and content data"
+        "accordion" : "Array with the accordion parameters such as heading and content data"
     },
     "view":"card.blade.php"
  }
