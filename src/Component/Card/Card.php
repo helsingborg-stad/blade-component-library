@@ -20,6 +20,7 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			'content' 	=> $content,
 			'byline' 	=> $byline,
 			'dropdown' 	=> $dropdown,
+			'accordion' => $accordion,
 			'icons' 	=> $icons,
 			'avatar' 	=> $avatar,
 			'buttons' 	=> $buttons,
@@ -50,6 +51,8 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		// Set Dropdown parameters
 		$this->setDropDownParameters();
 
+		// Set Dropdown parameters
+		$this->setAccordionParameters();
 	}
 
 
@@ -212,6 +215,32 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			}
 		}
     
+		return $this->data;
+	}
+
+	/**
+	 * Accordion parameters
+	 * @return array
+	 */
+	public function setAccordionParameters()
+	{
+		if (!empty(array_filter($this->compParams['accordion']))) {
+
+			$this->data['accordion']["items"] = (!empty(array_filter($this->compParams['accordion']['items']))) ?
+				$this->compParams['accordion']['items'] : null;
+
+			$this->data['accordion']["classList"] = (!empty($this->compParams['accordion']['classList'])) ?
+				$this->compParams['accordion']['classList'] : null;
+
+			foreach ($this->data['accordion']["items"] as $keyInt => $accordionParams) {
+				$this->data['accordion']['heading'] = (!empty($accordionParams[$keyInt]['heading'])) ?
+					$this->data['accordion']['heading'] : null;
+
+				$this->data['accordion'][$keyInt]['content'] = (!empty($accordionParams[$keyInt]['content'])) ?
+					$this->data['accordion'][$keyInt]['content'] : null;
+			}
+		}
+
 		return $this->data;
 	}
 }
