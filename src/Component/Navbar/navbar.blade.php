@@ -3,8 +3,7 @@
     <div class="{{$baseClass}}__logo">
         @image([
             'src'=> $logo,
-            'alt' => "A logo",
-            'classList' => ['u-padding--2']
+            'alt' => "A logo"
             ])
         @endimage
     </div>
@@ -29,7 +28,7 @@
                             <div class="{{$baseClass}}__toggle">
                                 @button([
                                     'isIconButton' =>  true,
-                                    'icon' => ['name' => 'menu', 'color' => 'primary', 'size' => 'lg'],
+                                    'icon' => ['name' => 'expand-more', 'color' => 'primary', 'size' => 'md'],
                                     'href' => 'javascript:void(0)',
                                     'background' => false,
                                     'attributeList' => [
@@ -54,7 +53,7 @@
     <div class="{{$baseClass}}__toggle">
         @button([
             'isIconButton' =>  true,
-            'icon' => ['name' => 'menu', 'color' => 'white', 'size' => 'lg'],
+            'icon' => ['name' => 'menu', 'color' => 'primary', 'size' => 'lg'],
             'href' => 'javascript:void(0)',
             'background' => false,
             'attributeList' => [
