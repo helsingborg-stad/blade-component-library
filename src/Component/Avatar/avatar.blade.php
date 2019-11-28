@@ -6,7 +6,12 @@
 
     @if($icon)
         <span class="{{$baseClass}}__icon" aria-label="{{ $label }}">
-            @icon($icon)
+            @icon(
+                [
+                    'icon' => $icon['name'],
+                    'classList' => ["c-icon--size-".$icon['size']]
+                ]
+            )
             @endicon
         </span>
     @endif

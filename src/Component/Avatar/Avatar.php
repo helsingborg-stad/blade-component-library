@@ -14,22 +14,21 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
 		extract($this->data);
 
 		$this->compParams = [
-			'name' => $name,
-			'size' => $size,
-			'icon' => $icon,
-			'image' => $image,
-			'initials' => ''
+			'name' 		=> $name,
+			'size' 		=> $size,
+			'icon' 		=> $icon,
+			'image' 	=> $image,
+			'initials' 	=> ''
 		];
 
 		//Get initials, Create label, Set size and ClassList
 		$this->createInitials();
 		$this->createLabel();
+		$this->setIconParams();
 		$this->classList();
-		$this->setIconSize();
 
 		//Reset - Decides how to switch between data inputs
 		$this->renderMostImportant();
-
 	}
 
 	/**
@@ -57,12 +56,22 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
 	 * Set icon size (depending on avatar size)
 	 * @return array
 	 */
-	public function setIconSize()
+	public function setIconParams()
 	{
-		$this->data['icon']['size'] = ($this->compParams['size'] && is_array($this->compParams['icon']) &&
-			!empty($this->compParams['icon']) && !isset($this->compParams['icon']['size'])) ?
-			$this->compParams['size'] : null;
-		return $this->data['icon']['size'];
+		if(!empty($this->compParams['icon'])) {
+			return null;
+		}
+
+		$defaultSize = (!empty($this->compParams['icon']['size'])) ? $this->compParams['icon']['size'] :
+			$this->compParams['size'];
+
+		$this->data['icon']['name'] = (!empty($this->compParams['icon']['name'])) ?
+			$this->compParams['icon']['name'] : null;
+
+		$this->data['icon']['size'] = (!empty($this->compParams['icon']['size'])) ?
+			$this->compParams['size'] : $defaultSize;
+
+		return $this->data['icon'];
 	}
 
 	/**
@@ -90,8 +99,7 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
 	}
 
 	/**
-	 * Create initials
-	 * @param $name
+	 * Creating initials
 	 * @return string|null
 	 */
 	public function createInitials()
