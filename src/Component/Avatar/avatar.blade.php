@@ -1,10 +1,10 @@
 <!-- avatar.blade.php -->
 <div id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
-    @if($image) 
+    @if($image)
         <img src="{{ $image }}" class="{{$baseClass}}__image" alt="{{ $label }}" aria-label="{{ $label }}"/>
     @endif
 
-    @if($icon) 
+    @if($icon)
         <span class="{{$baseClass}}__icon" aria-label="{{ $label }}">
             @icon($icon)
             @endicon

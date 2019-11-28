@@ -2,75 +2,117 @@
 
 namespace BladeComponentLibrary\Component\Avatar;
 
-class Avatar extends \BladeComponentLibrary\Component\BaseController  
+/**
+ * Class Avatar
+ * @package BladeComponentLibrary\Component\Avatar
+ */
+class Avatar extends \BladeComponentLibrary\Component\BaseController
 {
-    public function init() {
+	public function init()
+	{
+		//Extract array for eazy access (fetch only)
+		extract($this->data);
 
-        //Extract array for eazy access (fetch only)
-        extract($this->data);
+		$this->compParams = [
+			'name' => $name,
+			'size' => $size,
+			'icon' => $icon,
+			'image' => $image,
+			'initials' => ''
+		];
 
-        //Get initials
-        if($name) {
-            $this->data['initials'] = $this->createInitials($name); 
-        } else {
-            $this->data['initials'] = "";
-        }
+		//Get initials, Create label, Set size and ClassList
+		$this->createInitials();
+		$this->createLabel();
+		$this->classList();
+		$this->setIconSize();
 
-        //Create label
-        if($name) {
-            $this->data['label'] = $name; 
-        } else {
-            $this->data['label'] = "Unknown user"; 
-        }
+		//Reset - Decides how to switch between data inputs
+		//$this->renderMostImportant();
 
-        //Set size
-        if($size) {
-            $this->data['classList'][] = $this->getBaseClass() . "--size-" . $size; 
-        }
+	}
 
-        //Set icon size (depending on avatar size)
-        if($size && is_array($icon) && !empty($icon) && !isset($icon['size'])) {
-            $this->data['icon']['size'] = $size; 
-        }
+	/**
+	 * Create label
+	 * @return array
+	 */
+	public function createLabel()
+	{
+		$this->data['label'] = ($this->compParams['name']) ? $this->compParams['name'] : "Unknown user";
+		return $this->data['label'];
+	}
 
-        //Reset 
-        $this->renderMostImportant(); //Decides how to switch beteen data inputs
-    }
+	/**
+	 * Class List
+	 * @return array
+	 */
+	public function classList()
+	{
+		$this->data['classList'][] = ($this->compParams['size']) ?
+			$this->getBaseClass() . "--size-" . $this->compParams['size'] : null;
+		return $this->data['classList'];
+	}
 
-    private function renderMostImportant() {
+	/**
+	 * Set icon size (depending on avatar size)
+	 * @return array
+	 */
+	public function setIconSize()
+	{
+		$this->data['icon']['size'] = ($this->compParams['size'] && is_array($this->compParams['icon']) &&
+			!empty($this->compParams['icon']) && !isset($this->compParams['icon']['size'])) ?
+			$this->compParams['size'] : null;
+		return $this->data['icon']['size'];
+	}
 
-        //Reset icon, initials if image set
-        if($this->data['image']) {
-            $this->data['icon'] = "";
-            $this->data['initials'] = ""; 
-        }
+	/**
+	 * renderMostImportant
+	 */
+	public function renderMostImportant()
+	{
+		//Reset icon, initials if image set
+		if ($this->data['image']) {
+			$this->data['icon'] = null;
+			$this->data['initials'] = null;
+		}
 
-        //Reset image, initials if icon set
-        if($this->data['icon']) {
-            $this->data['image'] = "";
-            $this->data['initials'] = ""; 
-        }
+		//Reset image, initials if icon set
+		if ($this->data['icon']) {
+			$this->data['image'] = null;
+			$this->data['initials'] = null;
+		}
 
-        //Reset icon, image if initals set
-        if($this->data['initials']) {
-            $this->data['image'] = "";
-            $this->data['icon'] = ""; 
-        }
+		//Reset icon, image if initals set
+		if ($this->data['initials']) {
+			$this->data['image'] = null;
+			$this->data['icon'] = null;
+		}
 
-    }
+	}
 
-    private function createInitials($name) {
+	/**
+	 * Create initials
+	 * @param $name
+	 * @return string|null
+	 */
+	public function createInitials()
+	{
+		if (!empty($this->compParams['name']) && empty($this->compParams['image']) && empty($this->compParams['icon'])) {
+			$nameParts = preg_split("/( |-|_)/", $this->compParams['name']);
 
-        $nameParts = preg_split("/( |-|_)/", $name);
+			if (is_array($nameParts) && !empty($nameParts)) {
+				$initials = array();
+				foreach ($nameParts as $part) {
+					$initials[] = substr($part, 0, 1);
+				}
 
-        if(is_array($nameParts) && !empty($nameParts)) {
-            $initials = array(); 
-            foreach($nameParts as $part) {
-                $initials[] = substr($part, 0, 1);
-            }
-            return strtoupper(implode("", $initials)); 
-        }
+				$this->data['initials'] = strtoupper(implode("", $initials));
+				return $this->data['initials'];
+			}
+		} else {
+			$this->data['initials'] = null;
+		}
 
-        return ""; 
-    }
+		return null;
+	}
 }
