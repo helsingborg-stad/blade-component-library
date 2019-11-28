@@ -16,6 +16,11 @@ class Button extends \BladeComponentLibrary\Component\BaseController
 
 		if (isset($isIconButton) && $isIconButton) {
 			$this->data['classList'][] = $this->getBaseClass() . "__icon";
+			if (isset($background) && $background) {
+				$this->data['classList'][] = $this->getBaseClass() . '__icon-bg--' . $color;
+			} else {
+				$this->data['classList'][] = $this->getBaseClass() . '__icon-plain--' . $hoverColor;
+			}
 		} elseif (isset($isOutlined) && $isOutlined) {
 			$this->data['classList'][] = $this->getBaseClass() . "__outlined--" . $color;
 			if (isset($toggle) && $toggle) {
