@@ -28,7 +28,7 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
 		$this->setIconSize();
 
 		//Reset - Decides how to switch between data inputs
-		//$this->renderMostImportant();
+		$this->renderMostImportant();
 
 	}
 
@@ -70,6 +70,12 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
 	 */
 	public function renderMostImportant()
 	{
+		//Reset icon, image if initals set
+		if ($this->data['initials']) {
+			$this->data['image'] = null;
+			$this->data['icon'] = null;
+		}
+
 		//Reset icon, initials if image set
 		if ($this->data['image']) {
 			$this->data['icon'] = null;
@@ -81,13 +87,6 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
 			$this->data['image'] = null;
 			$this->data['initials'] = null;
 		}
-
-		//Reset icon, image if initals set
-		if ($this->data['initials']) {
-			$this->data['image'] = null;
-			$this->data['icon'] = null;
-		}
-
 	}
 
 	/**
