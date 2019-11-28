@@ -2,6 +2,10 @@
 
 namespace BladeComponentLibrary\Component\Accordion;
 
+/**
+ * Class Accordion
+ * @package BladeComponentLibrary\Component\Accordion
+ */
 class Accordion extends \BladeComponentLibrary\Component\BaseController
 {
     public function init() {

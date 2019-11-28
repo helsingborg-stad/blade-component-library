@@ -2,6 +2,10 @@
 
 namespace BladeComponentLibrary\Component\Dropdown;
 
+/**
+ * Class Dropdown
+ * @package BladeComponentLibrary\Component\Dropdown
+ */
 class Dropdown extends \BladeComponentLibrary\Component\BaseController
 {
 
