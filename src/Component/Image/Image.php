@@ -10,7 +10,6 @@ class Image extends \BladeComponentLibrary\Component\BaseController
 
 		//Extract array for eazy access (fetch only)
 		extract($this->data);
-		array_unshift($this->data['classList'], "c-image");
 
 		//Add placeholder class
 		if (!$src) {

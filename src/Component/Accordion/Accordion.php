@@ -2,6 +2,10 @@
 
 namespace BladeComponentLibrary\Component\Accordion;
 
+/**
+ * Class Accordion
+ * @package BladeComponentLibrary\Component\Accordion
+ */
 class Accordion extends \BladeComponentLibrary\Component\BaseController
 {
     public function init() {
@@ -9,7 +13,5 @@ class Accordion extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         $this->data['id'] = uniqid();
-
-        array_unshift($this->data['classList'], 'c-accordion');
     }
 }

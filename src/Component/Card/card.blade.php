@@ -1,5 +1,5 @@
 <!-- card.blade.php -->
-<div class="{{$class}}" {!! $attribute !!}>
+<div id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
 
     @paper([
         'classList' => [$baseClass.'__paper']
@@ -24,6 +24,9 @@
         @if($showBody)
             <div class="{{$baseClass}}__body">
                 @include('Card.sub.card-body')
+                @if($accordion)
+                    @include('Card.sub.card-accordion')
+                @endif
             </div>
         @endif
 

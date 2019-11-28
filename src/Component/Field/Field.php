@@ -8,9 +8,5 @@ class Field extends \BladeComponentLibrary\Component\Form\Form
     {
         //Extract array for eazy access (fetch only)
         extract($this->data);
-
-        //Give base class
-        $this->data['classList'][] = "c-input-text";
-        
     }
 }

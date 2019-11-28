@@ -1,5 +1,5 @@
 <!-- modal.blade.php -->
-<div class="{{ $parentClass }}" id="{{ $id }}">
+<div id="{{ $id }}" class="{{ $parentClass }}">
     <div class="{{$class}}"  {!! $attribute !!}>
         <header class="{{$baseClass}}__header">
 

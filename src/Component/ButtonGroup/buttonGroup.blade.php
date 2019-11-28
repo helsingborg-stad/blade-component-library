@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <div class="{{$class}}" {{$container}} {!!$attribute!!}>
 
+=======
+<div id="{{ $id }}" class="{{$class}}" {{$container}} {!!$attribute!!}>
+>>>>>>> origin/develop
     {{$slot}}
     @if(isset($isSplitButton) && $isSplitButton)
         @dropdown([
@@ -16,8 +20,6 @@
             ])
             @endbutton
         @enddropdown
-    @else
-
     @endif
 </div>
 

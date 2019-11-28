@@ -1,5 +1,5 @@
 <!-- form.blade.php -->
-<form class="{{$class}}" {!! $attribute !!}>
+<form id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
     {!! $slot !!}
 
     <h3>Checkboxes</h3>

@@ -1,5 +1,5 @@
 @if($tags)
-    <{{ $componentElement }} class="{{ $class }}" {!! $attribute !!}>
+    <{{ $componentElement }} id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
         @foreach($tags as $tag)
             @link(['href' => $tag['href'], 'classList' => array('c-link--tag') ])
                 {{ $beforeLabel }}{{ $tag['label'] ?? 'Undefined label' }}{{ $afterLabel }}

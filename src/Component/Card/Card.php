@@ -20,9 +20,11 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			'content' 	=> $content,
 			'byline' 	=> $byline,
 			'dropdown' 	=> $dropdown,
+			'accordion' => $accordion,
 			'icons' 	=> $icons,
 			'avatar' 	=> $avatar,
 			'buttons' 	=> $buttons,
+			'top' 		=> $top,
 			'bottom' 	=> $bottom,
 			'href' 		=> $href,
 			'hasRipple' => $hasRipple
@@ -49,6 +51,8 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		// Set Dropdown parameters
 		$this->setDropDownParameters();
 
+		// Set Dropdown parameters
+		$this->setAccordionParameters();
 	}
 
 
@@ -64,6 +68,9 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		$this->data['showFooter'] = (!empty(array_filter([$this->compParams['buttons']])) ||
 			!empty(array_filter([$this->compParams['icons']])) || !empty($this->compParams['bottom']) ||
 			!empty($this->compParams['dropdown'])) ? true : false;
+
+		$this->data['top'] = (isset($this->compParams['top']) && !empty($this->compParams['top'])) ? $this->compParams['top'] : null;
+		$this->data['bottom'] = (isset($this->compParams['top']) && !empty($this->compParams['bottom'])) ? $this->compParams['bottom'] : null;
 
 		return $this->data;
 	}
@@ -81,8 +88,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			$this->data['classList'][] = "ripple";
 			$this->data['classList'][] = "ripple--before";
 		}
-
-		array_unshift($this->data['classList'], 'c-card');
 
 		return $this->data;
 	}
@@ -207,6 +212,32 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 				$this->data['buttons'][$key]['color'] = array_key_exists('color', $buttonParams) ?
 					$this->data['buttons'][$key]['color'] : '';
+			}
+		}
+    
+		return $this->data;
+	}
+
+	/**
+	 * Accordion parameters
+	 * @return array
+	 */
+	public function setAccordionParameters()
+	{
+		if (!empty(array_filter($this->compParams['accordion']))) {
+
+			$this->data['accordion']["items"] = (!empty(array_filter($this->compParams['accordion']['items']))) ?
+				$this->compParams['accordion']['items'] : null;
+
+			$this->data['accordion']["classList"] = (!empty($this->compParams['accordion']['classList'])) ?
+				$this->compParams['accordion']['classList'] : null;
+
+			foreach ($this->data['accordion']["items"] as $keyInt => $accordionParams) {
+				$this->data['accordion']['heading'] = (!empty($accordionParams[$keyInt]['heading'])) ?
+					$this->data['accordion']['heading'] : null;
+
+				$this->data['accordion'][$keyInt]['content'] = (!empty($accordionParams[$keyInt]['content'])) ?
+					$this->data['accordion'][$keyInt]['content'] : null;
 			}
 		}
 
