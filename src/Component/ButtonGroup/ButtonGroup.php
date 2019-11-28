@@ -2,6 +2,10 @@
 
 namespace BladeComponentLibrary\Component\ButtonGroup;
 
+/**
+ * Class ButtonGroup
+ * @package BladeComponentLibrary\Component\ButtonGroup
+ */
 class ButtonGroup extends \BladeComponentLibrary\Component\BaseController
 {
     public function init() {
