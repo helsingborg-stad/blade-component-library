@@ -3,39 +3,89 @@
     <{{ $componentElement }} id="{{ $id }}" class="grid {{ $class }}" {!! $attribute !!}>
                 @foreach($testimonials as $testimonial)
                     <div class="{{ $gridClasses }}">
+
                         @if (($loop->index + 1) % 2 === 0 )
                             @if ($testimonial['image'])
-                                <div class="{{ $baseClass}}__image">
-                                    <img src="{{ $testimonial['image'] }}">
-                                </div>
+                                @if ($testimonial['avatar'])
+                                    @avatar([
+                                        'image' => $testimonial['image'],
+                                        'name' => $testimonial['name'],
+                                        'size' => 'lg'
+                                    ])
+                                    @endavatar
+                                @else
+                                    @image([
+                                        'src'=> $testimonial['image'],
+                                        'alt' => $testimonial['name']
+                                    ])
+                                    @endimage
+                                @endif
                             @endif
+
                             <div class="{{ $baseClass}}__header">
                                 @if ($testimonial['name'])
-                                    <{{ $nameElement }}>{{$testimonial['name']}}</{{ $nameElement }}>
+                                    @typography([
+                                            "variant" => "h2",
+                                            "element" => $nameElement
+                                        ])
+                                        {{$testimonial['name']}}
+                                    @endtypography
                                 @endif
                                 @if ($testimonial['title'])
-                                    <{{ $titleElement }}>{{$testimonial['title']}}</{{ $titleElement }}>
-                                @endif
+                                    @typography([
+                                        "variant" => "h4",
+                                        "element" => $titleElement
+                                    ])
+                                        {{$testimonial['title']}}
+                                    @endtypography
+                                    @endif
                             </div>
+
                         @else
                             <div class="{{ $baseClass}}__header">
                                 @if ($testimonial['name'])
-                                    <{{ $nameElement }}>{{ $testimonial['name'] }}</{{ $nameElement }}>
+                                    @typography([
+                                        "variant" => "h2",
+                                        "element" => $nameElement
+                                    ])
+                                        {{$testimonial['name']}}
+                                    @endtypography
+
                                 @endif
                                 @if ($testimonial['title'])
-                                    <{{ $titleElement }}>{{ $testimonial['title'] }}</{{ $titleElement }}>
+                                    @typography([
+                                        "variant" => "h4",
+                                        "element" => $titleElement
+                                    ])
+                                        {{$testimonial['title']}}
+                                    @endtypography
+
                                 @endif
                             </div>
                             @if ($testimonial['image'])
-                                <div class="{{ $baseClass}}__image">
-                                    <img src="{{ $testimonial['image'] }}">
-                                </div>
+                                @if ($testimonial['avatar'])
+                                    @avatar([
+                                        'image' => $testimonial['image'],
+                                        'name' => $testimonial['name'],
+                                        'size' => 'lg'
+                                    ])
+                                    @endavatar
+                                @else
+                                    @image([
+                                        'src'=> $testimonial['image'],
+                                        'alt' => $testimonial['name']
+                                    ])
+                                    @endimage
+                                @endif
                             @endif
                         @endif
                         <div class="{{ $baseClass }}__quote">
-                            <p>
-                                {{ $testimonial['testimonial'] }}
-                            <p>
+                            @typography([
+                                "variant" => "p",
+                                "element" => "p"
+                            ])
+                                {{$testimonial['testimonial']}}
+                            @endtypography
                         </div>
                     </div>
                 @endforeach

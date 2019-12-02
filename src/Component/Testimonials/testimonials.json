@@ -5,14 +5,16 @@
         "testimonials": [],
         "perRow": 1,
         "nameElement": "h2",
-        "titleElement": "h3"
+        "titleElement": "h4",
+        "avatar" : true
     },
     "description": {
         "componentElement": "The tag for the component",
         "testimonials": "List containing testimonial items",
         "perRow": "Number of columns per row. Must be integer divisible by 12",
         "nameElement": "Name element",
-        "titleElement": "Title element"
+        "titleElement": "Title element",
+        "avatar": "Use of avatar, set to true as default"
     },
     "view": "testimonials.blade.php"
 }
