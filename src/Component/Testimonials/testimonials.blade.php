@@ -2,9 +2,9 @@
 @if($testimonials)
     <{{ $componentElement }} id="{{ $id }}" class="grid {{ $class }}" {!! $attribute !!}>
                 @foreach($testimonials as $testimonial)
-                    <div class="{{ $gridClasses }}">
+                    <div class="{{ $gridClasses }} {{ $baseClass}}__image-top">
 
-                        @if (($loop->index + 1) % 2 === 0 )
+                        @if ($testimonial['imageTop'])
                             @if ($testimonial['image'])
                                 @if ($testimonial['avatar'])
                                     @avatar([
@@ -25,16 +25,16 @@
                             <div class="{{ $baseClass}}__header">
                                 @if ($testimonial['name'])
                                     @typography([
-                                            "variant" => "h2",
-                                            "element" => $nameElement
+                                            "variant" => $testimonial['nameElement'],
+                                            "element" => "h2"
                                         ])
                                         {{$testimonial['name']}}
                                     @endtypography
                                 @endif
                                 @if ($testimonial['title'])
                                     @typography([
-                                        "variant" => "h4",
-                                        "element" => $titleElement
+                                        "variant" => $testimonial['titleElement'],
+                                        "element" => "h4"
                                     ])
                                         {{$testimonial['title']}}
                                     @endtypography
@@ -42,11 +42,11 @@
                             </div>
 
                         @else
-                            <div class="{{ $baseClass}}__header">
+                            <div class="{{ $baseClass}}__header {{ $baseClass}}__image-bottom">
                                 @if ($testimonial['name'])
                                     @typography([
-                                        "variant" => "h2",
-                                        "element" => $nameElement
+                                        "variant" => $testimonial['nameElement'],
+                                        "element" => "h2"
                                     ])
                                         {{$testimonial['name']}}
                                     @endtypography
@@ -54,8 +54,8 @@
                                 @endif
                                 @if ($testimonial['title'])
                                     @typography([
-                                        "variant" => "h4",
-                                        "element" => $titleElement
+                                        "variant" => $testimonial['titleElement'],
+                                        "element" => "h4"
                                     ])
                                         {{$testimonial['title']}}
                                     @endtypography
@@ -79,7 +79,9 @@
                                 @endif
                             @endif
                         @endif
-                        <div class="{{ $baseClass }}__quote">
+                        <div class="{{ $baseClass }}__quote c-testimonials__quote-color-{{$testimonial['quoteColor']}}">
+                            @icon(['icon' => 'quote', 'size' => 'lg'])
+                            @endicon
                             @typography([
                                 "variant" => "p",
                                 "element" => "p"

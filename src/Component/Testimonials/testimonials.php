@@ -36,8 +36,12 @@ class Testimonials extends \BladeComponentLibrary\Component\BaseController
                     'name' => $testimonial['name'] ?? '',
                     'title' => $testimonial['title'] ?? '',
                     'testimonial' => $testimonial['testimonial'] ?? '',
+                    'titleElement' => $testimonial['titleElement'] ?? 'h4',
+                    'nameElement' => $testimonial['nameElement'] ?? 'h2',
                     'image' => $testimonial['image'] ?? '',
-                    'avatar' => $testimonial['avatar'] ?? true
+                    'avatar' => $testimonial['avatar'] ?? true,
+                    'quoteColor' => $testimonial['quoteColor'] ?? 'grey',
+                    'imageTop' => $testimonial['imageTop'] ?? false
                 );
             },
             $this->compParams['testimonials']
@@ -45,7 +49,6 @@ class Testimonials extends \BladeComponentLibrary\Component\BaseController
 
         $grid = $this->calculateGrid();
         $this->data['gridClasses'] = 'grid-xs-12 grid-sm-6 grid-lg-' . $grid;
-
     }
 
     /**

@@ -6,7 +6,9 @@
         "perRow": 1,
         "nameElement": "h2",
         "titleElement": "h4",
-        "avatar" : true
+        "imageTop": false,
+        "avatar" : true,
+        "quoteColor": "grey"
     },
     "description": {
         "componentElement": "The tag for the component",
@@ -14,7 +16,9 @@
         "perRow": "Number of columns per row. Must be integer divisible by 12",
         "nameElement": "Name element",
         "titleElement": "Title element",
-        "avatar": "Use of avatar, set to true as default"
+        "imageTop": "Image or Avatar on top of text",
+        "avatar": "Use of avatar, set to true as default",
+        "quoteColor": "Quote icon color (grey, primary, secondary)"
     },
     "view": "testimonials.blade.php"
 }
