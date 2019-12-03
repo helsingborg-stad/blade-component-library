@@ -16,9 +16,9 @@
         "perRow": "Number of columns per row. Must be integer divisible by 12",
         "nameElement": "Different headings like H2, H3, H4, H5",
         "titleElement": "Different headings like H2, H3, H4, H5",
-        "imageTop": "Image or Avatar on top of text",
+        "imageTop": "If you want to place image or avatar above the titles and text",
         "avatar": "Use of avatar, set to true as default",
-        "quoteColor": "Quote icon color (grey, primary, secondary)"
+        "quoteColor": "Quote icon color like grey, primary, secondary"
     },
     "view": "testimonials.blade.php"
 }
