@@ -6,7 +6,7 @@
     @button([
         'isIconButton' =>  true,
         'icon' => [
-            'name' => 'more-vert',
+            'name' => 'more_vert',
             'size' => 'lg',
             'color' => false
         ],
