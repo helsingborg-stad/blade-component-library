@@ -7,7 +7,7 @@
           <{{$listItem}} class="{{$baseClass}}__item {{$baseClass}}__item--previous">
             <a class="{{$baseClass}}__link" href="{{ $previous }}" aria-label="Previous page">
               <span class="{{$baseClass}}__label">
-                @icon(['icon' => 'chevron-left'])
+                @icon(['icon' => 'chevron_left'])
                 @endicon
               </span>
             </a>
@@ -39,7 +39,7 @@
           <{{$listItem}} class="{{$baseClass}}__item {{$baseClass}}__item--next">
             <a class="{{$baseClass}}__link" href="{{ $next }}" aria-label="Next page">
               <span class="{{$baseClass}}__label">
-                @icon(['icon' => 'chevron-right'])
+                @icon(['icon' => 'chevron_right'])
                 @endicon
               </span>
             </a>
