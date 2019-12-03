@@ -14,8 +14,8 @@
         "componentElement": "The tag for the component",
         "testimonials": "List containing testimonial items",
         "perRow": "Number of columns per row. Must be integer divisible by 12",
-        "nameElement": "Name element",
-        "titleElement": "Title element",
+        "nameElement": "Different headings like H2, H3, H4, H5",
+        "titleElement": "Different headings like H2, H3, H4, H5",
         "imageTop": "Image or Avatar on top of text",
         "avatar": "Use of avatar, set to true as default",
         "quoteColor": "Quote icon color (grey, primary, secondary)"
