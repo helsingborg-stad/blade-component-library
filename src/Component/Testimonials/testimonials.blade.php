@@ -80,7 +80,7 @@
                             @endif
                         @endif
                         <div class="{{ $baseClass }}__quote c-testimonials__quote-color-{{$testimonial['quoteColor']}}">
-                            @icon(['icon' => 'quote', 'size' => 'lg'])
+                            @icon(['icon' => 'format_quote', 'size' => 'lg'])
                             @endicon
                             @typography([
                                 "variant" => "p",
