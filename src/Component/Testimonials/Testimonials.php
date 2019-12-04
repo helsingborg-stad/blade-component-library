@@ -15,7 +15,8 @@ class Testimonials extends \BladeComponentLibrary\Component\BaseController
 
         $this->compParams = [
             'testimonials' => $testimonials,
-            'perRow' => $perRow
+            'perRow' => $perRow,
+            'componentElement' => $componentElement
         ];
 
         $this->mapData();
@@ -48,6 +49,8 @@ class Testimonials extends \BladeComponentLibrary\Component\BaseController
         );
 
         $grid = $this->calculateGrid();
+        $this->data['componentElement'] = ($this->compParams['componentElement']) ?
+            $this->compParams['componentElement'] : 'div';
         $this->data['gridClasses'] = 'grid-xs-12 grid-sm-6 grid-lg-' . $grid;
     }
 
