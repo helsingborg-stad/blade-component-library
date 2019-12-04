@@ -12,7 +12,7 @@
                     <div class="c-navbar__toggle">
                         @button([
                             'isIconButton' =>  true,
-                            'icon' => ['name' => 'expand-more', 'color' => 'primary', 'size' => 'md'],
+                            'icon' => ['name' => 'expand_more', 'color' => 'primary', 'size' => 'md'],
                             'href' => 'javascript:void(0)',
                             'background' => false,
                             'attributeList' => [

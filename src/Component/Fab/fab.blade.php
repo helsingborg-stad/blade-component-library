@@ -1,4 +1,9 @@
 <span id="{{ $id }}" class="{{ $class }}">
-    @button($button)
-    @endbutton
+    @if (isset($button))
+        @button($button)
+        @endbutton
+    @else
+        {!!$slot!!}
+    @endif
+
 </span>
