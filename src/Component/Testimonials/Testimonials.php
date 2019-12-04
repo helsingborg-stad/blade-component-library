@@ -51,6 +51,7 @@ class Testimonials extends \BladeComponentLibrary\Component\BaseController
         $grid = $this->calculateGrid();
         $this->data['componentElement'] = ($this->compParams['componentElement']) ?
             $this->compParams['componentElement'] : 'div';
+        
         $this->data['gridClasses'] = 'grid-xs-12 grid-sm-6 grid-lg-' . $grid;
     }
 
