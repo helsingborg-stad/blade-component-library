@@ -10,7 +10,7 @@
                 {{ $section['heading'] }}
                 {!!$afterHeading!!}
 
-                @icon(['icon' => 'chevron-right', 'size' => 'md', 'classList' => [$baseClass . '__icon']])
+                @icon(['icon' => 'keyboard_arrow_down', 'size' => 'md', 'classList' => [$baseClass . '__icon']])
                 @endicon
             </span>
         </{{$sectionHeadingElement}}>

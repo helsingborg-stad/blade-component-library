@@ -26,7 +26,7 @@ class Breadcrumb extends \BladeComponentLibrary\Component\BaseController
 
 			foreach($this->compParams['list'] as $key => $item) {
 				if(!isset($this->data['list'][$key]['icon'])) {
-					$this->data['list'][$key]['icon'] = ($key) ? "chevron-right" : "bookmark";
+					$this->data['list'][$key]['icon'] = ($key) ? "chevron_right" : "bookmark";
 				}
 			}
 			return $this->data;
