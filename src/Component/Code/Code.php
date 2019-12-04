@@ -14,5 +14,8 @@ class Code extends \BladeComponentLibrary\Component\BaseController
         if($escape) {
             $this->data['slot'] = htmlentities($slot); 
         }
+
+        $language = ($language) ? $language : 'php';
+
     }
 }
