@@ -2,11 +2,15 @@
     "slug":"field",
     "default":{
 
-        "textarea" : false
+        "textarea" : false,
+        "label" : "",
+        "type" : "text"
     },
     "description":{
 
-        "textarea" : "Set to true, you create a textarea"
+        "textarea" : "Set to true, you create a textarea",
+        "label" : "Array of label items like labelText.",
+        "type" : "text, checkbox and radio"
     },
     "view":"field.blade.php"
  }
