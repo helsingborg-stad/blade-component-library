@@ -4,13 +4,17 @@
 
         "textarea" : false,
         "label" : "",
-        "type" : "text"
+        "type" : "text",
+        "required" : false,
+        "autocomplete": true
     },
     "description":{
 
         "textarea" : "Set to true, you create a textarea",
         "label" : "Array of label items like labelText.",
-        "type" : "text, checkbox and radio"
+        "type" : "text, checkbox and radio",
+        "required" : "HTML5 validation on fields",
+        "autocomplete" : "Browser automatically completes the input values based on values that the user has entered before"
     },
     "view":"field.blade.php"
  }
