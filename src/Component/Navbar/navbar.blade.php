@@ -19,7 +19,7 @@
                 @php
                     $uniqID = uniqid()
                 @endphp
-                <a href="{{$item['href']}}">
+                <a href="{{$item['href']}}" aria-label="{{$item['name']}}">
                     <div class="{{$baseClass}}__item">
                         
                         <span>{{$item['name']}}</span>
