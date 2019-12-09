@@ -15,31 +15,27 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
 
         //Full template
         if($template == "full") {
-            $this->getFullTemplateData(); 
+            $this->getFullTemplateData($image, $background_color); 
         }
 
         if($template == "split") {
-            $this->getSplitTemplateData(); 
+            $this->getSplitTemplateData($card); 
         }
 
         if($template == "featured") {
-            $this->getFeaturedTemplateData(); 
+            $this->getFeaturedTemplateData($card); 
         }
 
-        $this->getContainment();
-        $this->getOrder();
-        $this->getImageFocus();
-        $this->getContentAlignment();
-        $this->getMobileLayout();
-        $this->getTextAlignment();
+        $this->getContainment($containContent);
+        $this->getOrder($reverse_layout);
+        $this->getImageFocus($image_focus);
+        $this->getContentAlignment($content_alignment);
+        $this->getMobileLayout($mobile_layout);
+        $this->getTextAlignment($text_alignment);
         
     }
 
-    private function getFullTemplateData() {
-
-        //Extract array for eazy access (fetch only)
-        extract($this->data);
-
+    private function getFullTemplateData($image, $bg_color) {
         //Inline css
         $styles = []; 
         //$styles['background-image'] = ; 
@@ -47,7 +43,7 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
         if ($image != "") {
             $this->data['attributeList']['style'] = "background-image: url('".$image."');";
         } else {
-            $this->data['attributeList']['style'] = "background-color: $background_color;";
+            $this->data['attributeList']['style'] = "background-color: $bg_color;";
         }
 
         $this->data['classList'][] = $this->getBaseClass() . "--padding-md";
@@ -60,65 +56,36 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
 
     }
 
-    private function getSplitTemplateData() {
-
-        //Extract array for eazy access (fetch only)
-        extract($this->data);
-
-        $this->getCardSettings();
+    private function getSplitTemplateData($card) {
+        $this->getCardSettings($card);
 
         $this->data['classList'][] = $this->getBaseClass() . "--height-md";
         $this->data['classList'][] = $this->getBaseClass() . "--valign-middle";
     }
 
-    private function getFeaturedTemplateData() {
-
-        //Extract array for eazy access (fetch only)
-        extract($this->data);
-
-        $this->getCardSettings();
+    private function getFeaturedTemplateData($card) {
+        $this->getCardSettings($card);
         
     }
 
-    private function getContainment() {
-        //Extract array for easy access
-        extract($this->data);
-
+    private function getContainment($containContent) {
         $containContent ? '' :
             $this->data['classList'][] = $this->getBaseClass() . "--not-contained";
     }
 
-    private function getOrder() {
-        //Extract array for easy access
-        extract($this->data);
-
+    private function getOrder($reverse_layout) {
         $reverse_layout ?
             $this->data['classList'][] = $this->getBaseClass() . "--reverse-layout"
             : '';
     }
 
-    public function getImageFocus() {
-        //Extract array for easy access
-        extract($this->data);
-
+    public function getImageFocus($image_focus) {
         $this->data['classList'][] =
             $this->getBaseClass() .
                 "--image-focus-{$image_focus['horizontal']}-{$image_focus['vertical']}";
     }
 
-    public function getWidth() {
-        //Extract array for easy access
-        extract($this->data);
-
-        $this->data['classList'][] =
-            $this->getBaseClass() .
-                "--image-focus-{$image_focus['horizontal']}-{$image_focus['vertical']}";
-    }
-
-    public function getContentAlignment() {
-        //Extract array for easy access
-        extract($this->data);
-
+    public function getContentAlignment($content_alignment) {
         // Align vertical
         $v_align = [
             'center'    => '--valign-center',
@@ -140,26 +107,17 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
             $this->getBaseClass() . $h_align[$content_alignment['horizontal']];
     }
 
-    public function getMobileLayout() {
-        //Extract array for easy access
-        extract($this->data);
-
+    public function getMobileLayout($mobile_layout) {
         $this->data['classList'][] =
             $this->getBaseClass() . "--graphics-" . $mobile_layout['graphics'];
     }
 
-    public function getTextAlignment() {
-        //Extract array for easy access
-        extract($this->data);
-
+    public function getTextAlignment($text_alignment) {
         $this->data['classList'][] =
             $this->getBaseClass() . "--text-alignment-" . $text_alignment;
     }
 
-    public function getCardSettings() {
-        //Extract array for easy access
-        extract($this->data);
-
+    public function getCardSettings($card) {
         if (!empty($card) && $card['isCard']) {
             $this->data['classList'][] =
                 $this->getBaseClass() . "--card";
