@@ -6,7 +6,8 @@
         "label" : "",
         "type" : "text",
         "required" : false,
-        "autocomplete": true
+        "autocomplete": true,
+        "value": ""
     },
     "description":{
 
@@ -14,7 +15,8 @@
         "label" : "Array of label items like labelText.",
         "type" : "text, checkbox and radio",
         "required" : "HTML5 validation on fields",
-        "autocomplete" : "Browser automatically completes the input values based on values that the user has entered before"
+        "autocomplete" : "Browser automatically completes the input values based on values that the user has entered before",
+        "value" : "Field value"
     },
     "view":"field.blade.php"
  }
