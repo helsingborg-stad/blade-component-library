@@ -1,4 +1,9 @@
 <!-- navbar.blade.php -->
+@php
+    $uniqID = uniqid();
+    $uniqID2 = uniqid();
+@endphp
+
 <nav id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
     <div class="{{$baseClass}}__logo">
         @image([
@@ -6,12 +11,23 @@
             'alt' => "A logo"
             ])
         @endimage
+
+        <div class="{{$baseClass}}__toggle">
+            @button([
+                'isIconButton' =>  true,
+                'icon' => ['name' => 'menu', 'color' => 'primary', 'size' => 'lg'],
+                'href' => 'javascript:void(0)',
+                'background' => false,
+                'attributeList' => [
+                    'js-menu-trigger' => "{$baseClass}__list--expanded",
+                    'js-menu-dart' => "navbar-expand-{$uniqID2}"
+                ]
+            ])
+            @endbutton
+        </div>
     </div>
 
-    @php
-        $uniqID = uniqid();
-        $uniqID2 = uniqid();
-    @endphp
+    
 
     @foreach ($items as $itemlist )
         <div class="{{$baseClass}}__list" js-menu-target="navbar-expand-{{$uniqID2}}">
@@ -49,18 +65,4 @@
             @endforeach
         </div>
     @endforeach
-
-    <div class="{{$baseClass}}__toggle">
-        @button([
-            'isIconButton' =>  true,
-            'icon' => ['name' => 'menu', 'color' => 'primary', 'size' => 'lg'],
-            'href' => 'javascript:void(0)',
-            'background' => false,
-            'attributeList' => [
-                'js-menu-trigger' => "{$baseClass}__list--expanded",
-                'js-menu-dart' => "navbar-expand-{$uniqID2}"
-            ]
-        ])
-        @endbutton
-    </div>
 </nav>
