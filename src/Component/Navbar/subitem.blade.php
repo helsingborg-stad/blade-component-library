@@ -6,7 +6,7 @@
             @endphp
             <div class="c-navbar__item">
                 
-                <a href="{{$childItem['href']}}">{{$childItem['name']}}</a>
+                <a href="{{$childItem['href']}}" aria-label="{{$childItem['name']}}">{{$childItem['name']}}</a>
             
                 @if (isset($childItem['list']))
                     <div class="c-navbar__toggle">
