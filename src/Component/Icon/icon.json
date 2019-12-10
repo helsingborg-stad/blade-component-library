@@ -5,6 +5,7 @@
        "size":"inherit",
        "label":"",
        "icon":"",
+       "color":"",
        "classPrefix":"c-icon--",
        "classSuffix":"",
        "componentElement":"i"
@@ -13,6 +14,7 @@
       "isBadge":"If it has a badge like aperance",
       "size":"Sizes: xs, sm, md, lg, xl, xxl",
       "label":"A label on the icon",
+      "color":"The color of the icon",
       "icon":"The icon name",
       "classPrefix":"String before the name of the icon class",
       "classSuffix":"String after the name of the icon class",

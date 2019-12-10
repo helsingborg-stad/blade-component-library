@@ -2,6 +2,10 @@
 
 namespace BladeComponentLibrary\Component\Fab;
 
+/**
+ * Class Fab
+ * @package BladeComponentLibrary\Component\Fab
+ */
 class Fab extends \BladeComponentLibrary\Component\BaseController
 {
 
@@ -9,10 +13,29 @@ class Fab extends \BladeComponentLibrary\Component\BaseController
         //Extract array for easy access (fetch only)
         extract($this->data);
 
-        $tempPosition = isset($position) && $position ? $position : "bottom-right";
-        $tempSpacing = isset($spacing) && $spacing ? $spacing : "md";
+        // Make data accessible
+        $this->compParams = [
+			'position' 	=> $position,
+			'spacing' 	=> $spacing
+		];
 
-        $this->data['classList'][] = $this->getBaseClass() . "__" . $tempPosition . "--" . $tempSpacing;
+        // Builds class
+        $this->buildFabClass();
+    }
 
+    /**
+	 * Build class based on position and spacing
+	 * @return array
+	 */
+    public function buildFabClass() {
+        $tempPosition = !empty($this->compParams['position'])
+            ? $this->compParams['position'] : "bottom-right";
+
+        $tempSpacing = !empty($this->compParams['spacing'])
+            ? $this->compParams['spacing'] : "md";
+
+        $this->data['classList'][] = "{$this->getBaseClass()}__{$tempPosition}--{$tempSpacing}";
+
+        return $this->data;
     }
 }

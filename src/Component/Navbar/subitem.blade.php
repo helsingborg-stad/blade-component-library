@@ -6,13 +6,13 @@
             @endphp
             <div class="c-navbar__item">
                 
-                <a href="{{$childItem['href']}}">{{$childItem['name']}}</a>
+                <a href="{{$childItem['href']}}" aria-label="{{$childItem['name']}}">{{$childItem['name']}}</a>
             
                 @if (isset($childItem['list']))
                     <div class="c-navbar__toggle">
                         @button([
                             'isIconButton' =>  true,
-                            'icon' => ['name' => 'menu', 'color' => 'primary', 'size' => 'lg'],
+                            'icon' => ['name' => 'expand_more', 'color' => 'primary', 'size' => 'md'],
                             'href' => 'javascript:void(0)',
                             'background' => false,
                             'attributeList' => [

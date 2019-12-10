@@ -2,6 +2,10 @@
 
 namespace BladeComponentLibrary\Component\Alert;
 
+/**
+ * Class Alert
+ * @package BladeComponentLibrary\Component\Alert
+ */
 class Alert extends \BladeComponentLibrary\Component\BaseController  
 {
     public function init() {
