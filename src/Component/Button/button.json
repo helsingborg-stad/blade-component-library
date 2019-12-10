@@ -16,7 +16,9 @@
       "pressed": "false",
       "container": "",
       "toggle": false,
-      "floating": true
+      "floating": true,
+      "hoverColor": false,
+      "hover": {"background": "default"}
    },
    "description":{
       "isOutlined":"Removes any background set on the button and sets text, border and background on hover to be the same color.",
