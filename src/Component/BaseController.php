@@ -117,7 +117,7 @@ class BaseController
      * 
      * @return string Random id
      */
-    private function getUid()
+    public function getUid()
     {
         if(!is_null($this->uid)) {
             return $this->uid; 

@@ -27,7 +27,8 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			'top' 		=> $top,
 			'bottom' 	=> $bottom,
 			'href' 		=> $href,
-			'hasRipple' => $hasRipple
+            'hasRipple' => $hasRipple,
+            'dark_background' => $dark_background
 		];
 
 		// Check if Different view parts in use
@@ -82,7 +83,11 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	 */
 	public function setClassListParameters()
 	{
-		$this->data['classList'][] = ($this->compParams['href']) ? $this->getBaseClass() . "--link" : '';
+        $this->data['classList'][] = ($this->compParams['href']) ? $this->getBaseClass() . "--link" : '';
+        
+        if ($this->compParams['dark_background']) {
+            $this->data['classList'][] = $this->getBaseClass() . "__background--dark";
+        }
 
 		if ($this->compParams['hasRipple']) {
 			$this->data['classList'][] = "ripple";

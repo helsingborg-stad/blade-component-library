@@ -1,4 +1,4 @@
-<{{$componentElement}} {{$container}} id="{{ $id }}" class="{{ $class }}" target="{{ $target }}" js-toggle-single="{{$baseClass}}--{{$background}}__toggled" aria-pressed="{{$pressed}}" href="{{ $href }}" {!! $attribute !!}>   
+<{{$componentElement}} id="{{ $id }}" class="{{ $class }}" target="{{ $target }}" aria-pressed="{{$pressed}}" href="{{ $href }}" {!! $attribute !!}>   
     <{{$labelElement}} class="{{$baseClass}}__label">
         @if(isset($isIconButton))
             @icon(['icon' => $icon['name'], 'color' => $icon['color'], 'size' => $icon['size'], 
