@@ -14,7 +14,6 @@
       "isOutlined":false,
       "hasRipple":false,
       "pressed": "false",
-      "container": "",
       "toggle": false,
       "floating": true,
       "hoverColor": false,
