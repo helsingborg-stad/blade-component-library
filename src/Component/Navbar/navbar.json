@@ -2,10 +2,10 @@
     "slug":"navbar",
     "default":{
         "logo": "",
-        "logoPosition": "",
+        "logoPosition": "left",
         "linksPosition": "",
         "items": [],
-        "topAccent": "",
+        "topAccent": "primary",
         "activeAccent": "primary"
     },
     "description":{
