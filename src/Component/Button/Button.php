@@ -16,12 +16,26 @@ class Button extends \BladeComponentLibrary\Component\BaseController
 
 		if (isset($isIconButton) && $isIconButton) {
 			$this->data['classList'][] = $this->getBaseClass() . "__icon";
+			if (isset($background) && $background) {
+				$this->data['classList'][] = $this->getBaseClass() . '__icon-bg--' . $color;
+			} 
+			
+			if(isset($hover['background'])){
+				$this->data['classList'][] = $this->getBaseClass() . '__icon-hover-background--' . $hover['background'];
+			}
+
+			if(isset($hover['color'])){
+				$this->data['classList'][] = $this->getBaseClass() . '__icon-hover-color--' . $hover['color'];
+			}
+
 		} elseif (isset($isOutlined) && $isOutlined) {
 			$this->data['classList'][] = $this->getBaseClass() . "__outlined--" . $color;
 			if (isset($toggle) && $toggle) {
-				$this->data['attributeList']['js-toggle-self'] = '';
+				$toggleId = uniqid('', true);
+				$this->data['attributeList']['js-toggle-trigger'] = $toggleId;
+				$this->data['attributeList']['js-toggle-item'] = $toggleId;
 			}
-		} else {
+		} elseif(isset($isTextButton) && $isTextButton) {
 			$this->data['classList'][] = $this->getBaseClass() . '__text';
 			$this->data['classList'][] = $this->getBaseClass() . '__text--' . $color;
 		}
@@ -62,8 +76,6 @@ class Button extends \BladeComponentLibrary\Component\BaseController
 		if (isset($floatOnHover) && $floatOnHover) {
 			$this->data['classList'][] = $this->getBaseClass() . "--float-on-hover";
 		}
-
-		$this->data['attributeList']['tabindex'] = "1";
-	}
+	}			
 }
 
