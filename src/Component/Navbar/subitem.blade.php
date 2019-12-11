@@ -1,9 +1,6 @@
-<div class="c-navbar__subitem" js-menu-target="{{$uniqID}}" data-append-submenu="{{$appendID}}" >
+<div class="c-navbar__subitem" js-menu-target="{{$targetId}}" data-append-submenu="{{$appendID}}" >
     @if (is_array($item))
         @foreach ($item as $childItem)
-            @php
-                $uniqID = uniqid()
-            @endphp
             <div class="c-navbar__item">
                 
                 <a href="{{$childItem['href']}}">{{$childItem['name']}}</a>
@@ -17,13 +14,13 @@
                             'background' => false,
                             'attributeList' => [
                                 'js-menu-trigger' => 'c-navbar__subitem--expanded',
-                                'js-menu-dart' => $uniqID,
+                                'js-menu-dart' => $loop->iteration,
                                 'data-load-subitem' => $childItem['id']
                             ]
                         ])
                         @endbutton
                     </div>
-                    @include('Navbar.subitem', array('item' => $childItem['list'], 'appendID'=> $childItem['id'], 'uniqID' => $uniqID))
+                    @include('Navbar.subitem', array('item' => $childItem['list'], 'appendID'=> $childItem['id'], 'targetId' => $loop->iteration))
                 @endif
             </div> 
         @endforeach
