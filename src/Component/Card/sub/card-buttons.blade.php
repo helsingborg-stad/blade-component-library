@@ -6,7 +6,8 @@
         'isOutlined' => false,
         'color' => $button["color"],
         'attributeList' => ['tabindex' => $indexKey],
-        'classList' => [$baseClass."__button"]
+        'classList' => [$baseClass."__button"],
+        'isTextButton' => $button["isTextButton"]
     ])
     @endbutton
 @endforeach
