@@ -5,7 +5,8 @@
       "background": "primary",
       "slot": "",
       "container": "",
-      "toggle": false
+      "toggle": false,
+      "exclusiveToggle": false
    },
    "description":{
       "borderColor": "Primary or secondary",

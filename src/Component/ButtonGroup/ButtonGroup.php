@@ -8,14 +8,13 @@ namespace BladeComponentLibrary\Component\ButtonGroup;
  */
 class ButtonGroup extends \BladeComponentLibrary\Component\BaseController
 {
+
+    public $groupId;
+
     public function init() {
       
         //Extract array for eazy access (fetch only)
         extract($this->data);
-
-        if(isset($toggle) && $toggle){
-            $this->data['container'] = 'js-toggle-container';
-        }
 
         if(isset($borderColor)){
             $this->data['classList'][] = $this->getBaseClass() . '__border--' . $borderColor; 
@@ -24,6 +23,31 @@ class ButtonGroup extends \BladeComponentLibrary\Component\BaseController
         if(isset($backgroundColor)){
             $this->data['classList'][] = $this->getBaseClass() . '--' . $backgroundColor; 
         }
+
+        if(isset($buttons) && ($exclusiveToggle || $toggle))
+        {  
+            $this->data['buttons'] = $this->setToggleAttributes($buttons, $exclusiveToggle);   
+        }
        
     }
+
+    function setToggleAttributes($buttons, $exclusiveToggle)
+    {
+        $groupId = uniqid('', true); 
+        foreach($buttons as $key => $button)
+        {
+           
+            $triggerId = uniqid('',true);
+            $buttons[$key]['attributeList']['js-toggle-trigger'] = $triggerId;
+            $buttons[$key]['attributeList']['js-toggle-item'] = $triggerId; 
+
+            if($exclusiveToggle)
+            {
+                $buttons[$key]['attributeList']['js-toggle-group'] = $groupId; 
+            }   
+        }
+    
+        return $buttons;    
+    }
+
 }

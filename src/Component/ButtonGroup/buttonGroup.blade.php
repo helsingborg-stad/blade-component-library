@@ -16,4 +16,11 @@
             @endbutton
         @enddropdown
     @endif
+
+    @if(isset($buttons))
+        @foreach($buttons as $button)
+            @button($button)
+            @endbutton
+        @endforeach
+    @endif
 </div>
