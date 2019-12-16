@@ -1,10 +1,10 @@
 <{{$componentElement}} id="{{ $id }}" class="{{ $class }}" target="{{ $target }}" aria-pressed="{{$pressed}}" href="{{ $href }}" {!! $attribute !!}>   
     <{{$labelElement}} class="{{$baseClass}}__label">
-        @if(isset($isIconButton))
-            @icon(['icon' => $icon['name'], 'color' => $icon['color'], 'size' => $icon['size'], 
+        @if($isIconButton)
+            @icon(['icon' => $icon['name'], 'color' => $icon['color'], 'size' => $size, 
             'classList' => array("u-rounded--full")])
             @endicon
-        @elseif(isset($icon))
+        @elseif($icon)
                 <span class="{{$baseClass}}__label-text{{$labelMod}}">
                     {{$text}}
                 </span>
@@ -14,7 +14,7 @@
                     )
                     @endicon
                 </span>
-        @elseif(isset($text))
+        @else
             {{$text}}
         @endif
         
