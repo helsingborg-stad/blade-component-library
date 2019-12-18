@@ -21,7 +21,7 @@ class ButtonGroup extends \BladeComponentLibrary\Component\BaseController
         }
 
         if(isset($backgroundColor)){
-            $this->data['classList'][] = $this->getBaseClass() . '--' . $backgroundColor; 
+            $this->data['classList'][] = $this->getBaseClass() . '__background--' . $backgroundColor; 
         }
 
         if(isset($buttons) && ($exclusiveToggle || $toggle))
@@ -38,6 +38,7 @@ class ButtonGroup extends \BladeComponentLibrary\Component\BaseController
         {
            
             $triggerId = uniqid('',true);
+            $buttons[$key]['toggle'] = true;
             $buttons[$key]['attributeList']['js-toggle-trigger'] = $triggerId;
             $buttons[$key]['attributeList']['js-toggle-item'] = $triggerId; 
 
