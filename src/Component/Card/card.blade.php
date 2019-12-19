@@ -17,17 +17,16 @@
             @include('Card.sub.card-image')
         @endif
 
-        @if($slot != "")
-            <div class="{{$baseClass}}__middle">{{ $slot }}</div>
-        @endif
-
         @if($showBody)
             <div class="{{$baseClass}}__body">
-                @include('Card.sub.card-body')
-                @if($accordion)
-                    @include('Card.sub.card-accordion')
+                @if($slot !== "")
+                {{ $slot }}
                 @endif
+                <!-- BODY -->
+                @include('Card.sub.card-body')
+                <!-- /BODY -->
             </div>
+
         @endif
 
         @if($showFooter)
@@ -40,6 +39,7 @@
 
                 @if($icons)
                     @include('Card.sub.card-icons')
+
                 @endif
 
                 @if($dropdown && $dropdown['position'] === 'bottom')
@@ -56,4 +56,3 @@
     @endpaper
 
 </div>
-
