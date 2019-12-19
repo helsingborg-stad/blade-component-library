@@ -70,10 +70,10 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			!empty(array_filter([$this->compParams['icons']])) || !empty($this->compParams['bottom']) ||
 			!empty($this->compParams['dropdown'])) ? true : false;
 
-		$this->data['top'] = (isset($this->compParams['top']) && !empty($this->compParams['top'])) ? $this->compParams['top'] : null;
-		$this->data['bottom'] = (isset($this->compParams['top']) && !empty($this->compParams['bottom'])) ? $this->compParams['bottom'] : null;
-
-		return $this->data;
+		$this->data['top'] = (isset($this->compParams['top']) && !empty($this->compParams['top'])) ? 
+            $this->compParams['top'] : null;
+		$this->data['bottom'] = (isset($this->compParams['top']) && !empty($this->compParams['bottom'])) ?
+            $this->compParams['bottom'] : null;
 	}
 
 
@@ -94,7 +94,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			$this->data['classList'][] = "ripple--before";
 		}
 
-		return $this->data;
 	}
 
 
@@ -110,7 +109,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		$this->data['avatarName'] = (isset($this->compParams['avatar']['name']) &&
 			!empty($this->compParams['avatar']['name'])) ? $this->compParams['avatar']['name'] : null;
 
-		return $this->data;
 	}
 
 
@@ -135,7 +133,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		$this->data['content'] = (!empty($this->compParams['content'])) ?
 			$this->compParams['content'] : null;
 
-		return $this->data;
 	}
 
 
@@ -162,8 +159,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 					$this->data['icons'][$key]['attributeList'] : [];
 			}
 		}
-
-		return $this->data;
 	}
 
 
@@ -191,8 +186,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 					$this->data['dropdown']['link'] : null;
 			}
 		}
-
-		return $this->data;
 	}
 
 
@@ -217,10 +210,11 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 				$this->data['buttons'][$key]['color'] = array_key_exists('color', $buttonParams) ?
 					$this->data['buttons'][$key]['color'] : '';
+
+                $this->data['buttons'][$key]['isTextButton'] = array_key_exists('isTextButton', $buttonParams) ?
+                    $this->data['buttons'][$key]['isTextButton'] : false;
 			}
 		}
-    
-		return $this->data;
 	}
 
 	/**
@@ -245,7 +239,5 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 					$this->data['accordion'][$keyInt]['content'] : null;
 			}
 		}
-
-		return $this->data;
 	}
 }
