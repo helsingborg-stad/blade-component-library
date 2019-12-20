@@ -5,7 +5,8 @@
 
             <input {!! $attribute !!} type="{{$type}}"
                    class="c-field__{{$type}}--hidden-box"
-                   id="trigger_{{ $id }}"/>
+                   id="trigger_{{ $id }}"
+                   placeholder="{{$label}}"/>
             <label for="trigger_{{ $id }}" class="c-field__{{$type}}--label">
                 <span class="c-field__{{$type}}--label-box"></span>
                 <span class="c-field__{{$type}}--label-text">{{$label}}</span>
@@ -18,6 +19,7 @@
                        required
                        data-required="1"
                     @endif
+                    placeholder="{{$label}}"
             />
             <label class="c-field__text--label">{{$label}}</label>
         @endif
@@ -30,7 +32,9 @@
             <span class="errorText"></span>
         </div>
     @else
-        <textarea {!! $attribute !!} ></textarea>
+        <textarea {!! $attribute !!}
+            placeholder="{{$label}}">
+        </textarea>
         <label class="c-field__textarea--label">{{$label}}</label>
         <div id="error_{{ $id }}_message" class="c-field__textarea-invalid-message"></div>
         <div id="error_input_{{ $id }}_message" class="c-field__textarea-invalid-message">
