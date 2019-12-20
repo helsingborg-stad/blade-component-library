@@ -53,3 +53,7 @@
             @endtypography
         @endif
     @endif
+
+     @if($accordion)
+         @include('Card.sub.card-accordion')
+     @endif
