@@ -2,19 +2,25 @@
 
 namespace BladeComponentLibrary\Component\Form;
 
+/**
+ * Class Form
+ * @package BladeComponentLibrary\Component\Form
+ */
 class Form extends \BladeComponentLibrary\Component\BaseController 
 {
     public function init() {
-        //Extract array for eazy access (fetch only)
         extract($this->data);
+        $this->setData();
+    }
 
-        //Attributes
-        $this->data['attributeList'] = array(
-            'method' => 'post',
-            'action' => '#',
-            'target' => '_self'
-        );
-
+    /**
+     * Set data
+     */
+    public function setData(){
+        $this->data = [
+            'method' 	=> $method ?? 'POST',
+            'action' 	=> $action ?? '#'
+        ];
     }
 
 
