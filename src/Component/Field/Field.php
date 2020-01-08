@@ -49,8 +49,7 @@ class Field extends \BladeComponentLibrary\Component\Form\Form
         $this->data['required'] = $this->compParams['required'];
         $this->data['invalidMessage'] = $this->compParams['invalidMessage'];
         $this->data['value'] = $this->compParams['value'];
-        //var_dump($this->data);
-        return $this->data;
+
     }
 
     public function setMinAndMaxDate($minDate, $maxDate) {

@@ -1,14 +1,20 @@
 <!-- textarea.blade.php -->
-<textarea {!! $attribute !!}
-          placeholder="{{$label}}">
-        </textarea>
-<label class="c-field__textarea--label">{{$label}}</label>
-<div id="error_{{ $id }}_message" class="c-field__textarea-invalid-message"></div>
-<div id="error_input_{{ $id }}_message" class="c-field__textarea-invalid-message">
-    @icon([
-        'icon' => 'error',
-        'size' => 'sm'
-    ])
-    @endicon
-    <span class="errorText"></span>
+<div class="{{$class}}">
+    <textarea {!! $attribute !!}
+              placeholder="{{$label}}"
+              id="{{ $id }}"
+              @if($required)
+                  required
+                  data-required="1"
+              @endif
+    >{{$value}}</textarea>
+    <label class="c-textarea--label">{{$label}}</label>
+    <div id="error_{{ $id }}_message" class="c-textarea-invalid-message">
+        @icon([
+            'icon' => 'error',
+            'size' => 'sm'
+        ])
+        @endicon
+        <span class="errorText"></span>
+    </div>
 </div>
