@@ -5,77 +5,124 @@ namespace BladeComponentLibrary\Component\Button;
 class Button extends \BladeComponentLibrary\Component\BaseController
 {
 
-	public function init()
-	{
-		//Extract array for eazy access (fetch only)
-		extract($this->data);
+    public function init()
+    {
+        //Extract array for eazy access (fetch only)
+        extract($this->data);
 
-		$this->data['labelMod'] = "";
+        $this->data['id'] = uniqid("", true);
 
-		$this->data['id'] = uniqid("", true);
+        // Specific configuration depending on the button type
+        if ($isIconButton) {
+            $this->setIconButton($hover, $toggle, $color);
+        } elseif ($isOutlined) {
+            $this->setOutlinedButton($color, $toggle, $size);
+        } elseif ($isTextButton) {
+            $this->setTextButton($color, $size);
+        } else {
+            $this->setBackground($background);
+            $this->setSize($size);
+        }
 
-		if (isset($isIconButton) && $isIconButton) {
-			$this->data['classList'][] = $this->getBaseClass() . "__icon";
-			if (isset($background) && $background) {
-				$this->data['classList'][] = $this->getBaseClass() . '__icon-bg--' . $color;
-			} 
-			
-			if(isset($hover['background'])){
-				$this->data['classList'][] = $this->getBaseClass() . '__icon-hover-background--' . $hover['background'];
-			}
+        // General configuration
+        if ($reverseIcon) {
+            $this->reverseIcon();
+        }
+        
+        if ($floating) {
+            $this->setFloating($floating);
+        }
+    
+        if ($hasRipple) {
+            $this->setRipple();
+        }
+    }
 
-			if(isset($hover['color'])){
-				$this->data['classList'][] = $this->getBaseClass() . '__icon-hover-color--' . $hover['color'];
-			}
+    private function setIconButton($hover, $toggle, $color)
+    {
+		$this->addToClassList("__icon");
 
-		} elseif (isset($isOutlined) && $isOutlined) {
-			$this->data['classList'][] = $this->getBaseClass() . "__outlined--" . $color;
-			if (isset($toggle) && $toggle) {
-				$toggleId = uniqid('', true);
-				$this->data['attributeList']['js-toggle-trigger'] = $toggleId;
-				$this->data['attributeList']['js-toggle-item'] = $toggleId;
-			}
-		} elseif(isset($isTextButton) && $isTextButton) {
-			$this->data['classList'][] = $this->getBaseClass() . '__text';
-			$this->data['classList'][] = $this->getBaseClass() . '__text--' . $color;
-		}
+        if ($toggle) {
+            $this->setToggleAttributes(true, $color);
+        }
 
-		if (isset($background) && $background && !$isOutlined) {
-			$this->data['classList'][] = $this->getBaseClass() . "--" . $background;
-		}
+        if (isset($hover['background'])) {
+            $this->addToClassList('__icon-hover-background--' . $hover['background']);
+        }
 
-		if (isset($icon) && isset($reverseIcon) && $reverseIcon) {
-			$this->data['labelMod'] = '--reverse';
-		}
+        if (isset($hover['color'])) {
+            $this->addToClassList('__icon-hover-color--' . $hover['color']);
+        }
+    }
 
-		if (!$href) {
-			$this->data['href'] = "#";
-		}
+    private function setOutlinedButton($color, $toggle, $size)
+    {
+        $this->addToClassList("__outlined--" . $color);
+        $this->setSize($size);
 
-		if (isset($floating) && $floating['animate'] && $floating['hover']) {
-			$this->data['classList'][] = $this->getBaseClass() . "--animated-float-on-hover";
-		} elseif (isset($floating) && $floating['hover']) {
-			$this->data['classList'][] = $this->getBaseClass() . "--float-on-hover";
-		} elseif (isset($floating) && is_array($floating)) {
-			$this->data['classList'][] = $this->getBaseClass() . "--floating";
-		}
+        if ($toggle) {
+            $this->setToggleAttributes();
+        }
+    }
 
-		if (isset($size) && !isset($isIconButton)) {
-			$this->data['classList'][] = $this->getBaseClass() . "--" . $size;
-		}
+    private function setTextButton($color, $size)
+    {
+        $this->setSize($size);
+        $this->addToClassList('__text');
+        $this->addToClassList('__text--' . $color);
+    }
+    
+    // Give the button a floating effect, with or without animation
+    private function setFloating($floating)
+    {
+        if (isset($floating['animate']) && isset($floating['hover']) && $floating['animate'] && $floating['hover']) {
+            $this->addToClassList("--animated-float-on-hover");
+        } elseif (isset($floating['hover']) && $floating['hover']) {
+            $this->addToClassList("--float-on-hover");
+        }
+    }
 
-		if (isset($hasRipple) && $hasRipple) {
-			$this->data['classList'][] = "ripple";
-			$this->data['classList'][] = "ripple--before";
-		}
+    // Set the background for any button except text and outlined
+    private function setBackground($background)
+    {
+		$this->addToClassList("--" . $background);
+    }
 
-		if (isset($icon)) {
-			$this->data['icon'] = $icon;
-		}
+    // Set size for all buttons except icon buttons
+    private function setSize($size)
+    {
+        $this->addToClassList("--" . $size);
+    }
 
-		if (isset($floatOnHover) && $floatOnHover) {
-			$this->data['classList'][] = $this->getBaseClass() . "--float-on-hover";
-		}
-	}			
+    // Apply ripple animation on click
+    private function setRipple()
+    {
+        $this->addToClassList("ripple", true);
+        $this->addToClassList("ripple--before", true);
+    }
+
+    // Reverse the icons position in relation to text
+    private function reverseIcon()
+    {
+        $this->data['labelMod'] = '--reverse';
+    }
+
+    // Sett data attributes if toggle is set to true on an icon button or an outlined button
+    private function setToggleAttributes($isIconButton = false, $color = false)
+    {
+        $toggleId = uniqid('', true);
+        $this->data['attributeList']['js-toggle-trigger'] = $toggleId;
+        $this->data['attributeList']['js-toggle-item'] = $toggleId;
+        
+
+        if ($isIconButton) {
+            $this->addToClassList('__icon-toggle--' . $color);
+        }
+    }
+
+    private function addToClassList($class, $withoutBaseClass = false)
+    {
+		$class = $withoutBaseClass ? $class : $this->getBaseClass() . $class;
+		$this->data['classList'][] = $class;
+    }
 }
-
