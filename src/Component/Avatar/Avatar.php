@@ -104,7 +104,7 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
 	 */
 	public function createInitials()
 	{
-		if (!empty($this->compParams['name']) && empty($this->compParams['image']) && empty($this->compParams['icon'])) {
+		if (!empty($this->compParams['name']) && empty($this->compParams['image']) && empty($this->compParams['icon']['name'])) {
 			$nameParts = preg_split("/( |-|_)/", $this->compParams['name']);
 
 			if (is_array($nameParts) && !empty($nameParts)) {
