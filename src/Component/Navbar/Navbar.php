@@ -30,11 +30,11 @@ class Navbar extends \BladeComponentLibrary\Component\BaseController
 	 * Builds the class for position of the logo
 	 */
     public function setLogoPosition($logoPosition, $linksPosition) {
-        if (isset($logoPosition)) {
+        if ($logoPosition) {
             //Placement
             $placementClass = "c-navbar--logo__";
 
-            isset($logoPosition) ? $placementClass
+            $logoPosition ? $placementClass
                 = $placementClass.$logoPosition : "";
             
             if (!empty($linksPosition) &&
@@ -50,7 +50,7 @@ class Navbar extends \BladeComponentLibrary\Component\BaseController
 	 * Builds class for top accent
 	 */
     public function setTopAccent($topAccent) {
-        if (isset($topAccent)) {
+        if ($topAccent) {
             $this->data['classList'][] =
                 "c-navbar__top__accent--".$topAccent;
         }
@@ -60,7 +60,7 @@ class Navbar extends \BladeComponentLibrary\Component\BaseController
 	 * Builds class for active & hover state colour
 	 */
     public function setActiveAccent($activeAccent) {
-        if (isset($activeAccent)) {
+        if ($activeAccent) {
             $this->data['classList'][] =
                 "c-navbar__active__accent--" . $activeAccent;
         }
