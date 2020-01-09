@@ -12,37 +12,82 @@ class Button extends \BladeComponentLibrary\Component\BaseController
 
 		$this->data['id'] = uniqid("", true);
 
+		$typeClass = '__' . $type;
 		$colorClass = '__' . $type . '--' . $color;
-		$sizeClass =  '--' . $size;
 	
-		$this->addToClassList(true, $colorClass, $sizeClass);
+		$this->addToClassList(true, $typeClass, $colorClass);
+		$this->setSize($text, $icon, $size);
 
 		if($toggle) $this->setToggleAttributes();
+		if($ripple) $this->setRipple();
+		if($reversePositions) $this->reversePositions();
 	}
 	
-	// Set data attributes if toggle is set to true on an icon button or an outlined button
+	/**
+	 * Set attributes
+	 *
+	 * @return void
+	 */
     private function setToggleAttributes()
     {
 		$toggleId = uniqid('', true);
 		
-        $this->data['attributeList']['js-toggle-trigger'] = $toggleId;
-		$this->data['attributeList']['js-toggle-item'] = $toggleId;
+		if(!$this->data['attributeList']['js-toggle-trigger']){
+			$this->data['attributeList']['js-toggle-trigger'] = $toggleId;
+			$this->data['attributeList']['js-toggle-item'] = $toggleId;
+		}
 		
 		$this->addToClassList(true, '__toggle');
     }
 
-	// First parameter is a boolean that determines if the base class should be prepended
+	/**
+	 * Add one or more classes to the classlist
+	 *
+	 * @param Boolean $prependBaseClass Option to prepend the base class(c-button)
+	 * @param Variadic ...$classList One or more css classes as strings
+	 * @return void
+	 */
     private function addToClassList($prependBaseClass, ...$classList)
     {
-		
 		foreach($classList as $class){
 			if($prependBaseClass) $class = $this->getBaseClass() . $class;
 
-			$this->data['classList'][] = $class;
-
-			
+			$this->data['classList'][] = $class;	
 		}
+	} 
 
+	/**
+	 * Set the size, different class depending on content
+	 *
+	 * @param String $text The buttons text
+	 * @param String $icon The name of the icon
+	 * @param String $size The size of the button(sm, md, lg)
+	 * @return void
+	 */
+	private function setSize($text, $icon, $size)
+	{
+		$class = (!$text && $icon) ? '__icon-size--' . $size : '--' . $size;
+
+		$this->addToClassList(true, $class);
+	}
+
+	/**
+	 * Set ripple animation on click
+	 *
+	 * @return void
+	 */
+	private function setRipple()
+    {
+		$this->addToClassList(false, 'ripple', 'ripple--before');
+	}
 	
-    } 
+	/**
+	 * Reverse the positions of text and icon
+	 *
+	 * @return void
+	 */ 
+	private function reversePositions()
+	{
+		$this->data['labelMod'] = '--reverse';	
+	}
 }
