@@ -26,22 +26,22 @@ class Notice extends \BladeComponentLibrary\Component\BaseController
         }
 
         //Success
-        if($isSuccess) {
+        if($type === 'success') {
             $this->data['classList'][] = $this->getBaseClass() . "--success";                
         }
 
         //Warning
-        if($isWarning) {      
+        if($type === 'warning') {      
             $this->data['classList'][] = $this->getBaseClass() . "--warning"; 
         }
 
         //Danger
-        if($isDanger) {
+        if($type === 'danger') {
             $this->data['classList'][] = $this->getBaseClass() . "--danger"; 
         }
 
         //Info
-        if($isInfo) {
+        if($type === 'info') {
             $this->data['classList'][] = $this->getBaseClass() . "--info"; 
         }
     }
