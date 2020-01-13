@@ -1,16 +1,12 @@
 @foreach ($icons as $indexKey => $icon)
     @button([
-        'isIconButton' =>  true,
-        'icon' => [
-            'name' => $icon["name"],
-            'color' => $icon["color"],
-            'size' => $icon["size"],
-        ],
+        'icon' => $icon["name"],
         'attributeList' => [
             'tabindex' => $indexKey
         ],
         'classList' => $icon["classList"],
-        'background' => false
+        'type' => 'basic',
+        'color' => 'primary'
     ])
     @endbutton
 @endforeach

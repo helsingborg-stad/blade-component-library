@@ -32,7 +32,7 @@ class Button extends \BladeComponentLibrary\Component\BaseController
     {
 		$toggleId = uniqid('', true);
 		
-		if(!$this->data['attributeList']['js-toggle-trigger']){
+		if(!array_key_exists('js-toggle-trigger',$this->data['attributeList'])){
 			$this->data['attributeList']['js-toggle-trigger'] = $toggleId;
 			$this->data['attributeList']['js-toggle-item'] = $toggleId;
 		}

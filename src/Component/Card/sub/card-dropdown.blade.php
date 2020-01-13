@@ -4,14 +4,10 @@
     'popup' => 'click'
 ])
     @button([
-        'isIconButton' =>  true,
-        'icon' => [
-            'name' => 'more_vert',
-            'size' => 'lg',
-            'color' => false
-        ],
+        'icon' => 'more_vert',
         'classList' => ['u-float--right'],
-        'background' => false
+        'type' => 'basic',
+        'color' => 'primary'
         ])
     @endbutton
 @enddropdown
