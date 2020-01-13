@@ -31,14 +31,6 @@
                                         {{$testimonial['name']}}
                                     @endtypography
                                 @endif
-                                @if ($testimonial['title'])
-                                    @typography([
-                                        "variant" => $testimonial['titleElement'],
-                                        "element" => "h4"
-                                    ])
-                                        {{$testimonial['title']}}
-                                    @endtypography
-                                    @endif
                             </div>
 
                         @else
@@ -88,7 +80,19 @@
                             ])
                                 {{$testimonial['testimonial']}}
                             @endtypography
+
+                            @if ($testimonial['imageTop'])
+                                @if ($testimonial['title'])
+                                    @typography([
+                                        "variant" => $testimonial['titleElement'],
+                                        "element" => "h4"
+                                    ])
+                                        {{$testimonial['title']}}
+                                    @endtypography
+                                @endif
+                            @endif
                         </div>
+
                     </div>
                 @endforeach
     </{{ $componentElement }}>
