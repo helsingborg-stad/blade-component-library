@@ -5,9 +5,9 @@
 
     
     @button([
-        'isIconButton' =>  true,
-        'icon' => ['name' => 'chevron_left', 'color' => 'primary', 'size' => 'lg'],
-        'hover' => ['background' => 'primary'],
+        'type' => "icon",
+        'icon' => "chevron_left",
+        'size' => "lg",
         'attributeList' => ['js-slider-btn' => 'prev'],
         'classList' => [
             'c-slider__button',
@@ -17,9 +17,9 @@
     @endbutton
 
     @button([
-        'isIconButton' =>  true,
-        'icon' => ['name' => 'chevron_right', 'color' => 'primary', 'size' => 'lg'],
-        'hover' => ['background' => 'primary'],
+        'type' => "icon",
+        'icon' => "chevron_right",
+        'size' => "lg",
         'attributeList' => ['js-slider-btn' => 'next'],
         'classList' => [
             'c-slider__button',
