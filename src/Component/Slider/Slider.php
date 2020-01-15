@@ -12,5 +12,7 @@ class Slider extends \BladeComponentLibrary\Component\BaseController
 
         $this->data['id'] = uniqid("", true);
         $this->data['attributeList']['data-step'] = 0;
+        $this->data['attributeList']['js-slider'] = 0;
+        $this->data['attributeList']['js-slider-index'] = 0;
     }
 }
