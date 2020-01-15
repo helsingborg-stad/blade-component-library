@@ -4,9 +4,10 @@
     </div>
 
     @button([
-        'type' => "icon",
-        'icon' => "chevron_left",
-        'size' => "lg",
+        'type' => 'basic',
+        'icon' => 'chevron_left',
+        'size' => 'md',
+        'color' => 'primary',
         'attributeList' => ['js-slider-btn' => 'prev'],
         'classList' => [
             'c-slider__button',
@@ -16,9 +17,10 @@
     @endbutton
 
     @button([
-        'type' => "icon",
-        'icon' => "chevron_right",
-        'size' => "lg",
+        'type' => 'basic',
+        'icon' => 'chevron_right',
+        'size' => 'md',
+        'color' => 'primary',
         'attributeList' => ['js-slider-btn' => 'next'],
         'classList' => [
             'c-slider__button',
