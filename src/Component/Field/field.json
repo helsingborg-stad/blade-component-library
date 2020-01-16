@@ -1,8 +1,6 @@
 {
     "slug":"field",
     "default":{
-
-        "textarea" : false,
         "label" : "",
         "type" : "text",
         "required" : false,
@@ -10,8 +8,6 @@
         "value": ""
     },
     "description":{
-
-        "textarea" : "Set to true, you create a textarea",
         "label" : "Array of label items like labelText.",
         "type" : "text, checkbox and radio",
         "required" : "HTML5 validation on fields",

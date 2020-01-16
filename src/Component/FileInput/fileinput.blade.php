@@ -1,16 +1,31 @@
 <!-- fileinput.blade.php -->
 
-<{{$componentElement}} id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
-<input type="file" class="{{ $baseClass }}__input" name="{{ $multiple ? $name . '[]' : $name }}" id="{{ $inputId }}" accept="{{ $accept }}" {{ $multiple ? 'multiple' : '' }} />
-    <label for="{{ $inputId }}" class="{{ $baseClass }}__label">
-        @if($icon)
-            @icon($icon)
-            {{ $label }}
+<div id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
+<input type="file" class="{{ $baseClass }}__input" name="{{ $multiple ? $name . '[]' : $name }}" id="fs_{{ $id }}" accept="{{ $accept }}" {{ $multiple ? 'multiple' : '' }} />
+    <label for="fs_{{ $id }}" class="{{ $baseClass }}__label">
+
+    @if($icon)
+
+            @icon([
+                'icon' => 'file_upload',
+                'size' => 'md',
+                'color' => 'white'
+            ])
             @endicon
-        @else
+     @endif
             {{ $beforeLabel }}
                 {{ $label }}
             {{ $afterLabel }}
-        @endif
+
     </label>
-</{{$componentElement}}>
+
+    @listing([
+        'list' => [
+            ['label' => ''],
+        ],
+        'elementType' => 'ul',
+        'id' => $id.'_fileContainer'
+
+    ])
+    @endlisting
+</div>

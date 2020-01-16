@@ -12,23 +12,15 @@ class Navbar extends \BladeComponentLibrary\Component\BaseController
 
         // Extract array for eazy access (fetch only)
         extract($this->data);
-        
-        // Encapsulates component data expose it globally for class
-        $this->compParams = [
-            'logoPosition'  => $logoPosition,
-            'linksPosition' => $linksPosition,
-            'topAccent'     => $topAccent,
-            'activeAccent'  => $activeAccent
-        ];
 
         // Set the position of the logo
-        $this->setLogoPosition();
+        $this->setLogoPosition($logoPosition, $linksPosition);
 
         // Set the colour of the top accent
-        $this->setTopAccent();
+        $this->setTopAccent($topAccent);
 
         // Set the colour of the active & hover accent
-        $this->setActiveAccent();
+        $this->setActiveAccent($activeAccent);
 
         // Splits the nav items in half for layout
         $this->data['items'] = array_chunk($items, ceil(count($items)/2), true );
@@ -36,50 +28,41 @@ class Navbar extends \BladeComponentLibrary\Component\BaseController
 
     /**
 	 * Builds the class for position of the logo
-	 * @return array
 	 */
-    public function setLogoPosition() {
-        if (isset($this->compParams['logoPosition'])) {
+    public function setLogoPosition($logoPosition, $linksPosition) {
+        if ($logoPosition) {
             //Placement
             $placementClass = "c-navbar--logo__";
 
-            isset($this->compParams['logoPosition']) ? $placementClass
-                = $placementClass.$this->compParams['logoPosition'] : "";
+            $logoPosition ? $placementClass
+                = $placementClass.$logoPosition : "";
             
-            if (!empty($this->compParams['linksPosition']) &&
-                $this->compParams['linksPosition'] != $this->compParams['logoPosition']) {
-                    $placementClass = $placementClass . "__items__" . $this->compParams['linksPosition'];
+            if (!empty($linksPosition) &&
+                $linksPosition != $logoPosition) {
+                    $placementClass = $placementClass . "__items__" . $linksPosition;
             }
 
             $this->data['classList'][] = $placementClass;
         }
-
-        return $this->data;
     }
 
     /**
 	 * Builds class for top accent
-	 * @return array
 	 */
-    public function setTopAccent() {
-        if (isset($this->compParams['topAccent'])) {
+    public function setTopAccent($topAccent) {
+        if ($topAccent) {
             $this->data['classList'][] =
-                "c-navbar__top__accent--".$this->compParams['topAccent'];
+                "c-navbar__top__accent--".$topAccent;
         }
-
-        return $this->data;
     }
 
     /**
 	 * Builds class for active & hover state colour
-	 * @return array
 	 */
-    public function setActiveAccent() {
-        if (isset($this->compParams['topAccent'])) {
+    public function setActiveAccent($activeAccent) {
+        if ($activeAccent) {
             $this->data['classList'][] =
-                "c-navbar__active__accent--" . $this->compParams['activeAccent'];
+                "c-navbar__active__accent--" . $activeAccent;
         }
-
-        return $this->data;
     }
 }

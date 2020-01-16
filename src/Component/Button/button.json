@@ -1,18 +1,17 @@
+
+
 {
    "slug":"button",
    "default":{
-      "text": "Button",
+      "text": false,
       "size": "md",
-      "color": "primary",
+      "color": "default",
+      "type": "filled",
       "href":"#",
-      "background": false,
       "target":"_top",
       "componentElement":"button",
       "labelElement":"span",
-      "isOutlined":false,
-      "isTextButton": false,
-      "isIconButton": false,
-      "hasRipple":false,
+      "ripple":false,
       "pressed": "false",
       "toggle": false,
       "floating": false,
@@ -20,8 +19,9 @@
       "icon": false,
       "reverseIcon": false,
       "hover": {"background": "default"},
-      "labelMod": ""
-
+      "labelMod": "",
+      "attributeList": {"js-toggle-trigger": "", "js-toggle-item": ""},
+      "reversePositions": false
    },
    "description":{
       "isOutlined":"Removes any background set on the button and sets text, border and background on hover to be the same color.",
