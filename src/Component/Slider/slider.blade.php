@@ -1,13 +1,13 @@
-<{{$componentElement}} id="{{ $id }}" class="{{ $class }}" target="{{ $target }}" aria-pressed="{{$pressed}}" href="{{ $href }}" {!! $attribute !!} js-slider js-slider-index=0>
+<div id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
     <div class="{{$baseClass}}--inner" js-slider-inner>
         {{ $slot }}
     </div>
 
-    
     @button([
-        'type' => "icon",
-        'icon' => "chevron_left",
-        'size' => "lg",
+        'type' => 'basic',
+        'icon' => 'chevron_left',
+        'size' => 'md',
+        'color' => 'primary',
         'attributeList' => ['js-slider-btn' => 'prev'],
         'classList' => [
             'c-slider__button',
@@ -17,9 +17,10 @@
     @endbutton
 
     @button([
-        'type' => "icon",
-        'icon' => "chevron_right",
-        'size' => "lg",
+        'type' => 'basic',
+        'icon' => 'chevron_right',
+        'size' => 'md',
+        'color' => 'primary',
         'attributeList' => ['js-slider-btn' => 'next'],
         'classList' => [
             'c-slider__button',
@@ -28,6 +29,8 @@
     ])
     @endbutton
 
-    @steppers(['type' => 'dots'])
-    @endsteppers
-</{{$componentElement}}>
+    @if ($showStepper)
+        @steppers(['type' => 'dots'])
+        @endsteppers
+    @endif
+</div>
