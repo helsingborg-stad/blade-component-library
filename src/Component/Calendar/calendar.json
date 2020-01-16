@@ -1,0 +1,19 @@
+
+
+{
+   "slug":"calendar",
+   "default":{
+      "componentElement": "div",
+      "size": "large",
+      "get": "",
+      "set": "",
+      "color": "default",
+      "weekStart": "monday"
+   },
+   "description":{
+
+   },
+   "view":"calendar.blade.php"
+}
+
+
