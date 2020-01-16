@@ -12,17 +12,16 @@
             @endif
             
             @button([
+                'type' => 'basic',
                 'href' => '#btn-3',
                 'isOutlined' => false,
                 'isIconButton' =>  true,
-                'icon' => ['name' => 'close', 'color' => 'white', 'size' => 'md'],
+                'icon' => 'close',
                 'size' => 'lg',
                 'color' => 'secondary',
                 'floating' => ['animate' => true, 'hover' => true],
                 'attributeList' => ['data-close' => ''],
-                'classList' => [$baseClass . "__close"],
-                'background' => false,
-                'hasRipple' => true
+                'classList' => [$baseClass . "__close"]
             ])
             @endbutton
         </header>
@@ -32,19 +31,18 @@
             {{-- Previous button --}}
             @if ($navigation)
                 @button([
+                    'type' => 'basic',
                     'href' => '#previous',
                     'isOutlined' => false,
                     'isIconButton' =>  true,
-                    'icon' => ['name' => 'chevron_left', 'color' => 'white', 'size' => 'xl'],
+                    'icon' => 'chevron_left',
                     'reverseIcon' => false,
                     'size' => 'md',
                     'color' => 'secondary',
                     'floating' => ['animate' => true, 'hover' => true],
                     'attributeList' => ['data-prev' => ''],
                     'classList' => [$baseClass . "__prev"],
-                    'label' => 'Slide to previous',
-                    'background' => false,
-                    'hasRipple' => true
+                    'label' => 'Slide to previous'
                 ])
                 @endbutton
             @endif
@@ -55,19 +53,18 @@
             {{-- Next button --}}
             @if ($navigation)
                 @button([
+                    'type' => 'basic',
                     'href' => '#next',
                     'isOutlined' => false,
                     'isIconButton' =>  true,
-                    'icon' => ['name' => 'chevron_right', 'color' => 'white', 'size' => 'xl'],
+                    'icon' => 'chevron_right',
                     'reverseIcon' => false,
                     'size' => 'md',
                     'color' => 'secondary',
                     'floating' => ['animate' => true, 'hover' => true],
                     'attributeList' => ['data-next' => ''],
                     'classList' => [$baseClass . "__next"],
-                    'label' => 'Slide to next',
-                    'background' => false,
-                    'hasRipple' => true
+                    'label' => 'Slide to next'
 
                 ])
                 @endbutton
