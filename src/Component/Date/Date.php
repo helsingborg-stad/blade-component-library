@@ -13,11 +13,18 @@ class Date extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        if ($action == "timesince") {
+        if ($action == "formatDate") {
+            $this->data['refinedDate'] = $this->formatDate(strtotime($timestamp));
+        } else if ($action == "timesince") {
             $this->data['refinedDate'] = $this->convertToHumanReadableUnit(strtotime($timestamp), true);
         } else if ($action == "timeuntil") {
             $this->data['refinedDate'] = $this->convertToHumanReadableUnit(strtotime($timestamp));
         }
+    }
+
+    private function formatDate($timestamp) {
+        $format = 'D d M Y';
+        return date ($format, $timestamp );
     }
 
     /**
