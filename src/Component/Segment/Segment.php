@@ -10,9 +10,6 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-
-        $this->data['classList'][] = $this->getBaseClass() . "--template-" . $template;
-
         //Full template
         if($template == "full") {
             $this->getFullTemplateData($parallax); 
@@ -30,6 +27,7 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
             $this->getCardTemplateData($background_color); 
         }
 
+        $this->getTemplateClass($template);
         $this->getHeight($height);
         $this->getPadding($padding);
         $this->getContainment($contain_content);
@@ -41,6 +39,16 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
         $this->getCtaAlignment($cta_align);
     }
 
+    private function getTemplateClass ($template) {
+        $this->data['classList'][] = $this->getBaseClass() . "--template-" . $template;
+    }
+
+    /**
+     * Template specific
+     *
+     * @param Boolean $parallax
+     * @return void
+     */
     private function getFullTemplateData($parallax) {
         $this->data['classList'][] = $this->getBaseClass() . "--padding-md";
         $this->data['classList'][] = $this->getBaseClass() . "--valign-middle";
@@ -53,23 +61,52 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
             '';
     }
 
+    /**
+     * Template Specific
+     *
+     * @param String $reverse_layout
+     * @return void
+     */
     private function getSplitTemplateData($reverse_layout) {
         $this->getOrder($reverse_layout);
         $this->data['classList'][] = $this->getBaseClass() . "--valign-middle";
     }
 
+    /**
+     * Template specific
+     *
+     * @return void
+     */
     private function getCardTemplateData() {
         $this->data['classList'][] = $this->getBaseClass() . "--valign-middle";
     }
 
+    /**
+     * Template specific 
+     *
+     * @param String $reverse_layout
+     * @return void
+     */
     private function getFeaturedTemplateData($reverse_layout) {
         $this->getOrder($reverse_layout);
     }
 
+    /**
+     * Build class for padding
+     *
+     * @param [type] $padding
+     * @return void
+     */
     private function getPadding($padding) {
         $this->data['classList'][] = $this->getBaseClass() . "__padding--" . $padding;
     }
 
+    /**
+     * Creates class for the alignment of the cta
+     *
+     * @param String $align
+     * @return void
+     */
     private function getCtaAlignment($align) {
         $this->data['classList'][] = $this->getBaseClass() . "__cta--" . $align;
     }
