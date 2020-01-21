@@ -13,15 +13,12 @@
             
             @button([
                 'href' => '#btn-3',
-                'isOutlined' => false,
-                'isIconButton' =>  true,
-                'icon' => ['name' => 'close', 'color' => 'white', 'size' => 'md'],
+                'type' => 'basic',
+                'icon' => 'close',
                 'size' => 'lg',
                 'color' => 'secondary',
-                'floating' => ['animate' => true, 'hover' => true],
                 'attributeList' => ['data-close' => ''],
                 'classList' => [$baseClass . "__close"],
-                'background' => false,
                 'hasRipple' => true
             ])
             @endbutton
