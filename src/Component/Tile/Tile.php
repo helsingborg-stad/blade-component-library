@@ -12,11 +12,6 @@ class Tile extends \BladeComponentLibrary\Component\BaseController
         $this->setSize($width, $height);
         $this->setBackgroundImage($backgroundImage);
     }
-
-    private static function getUnique()
-    {
-		return uniqid();
-    }
     
     private function setSize($width, $height)
     {
