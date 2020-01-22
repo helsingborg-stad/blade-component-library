@@ -14,14 +14,13 @@
             @button([
                 'type' => 'basic',
                 'href' => '#btn-3',
-                'isOutlined' => false,
-                'isIconButton' =>  true,
+                'type' => 'basic',
                 'icon' => 'close',
                 'size' => 'lg',
                 'color' => 'secondary',
-                'floating' => ['animate' => true, 'hover' => true],
                 'attributeList' => ['data-close' => ''],
-                'classList' => [$baseClass . "__close"]
+                'classList' => [$baseClass . "__close"],
+                'hasRipple' => true
             ])
             @endbutton
         </header>
