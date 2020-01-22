@@ -3,7 +3,7 @@
 
     @modal(
             [
-                'heading'=> "",
+                'heading'=> " ",
                 'isPanel' => false,
                 'id' => 'examplemodalid',
                 'overlay' => 'dark',
