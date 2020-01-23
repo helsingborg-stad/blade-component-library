@@ -2,7 +2,7 @@
 
 namespace BladeComponentLibrary\Component\Splitbutton;
 
-class Splitbutton extends \BladeComponentLibrary\Component\BaseController
+class SplitButton extends \BladeComponentLibrary\Component\BaseController
 {
 
     public function init() {
