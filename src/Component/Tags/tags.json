@@ -10,5 +10,12 @@
         "beforeLabel": "",
         "afterLabel": ""
     },
-    "view": "tags.blade.php"
+    "view": "tags.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "icon"
+            ]
+        }
+    }
 }

@@ -10,5 +10,12 @@
         "shape": "Visual shape for the loader (circular, linear)",
         "size": "Size for the loader (xs, sm, md, lg, xl)"
     },
-    "view": "loader.blade.php"
+    "view": "loader.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "loader"
+            ]
+        }
+    }
 }
