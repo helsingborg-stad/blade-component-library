@@ -7,7 +7,6 @@
        "type": null,
        "icon": {},
        "animation": {"onPageLoad": false, "direction": null}
-       
     },
     "description":{
       "element":"What element the markup will use.",
