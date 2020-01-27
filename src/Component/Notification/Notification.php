@@ -9,7 +9,10 @@ class Notification extends \BladeComponentLibrary\Component\BaseController
 
         //Extract array for easy access (fetch only)
         extract($this->data);
-        if($animation['onPageLoad']) $this->data['classList'][] = $this->getBaseClass() . '__spawn--' . $animation['direction'];
+        $this->data['classList'][] = $this->getBaseClass() . '__spawn--' . $animation['direction'];
+        if(!$animation['onPageLoad']) $this->data['classList'][] = 'u-display--none';
+        if($autoHideDuration) $this->data['attributeList']['autoHideDuration'] = $autoHideDuration;
+        if($maxAmount) $this->data['attributeList']['maxAmount'] = $maxAmount;
         $this->data['attributeList']['direction'] = $animation['direction'];
     }
 }
