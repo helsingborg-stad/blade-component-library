@@ -6,5 +6,10 @@
     "description": {
         "componentElement": "The tag for the component"
     },
-    "view": "stripe.blade.php"
+    "view": "stripe.blade.php",
+    "dependency": {
+        "sass": {
+
+        }
+    }
 }

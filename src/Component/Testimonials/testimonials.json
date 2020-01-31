@@ -7,7 +7,7 @@
         "nameElement": "h2",
         "titleElement": "h4",
         "imageTop": false,
-        "avatar" : true,
+        "avatar": true,
         "quoteColor": "grey"
     },
     "description": {
@@ -20,5 +20,16 @@
         "avatar": "Use of avatar, set to true as default",
         "quoteColor": "Quote icon color like grey, primary, secondary"
     },
-    "view": "testimonials.blade.php"
+    "view": "testimonials.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "testimonials",
+                "avatar",
+                "image",
+                "icon",
+                "typography"
+            ]
+        }
+    }
 }

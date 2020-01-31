@@ -9,5 +9,10 @@
        "height":300,
        "width":600
     },
-    "view":"video.blade.php"
+    "view":"video.blade.php",
+    "dependency": {
+      "sass": {
+
+      }
+    }
  }
