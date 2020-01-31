@@ -10,81 +10,193 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-
-        $this->data['classList'][] = $this->getBaseClass() . "--template-" . $template;
-
         //Full template
         if($template == "full") {
-            $this->getFullTemplateData($image, $background_color); 
+            $this->getFullTemplateData($parallax); 
         }
 
         if($template == "split") {
-            $this->getSplitTemplateData($card); 
+            $this->getSplitTemplateData($reverse_layout); 
         }
 
         if($template == "featured") {
-            $this->getFeaturedTemplateData($card); 
+            $this->getFeaturedTemplateData($reverse_layout);
         }
 
-        $this->getContainment($containContent);
-        $this->getOrder($reverse_layout);
+        if($template == "card") {
+            $this->getCardTemplateData($background_color); 
+        }
+
+        $this->getTemplateClass($template);
+        $this->getHeight($height);
+        $this->getPadding($padding);
+        $this->getContainment($contain_content);
         $this->getImageFocus($image_focus);
         $this->getContentAlignment($content_alignment);
         $this->getMobileLayout($mobile_layout);
         $this->getTextAlignment($text_alignment);
-        
+        $this->getBackground($background_color, $background_image);
+        $this->getCtaAlignment($cta_align);
     }
 
-    private function getFullTemplateData($image, $bg_color) {
-        //Inline css
-        $styles = []; 
-        //$styles['background-image'] = ; 
+    private function getTemplateClass ($template) {
+        $this->data['classList'][] = $this->getBaseClass() . "--template-" . $template;
+    }
 
-        if ($image != "") {
-            $this->data['attributeList']['style'] = "background-image: url('".$image."');";
-        } else {
-            $this->data['attributeList']['style'] = "background-color: $bg_color;";
-        }
-
+    /**
+     * Template specific
+     *
+     * @param Boolean $parallax
+     * @return void
+     */
+    private function getFullTemplateData($parallax) {
         $this->data['classList'][] = $this->getBaseClass() . "--padding-md";
-        $this->data['classList'][] = $this->getBaseClass() . "--height-lg";
         $this->data['classList'][] = $this->getBaseClass() . "--valign-middle";
         $this->data['classList'][] = $this->getBaseClass() . "--overlay-dark";
         $this->data['classList'][] = $this->getBaseClass() . "--color-light";
         $this->data['classList'][] = $this->getBaseClass() . "--overlay-opacity-medium";
-        $this->data['classList'][] = $this->getBaseClass() . "--effect-paralax";
 
+        $parallax ? 
+            $this->data['classList'][] = $this->getBaseClass() . "--effect-parallax" :
+            '';
     }
 
-    private function getSplitTemplateData($card) {
-        $this->getCardSettings($card);
-
-        $this->data['classList'][] = $this->getBaseClass() . "--height-md";
+    /**
+     * Template Specific
+     *
+     * @param String $reverse_layout
+     * @return void
+     */
+    private function getSplitTemplateData($reverse_layout) {
+        $this->getOrder($reverse_layout);
         $this->data['classList'][] = $this->getBaseClass() . "--valign-middle";
     }
 
-    private function getFeaturedTemplateData($card) {
-        $this->getCardSettings($card);
-        
+    /**
+     * Template specific
+     *
+     * @return void
+     */
+    private function getCardTemplateData() {
+        $this->data['classList'][] = $this->getBaseClass() . "--valign-middle";
     }
 
-    private function getContainment($containContent) {
-        $containContent ? '' :
+    /**
+     * Template specific 
+     *
+     * @param String $reverse_layout
+     * @return void
+     */
+    private function getFeaturedTemplateData($reverse_layout) {
+        $this->getOrder($reverse_layout);
+    }
+
+    /**
+     * Build class for padding
+     *
+     * @param [type] $padding
+     * @return void
+     */
+    private function getPadding($padding) {
+        $this->data['classList'][] = $this->getBaseClass() . "__padding--" . $padding;
+    }
+
+    /**
+     * Creates class for the alignment of the cta
+     *
+     * @param String $align
+     * @return void
+     */
+    private function getCtaAlignment($align) {
+        $this->data['classList'][] = $this->getBaseClass() . "__cta--" . $align;
+    }
+
+    /**
+     * Sets the background
+     *
+     * @param String $color What color to apply
+     * @param String $image An URL to the image to use as background (optional)
+     * @return void
+     */
+    private function getBackground($color, $image) {
+        $image != "" ?
+            $this->data['attributeList']['style'] = "background-image: url('".$image."');" :
+                $this->data['classList'][] = $this->getBaseClass() . "__background--" . $color;
+    }
+
+    /**
+     * Sets height of segment
+     *
+     * @param String $height
+     * @return void
+     */
+    private function getHeight($height) {
+        $this->data['classList'][] = $this->getBaseClass() . "--height-" . $height;
+    }
+
+    /**
+     * If segment should be contained within the container
+     *
+     * @param Boolean $contain_content
+     * @return void
+     */
+    private function getContainment($contain_content) {
+        $contain_content ? '' :
             $this->data['classList'][] = $this->getBaseClass() . "--not-contained";
     }
 
+    /**
+     * Orders the main and secondary content to get desired layout
+     *
+     * @param Boolean $reverse_layout
+     * @return void
+     */
     private function getOrder($reverse_layout) {
         $reverse_layout ?
             $this->data['classList'][] = $this->getBaseClass() . "--reverse-layout"
             : '';
     }
 
+    /**
+     * Where on the image to focus the layout on
+     *
+     * @param Array $image_focus
+     * @return void
+     */
     public function getImageFocus($image_focus) {
         $this->data['classList'][] =
             $this->getBaseClass() .
                 "--image-focus-{$image_focus['horizontal']}-{$image_focus['vertical']}";
     }
 
+    /**
+     * Where to place secondary content relative to main content in mobile
+     *
+     * @param Array $mobile_layout Options for mobile layout
+     * @return void
+     */
+    public function getMobileLayout($mobile_layout) {
+        $this->data['classList'][] =
+            $this->getBaseClass() . "--graphics-" . $mobile_layout['graphics'];
+    }
+    
+    /**
+     * Handles the text alignment option
+     *
+     * @param String $text_alignment
+     * @return void
+     */
+    public function getTextAlignment($text_alignment) {
+        $this->data['classList'][] =
+            $this->getBaseClass() . "--text-alignment-" . $text_alignment;
+    }
+
+    /**
+     * Handles the alignment options for content
+     *
+     * @param Array $content_alignment The array that holds the alignment data
+     * @return void
+     */
     public function getContentAlignment($content_alignment) {
         // Align vertical
         $v_align = [
@@ -105,28 +217,5 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
 
         $this->data['classList'][] =
             $this->getBaseClass() . $h_align[$content_alignment['horizontal']];
-    }
-
-    public function getMobileLayout($mobile_layout) {
-        $this->data['classList'][] =
-            $this->getBaseClass() . "--graphics-" . $mobile_layout['graphics'];
-    }
-
-    public function getTextAlignment($text_alignment) {
-        $this->data['classList'][] =
-            $this->getBaseClass() . "--text-alignment-" . $text_alignment;
-    }
-
-    public function getCardSettings($card) {
-        if (!empty($card) && $card['isCard']) {
-            $this->data['classList'][] =
-                $this->getBaseClass() . "--card";
-
-            $this->data['classList'][] =
-                $this->getBaseClass() . "--card-" . $card['background'];
-
-            $this->data['classList'][] =
-                $this->getBaseClass() . "--card-padding-" . $card['padding'];
-        }
     }
 }
