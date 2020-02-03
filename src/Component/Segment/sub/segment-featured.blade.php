@@ -1,13 +1,24 @@
 <!-- segment.blade.php > /sub/segment-featured.blade.php -->
 <div class="{{ $baseClass }}__content">
     <div class="{{ $baseClass }}__article">
-        @typography($article_heading)
-            {{ $article_heading['slot'] }}
-        @endtypography
+        @if($heading)
+            @typography(["variant" => "h1",
+                "element" => "h2",
+                'classList' => [$baseClass.'__heading']
+            ])
+                {{ $heading }}
+            @endtypography
+        @endif
 
-        @typography(['variant' => 'body', 'element' => 'p'])
-            {{ $article_body }}
-        @endtypography
+        @if($body)
+            @typography([
+                'variant' => 'body',
+                'element' => 'p',
+                'classList' => [$baseClass.'__body']
+            ])
+                {{ $body }}
+            @endtypography
+        @endif
 
         <div class="{{ $baseClass }}__cta">
             @foreach($cta as $button)      

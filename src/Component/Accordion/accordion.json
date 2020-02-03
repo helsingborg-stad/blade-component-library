@@ -24,5 +24,12 @@
         "sectionHeadingElement": "Section heading component",
         "sectionContentElement": "Section content component"
     },
-    "view": "accordion.blade.php"
+    "view": "accordion.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "accordion"
+            ]
+        }
+    }
 }

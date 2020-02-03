@@ -3,17 +3,15 @@
     "default": {
         "template": "split",
         "background_color": "",
+        "background_image": "",
+        "height": "md",
+        "padding": 5,
+        "parallax": false,
         "text_alignment": "left",
         "reverse_layout": false,
-        "card": {},
-        "containContent": true,
-        
-        "article_heading": {
-            "variant": "h1",
-            "element": "h2",
-            "slot": "Split Domesticas me nisi, noctis, comminiscebatur per eventu pede 2 sed nam felis."
-        },
-        "article_body": "Impedimenta dextre etiam 250 magnae cum, novembris e optio sem recordationem quasi communis.",
+        "contain_content": true,
+        "heading": "Split Domesticas me nisi, noctis, comminiscebatur per eventu pede 2 sed nam felis.",
+        "body": "Impedimenta dextre etiam 250 magnae cum, novembris e optio sem recordationem quasi communis.",
         "image": "",
         "image_focus": {
             "vertical": "center",
@@ -26,6 +24,7 @@
         "mobile_layout": {
             "graphics": "below"
         },
+        "cta_align": "right",
         "cta": {}
     },
     "description": {

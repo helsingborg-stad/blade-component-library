@@ -8,5 +8,10 @@
         "method":"Set to POST by default",
         "action":"Path to file, set to # by default"
     },
-    "view":"form.blade.php"
+    "view":"form.blade.php",
+    "dependency": {
+        "sass": {
+
+        }
+    }
  }

@@ -102,11 +102,11 @@ class BaseController
                         1
                     ) 
                     . "-" .
-                    base_convert(md5(
+                    md5(
                         serialize(
                             $this->data
                         )
-                    ), 4, 36); 
+                    );
         }
 
         return (string) strtolower($id);

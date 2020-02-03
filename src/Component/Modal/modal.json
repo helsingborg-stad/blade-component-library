@@ -10,7 +10,7 @@
         "id": "",
         "animation": "",
         "navigation": false,
-        "size" : ""
+        "size": ""
     },
     "description": {
         "heading": "The title of the modal",
@@ -23,5 +23,15 @@
         "navigation": "You can use ",
         "size": "Empty as default is set to max width 800px. But you can use sm, md, lg and xl"
     },
-    "view": "modal.blade.php"
+    "view": "modal.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "modal",
+                "icon",
+                "typography",
+                "button"
+            ]
+        }
+    }
 }

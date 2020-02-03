@@ -1,6 +1,6 @@
 {
-    "slug":"comment",
-    "default":{
+    "slug": "comment",
+    "default": {
         "author": "",
         "text": "",
         "icon": "",
@@ -9,7 +9,7 @@
         "componentElement": "div",
         "is_reply": false
     },
-    "description":{
+    "description": {
         "author": "Name of the commenter",
         "text": "Content of the comment",
         "icon": "Which icon to show",
@@ -18,5 +18,14 @@
         "componentElement": "Element of the component",
         "is_reply": "If true the comment will be displayed as a reply"
     },
-    "view":"comment.blade.php"
+    "view": "comment.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "comment",
+                "avatar",
+                "typography"
+            ]
+        }
+    }
 }

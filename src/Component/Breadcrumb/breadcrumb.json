@@ -1,12 +1,19 @@
 {
-    "slug":"breadcrumb",
-    "default":{
-       "list":[],
-       "label":"Breadcrumb",
-
-       "componentElement":"nav",
-       "listType":"ol",
-       "listItemType":"li"
+    "slug": "breadcrumb",
+    "default": {
+        "list": [],
+        "label": "Breadcrumb",
+        "componentElement": "nav",
+        "listType": "ol",
+        "listItemType": "li"
     },
-    "view":"breadcrumb.blade.php"
- }
+    "view": "breadcrumb.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "breadcrumb",
+                "icon"
+            ]
+        }
+    }
+}
