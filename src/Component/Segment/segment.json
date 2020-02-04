@@ -4,6 +4,7 @@
         "template": "split",
         "background_color": "",
         "background_image": "",
+        "backgroundImage": "",
         "height": "md",
         "padding": 5,
         "parallax": false,
