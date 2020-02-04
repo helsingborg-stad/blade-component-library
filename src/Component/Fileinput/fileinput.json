@@ -20,5 +20,13 @@
         "label": "Insert after label",
         "icon": "@link:component/icon"
     },
-    "view": "fileinput.blade.php"
+    "view": "fileinput.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "fileInput",
+                "icon"
+            ]
+        }
+    }
 }

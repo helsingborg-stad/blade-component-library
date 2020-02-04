@@ -11,6 +11,12 @@ class Tags extends \BladeComponentLibrary\Component\BaseController
         $this->data['tags'] = $this->arrayCleanUp($tags);
     }
 
+    /**
+     * Ensures that the array has data to prevent errors
+     *
+     * @param Array $arr Array with tags
+     * @return Array $filteredTags An array that's been checked to not have empty fields
+     */
     private function arrayCleanUp($arr) {
         $filteredTags = [];
 
