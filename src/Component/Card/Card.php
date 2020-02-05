@@ -16,19 +16,20 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 		// Encapsulates component data expose it globally for class
 		$this->compParams = [
-			'title' 	=> $title,
-			'content' 	=> $content,
-			'byline' 	=> $byline,
-			'dropdown' 	=> $dropdown,
-			'accordion' => $accordion,
-			'icons' 	=> $icons,
-			'avatar' 	=> $avatar,
-			'buttons' 	=> $buttons,
-			'top' 		=> $top,
-			'bottom' 	=> $bottom,
-			'href' 		=> $href,
-            'hasRipple' => $hasRipple,
-            'dark_background' => $dark_background
+			'title' 					=> $title,
+			'content' 				=> $content,
+			'byline' 					=> $byline,
+			'dropdown' 				=> $dropdown,
+			'accordion' 			=> $accordion,
+			'icons' 					=> $icons,
+			'avatar' 					=> $avatar,
+			'buttons' 				=> $buttons,
+			'top' 						=> $top,
+			'bottom' 					=> $bottom,
+			'href' 						=> $href,
+      'hasRipple' 			=> $hasRipple,
+			'dark_background' => $dark_background,
+			'slot' 						=> $slot
 		];
 
 		// Check if Different view parts in use
@@ -64,7 +65,7 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	public function setViewContainers()
 	{
 		$this->data['showBody'] = (!empty(array_filter([$this->compParams['title'], $this->compParams['content'],
-			$this->compParams['byline']]))) ? true : false;
+			$this->compParams['byline'], $this->compParams['slot']]))) ? true : false;
 
 		$this->data['showFooter'] = (!empty(array_filter([$this->compParams['buttons']])) ||
 			!empty(array_filter([$this->compParams['icons']])) || !empty($this->compParams['bottom']) ||

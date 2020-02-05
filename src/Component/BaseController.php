@@ -61,12 +61,19 @@ class BaseController
         $data['class'] = $this->getClass(); 
         $data['baseClass'] = $this->getBaseClass();
 
-        //Create attibute string
-        $data['attribute'] = $this->getAttribute();
-
         //Create id strings
         $data['id'] = $this->getId(); //"static" id dependent on the content
         $data['uid'] = $this->getUid(); //"random" id
+
+        $dataAttr = $data; 
+        unset($dataAttr['attributeList']); 
+        //React json data 
+        $this->data['attributeList']['data-js'] = json_encode($dataAttr); 
+
+
+
+        //Create attibute string
+        $data['attribute'] = $this->getAttribute();
 
         //Applies single filter for each data item (class and data exepted)
         if(function_exists('apply_filters')) {
