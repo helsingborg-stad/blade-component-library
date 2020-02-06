@@ -14,7 +14,9 @@ class BaseController
         'baseClass' => "",
         'classList' => [], //An array of class names (push classes here),
         'attribute' => "",
-        'attributeList' => []
+        'attributeList' => [],
+        'reactAttributeList' => [],
+        'reactAttribute' => ""
     );
 
     /**
@@ -65,15 +67,10 @@ class BaseController
         $data['id'] = $this->getId(); //"static" id dependent on the content
         $data['uid'] = $this->getUid(); //"random" id
 
-        $dataAttr = $data; 
-        unset($dataAttr['attributeList']); 
-        //React json data 
-        $this->data['attributeList']['data-js'] = json_encode($dataAttr); 
-
-
-
         //Create attibute string
-        $data['attribute'] = $this->getAttribute();
+        $data['attribute'] = $this->getAttribute(true, $data['attributeList']);
+        $data['reactAttributeList']['data-js'] = json_encode($this->data);
+        $data['reactAttribute'] = $this->getAttribute(true, $data['reactAttributeList']);
 
         //Applies single filter for each data item (class and data exepted)
         if(function_exists('apply_filters')) {
@@ -189,11 +186,11 @@ class BaseController
         return strtolower("c-" . end($namespaceParts)); 
     }
 
-    private function getAttribute($implode = true) {
+    private function getAttribute($implode = true, $list) {
 
         //Store locally
-        if(isset($this->data['attributeList']) && is_array($this->data['attributeList'])) {
-            $attribute = (array) $this->data['attributeList']; 
+        if(isset($list) && is_array($list)) {
+            $attribute = (array) $list; 
         } else {
             $attribute = array();
         }
@@ -219,7 +216,7 @@ class BaseController
         //Return manipulated data array as string
         return (string) implode(' ', array_map(
             function ($v, $k) { 
-                    return sprintf('%s="%s"', $k, $v); 
+                    return sprintf("%s='%s'", $k, $v); 
                 },
                 array_values($attribute),
                 array_keys($attribute)

@@ -43,65 +43,31 @@ let buttonProps2 = {
   }
 }
 
-
-/* CONCEPT ONE (Directly render component) */
-
-// const elements = {
-//   0: {
-//     el: document.querySelector('[react-button="customId"]'),
-//     component: <Button data={buttonProps}/>
-//   },
-//   1: {
-//     el: document.querySelector('[react-button="customId2"]'),
-//     component: <Button data={buttonProps2}/>
-//   },
-//   2: {
-//     el: document.querySelector('[react-text="Primary"]'),
-//     component: <Button data={buttonProps}/>
-//   },
-//   3: {
-//     el: document.querySelector('[react-text="Default"]'),
-//     component: <Button data={buttonProps2}/>
-//   }
-// };
-
-/* CONCEPT TWO (Render via BaseController) */
-
 const elements = [
   {
-    el: document.querySelector('[react-button="customId"]'),
-    component: <Button data={buttonProps}/>
+    el: document.querySelector('[data-react-id="123"]'),
+    component: <Button customProps={buttonProps}/>
   },
   {
-    el: document.querySelector('[react-button="customId2"]'),
-    component: <Button data={buttonProps2}/>
+    el: document.querySelector('[data-react-id="1234"]'),
+    component: <Button customProps={buttonProps2}/>
   },
   {
-    el: document.querySelector('[react-text="Primary"]'),
-    component: <Button data={buttonProps}/>
+    el: document.querySelector('[data-react-id="12345"]'),
+    component: <Button customProps={buttonProps}/>
   },
   {
-    el: document.querySelector('[react-text="Default"]'),
-    component: <Button data={buttonProps2}/>
+    el: document.querySelector('[data-react-id="123456"]'),
+    component: <Button customProps={buttonProps2}/>
   }
 ]
 
 
-const renderElements = (component, element) => {
-  ReactDOM.render(<BaseController component={component} />, element);
+const renderElements = (bladeProps, component, element) => {
+  ReactDOM.render(<BaseController component={component} bladeProps={bladeProps}/>, element);
 };
 
 for (let value of elements) {
-  // Following code creates a new wrapper for the element.
-  // REMEMEBER: Extract attributes with values from initial element and inject into new wrapper
-  console.log(value);
-  var parent = value.el.parentNode;
-  var wrapper = document.createElement('span');
-
-  wrapper.setAttribute('class', 'react-wrap');
-
-  parent.replaceChild(wrapper, value.el);
-  wrapper.appendChild(value.el);
-
-  renderElements(value.component, wrapper);
+  const data = JSON.parse(value.el.getAttribute('data-js'));
+  renderElements(data, value.component, value.el);
 }
