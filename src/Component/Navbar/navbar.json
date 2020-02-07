@@ -2,19 +2,14 @@
     "slug": "navbar",
     "default": {
         "logo": "",
-        "logoPosition": "left",
-        "linksPosition": "",
         "items": [],
-        "topAccent": "primary",
-        "activeAccent": "primary"
+        "sidebar": false
     },
-    "description": {
-        "logo": "A link to a logo",
-        "logoPosition": "Where to place the logo",
-        "linksPosition": "Where to place the links",
+
+    "description":{
+        "logo":"A link to a logo",
         "items": "An array of links",
-        "topAccent": "Color of the accent top border",
-        "activeAccent": "Color of the active and hover state of link items"
+        "sidebar": "If set to true the toggle will toggle sidebar"
     },
     "view": "navbar.blade.php",
     "dependency": {
