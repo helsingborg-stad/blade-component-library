@@ -31,9 +31,11 @@
         </div>
     </div>
 
-    @if($slot == "")
-        <div class="{{ $baseClass }}__column-graphics" style="background-image: url('{{ $image }}')">
+    @if($slot == "" && $backgroundImage)
+        <div class="{{ $baseClass }}__column-graphics" style="background-image: url('{{ $backgroundImage }}')">
         </div>
+    @elseif($slot == "" && $image)
+        <img src="{{$image}}">
     @else
         <div class="{{ $baseClass }}__column-slot">
             {{ $slot }}
