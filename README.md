@@ -238,7 +238,9 @@ https://github.com/helsingborg-stad/blade-component-library/releases
 - Sebastian Thulin 
 - Johan Silvergrund
 - Jonatan Hanson 
-- Nikolas Ramstedt 
+- Nikolas Ramstedt
+- Eric Rosenborg
+- Alexander Boman Skoug
 
 ## License 
 
