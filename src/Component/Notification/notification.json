@@ -1,15 +1,12 @@
 {
-    "slug": "notification",
-    "default": {
-        "element": "div",
-        "slot": "",
-        "message": {},
-        "type": null,
-        "icon": {},
-        "animation": {
-            "onPageLoad": false,
-            "direction": null
-        }
+    "slug":"notification",
+    "default":{
+       "element": "div",
+       "slot": "",
+       "message": {},
+       "type": null,
+       "icon": {},
+       "animation": {"onPageLoad": false, "direction": null}
     },
     "description": {
         "element": "What element the markup will use.",
