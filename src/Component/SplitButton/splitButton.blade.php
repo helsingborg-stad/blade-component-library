@@ -1,6 +1,6 @@
 
 @buttonGroup(['attributeList' => ['js-split' => ''], 'borderColor' => $borderColor])
-    @button(['background' => $backgroundColor, 'text' => $buttonText])
+    @button(['color' => $color, 'text' => $buttonText])
     @endbutton
     @dropdown([
     'items' => $items,
@@ -9,11 +9,9 @@
     'itemElement' => 'div'
     ])
         @button([
-            'isIconButton' => true,
             'icon' => $icon,
             'size' => 'md',
-            'background' => $backgroundColor
-            
+            'color' => $color
         ])
         @endbutton
     @enddropdown
