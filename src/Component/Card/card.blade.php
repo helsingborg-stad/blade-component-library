@@ -12,17 +12,14 @@
         @include('Card.sub.card-image')
     @endif
 
-    @if($showBody)
-        <div class="{{$baseClass}}__body">
-            @if($slot !== "")
-            {{ $slot }}
-            @endif
-            <!-- BODY -->
-            @include('Card.sub.card-body')
-            <!-- /BODY -->
-        </div>
-
-    @endif
+    <div class="{{$baseClass}}__body">
+        @if($slot !== "")
+        {{ $slot }}
+        @endif
+        <!-- BODY -->
+        @include('Card.sub.card-body')
+        <!-- /BODY -->
+    </div>
 
     @if($showFooter)
         <div class="{{$baseClass}}__bottom @if($dropdown && $dropdown['position'] === 'bottom')
@@ -47,4 +44,5 @@
 
         </div>
     @endif
+    
 </div>

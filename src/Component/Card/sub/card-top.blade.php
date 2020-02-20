@@ -2,10 +2,7 @@
 <div class="{{$baseClass}}__top-title @if($avatar) {{$baseClass}}__with-avatar @endif
 @if($dropdown && $dropdown['position'] === 'top')  {{$baseClass}}__with-top-dropdown @endif">
 	@if($avatar)
-		@avatar([
-			'image' => $avatarImage,
-			'name' => $avatarName
-		])
+		@avatar($avatar)
 		@endavatar
 	@endif
 	@if($href)

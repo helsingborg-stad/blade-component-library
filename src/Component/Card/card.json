@@ -13,7 +13,7 @@
         "hasRipple": true,
         "buttons": [],
         "icons": [],
-        "avatar": [],
+        "avatar": {"name": "", "image": ""},
         "dropdown": [],
         "accordion": [],
         "dark_background": false
