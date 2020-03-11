@@ -36,7 +36,7 @@
         'size' => 'md',
         "attributeList" => ['js-toggle-trigger' => $id],
         'icon' => 'expand_more',
-        'classList' => ['c-card__title-expand-button']
+        'classList' => [$baseClass . '__title-expand-button']
         ])
         @endbutton
     @endif
