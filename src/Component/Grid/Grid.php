@@ -2,7 +2,7 @@
 
 namespace BladeComponentLibrary\Component\Grid;
 
-class Grid extends \BladeComponentLibrary\Component\BaseController
+class Grid extends \BladeComponentLibrary\Component\BaseController  
 {
     public function init() {
         //Extract array for eazy access (fetch only)
@@ -66,7 +66,7 @@ class Grid extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] =
                 $this->getBaseClass() . '__column__end--' . strval($value[1]) . "@" . $bp;
         }
-
+        
     }
 
     /**
