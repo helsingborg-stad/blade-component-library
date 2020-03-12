@@ -18,7 +18,9 @@ class Grid extends \BladeComponentLibrary\Component\BaseController
 
         if (isset($row)) {
             $this->setRows($row);
-        }        
+        }
+
+        $this->setGaps($col_gap, $row_gap);
     }
 
     public function setContainer($columns, $min_width, $max_width)
