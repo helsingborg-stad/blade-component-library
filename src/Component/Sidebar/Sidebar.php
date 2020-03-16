@@ -9,5 +9,9 @@ class Sidebar extends \BladeComponentLibrary\Component\BaseController
     {
         //Extract array for eazy access (fetch only)
         extract($this->data);
+        //die(print_r($this->data));
+        if($this->data['childItems']){
+            $this->data['attributeList']['child-items-url'] = $childItems;
+        }
     }
 }

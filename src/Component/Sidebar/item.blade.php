@@ -1,10 +1,8 @@
-@if ($top_level)
-    <div class="c-sidebar__subcontainer--top">
-@else
+
     <div class="c-sidebar__subcontainer"
         js-toggle-item="{{$appendID}}"
         js-toggle-class="c-sidebar__item--is-expanded">
-@endif
+
 
     @foreach ($items as $item)
         <div class="{{$baseClass}}__item">
@@ -13,13 +11,12 @@
                 {{$item['label']}}
             </a>
 
-            @if (isset($item['children']))
+            @if ($item['children'])
                 @php
                     $rndId = uniqid();
                 @endphp
                 <div class="{{$baseClass}}__toggle"
-                    js-toggle-trigger="{{$rndId}}"
-                    aria-pressed="false">
+                    aria-label="{{$item['label']}}">
 
                     <div class="bar"></div>
                     <div class="bar"></div>
