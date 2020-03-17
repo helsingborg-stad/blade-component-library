@@ -1,7 +1,5 @@
 
-    <div class="c-sidebar__subcontainer"
-        js-toggle-item="{{$appendID}}"
-        js-toggle-class="c-sidebar__item--is-expanded">
+    <div class="c-sidebar__subcontainer">
 
 
     @foreach ($items as $item)
