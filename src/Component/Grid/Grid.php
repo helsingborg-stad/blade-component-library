@@ -31,6 +31,7 @@ class Grid extends \BladeComponentLibrary\Component\BaseController
     public function setContainer($columns, $min_width, $max_width)
     {
         if ($columns) {
+            //die(var_dump($columns));
             $this->data['attributeList']['style'] =
                 "grid-template-columns: repeat(".$columns.
                 ", minmax(".$min_width.", ".$max_width."));";

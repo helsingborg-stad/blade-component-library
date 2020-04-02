@@ -3,13 +3,15 @@
     "default": {
         "logo": "",
         "items": [],
-        "sidebar": false
+        "sidebar": false,
+        "expanded_menu": false
     },
 
     "description":{
         "logo":"A link to a logo",
         "items": "An array of links",
-        "sidebar": "If set to true the toggle will toggle sidebar"
+        "sidebar": "If set to true the toggle will toggle sidebar",
+        "expanded_menu": "Data for expanded menu"
     },
     "view": "navbar.blade.php",
     "dependency": {
