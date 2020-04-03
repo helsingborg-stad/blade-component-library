@@ -1,6 +1,10 @@
 {
     "slug": "grid",
     "default": {
+<<<<<<< HEAD
+=======
+        "element": "div",
+>>>>>>> origin/develop
         "container": false,
         "columns": 12,
         "min_width": "auto",
@@ -9,6 +13,10 @@
         "row_gap": 0
     },
     "descriptions": {
+<<<<<<< HEAD
+=======
+        "element": "Which element the component should be built of",
+>>>>>>> origin/develop
         "container": "If the component should act as an container",
         "columns": "How many columns the grid will be divided to",
         "min-width": "Minimum width of the grid items",

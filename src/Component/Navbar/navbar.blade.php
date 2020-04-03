@@ -13,47 +13,46 @@
         @endicon
     </div>
 
-    <a href="/">
-        <div class="{{$baseClass}}__logo">
+    
+    <div class="{{$baseClass}}__logo">
+        <a href="/">
             @image([
                 'src'=> $logo,
                 'alt' => "A logo"
                 ])
             @endimage
-        </div>
-    </a>
-
-    <div class="{{$baseClass}}__list" js-menu-target="navbar-expand-{{$uid}}">
+        </a>
+    </div>
+    
+    <div class="{{$baseClass}}__list">
         @foreach ($items as  $item)
-
             <a href="{{$item['href']}}" aria-label="{{$item['label']}}">
-
                 <div class="{{$baseClass}}__item" item-active="{{isset($item['active']) ? "true" : "false"}}">
-                    
                     <span>{{$item['label']}}</span>
-
-                    @if (isset($item['children']))
-                        <div class="{{$baseClass}}__toggle">
-                            @button([
-                                'isIconButton' =>  true,
-                                'icon' => ['name' => 'expand_more', 'color' => 'primary', 'size' => 'md'],
-                                'href' => 'javascript:void(0)',
-                                'background' => false,
-                                'attributeList' => [
-                                    'js-menu-trigger' => "{$baseClass}__subitem--expanded",
-                                    'js-menu-dart' => $loop->iteration,
-                                    'data-load-submenu' => $item['id']
-                                ]
-                            ])
-                            @endbutton
-                        </div>
-
-                        <div class="{{$baseClass}}__subcontainer">
-                            @include ('Navbar.subitem', array('item' => $item['children'], 'appendID' => $item['id'], 'targetId' => $loop->iteration))
-                        </div>
-                    @endif
                 </div>
             </a>
         @endforeach
     </div>
+
+    @if ($expanded_menu)
+        <a js-toggle-trigger="navbar-content">
+            <div class="{{$baseClass}}__item {{$baseClass}}__expand">
+                @button([
+                    'text' => 'Meny',
+                    'color' => 'default',
+                    'style' => 'basic',
+                    'icon' => 'expand_more'
+                ])
+                @endbutton
+            </div>
+        </a>
+    @endif
+
+    @if($expanded_menu)
+        <div class="{{$baseClass}}__content" js-toggle-item="navbar-content" js-toggle-class="u-display--block">
+            @include('Navbar.sub.expanded_menu')
+            @include('Navbar.sub.expanded_main')
+        </div>
+    @endif
 </nav>
+
