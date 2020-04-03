@@ -28,7 +28,8 @@
     "dependency": {
         "sass": {
             "components": [
-                "accordion"
+                "accordion",
+                "icon"
             ]
         }
     }
