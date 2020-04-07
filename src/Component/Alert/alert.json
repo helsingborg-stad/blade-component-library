@@ -20,6 +20,7 @@
     "dependency": {
         "sass": {
             "components": [
+                "alert",
                 "button",
                 "typography"
             ]

@@ -12,6 +12,7 @@
             "components": [
                 "slider",
                 "button",
+                "icon",
                 "steppers"
             ]
         }

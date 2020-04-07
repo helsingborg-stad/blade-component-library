@@ -9,5 +9,12 @@
         "width": "Array with following keys: largeImage, smallImage, caption and alt",
         "height": "Array with following keys: largeImage, smallImage, caption and alt"
     },
-    "view": "tile.blade.php"
+    "view": "tile.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "tile"
+            ]
+        }
+    }
 }
