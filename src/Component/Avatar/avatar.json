@@ -16,7 +16,7 @@
     "dependency": {
         "sass": {
             "components": [
-                "image",
+                "avatar",
                 "icon"
             ]
         }

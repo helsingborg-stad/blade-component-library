@@ -13,7 +13,16 @@
    "description":{
 
    },
-   "view":"calendar.blade.php"
+   "view":"calendar.blade.php",
+   "dependency": {
+        "sass": {
+            "components": [
+                "calendar",
+                "modal",
+                "button"
+            ]
+        }
+    }
 }
 
 

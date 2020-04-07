@@ -30,7 +30,8 @@
                 "modal",
                 "icon",
                 "typography",
-                "button"
+                "button",
+                "stepper"
             ]
         }
     }

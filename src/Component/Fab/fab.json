@@ -15,7 +15,8 @@
         "sass": {
             "components": [
                 "fab",
-                "button"
+                "button",
+                "icon"
             ]
         }
     }

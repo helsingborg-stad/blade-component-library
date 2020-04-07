@@ -19,7 +19,10 @@
             "components": [
                 "navbar",
                 "image",
-                "button"
+                "button",
+                "icon",
+                "grid",
+                "typography"
             ]
         }
     }

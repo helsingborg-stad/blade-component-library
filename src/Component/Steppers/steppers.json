@@ -11,7 +11,9 @@
     "view": "steppers.blade.php",
     "dependency": {
         "sass": {
-
+            "components": [
+                "steppers"
+            ]
         }
     }
 }

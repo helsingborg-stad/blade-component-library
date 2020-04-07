@@ -11,7 +11,9 @@
     "view":"form.blade.php",
     "dependency": {
         "sass": {
-
+            "components": [
+                "form"
+            ]
         }
     }
  }

@@ -13,7 +13,8 @@
     "dependency": {
         "sass": {
             "components": [
-                "footer"
+                "footer",
+                "typography"
             ]
         }
     }
