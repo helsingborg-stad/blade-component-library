@@ -11,8 +11,13 @@
     },
     "view":"video.blade.php",
     "dependency": {
-      "sass": {
-
-      }
+        "sass": {
+            "components": [
+                "video",
+                "notice",
+                "button",
+                "icon"
+            ]
+        }
     }
  }

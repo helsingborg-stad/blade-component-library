@@ -18,7 +18,9 @@
     "dependency": {
         "sass": {
             "components": [
+                "splitbutton",
                 "button",
+                "buttongroup",
                 "typography",
                 "dropdown",
                 "icon"

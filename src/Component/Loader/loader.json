@@ -18,7 +18,8 @@
     "dependency": {
         "sass": {
             "components": [
-                "loader"
+                "loader",
+                "typography"
             ]
         }
     }

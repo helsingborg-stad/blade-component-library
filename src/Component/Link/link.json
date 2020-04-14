@@ -12,8 +12,10 @@
     },
     "view":"link.blade.php",
     "dependency": {
-      "sass": {
-
-      }
+        "sass": {
+            "components": [
+                "link"
+            ]
+        }
     }
  }

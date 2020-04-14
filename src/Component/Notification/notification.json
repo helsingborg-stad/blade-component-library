@@ -18,7 +18,8 @@
             "components": [
                 "notification",
                 "notice",
-                "button"
+                "button",
+                "icon"
             ]
         }
     }

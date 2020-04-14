@@ -22,5 +22,13 @@
         "overlay": "An overlay of the background",
         "overlay_opacity": "Sets the opacity of the overlay"
     },
-    "view": "segment.blade.php"
+    "view": "segment.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "segment",
+                "typography"
+            ]
+        }
+    }
 }

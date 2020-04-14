@@ -13,9 +13,9 @@
     "view": "date.blade.php",
     "dependency": {
         "sass": {
+            "components": [
+                "date"
+            ]
         }
     }
 }
- 
- 
- 

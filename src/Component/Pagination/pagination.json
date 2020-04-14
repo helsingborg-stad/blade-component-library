@@ -24,7 +24,9 @@
     "dependency": {
         "sass": {
             "components": [
-                "pagination"
+                "pagination",
+                "button",
+                "icon"
             ]
         }
     }

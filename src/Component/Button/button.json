@@ -36,7 +36,15 @@
       "style": "The type of appearance, can be basic, filled or outlined.",
       "reversePositions": "Reverse the position of icon and text."
    },
-   "view":"button.blade.php"
+   "view":"button.blade.php",
+   "dependency": {
+        "sass": {
+            "components": [
+                "button",
+                "icon"
+            ]
+        }
+    }
 }
 
 

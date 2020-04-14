@@ -10,5 +10,14 @@
         "items": "An array of links",
         "showHideButton": "Option to display the button to hide sidebar, otherwise just clicking outside the drawer will close it."
     },
-    "view":"sidebar.blade.php"
+    "view":"sidebar.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "sidebar",
+                "icon",
+                "image"
+            ]
+        }
+    }
  }
