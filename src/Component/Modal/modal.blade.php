@@ -10,17 +10,14 @@
                  {{$heading}}
                 @endtypography
             @endif
-            
+
             @button([
-                'type' => 'basic',
-                'href' => '#btn-3',
-                'type' => 'basic',
+                'text' => '',
                 'icon' => 'close',
-                'size' => 'lg',
-                'color' => 'secondary',
+                'color' => 'default',
+                'style' => 'basic',
                 'attributeList' => ['data-close' => ''],
                 'classList' => [$baseClass . "__close"],
-                'hasRipple' => true
             ])
             @endbutton
         </header>
@@ -30,15 +27,10 @@
             {{-- Previous button --}}
             @if ($navigation)
                 @button([
-                    'type' => 'basic',
-                    'href' => '#previous',
-                    'isOutlined' => false,
-                    'isIconButton' =>  true,
+                    'text' => '',
                     'icon' => 'chevron_left',
-                    'reverseIcon' => false,
-                    'size' => 'md',
-                    'color' => 'secondary',
-                    'floating' => ['animate' => true, 'hover' => true],
+                    'color' => 'default',
+                    'style' => 'basic',
                     'attributeList' => ['data-prev' => ''],
                     'classList' => [$baseClass . "__prev"],
                     'label' => 'Slide to previous'
@@ -52,19 +44,13 @@
             {{-- Next button --}}
             @if ($navigation)
                 @button([
-                    'type' => 'basic',
-                    'href' => '#next',
-                    'isOutlined' => false,
-                    'isIconButton' =>  true,
+                    'text' => '',
                     'icon' => 'chevron_right',
-                    'reverseIcon' => false,
-                    'size' => 'md',
-                    'color' => 'secondary',
-                    'floating' => ['animate' => true, 'hover' => true],
+                    'color' => 'default',
+                    'style' => 'basic',
                     'attributeList' => ['data-next' => ''],
                     'classList' => [$baseClass . "__next"],
                     'label' => 'Slide to next'
-
                 ])
                 @endbutton
             @endif
