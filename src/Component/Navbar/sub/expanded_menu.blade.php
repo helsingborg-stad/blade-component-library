@@ -7,13 +7,15 @@
     "col_gap" => "4"
 ])
 
-    @foreach ($expanded_menu as $key => $item)
-        @grid([])
-            @link([
-                'href' => $item['href']
-            ])
-                {{$key}}
-            @endbutton
-        @endgrid
-    @endforeach
+    @if(!$multiDimensional)
+        @foreach ($expanded_menu as $key => $item)
+            @grid([])
+                @link([
+                    'href' => $item['href']
+                ])
+                    {{$key}}
+                @endbutton
+            @endgrid
+        @endforeach
+    @endif
 @endgrid

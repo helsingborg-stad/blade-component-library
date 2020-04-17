@@ -4,7 +4,8 @@
         "logo": "",
         "items": [],
         "sidebar": false,
-        "expanded_menu": false
+        "expanded_menu": false,
+        "multiDimensional": false
     },
 
     "description":{

@@ -1,4 +1,4 @@
-<div class="{{$baseClass}}__expanded_main">
+<div class="{{$baseClass}}__expanded_main" js-is-multidimensional="{{$multiDimensional}}">
     @if ($expanded_prev)
         @button([
             'icon' => 'arrow_back',
@@ -13,7 +13,7 @@
         ])
         @endbutton
     @endif
-
+    
     @typography([
         "element" => "h2",
         "variant" => "marketing",
