@@ -6,8 +6,9 @@
         "author_image": "",
         "text": "",
         "icon": "",
-        
+        "bubble_color": "dark",
         "date": "01/02/2019",
+        "date_suffix": "",
         "componentElement": "div",
         "is_reply": false
     },
@@ -17,8 +18,9 @@
         "author_image": "A link to an image",
         "text": "Content of the comment",
         "icon": "Which icon to show",
-        
+        "bubble_color": "Color for comment bubble background: light or dark",
         "date": "The date when the comment was posted",
+        "date_suffix": "Time elapsed 'since' ",
         "componentElement": "Element of the component",
         "is_reply": "If true the comment will be displayed as a reply"
     },
