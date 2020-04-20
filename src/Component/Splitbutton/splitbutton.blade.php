@@ -1,5 +1,9 @@
 
-@buttonGroup(['attributeList' => ['js-split' => '']])
+@buttonGroup([
+    'borderColor' => 'default',
+    'attributeList' => ['js-split' => ''],
+    'classList' => [$class]
+])
     @button(['text' => $buttonText])
     @endbutton
     @dropdown([
