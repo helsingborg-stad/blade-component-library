@@ -4,28 +4,30 @@
     </div>
 
     @button([
-        'type' => 'basic',
+        'text' => '',
         'icon' => 'chevron_left',
-        'size' => 'md',
-        'color' => 'primary',
+        'color' => 'default',
+        'style' => 'basic',
         'attributeList' => ['js-slider-btn' => 'prev'],
         'classList' => [
             'c-slider__button',
             'c-slider__button--prev'
-        ]
+        ],
+        'label' => 'Slide to previous'
     ])
     @endbutton
 
     @button([
-        'type' => 'basic',
+        'text' => '',
         'icon' => 'chevron_right',
-        'size' => 'md',
-        'color' => 'primary',
+        'color' => 'default',
+        'style' => 'basic',
         'attributeList' => ['js-slider-btn' => 'next'],
         'classList' => [
             'c-slider__button',
             'c-slider__button--next'
-        ]
+        ],
+        'label' => 'Slide to previous'
     ])
     @endbutton
 
