@@ -35,6 +35,7 @@
                 @enddate
             @endtypography
         @endif
+        @if ($date_suffix) {{$date_suffix}} @endif
     </div>
 
 
