@@ -19,8 +19,7 @@
                 'u-margin__y--4'
             ],
             'attributeList' => [
-                'href' => $item['href'],
-                'pageID'  => $item['id']
+                'href' => $item['href']
             ]
         ])
             @typography([

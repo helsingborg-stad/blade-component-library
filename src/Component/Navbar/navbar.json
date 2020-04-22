@@ -5,7 +5,7 @@
         "items": [],
         "sidebar": false,
         "expanded_menu": false,
-        "multiDimensional": false
+        "isDynamic": false
     },
 
     "description":{
