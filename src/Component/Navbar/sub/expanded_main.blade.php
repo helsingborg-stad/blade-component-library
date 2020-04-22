@@ -1,4 +1,4 @@
-<div class="{{$baseClass}}__expanded_main" js-is-multidimensional="{{$multiDimensional}}">
+<div class="{{$baseClass}}__expanded_main">
     @if ($expanded_prev)
         @button([
             'icon' => 'arrow_back',
@@ -7,6 +7,7 @@
             'color' => 'default',
             'size' => 'lg',
             'style' => 'basic',
+            'href' => '#',
             'classList' => [
                 $baseClass.'__prev'
             ]

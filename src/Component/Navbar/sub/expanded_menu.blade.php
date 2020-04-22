@@ -7,7 +7,7 @@
     "col_gap" => "4"
 ])
 
-    @if(!$multiDimensional)
+    @if(!$isDynamic)
         @foreach ($expanded_menu as $key => $item)
             @grid([])
                 @link([
