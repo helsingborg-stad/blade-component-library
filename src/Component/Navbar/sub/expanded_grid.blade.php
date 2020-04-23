@@ -1,3 +1,5 @@
+
+
 @grid([
     "classList" => [
         $baseClass.'__expanded_grid'
@@ -8,8 +10,9 @@
     "col_gap" => "5",
     "row_gap" => "9"
 ])
-
+    
     @foreach ($expanded_menu as $key => $item)
+        
         @grid([
             'element' => 'a',
             'classList' => [
@@ -37,5 +40,6 @@
             @endtypography
         @endgrid
     @endforeach
+    
     
 @endgrid

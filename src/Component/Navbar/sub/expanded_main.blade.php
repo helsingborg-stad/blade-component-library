@@ -7,13 +7,14 @@
             'color' => 'default',
             'size' => 'lg',
             'style' => 'basic',
+            'href' => '#',
             'classList' => [
                 $baseClass.'__prev'
             ]
         ])
         @endbutton
     @endif
-
+    
     @typography([
         "element" => "h2",
         "variant" => "marketing",
