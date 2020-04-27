@@ -1,0 +1,23 @@
+{
+    "slug": "divider",
+    "default": {
+        "componentElement": "div",
+        "style": "dashed",
+        "size": "md"
+    },
+    "description": {
+        "componentElement": "The tag to use for this component.",
+        "style": "Either dashed, solid or dotted.",
+        "size": "The length of the divider. Either sm, md or lg."
+    },
+    "view": "dropdown.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "divider"
+            ]
+        }
+    }
+}
+
+
