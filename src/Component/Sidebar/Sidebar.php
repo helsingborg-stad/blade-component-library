@@ -15,6 +15,10 @@ class Sidebar extends \BladeComponentLibrary\Component\BaseController
         }
 
         $this->data['top_items'] = $this->attributeItems($top_items);
+
+        if ($top_items & !$items) {
+            $this->data['attributeList']['js-sidebar--overflow-only'] = "";
+        }
     }
 
     public function attributeItems($top_items)
