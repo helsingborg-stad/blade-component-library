@@ -25,6 +25,10 @@
     </div>
     
     <div class="{{$baseClass}}__list">
+        @if($slot)
+            {!! $slot !!}
+        @endif
+        
         @foreach ($items as  $item)
             <a href="{{$item['href']}}" aria-label="{{$item['label']}}">
                 <div class="{{$baseClass}}__item" item-active="{{isset($item['active']) ? "true" : "false"}}">
@@ -32,8 +36,7 @@
                 </div>
             </a>
         @endforeach
-        
-        {!! $slot !!}
+       
     </div>
 
     @if ($expanded_menu)
