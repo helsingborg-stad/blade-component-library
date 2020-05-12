@@ -19,8 +19,8 @@
 
         <tbody class="{{$baseClass}}__body">
           @foreach($list as $row) 
-            <tr class="{{$baseClass}}__line {{$baseClass}}__line-{{ $loop->index }}">
-              @foreach($row as $column) 
+        <tr class="{{$baseClass}}__line {{$baseClass}}__line-{{ $loop->index }}" @if(isset($row['href'])) js-row-href={{$row['href']}} @endif>
+              @foreach($row['columns'] as $column) 
                 <td scope="row" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}">{{ $column }}</td>
               @endforeach
             </tr>
