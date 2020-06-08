@@ -1,9 +1,9 @@
 <?php
 
-namespace Modularity;
+namespace BladeComponentLibrary;
 
-use Modularity\Register;
-use Modularity\BladeEngine as Blade;
+use BladeComponentLibrary\Register;
+use HelsingborgStad\BladeEngineWrapper as Blade;
 
 class Init {
     
