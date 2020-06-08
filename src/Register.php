@@ -213,7 +213,7 @@ class Register
                 }
             );
         }catch(Throwable $e){
-            var_dump($e);
+            echo  '<pre>' . var_dump($e) . '<pre>';
         }
         
     }
