@@ -27,15 +27,15 @@
     <div class="{{$baseClass}}__list">
         @if($slot)
             {!! $slot !!}
-        @else
-            @foreach ($items as  $item)
-                <a href="{{$item['href']}}" aria-label="{{$item['label']}}">
-                    <div class="{{$baseClass}}__item" item-active="{{isset($item['active']) ? "true" : "false"}}">
-                        <span>{{$item['label']}}</span>
-                    </div>
-                </a>
-            @endforeach
         @endif
+
+        @foreach ($items as  $item)
+            <a href="{{$item['href']}}" aria-label="{{$item['label']}}">
+                <div class="{{$baseClass}}__item" item-active="{{isset($item['active']) ? "true" : "false"}}">
+                    <span>{{$item['label']}}</span>
+                </div>
+            </a>
+        @endforeach
     </div>
 
     @if ($expanded_menu)
