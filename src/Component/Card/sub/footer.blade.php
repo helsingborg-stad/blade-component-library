@@ -5,4 +5,11 @@
             @endbutton
         @endforeach 
     @endif
+
+    @if($tags)
+        <div class="u-margin__top--2">
+            @tags(['tags' => $tags,'classList' => ['u-margin__top--1']])
+            @endtags
+        </div>
+    @endif
 </div>
