@@ -14,7 +14,8 @@
         "collapsible": false,
         "hidden": "",
         "paddedImage": "",
-        "color": "default"
+        "color": "default",
+        "tags":  null
     },
     "description": {
         "image": "A url to a image.",
