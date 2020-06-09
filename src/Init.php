@@ -2,23 +2,26 @@
 
 namespace BladeComponentLibrary;
 
-use HelsingborgStad\GlobalBladeEngine as Blade;
+use BladeComponentLibrary\Register;
+use HelsingborgStad\BladeEngineWrapper as Blade;
 
 class Init {
-    public function __construct(
+    
+    public function __construct() {
+        
+        $blade = new Blade();
         $paths = array(
             'viewPaths' => array(),
             'controllerPaths' => array(),
             'internalComponentsPath' => array(),
-        )
-    ) {
+        );
         // Add view path to renderer
         // In this case all components, their controller and view path are located under the same folder structure.
         // This may differ in a Wordpress child implementation.
         $internalPaths = array(
             __DIR__ . DIRECTORY_SEPARATOR . 'Component' . DIRECTORY_SEPARATOR,
         );
-
+        
         // Initialize all view paths so that this library is last
         $viewPaths = array_unique(
             array_merge($paths['viewPaths'], $internalPaths)
@@ -30,9 +33,13 @@ class Init {
             );
         }
         foreach ($viewPaths as $path) {
-            Blade::addViewPath(rtrim($path, DIRECTORY_SEPARATOR));
+            $blade->addViewPath(rtrim($path, DIRECTORY_SEPARATOR));
         }
 
+        $bladeInstance = $blade->instance();
+        
+        $this->register = new Register($bladeInstance);
+        
         // Initialize all controller paths so that this library is last
         $controllerPaths = array_unique(
             array_merge($paths['controllerPaths'], $internalPaths)
@@ -44,11 +51,11 @@ class Init {
             );
         }
         foreach ($controllerPaths as $path) {
-            Register::addControllerPath(
+            $this->register->addControllerPath(
                 rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR
             );
         }
-
+        
         // Initialize all internal components paths so that this library is last
         $internalComponentsPath = array_unique(
             array_merge($paths['internalComponentsPath'], $internalPaths)
@@ -60,9 +67,16 @@ class Init {
             );
         }
         foreach ($internalComponentsPath as $path) {
-            Register::registerInternalComponents(
+            $this->register->registerInternalComponents(
                 rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR
             );
         }
+        
+       
+    }
+
+    public function getEngine()
+    {
+        return $this->register->getEngine();
     }
 }

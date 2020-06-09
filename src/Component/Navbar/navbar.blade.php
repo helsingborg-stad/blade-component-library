@@ -36,7 +36,6 @@
                 </div>
             </a>
         @endforeach
-       
     </div>
 
     @if ($expanded_menu)

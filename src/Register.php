@@ -2,46 +2,51 @@
 
 namespace BladeComponentLibrary;
 
-use \HelsingborgStad\GlobalBladeEngine as Blade; 
-
 class Register
 {
-    public static $data;
-    public static $cachePath = ""; 
-    public static $viewPaths = [];
-    public static $controllerPaths = [];
+    public  $data;
+    public  $cachePath = ""; 
+    public  $viewPaths = [];
+    public  $controllerPaths = [];
+    
+    private  $_reservedNames = ["data"];
+    
+    private  $_controllers = [];
+    
+    private $blade = null;
+    
+    function __construct($engine)
+    {
+        $this->blade = $engine;
+    }
 
-    private static $_reservedNames = ["data"];
-
-    private static $_controllers = [];
-
-    public static function add($slug, $defaultArgs, $view = null)
+    public  function add($slug, $defaultArgs, $view = null)
     {
         //Create utility data object
-        if(is_null(self::$data)) {
-            self::$data = (object) array();
+        if(is_null($this->data)) {
+            $this->data = (object) array();
         }
 
         //Prohibit reserved names
-        if(in_array($slug, self::$_reservedNames)) {
+        if(in_array($slug, $this->_reservedNames)) {
             throw new \Exception("Invalid slug (" . $slug . ") provided, cannot be used as a view name since it is reserved for internal purposes.");
         }
 
         //Get view name
-        $view = self::getViewName($slug, $view); 
+        $view = $this->getViewName($slug, $view); 
 
         //Check if valid slug name
-        if (self::sanitizeSlug($slug) != $slug) {
+        if ($this->sanitizeSlug($slug) != $slug) {
             throw new \Exception("Invalid slug (" . $slug . ") provided, must be a lowercase string only containing letters and hypens.");
         }
  
         //Check if valid view name
-        if ((self::sanitizeSlug($view) . ".blade.php") != $view) {
+        if (($this->sanitizeSlug($view) . ".blade.php") != $view) {
             throw new \Exception("Invalid view name (" . $view . ") provided, must be a lowercase string only containing letters and hypens (with exception for .blade.php filetype suffix).");
         }
 
         //Adds to full object
-        self::$data->{$slug} = (object) array(
+        $this->data->{$slug} = (object) array(
             'slug'       => (string) $slug,
             'args'       => (object) $defaultArgs,
             'view'       => (string) $slug . DIRECTORY_SEPARATOR . $view,
@@ -49,10 +54,10 @@ class Register
         );
 
         //Add include alias
-        self::registerComponentAlias($slug);
-
+  
+        $this->registerComponentAlias($slug);
         // Register view composer
-        self::registerViewComposer(self::$data->{$slug});
+        $this->registerViewComposer($this->data->{$slug});
     }
 
     /**
@@ -60,19 +65,19 @@ class Register
      * 
      * @return string The updated object with controller paths
      */
-    public static function addControllerPath($path, $prepend = true) : array 
+    public  function addControllerPath($path, $prepend = true) : array 
     {
         //Sanitize path
         $path = rtrim($path, "/");
-
+        
         //Push to location array
         if($prepend === true) {
-            if (array_unshift(self::$controllerPaths, $path)) {
-                return self::$controllerPaths;
+            if (array_unshift($this->controllerPaths, $path)) {
+                return $this->controllerPaths;
             }
         } else {
-            if (array_push(self::$controllerPaths, $path)) {
-                return self::$controllerPaths;
+            if (array_push($this->controllerPaths, $path)) {
+                return $this->controllerPaths;
             }
         }
         
@@ -85,7 +90,7 @@ class Register
      * 
      * @return string The sluts of all registered components
      */
-    public static function registerInternalComponents($path) : array 
+    public  function registerInternalComponents($path) : array 
     {
         //Declare
         $result = array(); 
@@ -126,7 +131,7 @@ class Register
                 }
 
                 //Register the component
-                self::add(
+                $this->add(
                     $configJson['slug'],
                     $configJson['default'],
                     $configJson['view'] ? $configJson['view'] : $configJson['slug'] . "blade.php"
@@ -140,12 +145,17 @@ class Register
         return $result; 
     }
 
+    public function getEngine()
+    {
+        return $this->blade;
+    }
+
     /**
      * Use defined view or, generate from slug
      * 
      * @return string The view name included filetype
      */
-    private static function getViewName($slug, $view = null) : string
+    private function getViewName($slug, $view = null) : string
     {
         if (is_null($view)) {
             $view = $slug . '.blade.php'; 
@@ -158,7 +168,7 @@ class Register
      * 
      * @return string The string to be sanitized
      */
-    private static function sanitizeSlug($string) : string 
+    private function sanitizeSlug($string) : string 
     {
         return preg_replace(
             "/[^a-z-]/i", 
@@ -172,35 +182,40 @@ class Register
      *
      * @return bool
      */
-    private static function registerComponentAlias($componentSlug)
+    private function registerComponentAlias($componentSlug)
     {
-        Blade::instance()->component(
+        $this->blade->component(
             ucfirst($componentSlug)  . '.' . $componentSlug,
             $componentSlug
         );
+        
     }
-
-    public static function registerViewComposer($component)
+    
+    public function registerViewComposer($component)
     {
-        Blade::instance()->composer(
-            ucfirst($component->slug) . '.' . $component->slug,
-            function ($view) use ($component) {
-
-                $controllerName = self::camelCase(
-                    self::cleanViewName($component->slug)
-                );
-                
-                $viewData = self::accessProtected($view, 'data');
-
-                // Get controller data
-                $controllerArgs = (array) self::getControllerArgs(
-                    array_merge((array) $component->args, (array) $viewData),
-                    $controllerName
-                );
-
-                $view->with($controllerArgs);
-            }
-        );
+        try{
+            $this->blade->composer(
+                ucfirst($component->slug) . '.' . $component->slug,
+                function ($view) use ($component) {
+                    $controllerName = $this->camelCase(
+                        $this->cleanViewName($component->slug)
+                    );
+                    
+                    $viewData = $this->accessProtected($view, 'data');
+    
+                    // Get controller data
+                    $controllerArgs = (array) $this->getControllerArgs(
+                        array_merge((array) $component->args, (array) $viewData),
+                        $controllerName
+                    );
+    
+                    $view->with($controllerArgs);
+                }
+            );
+        }catch(Throwable $e){
+            echo  '<pre>' . var_dump($e) . '<pre>';
+        }
+        
     }
 
     /**
@@ -208,7 +223,7 @@ class Register
      *
      * @return string Array of values
      */
-    public static function accessProtected($obj, $prop)
+    public function accessProtected($obj, $prop)
     {
         $reflection = new \ReflectionClass($obj);
         $property = $reflection->getProperty($prop);
@@ -221,17 +236,17 @@ class Register
      *
      * @return string Array of controller data
      */
-    public static function getControllerArgs($data, $controllerName): array
+    public function getControllerArgs($data, $controllerName): array
     {
         //Run controller & fetch data
-        if ($controllerLocation = self::locateController($controllerName)) {
+        if ($controllerLocation = $this->locateController($controllerName)) {
 
             $controllerId = md5($controllerLocation); 
 
-            if(in_array($controllerId, self::$_controllers)) {
-                $controller = self::$_controllers[$controllerId]; 
+            if(in_array($controllerId, $this->$_controllers)) {
+                $controller = $this->$_controllers[$controllerId]; 
             } else {
-                $controller = (string)("\\".self::getNamespace($controllerLocation)."\\".$controllerName);
+                $controller = (string)("\\".$this->getNamespace($controllerLocation)."\\".$controllerName);
                 $controller = new $controller($data);
             }
 
@@ -246,7 +261,7 @@ class Register
      *
      * @return string The expected controller name
      */
-    public static function camelCase($viewName): string
+    public function camelCase($viewName): string
     {
         return (string)str_replace(
             " ",
@@ -262,12 +277,12 @@ class Register
      *
      * @return string Controller path
      */
-    public static function locateController($controller)
+    public function locateController($controller)
     {
 
-        if (is_array(Register::$controllerPaths) && !empty(Register::$controllerPaths)) {
+        if (is_array($this->controllerPaths) && !empty($this->controllerPaths)) {
 
-            foreach (Register::$controllerPaths as $path) {
+            foreach ($this->controllerPaths as $path) {
 
                 $file = $path.DIRECTORY_SEPARATOR.$controller.DIRECTORY_SEPARATOR.$controller.'.php';
 
@@ -289,7 +304,7 @@ class Register
      *
      * @return string            Namespace or null
      */
-    public static function getNamespace($classPath)
+    public  function getNamespace($classPath)
     {
         $src = file_get_contents($classPath);
 
@@ -305,7 +320,7 @@ class Register
      *
      * @return string Simple view name without appended filetype
      */
-    public static function cleanViewName($viewName): string
+    public  function cleanViewName($viewName): string
     {
         return (string) str_replace('.blade.php', '', $viewName);
     }
