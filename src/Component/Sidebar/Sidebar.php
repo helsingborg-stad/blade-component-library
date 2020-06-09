@@ -14,23 +14,26 @@ class Sidebar extends \BladeComponentLibrary\Component\BaseController
             $this->data['attributeList']['child-items-url'] = $childItemsUrl; 
         }
 
-        $this->data['top_items'] = $this->attributeItems($top_items);
+        $this->data['top_items'] = $this->attributeItems($this->data['top_items']);
 
         if ($top_items & !$items) {
             $this->data['attributeList']['js-sidebar--overflow-only'] = "";
         }
     }
 
+    //Build attribute list for top items
     public function attributeItems($top_items)
     {
         foreach ($top_items as $key => $item)
         {
-            $string = "";
-            foreach ($item['attributeList'] as $key2 => $value) 
-            {
-                $string = $string . $key2 . '=' . $value . ' ';
+            if(isset($item['attributeList'])) {
+                $attributeString = "";
+                foreach ($item['attributeList'] as $attributeName => $attributeValue) 
+                {
+                    $attributeString = $attributeString . $attributeName . '=' . $attributeValue . ' ';
+                }
+                $top_items[$key]['attributeList'] = $attributeString;
             }
-            $top_items[$key]['attributeList'] = $string;
         }
         return $top_items;
     }
