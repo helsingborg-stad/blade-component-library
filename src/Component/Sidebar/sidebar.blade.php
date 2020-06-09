@@ -24,7 +24,9 @@
         </div>
     @endif
 
-    @include ('Sidebar.top', array('items' => $top_items, 'appendID' => uniqid(), 'top_level' => true))
+    @if(isset($top_items))
+        @include ('Sidebar.top', array('items' => $top_items, 'appendID' => uniqid(), 'top_level' => true))
+    @endif
 
     @include ('Sidebar.item', array('items' => $items, 'appendID' => uniqid(), 'top_level' => true))
 </nav>
