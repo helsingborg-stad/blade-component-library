@@ -7,7 +7,7 @@ use HelsingborgStad\BladeEngineWrapper as Blade;
 
 class Init {
     
-    public function __construct() {
+    public function __construct($externalViewPaths) {
         
         $blade = new Blade();
         $paths = array(
@@ -26,6 +26,9 @@ class Init {
         $viewPaths = array_unique(
             array_merge($paths['viewPaths'], $internalPaths)
         );
+
+        $viewPaths = array_merge($viewPaths, $externalViewPaths);
+        
         if (function_exists('apply_filters')) {
             $viewPaths = apply_filters(
                 'helsingborg-stad/blade/viewPaths',
