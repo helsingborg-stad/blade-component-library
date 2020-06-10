@@ -8,13 +8,24 @@ class Footer extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        foreach($links as $link)
-        {
-            if(!array_key_exists('target', $link) && array_key_exists('href', $link))
-            {
-                $link['target'] = ' ';
+        $this->data['links'] = $this->addTargetToLinks($links);
+
+        if(!isset($this->data['logotypeHref'])) {
+            $this->data['logotypeHref'] = "/";
+        }
+    }
+
+    protected function addTargetToLinks($arr)
+    {
+        foreach($arr as $key => $data) {
+            if(array_key_exists('href', $data) && !array_key_exists('target', $data)) {
+                $arr[$key]['target'] = '_self';
+            }
+
+            if(!array_key_exists('href', $data)) {
+                $arr[$key] = $this->addTargetToLinks($data);
             }
         }
-
+        return $arr;
     }
 }
