@@ -39,21 +39,20 @@
     </div>
 
     @if ($expanded_menu)
-        <a js-toggle-trigger="navbar-content">
-            <div class="{{$baseClass}}__item {{$baseClass}}__expand">
-                @button([
-                    'text' => 'Meny',
-                    'color' => 'default',
-                    'style' => 'basic',
-                    'icon' => 'expand_more'
-                ])
-                @endbutton
-            </div>
-        </a>
+        <div class="{{$baseClass}}__item {{$baseClass}}__expand">
+            @button([
+                'text' => 'Meny',
+                'color' => 'default',
+                'style' => 'basic',
+                'icon' => 'expand_more',
+                'attributeList' => ['js-toggle-trigger' => "navbar-content"]
+            ])
+            @endbutton
+        </div>
     @endif
 
     @if($expanded_menu)
-        <div class="{{$baseClass}}__content" js-toggle-item="navbar-content" js-toggle-class="u-display--block">
+        <div class="{{$baseClass}}__content" js-toggle-item="navbar-content" js-toggle-class="u-height--auto">
             @include('Navbar.sub.expanded_menu')
             @include('Navbar.sub.expanded_main')
         </div>
