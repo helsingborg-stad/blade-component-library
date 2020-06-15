@@ -243,8 +243,8 @@ class Register
 
             $controllerId = md5($controllerLocation); 
 
-            if(in_array($controllerId, self::$_controllers)) {
-                $controller = self::$_controllers[$controllerId]; 
+            if(in_array($controllerId, $this->_controllers)) {
+                $controller = $this->_controllers[$controllerId]; 
             } else {
                 $controller = (string)("\\".$this->getNamespace($controllerLocation)."\\".$controllerName);
                 $controller = new $controller($data);
