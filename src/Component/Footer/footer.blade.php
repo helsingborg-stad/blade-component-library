@@ -36,4 +36,4 @@
       @endif
     </div>
   </div>
-</{{$componentElement}}
+</{{$componentElement}}>

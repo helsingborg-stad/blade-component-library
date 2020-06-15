@@ -21,7 +21,7 @@
                     @if(!isset($childItemsUrl))
                         js-toggle-trigger="{{$rndId}}"
                     @endif
-                    aria-label="{{$item['ID']}}"
+                    aria-label="{{$item['label']}}"
                     aria-pressed="false">
 
                     <div class="bar"></div>
