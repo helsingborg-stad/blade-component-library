@@ -29,7 +29,7 @@
                     $baseClass.'__title'
                 ],
             ])
-                {{$key}}
+                {{$title}}
             @endtypography
 
             @typography([
