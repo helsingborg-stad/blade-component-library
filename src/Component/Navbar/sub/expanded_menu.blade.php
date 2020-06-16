@@ -13,7 +13,7 @@
                 @link([
                     'href' => $item['href']
                 ])
-                    {{$key}}
+                    {{$item['title']}}
                 @endbutton
             @endgrid
         @endforeach
