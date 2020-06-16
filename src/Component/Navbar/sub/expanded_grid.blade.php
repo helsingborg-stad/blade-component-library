@@ -29,7 +29,7 @@
                     $baseClass.'__title'
                 ],
             ])
-                {{$title}}
+                {{$item|['title']}}
             @endtypography
 
             @typography([
