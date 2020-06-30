@@ -11,11 +11,11 @@
             {{ $section['heading'] }}
             @if($taxonomyPosition === 'top' && $taxonomy > 0)
                 @tags([
-                'tags' => $taxonomy
+                    'tags' => $taxonomy
                 ])
                 @endtags
             @endif
-            
+
             {!!$afterHeading!!}
 
                 @icon(['icon' => 'keyboard_arrow_down', 'size' => 'md', 'classList' => [$baseClass . '__icon']])
