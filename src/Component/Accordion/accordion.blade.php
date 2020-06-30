@@ -26,7 +26,7 @@
         <{{$sectionContentElement}} class="{{$baseClass}}__content" id="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-hidden="true">
         {!!$beforeContent!!}
 
-        {{ $section['content'] }}
+        {{ html_entity_decode($section['content']) }}
         {!!$afterContent!!}
 
         @if($taxonomyPosition === 'below' && $taxonomy > 0)
