@@ -33,7 +33,8 @@
         "sass": {
             "components": [
                 "accordion",
-                "icon"
+                "icon",
+                "tags"
             ]
         }
     }
