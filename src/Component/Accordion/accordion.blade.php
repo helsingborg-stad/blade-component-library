@@ -7,7 +7,15 @@
         <{{$sectionHeadingElement}} class="{{$baseClass}}__button" aria-controls="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-expanded="false" js-expand-button>
         <span class="{{$baseClass}}__button-wrapper" tabindex="-1">
                 {!!$beforeHeading!!}
+
             {{ $section['heading'] }}
+            @if($taxonomyPosition === 'top' && $taxonomy > 0)
+                @tags([
+                'tags' => $taxonomy
+                ])
+                @endtags
+            @endif
+            
             {!!$afterHeading!!}
 
                 @icon(['icon' => 'keyboard_arrow_down', 'size' => 'md', 'classList' => [$baseClass . '__icon']])
@@ -17,13 +25,6 @@
 
         <{{$sectionContentElement}} class="{{$baseClass}}__content" id="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-hidden="true">
         {!!$beforeContent!!}
-
-        @if($taxonomyPosition === 'top' && $taxonomy > 0)
-            @tags([
-                'tags' => $taxonomy
-            ])
-            @endtags
-        @endif
 
         {{ $section['content'] }}
         {!!$afterContent!!}
