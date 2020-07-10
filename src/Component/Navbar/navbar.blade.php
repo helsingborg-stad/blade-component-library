@@ -30,8 +30,15 @@
         @endif
         
         @foreach ($items as  $item)
-            <a href="{{$item['href']}}" aria-label="{{$item['label']}}">
-                <div class="{{$baseClass}}__item" item-active="{{isset($item['active']) ? "true" : "false"}}">
+            <a 
+                href="{{$item['href']}}" 
+                aria-label="{{$item['label']}}" 
+                item-ancestor="{{$item['ancestor'] ? "true" : "false"}}" 
+                item-active="{{$item['active'] ? "true" : "false"}}"
+                item-has-children="{{$item['children'] ? "true" : "false"}}"
+                item-children-async="{{is_array($item['children']) ? "false" : "true"}}"
+            >
+                <div class="{{$baseClass}}__item">
                     <span>{{$item['label']}}</span>
                 </div>
             </a>
