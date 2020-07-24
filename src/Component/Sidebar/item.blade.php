@@ -9,11 +9,18 @@
     @foreach ($items as $item)
         <div class="{{$baseClass}}__item">
         
-            <a class="{{$baseClass}}__link" href="{{$item['href']}}" aria-label="{{$item['label']}}" item-active="{{isset($item['active']) ? "true" : "false"}}">
+            <a  class="{{$baseClass}}__link" 
+                href="{{$item['href']}}" 
+                aria-label="{{$item['label']}}" 
+                item-ancestor="{{$item['ancestor'] ? "true" : "false"}}" 
+                item-active="{{$item['active'] ? "true" : "false"}}"
+                item-has-children="{{$item['children'] ? "true" : "false"}}"
+                item-children-async="{{is_array($item['children']) ? "false" : "true"}}"
+            >
                 {{$item['label']}}
             </a>
 
-            @if ($item['children'])
+            @if (is_array($item['children']))
                 @php
                     $rndId = uniqid();
                 @endphp

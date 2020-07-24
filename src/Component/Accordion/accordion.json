@@ -10,7 +10,9 @@
         "componentElement": "div",
         "sectionElement": "div",
         "sectionHeadingElement": "button",
-        "sectionContentElement": "div"
+        "sectionContentElement": "div",
+        "taxonomy": [],
+        "taxonomyPosition":  ""
     },
     "description": {
         "id": "ID for the accordion",
@@ -22,14 +24,17 @@
         "componentElement": "Component element",
         "sectionElement": "Section element",
         "sectionHeadingElement": "Section heading component",
-        "sectionContentElement": "Section content component"
+        "sectionContentElement": "Section content component",
+        "taxonomy": "Array of taxonomies such as tags",
+        "taxonomyPosition":  "Taxonomy position like top or below"
     },
     "view": "accordion.blade.php",
     "dependency": {
         "sass": {
             "components": [
                 "accordion",
-                "icon"
+                "icon",
+                "tags"
             ]
         }
     }
