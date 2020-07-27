@@ -12,15 +12,13 @@ class Navbar extends \BladeComponentLibrary\Component\BaseController
 
         // Extract array for eazy access (fetch only)
         extract($this->data);
-        
-        if($this->data['isDynamic']) {
 
-       
+        $this->data['items'] = $this->fillItemsData($this->data['items']);
+
+        if($this->data['isDynamic']) {
             $this->data['attributeList']['js-is-dynamic'] = '';
 
             if(isset($childItemsUrl)) {
-         
-        
                 $this->data['attributeList']['js-child-items-url'] = $childItemsUrl;
             }
         }
@@ -38,6 +36,16 @@ class Navbar extends \BladeComponentLibrary\Component\BaseController
         if(isset($this->data['pageParentID'])) {
             $this->data['attributeList']['data-page-parent-id'] = $this->data['pageParentID'];
         }
-        
+    }
+
+    public function fillItemsData($items)
+    {
+        foreach ($items as $key => $item) {
+            !isset($item['ancestor']) ? $items[$key]['ancestor'] = false : "";
+            !isset($item['active']) ? $items[$key]['active'] = false : "";
+            !isset($item['children']) ? $items[$key]['children'] = false : "";
+        }
+
+        return $items;
     }
 }

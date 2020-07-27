@@ -12,15 +12,15 @@
             <a  class="{{$baseClass}}__link" 
                 href="{{$item['href']}}" 
                 aria-label="{{$item['label']}}" 
-                item-ancestor="{{$item['ancestor'] ? "true" : "false"}}" 
-                item-active="{{$item['active'] ? "true" : "false"}}"
-                item-has-children="{{$item['children'] ? "true" : "false"}}"
-                item-children-async="{{is_array($item['children']) ? "false" : "true"}}"
+                item-ancestor="{{boolval($item['ancestor'])}}" 
+                item-active="{{$item['active']}}"
+                item-has-children="{{boolval($item['children'])}}"
+                item-children-async="{{boolval($item['children'])}}"
             >
                 {{$item['label']}}
             </a>
 
-            @if (is_array($item['children']))
+            @if ($item['children'])
                 @php
                     $rndId = uniqid();
                 @endphp

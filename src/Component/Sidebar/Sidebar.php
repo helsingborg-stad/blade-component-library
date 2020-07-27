@@ -10,6 +10,8 @@ class Sidebar extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
+        $this->data['items'] = $this->fillItemsData($this->data['items']);
+
         if(isset($childItemsUrl)) {
             $this->data['attributeList']['child-items-url'] = $childItemsUrl; 
         }
@@ -38,5 +40,22 @@ class Sidebar extends \BladeComponentLibrary\Component\BaseController
             }
         }
         return $top_items;
+    }
+
+    public function fillItemsData($items)
+    {
+        foreach ($items as $key => $item) {
+            !isset($item['ancestor']) ? $item['ancestor'] = false : "";
+            !isset($item['active']) ? $item['active'] = false : "";
+            !isset($item['children']) ? $item['children'] = false : "";
+            !isset($item['id']) ? $item['id'] = $item['label'] : "";
+
+            if(is_array($item['children'])) {
+                $item['children'] = $this->fillItemsData($item['children']);
+            }
+
+            $items[$key] = $item;
+        }
+        return $items;
     }
 }
