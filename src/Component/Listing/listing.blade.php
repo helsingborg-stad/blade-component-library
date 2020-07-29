@@ -11,6 +11,9 @@
             <span class="{{$baseClass}}__label">
               {{ $item['label'] }}
             </span>
+
+            @icon(['icon' => 'arrow_forward', 'size' => 'lg'])
+            @endicon
           </a>
           @include('Listing.sub') {{--- Recursive action ---}}
         </li>
