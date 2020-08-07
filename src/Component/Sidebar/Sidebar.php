@@ -12,8 +12,9 @@ class Sidebar extends \BladeComponentLibrary\Component\BaseController
 
         $this->data['items'] = $this->fillItemsData($this->data['items']);
 
-        if(isset($childItemsUrl)) {
-            $this->data['attributeList']['child-items-url'] = $childItemsUrl; 
+        if(isset($endpoints)) {
+            $this->data['attributeList']['endpoint-children'] = $endpoints['children']; 
+            $this->data['attributeList']['endpoint-active'] = $endpoints['active'];
         }
 
         if(isset($top_items)) {
