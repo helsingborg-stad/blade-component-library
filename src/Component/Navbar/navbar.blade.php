@@ -5,10 +5,9 @@
             'icon' => 'menu',
             'size' => 'xl',
             'attributeList' => 
-                $sidebar ?
-                    ['js-sidebar-trigger' => ""] :
-                    ['js-menu-trigger' => "{$baseClass}__list--expanded",
-                    'js-menu-dart' => "navbar-expand-{$uid}"]
+            $sidebar ?
+                    ['js-toggle-trigger' => $sidebar['trigger']] :
+                    ['js-sidebar-trigger' => ""]
         ])
         @endicon
     </div>
