@@ -25,7 +25,7 @@
                     $rndId = uniqid();
                 @endphp
                 <div class="{{$baseClass}}__toggle"
-                    @if(!isset($childItemsUrl))
+                    @if(!isset($endpoints))
                         js-toggle-trigger="{{$rndId}}"
                     @endif
                     aria-label="{{$item['id']}}"
@@ -34,7 +34,7 @@
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </div>
-                @if(!isset($childItemsUrl))
+                @if(!isset($endpoints))
                     @include ('Sidebar.item', array('items' => $item['children'], 'appendID' => $rndId, 'top_level' => false))
                 @endif
             @endif
