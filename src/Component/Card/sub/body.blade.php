@@ -2,4 +2,6 @@
     @typography([])
         {{$content}}
     @endtypography
+
+    {!! $slot !!}
 </div>
