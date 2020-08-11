@@ -2,13 +2,12 @@
 <nav id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
     <div class="{{$baseClass}}__toggle">
         @icon([
-            'icon' => 'menu',
-            'size' => 'xl',
+            'icon'          => 'menu',
+            'size'          => 'xl',
             'attributeList' => 
                 $sidebar ?
-                    ['js-sidebar-trigger' => ""] :
-                    ['js-menu-trigger' => "{$baseClass}__list--expanded",
-                    'js-menu-dart' => "navbar-expand-{$uid}"]
+                    ['js-toggle-trigger'    => $sidebar['trigger']] :
+                    ['js-sidebar-trigger'   => ""]
         ])
         @endicon
     </div>
