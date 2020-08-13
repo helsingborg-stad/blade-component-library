@@ -33,5 +33,11 @@ class Table extends \BladeComponentLibrary\Component\BaseController
         if($isSmall) {
             $this->data['classList'][] = "table-sm";  
         }
+
+        if($filterable) {
+            $filterId = \uniqid();
+            $this->data['filterId'] = $filterId; 
+            $this->data['attributeList']['js-filter-container'] = $filterId;
+        }
     }
 }

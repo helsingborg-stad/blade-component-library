@@ -10,7 +10,8 @@
         "hasHoverEffect": false,
         "isBordered": true,
         "isLarge": false,
-        "isSmall": false
+        "isSmall": false,
+        "filterable": false
     },
     "description": {
         "list": "Array of items",

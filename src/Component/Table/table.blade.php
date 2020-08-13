@@ -9,6 +9,20 @@
 
         @if($showHeader)
         <thead class="{{$baseClass}}__head">
+
+          @if($filterable)
+            @field([
+                'type' => 'text',
+                'attributeList' => [
+                    'type' => 'search',
+                    'name' => 'search',
+                    'js-filter-input' => $filterId
+                ],
+                'label' => "Search"
+            ])
+            @endfield
+          @endif
+
           <tr class="{{$baseClass}}__line">
             @foreach($headings as $heading)
               <th scope="col" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}">{{ $heading }}</th>
@@ -19,9 +33,9 @@
 
         <tbody class="{{$baseClass}}__body">
           @foreach($list as $row) 
-        <tr class="{{$baseClass}}__line {{$baseClass}}__line-{{ $loop->index }}" @if(isset($row['href'])) js-row-href={{$row['href']}} @endif>
+        <tr class="{{$baseClass}}__line {{$baseClass}}__line-{{ $loop->index }}" js-filter-item @if(isset($row['href'])) js-row-href={{$row['href']}} @endif>
               @foreach($row['columns'] as $column) 
-                <td scope="row" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}">{{ $column }}</td>
+                <td scope="row" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}" js-filter-data>{{ $column }}</td>
               @endforeach
             </tr>
           @endforeach
