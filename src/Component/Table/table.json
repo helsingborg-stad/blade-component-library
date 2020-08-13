@@ -11,7 +11,8 @@
         "isBordered": true,
         "isLarge": false,
         "isSmall": false,
-        "filterable": false
+        "filterable": false,
+        "sortable": false
     },
     "description": {
         "list": "Array of items",

@@ -39,5 +39,10 @@ class Table extends \BladeComponentLibrary\Component\BaseController
             $this->data['filterId'] = $filterId; 
             $this->data['attributeList']['js-filter-container'] = $filterId;
         }
+
+        if($sortable) {
+            $this->data['attributeList']['js-sort-container'] = "";
+            $this->data['attributeList']['js-sort-order'] = "asc";
+        }
     }
 }
