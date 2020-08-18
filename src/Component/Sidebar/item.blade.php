@@ -21,22 +21,20 @@
             </a>
 
             @if ($item['children'])
-                @php
-                    $rndId = uniqid();
-                @endphp
+
+                @php $rndId = uniqid(); @endphp
+
                 <div class="{{$baseClass}}__toggle"
-                    @if(!isset($endpoints))
-                        js-toggle-trigger="{{$rndId}}"
-                    @endif
+                    js-toggle-trigger="{{$rndId}}"
                     aria-label="{{$item['id']}}"
                     aria-pressed="false">
 
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </div>
-                @if(!isset($endpoints))
-                    @include ('Sidebar.item', array('items' => $item['children'], 'appendID' => $rndId, 'top_level' => false))
-                @endif
+
+                @include ('Sidebar.item', array('items' => $item['children'], 'appendID' => $rndId, 'top_level' => false))
+                
             @endif
         </div>
     @endforeach
