@@ -35,14 +35,16 @@ class Table extends \BladeComponentLibrary\Component\BaseController
         }
 
         if($filterable) {
-            $filterId = \uniqid();
-            $this->data['filterId'] = $filterId; 
-            $this->data['attributeList']['js-filter-container'] = $filterId;
+            $this->data['attributeList']['js-table-filter'] = '';
         }
 
         if($sortable) {
-            $this->data['attributeList']['js-sort-container'] = "";
-            $this->data['attributeList']['js-sort-order'] = "asc";
+            $this->data['attributeList']['js-table-sort'] = '';
+        }
+
+        if($pagination) {
+            $this->data['attributeList']['js-table-pagination'] = $pagination;
+            $this->data['attributeList']['js-table-pagination--current'] = 1;
         }
     }
 }

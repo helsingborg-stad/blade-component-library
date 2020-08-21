@@ -12,7 +12,8 @@
         "isLarge": false,
         "isSmall": false,
         "filterable": false,
-        "sortable": false
+        "sortable": false,
+        "pagination": false
     },
     "description": {
         "list": "Array of items",
