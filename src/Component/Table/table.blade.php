@@ -27,7 +27,7 @@
                                 <th scope="col" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}" js-table-sort--btn="{{ $loop->index }}">
                                     {{ $heading }}
                                     @if($sortable)
-                                        @icon(['icon' => 'swap_vert', 'size' => 'md'])
+                                        @icon(['icon' => 'swap_vert', 'size' => 'md', 'classList' => ['c-table__sort']])
                                         @endicon
                                     @endif
                                 </th>
