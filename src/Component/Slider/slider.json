@@ -5,7 +5,8 @@
         "autoSlide": true
     },
     "description": {
-        "showStepper": "Option to hide or show stepper."
+        "showStepper": "Option to hide or show stepper.",
+        "autoSlide": "If the slider should automatically scroll through the slides."
     },
     "view": "slider.blade.php",
     "dependency": {
