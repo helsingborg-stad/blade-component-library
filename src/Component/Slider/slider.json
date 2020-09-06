@@ -1,7 +1,8 @@
 {
     "slug": "slider",
     "default": {
-        "showStepper": true
+        "showStepper": true,
+        "autoSlide": true
     },
     "description": {
         "showStepper": "Option to hide or show stepper."
