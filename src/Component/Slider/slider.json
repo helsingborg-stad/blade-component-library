@@ -6,7 +6,7 @@
     },
     "description": {
         "showStepper": "Option to hide or show stepper.",
-        "autoSlide": "If the slider should automatically scroll through the slides."
+        "autoSlide": "If set to true, slider will auto slide with default delay. Can also receive an int to set delay in seconds"
     },
     "view": "slider.blade.php",
     "dependency": {
