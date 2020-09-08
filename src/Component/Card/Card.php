@@ -18,6 +18,7 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		if(isset($image['padded']) && $image['padded']){
 			$this->data['paddedImage'] = $this->getBaseClass() . '__image-background--padded'; 	
 		} 
+
 		if($imageFirst){
 			$this->data['classList'][] = $this->getBaseClass() . '--image-first'; 
 		} 
@@ -25,5 +26,11 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		if($collapsible && $content){
 			$this->data['collapsible'] = $this->getBaseClass() . '--collapse';
 		} 
+
+		if($link) {
+			$this->data['componentElement'] = "a"; 
+		} else {
+			$this->data['componentElement'] = "div"; 
+		}
 	}
 }
