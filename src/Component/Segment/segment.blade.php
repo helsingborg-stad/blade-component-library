@@ -1,22 +1,7 @@
 <!-- segment.blade.php -->
 <section id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
-
     @if ($background_video)
-        @video([
-            'hasControls' => false,
-            'isMuted' => true,
-            'shouldAutoplay' => true,
-            'attributeList' => [
-                'loop' => true
-            ],
-            'classList' => [
-                $baseClass."__background--video"
-            ],
-            'formats' => [
-                ['src' => $background_video, 'type' => "mp4"],
-            ]
-        ])
-        @endvideo
+        @include('Segment.sub.video')
     @endif
 
     @if (!empty($top) || !empty($title) || !empty($sub_title))
