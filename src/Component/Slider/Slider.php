@@ -14,6 +14,15 @@ class Slider extends \BladeComponentLibrary\Component\BaseController
         $this->data['attributeList']['data-step'] = 0;
         $this->data['attributeList']['js-slider'] = 0;
         $this->data['attributeList']['js-slider-index'] = 0;
+        $this->data['attributeList']['js-slider-index'] = 0;
+
+        if ($peekSlides) {
+            $this->data['classList'][] = 'c-slider__peek';
+        }
+
+        if ($navigationHover) {
+            $this->data['classList'][] = 'c-slider__navigation--hover';
+        }
 
         if ($autoSlide) {
             $delay = is_int($autoSlide) ? $autoSlide : 5;
