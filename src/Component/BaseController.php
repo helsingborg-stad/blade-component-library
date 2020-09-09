@@ -94,19 +94,7 @@ class BaseController
         if(isset($this->data['id']) && !empty($this->data['id'])) {
             $id = (string) $this->data['id']; 
         } else {
-            $id =   substr(
-                        strrchr(
-                            get_called_class(),
-                            "\\"
-                        ), 
-                        1
-                    ) 
-                    . "-" .
-                    md5(
-                        serialize(
-                            $this->data
-                        )
-                    );
+            $id = ""; 
         }
 
         return (string) strtolower($id);
