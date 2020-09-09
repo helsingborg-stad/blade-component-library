@@ -13,3 +13,17 @@
     ]
 ])
 @endvideo
+
+@button([
+    'style'         => 'filled',
+    'icon'          => 'play_arrow',
+    'size'          => 'md',
+    'color'         => 'secondary',
+    'classList'     => [
+        'c-segment__video--play__btn'
+    ],
+    'attributeList' => [
+        'js-segment__video--plaus' => ''
+    ]
+])
+@endbutton
