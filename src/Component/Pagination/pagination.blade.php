@@ -12,12 +12,15 @@
         ])
         @endbutton
 
-        @foreach($list as $item) 
-          @if($loop->index+1 == $current)
+        @includeWhen($firstItem, 'Pagination.Partials.less_indicator')
+
+        @foreach($list as $key => $item)
+       
+          @if($key +1 == $current)
           <{{$listItem}} class="{{$baseClass}}__item {{$baseClass}}__item{{ $currentClass }}">
             <a class="{{$baseClass}}__link" href="{{ $item['href'] }}" aria-label="{{ $item['label'] }}" aria-current="true">
               <span class="{{$baseClass}}__label">
-                {{ $loop->index+1 }}
+                {{ $key +1 }}
               </span>
             </a>
           </{{$listItem}}>
@@ -25,12 +28,14 @@
           <{{$listItem}} class="{{$baseClass}}__item">
             <a class="{{$baseClass}}__link" href="{{ $item['href'] }}" aria-label="{{ $item['label'] }}">
               <span class="{{$baseClass}}__label">
-                {{ $loop->index+1 }}
+                {{ $key +1 }}
               </span>
             </a>
           </{{$listItem}}>
           @endif
         @endforeach
+
+        @includeWhen($lastItem, 'Pagination.Partials.more_indicator')
 
         @button([
           'style' => 'basic',
