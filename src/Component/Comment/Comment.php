@@ -9,15 +9,31 @@ class Comment extends \BladeComponentLibrary\Component\BaseController {
 
         $this->data['id'] = uniqid("", true);
 
-        $this->is_reply($is_reply);
+        $this->isReply($is_reply);
+        $this->hasHtml($text);
     }
 
     /**
 	 * Check if comment is a reply
 	 */
-    public function is_reply($is_reply) {
+    public function isReply($is_reply) {
         if ($is_reply) {
             $this->data['classList'][] = $this->getBaseClass() . '__is-reply';
+        }
+    }
+
+    public function hasHtml($text) {
+
+        $allowedTextTags = '<b><strong><i><em><mark><small><del><ins><sub><sup>';
+
+        var_dump($text);
+        var_dump(strip_tags($text, $allowedTextTags));
+
+        if ($text !== strip_tags($text, $allowedTextTags)) {
+            $this->data['text'] = false; 
+            $this->data['slot'] = $text;
+        } else {
+            $this->data['slot'] = false;
         }
     }
 }
