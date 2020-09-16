@@ -20,7 +20,7 @@
         @else
         <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
           <span class="{{$baseClass}}__label">
-            {{ $item['label'] }}
+            {!! $item['label'] !!}
           </span>
           @include('Listing.sub') {{--- Recursive action ---}}
         </li>
