@@ -50,11 +50,20 @@
         ])
         @endavatar
 
-        @typography([
-            "variant" => "body",
-            "element" => "p"
-        ])
-            {{$text ? $text : $slot}}
-        @endtypography
+        @if($text)
+            @typography([
+                "variant" => "body",
+                "element" => "p",
+                "classList" => [$baseClass.'__bubble--inner']
+            ])
+                {!! $text !!}
+            @endtypography
+        @endif
+
+        @if($slot)
+            <div class="{{$baseClass}}__bubble--inner">
+                {!! $slot !!}
+            </div>
+        @endif
     </div>
 </{{$componentElement}}>
