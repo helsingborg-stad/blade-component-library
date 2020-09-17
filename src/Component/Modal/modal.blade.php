@@ -39,7 +39,7 @@
             @endif
 
             {!! $top !!}
-            {{$slot}}
+            {!! $slot !!}
 
             {{-- Next button --}}
             @if ($navigation)
