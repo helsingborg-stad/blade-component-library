@@ -20,7 +20,9 @@
         @else
         <li class="{{$baseClass}}__item {{$baseClass}}__item-{{ $loop->index }}">
           <span class="{{$baseClass}}__label">
+            @if(isset($item['label']) && !empty($item['label']))
             {!! $item['label'] !!}
+            @endif
           </span>
           @include('Listing.sub') {{--- Recursive action ---}}
         </li>
