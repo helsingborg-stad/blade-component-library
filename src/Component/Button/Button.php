@@ -5,24 +5,37 @@ namespace BladeComponentLibrary\Component\Button;
 class Button extends \BladeComponentLibrary\Component\BaseController
 {
 
-    public function init()
-    {
-        //Extract array for eazy access (fetch only)
-        extract($this->data);
+  public function init() {
+
+		//Extract array for eazy access (fetch only)
+		extract($this->data);
 
 		$this->data['id'] = uniqid("", true);
 
 		$styleClass = '__' . $style;
-        $colorClass = '__' . $style . '--' . $color;
+		$colorClass = '__' . $style . '--' . $color;
 	
 		$this->addToClassList(true, $styleClass, $colorClass);
-        $this->setSize($text, $icon, $size);
+    $this->setSize($text, $icon, $size);
         
-        $this->data['attributeList']['type'] = $type;
+    $this->data['attributeList']['type'] = $type;
 
-		if($toggle) $this->setToggleAttributes();
-		if($ripple) $this->setRipple();
-		if($reversePositions) $this->reversePositions();
+		if($toggle) {
+			$this->setToggleAttributes();
+		} 
+		if($ripple) {
+			$this->setRipple();
+		} 
+
+		if($reversePositions) {
+			$this->reversePositions();
+		}
+
+		if($href) {
+			$this->data['componentElement'] = "a"; 
+		} else {
+			$this->data['componentElement'] = "button"; 
+		}
 	}
 	
 	/**
@@ -30,16 +43,15 @@ class Button extends \BladeComponentLibrary\Component\BaseController
 	 *
 	 * @return void
 	 */
-    private function setToggleAttributes()
-    {
-		$toggleId = uniqid('', true);
-		
-		if(!array_key_exists('js-toggle-trigger',$this->data['attributeList'])){
-			$this->data['attributeList']['js-toggle-trigger'] = $toggleId;
-			$this->data['attributeList']['js-toggle-item'] = $toggleId;
-		}
-		
-		$this->addToClassList(true, '__toggle');
+    private function setToggleAttributes() {
+			$toggleId = uniqid('', true);
+			
+			if(!array_key_exists('js-toggle-trigger',$this->data['attributeList'])){
+				$this->data['attributeList']['js-toggle-trigger'] = $toggleId;
+				$this->data['attributeList']['js-toggle-item'] = $toggleId;
+			}
+			
+			$this->addToClassList(true, '__toggle');
     }
 
 	/**
@@ -49,14 +61,16 @@ class Button extends \BladeComponentLibrary\Component\BaseController
 	 * @param Variadic ...$classList One or more css classes as strings
 	 * @return void
 	 */
-    private function addToClassList($prependBaseClass, ...$classList)
-    {
-		foreach($classList as $class){
-			if($prependBaseClass) $class = $this->getBaseClass() . $class;
+    private function addToClassList($prependBaseClass, ...$classList) {
+			foreach($classList as $class) {
 
-			$this->data['classList'][] = $class;	
-		}
-	} 
+				if($prependBaseClass) {
+					$class = $this->getBaseClass() . $class;
+				}
+
+				$this->data['classList'][] = $class;	
+			}
+		} 
 
 	/**
 	 * Set the size, different class depending on content
@@ -78,8 +92,7 @@ class Button extends \BladeComponentLibrary\Component\BaseController
 	 *
 	 * @return void
 	 */
-	private function setRipple()
-    {
+	private function setRipple() {
 		$this->addToClassList(false, 'ripple', 'ripple--before');
 	}
 	
