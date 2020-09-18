@@ -9,9 +9,9 @@
         @endif
     <span class="{{$baseClass}}__message--{{$message['size']}}">
         @if(isset($message['text']))
-            {{ $message['text'] }}
+            {!! $message['text'] !!}
         @endif
-        {{ $slot }}
+        {!! $slot !!}
         </span>
     </div>
 

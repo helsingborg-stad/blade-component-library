@@ -8,7 +8,7 @@
         <span class="{{$baseClass}}__button-wrapper" tabindex="-1">
                 {!!$beforeHeading!!}
 
-            {{ $section['heading'] }}
+            {!! $section['heading'] !!}
             @if($taxonomyPosition === 'top' && $taxonomy > 0)
                 @tags([
                     'tags' => $taxonomy
@@ -26,7 +26,8 @@
         <{{$sectionContentElement}} class="{{$baseClass}}__content" id="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-hidden="true">
         {!!$beforeContent!!}
 
-        {{ html_entity_decode($section['content']) }}
+        {!! $section['content'] !!}
+
         {!!$afterContent!!}
 
         @if($taxonomyPosition === 'below' && $taxonomy > 0)

@@ -1,5 +1,9 @@
 <!-- segment.blade.php -->
 <section id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
+    @if ($background_video)
+        @include('Segment.sub.video')
+    @endif
+
     @if (!empty($top) || !empty($title) || !empty($sub_title))
         @include('Segment.sub.top')
     @endif

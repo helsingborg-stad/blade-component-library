@@ -21,7 +21,7 @@ class Tags extends \BladeComponentLibrary\Component\BaseController
         $filteredTags = [];
 
         foreach ($arr as $tag) {
-            if (!array_key_exists ( 'href' , $tag )) $tag['href'] = "#";
+            if (!array_key_exists ( 'href' , $tag )) $tag['href'] = "";
             if (!array_key_exists ( 'label' , $tag )) $tag['label'] = "No label";
             if (!array_key_exists ( 'color' , $tag )) $tag['color'] = "default";
 
