@@ -1,0 +1,21 @@
+{
+    "slug": "twogrid",
+    "default": {
+        "componentElement": "div",
+        "col": false,
+        "isRow": false
+    },
+    "description": {
+        "componentElement": "HTML element of component",
+        "required": "",
+        "value": "Field value"
+    },
+    "view": "twogrid.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "twogrid"
+            ]
+        }
+    }
+}
