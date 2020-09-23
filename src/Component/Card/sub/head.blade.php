@@ -14,22 +14,29 @@
         @enddropdown
     </div>
 @endif
-@if($image)
+
+@if($image && $image['src'])
     <div class="{{$baseClass}}__image {{$baseClass}}__image--{{$image['backgroundColor']}}">
         <div class="{{$baseClass}}__image-background {{$paddedImage}}" style="background-image:url('{{$image['src']}}');"></div>
     </div>
 @endif
 
+@if ($heading || $subHeading || $collapsible) 
 <div class="{{$baseClass}}__title">
     <div class="{{$baseClass}}__title-headings">
-        @typography(['element' => 'h2', 'variant' => 'h2'])
-            {{$heading}}
-        @endtypography
+        @if ($heading)
+            @typography(['element' => 'h2', 'variant' => 'h2'])
+                {{$heading}}
+            @endtypography
+        @endif
         
-        @typography(['element' => 'h4', 'variant' => 'h4'])
-            {{$subHeading}}
-        @endtypography
+        @if ($subHeading)
+            @typography(['element' => 'h4', 'variant' => 'h4'])
+                {{$subHeading}}
+            @endtypography
+        @endif
     </div>
+
     @if($collapsible)
         @button([
             'style' => 'basic',
@@ -41,3 +48,4 @@
         @endbutton
     @endif
 </div>
+@endif
