@@ -77,17 +77,19 @@ class Pagination extends \BladeComponentLibrary\Component\BaseController
 
     public function lastItem()
     {
-        if(array_key_exists(array_key_last($this->tmpList), $this->data['list'])) {
+        $lastKey = count($this->tmpList) - 1;
+        
+        if(array_key_exists($lastKey, $this->data['list'])) {
             return false;
         }
 
-        if(array_key_exists(array_key_last($this->tmpList) -1, $this->data['list'])) {
+        if(array_key_exists($lastKey -1, $this->data['list'])) {
             $this->data['list'][] = end($this->tmpList);
             return false;
         }
 
         $item = end($this->tmpList);
-        $item['key'] = array_key_last($this->tmpList);
+        $item['key'] = $lastKey;
         
         return $item;
     }

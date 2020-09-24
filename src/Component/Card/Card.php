@@ -11,7 +11,9 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	public function init()
 	{
 		//Extract array for eazy access (fetch only)
-		extract($this->data);
+        extract($this->data);
+
+        $this->data['collpaseID'] = uniqid();
 
 		$this->data['classList'][] = $baseClass . '--' . $color; 
 
@@ -25,20 +27,26 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 		if($collapsible && $content){
 			$this->data['collapsible'] = $this->getBaseClass() . '--collapse';
-    }
+        }
 
-    if($image && !isset($image['backgroundColor'])) {
-			$this->data['image']['backgroundColor'] = 'white';
-    }
+        if($image && !isset($image['backgroundColor'])) {
+                $this->data['image']['backgroundColor'] = 'white';
+        }
 
-    if($image && !isset($image['src'])) {
-			$this->data['image'] = false;
-    }
+        if($image && !isset($image['src'])) {
+                $this->data['image'] = false;
+        }
 
 		if($link) {
 			$this->data['componentElement'] = "a"; 
 		} else {
 			$this->data['componentElement'] = "div"; 
-		}
-	}
+        }
+        
+        $this->hasBody($slot, $content);
+    }
+    
+    public function hasBody($slot, $content) {
+        $this->data['hasBody'] = empty($slot->html) && empty($content) ? false : true;
+    }
 }
