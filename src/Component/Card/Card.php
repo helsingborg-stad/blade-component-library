@@ -42,11 +42,5 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 		} else {
 			$this->data['componentElement'] = "div"; 
         }
-        
-        $this->hasBody($slot, $content);
-    }
-    
-    public function hasBody($slot, $content) {
-        $this->data['hasBody'] = empty($slot->html) && empty($content) ? false : true;
     }
 }
