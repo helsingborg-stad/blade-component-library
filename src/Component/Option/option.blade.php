@@ -7,7 +7,7 @@
            value="{{$value}}"/>
     <label for="trigger_{{ $id }}" class="c-option__{{$type}}--label">
         <span class="c-option__{{$type}}--label-box"></span>
-        <span class="c-option__{{$type}}--label-text">{{$label}}</span>
+        <span class="c-option__{{$type}}--label-text">{!! $label !!}</span>
     </label>
     <div id="error_input_{{ $id }}_message" class="c-option__input-invalid-message">
         @icon([
