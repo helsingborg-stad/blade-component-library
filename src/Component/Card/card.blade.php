@@ -2,7 +2,7 @@
 <{{ $componentElement }} href="{{ $link }}" id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
     @include('Card.sub.head')
 
-    @if ($hasBody)
+    @if ($slotHasData || $content)
         @include('Card.sub.body')
     @endif
     
