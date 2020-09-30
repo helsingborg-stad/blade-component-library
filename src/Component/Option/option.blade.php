@@ -4,7 +4,9 @@
            class="c-option__{{$type}}--hidden-box"
            id="trigger_{{ $id }}"
            placeholder="{{$label}}"
-           value="{{$value}}"/>
+           value="{{$value}}"
+           @if($checked !== false) checked @endif
+    />
     <label for="trigger_{{ $id }}" class="c-option__{{$type}}--label">
         <span class="c-option__{{$type}}--label-box"></span>
         <span class="c-option__{{$type}}--label-text">{!! $label !!}</span>
