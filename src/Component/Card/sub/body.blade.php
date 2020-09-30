@@ -5,7 +5,5 @@
         @endtypography
     @endif
 
-    @if ($slot)
-        {!! $slot !!}
-    @endif
+    {!! $slot !!}
 </div>

@@ -67,6 +67,9 @@ class BaseController
         //Create id strings
         $data['id'] = $this->getId(); //"static" id dependent on the content
         $data['uid'] = $this->getUid(); //"random" id
+        
+        //Key for if slot contains any data
+        $data['slotHasData'] = !empty($this->accessProtected($this->data['slot'], "html"));
 
         //Applies single filter for each data item (class and data exepted)
         if(function_exists('apply_filters')) {
@@ -226,5 +229,18 @@ class BaseController
 
         //Create string
         return implode(DIRECTORY_SEPARATOR, $name); 
-    } 
+    }
+
+    /** 
+     * Proxy for accessing private props
+     *
+     * @return string Array of values
+     */
+    public function accessProtected($obj, $prop)
+    {
+        $reflection = new \ReflectionClass($obj);
+        $property = $reflection->getProperty($prop);
+        $property->setAccessible(true);
+        return $property->getValue($obj);
+    }
 }
