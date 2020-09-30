@@ -3,12 +3,14 @@
     "default": {
         "label": "",
         "required": false,
-        "value": ""
+        "value": "",
+        "checked": false
     },
     "description": {
         "label": "Array of label items like labelText.",
         "required": "HTML5 validation on fields",
-        "value": "option value"
+        "value": "option value",
+        "checked": "Set parameter to true if option should be checked on load"
     },
     "view": "option.blade.php",
     "dependency": {
