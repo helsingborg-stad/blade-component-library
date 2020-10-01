@@ -1,0 +1,18 @@
+{
+    "slug": "collectionItem",
+    "default": {
+        "elementType": "li"
+    },
+    "description": {
+        "elementType": "The type of list item. Default: li"
+    },
+    "view": "collectionItem.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "collection",
+                "collectionItem"
+            ]
+        }
+    }
+}

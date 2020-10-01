@@ -1,12 +1,10 @@
 {
     "slug": "collection",
     "default": {
-        "elementType": "ul",
-        "itemType": "li"
+        "elementType": "ul"
     },
     "description": {
         "elementType": "The type of list, ul, ol. Default: ul",
-        "itemType": "The type of list item. Default: li"
     },
     "view": "collection.blade.php",
     "dependency": {
