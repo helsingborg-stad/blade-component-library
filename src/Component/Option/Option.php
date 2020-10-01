@@ -36,7 +36,10 @@ class Option extends \BladeComponentLibrary\Component\BaseController
         $this->data['invalidMessage'] = $this->compParams['invalidMessage'];
         $this->data['value'] = $this->compParams['value'];
         $this->data['checked'] = $this->compParams['checked'];
-        
+        if($this->compParams['required']) {
+             $this->data['attributeList']['required'] = true;
+        }
+       
     }
 
 
