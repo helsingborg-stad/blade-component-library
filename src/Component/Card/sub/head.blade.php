@@ -26,13 +26,13 @@
     <div class="{{$baseClass}}__title-headings">
         @if ($heading)
             @typography(['element' => 'h2', 'variant' => 'h2'])
-                {{$heading}}
+                {!! $heading !!}
             @endtypography
         @endif
         
         @if ($subHeading)
             @typography(['element' => 'h4', 'variant' => 'h4'])
-                {{$subHeading}}
+                {!! $subHeading !!}
             @endtypography
         @endif
     </div>
