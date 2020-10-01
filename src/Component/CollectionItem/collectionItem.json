@@ -2,11 +2,13 @@
     "slug": "collectionItem",
     "default": {
         "elementType": "li",
+        "isCurrent": false,
         "subItem": "",
         "subItemExists": false
     },
     "description": {
-        "elementType": "The type of list item. Default: li"
+        "elementType": "The type of list item. Default: li",
+        "subItem": "Slot for providing subitems (automatically wrapped in new collection, with subcollection flag. )"
     },
     "view": "collectionItem.blade.php",
     "dependency": {

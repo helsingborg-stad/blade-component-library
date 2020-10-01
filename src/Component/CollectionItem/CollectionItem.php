@@ -13,5 +13,14 @@ class CollectionItem extends \BladeComponentLibrary\Component\BaseController
         if(is_object($this->data['subItem'])) {
             $this->data['subItemExists'] = !empty(parent::accessProtected($this->data['subItem'], "html"));
         } 
+
+        if($isCurrent) {
+            $this->data['classList'][] = $this->getBaseClass() . '--is-current'; 
+        }
+
+        if($subCollection) {
+            $this->data['classList'][] = $this->getBaseClass() . '--is-subcollection'; 
+        }
+
     }
 }

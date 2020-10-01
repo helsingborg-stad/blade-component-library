@@ -12,5 +12,9 @@ class Collection extends \BladeComponentLibrary\Component\BaseController
         if($compressed) {
             $this->data['classList'][] = $this->getBaseClass() . '--compressed'; 
         }
+
+        if($isOpen) {
+            $this->data['classList'][] = $this->getBaseClass() . '--is-open'; 
+        }
     }
 }
