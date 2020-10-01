@@ -26,12 +26,8 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . "__color--" . $color;
         }
 
-        if (!empty($overlay) ) {
-            $this->data['classList'][] = $this->getBaseClass() . "__overlay--" . $overlay;
-        }
-
-        if (!empty($overlay_opacity)) {
-            $this->data['classList'][] = $this->getBaseClass() . "__overlay--opacity-" .  $overlay_opacity;
+        if (!empty($containerColor)) {
+            $this->data['classList'][] = $this->getBaseClass() . "__container--" . $containerColor;
         }
     }
 }
