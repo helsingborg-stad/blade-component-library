@@ -18,9 +18,5 @@ class CollectionItem extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . '--is-current'; 
         }
 
-        if($subCollection) {
-            $this->data['classList'][] = $this->getBaseClass() . '--is-subcollection'; 
-        }
-
     }
 }

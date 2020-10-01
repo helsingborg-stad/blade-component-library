@@ -16,5 +16,9 @@ class Collection extends \BladeComponentLibrary\Component\BaseController
         if($isOpen) {
             $this->data['classList'][] = $this->getBaseClass() . '--is-open'; 
         }
+
+        if($subCollection) {
+            $this->data['classList'][] = $this->getBaseClass() . '--is-subcollection'; 
+        }
     }
 }
