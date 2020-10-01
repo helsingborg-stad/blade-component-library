@@ -4,11 +4,11 @@
         "title": "",
         "sub_title": "",
         "text": "",
-        "layout": "",
+        "layout": "center",
         "background_image": "",
         "background_video": false,
         "height": "md",
-        "color": "black",
+        "color": "white",
         "containerColor": ""
     },
     "description": {
