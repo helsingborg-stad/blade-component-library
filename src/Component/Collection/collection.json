@@ -4,7 +4,7 @@
         "elementType": "ul"
     },
     "description": {
-        "elementType": "The type of list, ul, ol. Default: ul",
+        "elementType": "The type of list, ul, ol. Default: ul"
     },
     "view": "collection.blade.php",
     "dependency": {
