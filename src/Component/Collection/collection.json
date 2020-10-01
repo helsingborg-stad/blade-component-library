@@ -1,10 +1,12 @@
 {
     "slug": "collection",
     "default": {
-        "elementType": "ul"
+        "elementType": "ul",
+        "compressed": false
     },
     "description": {
-        "elementType": "The type of list, ul, ol. Default: ul"
+        "elementType": "The type of list, ul, ol. Default: ul",
+        "compressed": "Display as a more space efficient variant. Default: false"
     },
     "view": "collection.blade.php",
     "dependency": {

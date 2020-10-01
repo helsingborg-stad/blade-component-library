@@ -8,5 +8,9 @@ class Collection extends \BladeComponentLibrary\Component\BaseController
     public function init() {
         //Extract array for eazy access (fetch only)
         extract($this->data);
+
+        if($compressed) {
+            $this->data['classList'][] = $this->getBaseClass() . '--compressed'; 
+        }
     }
 }
