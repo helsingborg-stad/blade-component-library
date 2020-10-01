@@ -32,11 +32,11 @@ class Option extends \BladeComponentLibrary\Component\BaseController
     public function setData()
     {
         $this->data['label'] = $this->compParams['label'];
-        $this->data['required'] = $this->compParams['required'];
         $this->data['invalidMessage'] = $this->compParams['invalidMessage'];
         $this->data['value'] = $this->compParams['value'];
         $this->data['checked'] = $this->compParams['checked'];
-        if($this->compParams['required']) {
+        
+        if ($this->compParams['required']) {
              $this->data['attributeList']['required'] = true;
         }
        
