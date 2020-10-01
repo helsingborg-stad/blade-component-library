@@ -4,10 +4,10 @@
         @include('Segment.sub.video')
     @endif
 
-    <div class="{{ $baseClass }}__container">
-        @if($slotHasData)
+    @if ($slotHasData || $showContainer)
+        <div class="{{ $baseClass }}__container">
             {{$slot}}
-        @else
+
             @if($title)
                 @typography(["variant" => "h1",
                     "element" => "h2",
@@ -40,6 +40,6 @@
             @if (isset($bottom))
                 {{ $bottom }}
             @endif
-        @endif
-    </div>
+        </div>
+    @endif
 </section>

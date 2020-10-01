@@ -11,7 +11,7 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         if (!empty($layout)) {
-            $this->data['classList'][] = $this->getBaseClass() . "__layout--" . $layout;
+            $this->data['classList'][] = $this->getBaseClass() . "--layout-" . $layout;
         }
 
         if (!empty($background_image)) {
@@ -19,15 +19,21 @@ class Segment extends \BladeComponentLibrary\Component\BaseController
         }
 
         if (!empty($height)) {
-            $this->data['classList'][] = $this->getBaseClass() . "__height--" . $height;
+            $this->data['classList'][] = $this->getBaseClass() . "--height-" . $height;
         }
 
         if (!empty($color)) {
-            $this->data['classList'][] = $this->getBaseClass() . "__color--" . $color;
+            $this->data['classList'][] = $this->getBaseClass() . "--color-" . $color;
         }
 
         if (!empty($containerColor)) {
-            $this->data['classList'][] = $this->getBaseClass() . "__container--" . $containerColor;
+            $this->data['classList'][] = $this->getBaseClass() . "--container-" . $containerColor;
+        }
+
+        $this->data['showContainer'] = false;
+
+        if (!empty($title) || !empty($sub_title) ||!empty($text) || !empty($bottom)) {
+            $this->data['showContainer'] = true;
         }
     }
 }
