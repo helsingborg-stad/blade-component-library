@@ -8,5 +8,10 @@ class CollectionItem extends \BladeComponentLibrary\Component\BaseController
     public function init() {
         //Extract array for eazy access (fetch only)
         extract($this->data);
+
+        //Key for if slot contains any data
+        if(is_object($this->data['subItem'])) {
+            $this->data['subItemExists'] = !empty(parent::accessProtected($this->data['subItem'], "html"));
+        } 
     }
 }

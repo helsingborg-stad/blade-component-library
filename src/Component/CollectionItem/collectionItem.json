@@ -1,7 +1,9 @@
 {
     "slug": "collectionItem",
     "default": {
-        "elementType": "li"
+        "elementType": "li",
+        "subItem": "",
+        "subItemExists": false
     },
     "description": {
         "elementType": "The type of list item. Default: li"
