@@ -7,15 +7,15 @@
 @endif
 
     @foreach ($items as $item)
+
         <div class="{{$baseClass}}__item">
-        
             <a  class="{{$baseClass}}__link" 
                 href="{{$item['href']}}" 
                 aria-label="{{$item['label']}}" 
-                item-ancestor="{{boolval($item['ancestor'])}}" 
-                item-active="{{$item['active']}}"
-                item-has-children="{{boolval($item['children'])}}"
-                item-children-async="{{boolval($item['children'])}}"
+                item-ancestor="{{(int) $item['ancestor']}}" 
+                item-active="{{(int) $item['active']}}"
+                item-has-children="{{(int) $item['children']}}"
+                item-children-async="{{ (int) is_bool($item['children'])}}"
             >
                 {{$item['label']}}
             </a>
@@ -27,7 +27,7 @@
                 <div class="{{$baseClass}}__toggle"
                     js-toggle-trigger="{{$rndId}}"
                     aria-label="{{$item['id']}}"
-                    aria-pressed="{{ ( boolval($item['active']) || boolval($item['ancestor']) ) ? 'true' : 'false' }}">
+                    aria-pressed="{{ ( $item['active'] || $item['ancestor'] ) ? 'true' : 'false' }}">
 
                     <div class="bar"></div>
                     <div class="bar"></div>
