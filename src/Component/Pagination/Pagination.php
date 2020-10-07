@@ -14,9 +14,18 @@ class Pagination extends \BladeComponentLibrary\Component\BaseController
             $this->data['current'] = 1; 
         }
 
+        //Anchor
+        if(isset($this->data['list']) && is_array($this->data['list']) && !empty($this->data['list'])) {
+            foreach($this->data['list'] as &$item) {
+                if(isset($item['href'])) {
+                    $item['href'] = $item['href'] . $anchorTag; 
+                }
+            }
+        }
+
         //Previous data
         if($this->data['current'] != 1) {
-            $this->data['previous'] = $linkPrefix . ($this->data['current'] - 1); 
+            $this->data['previous'] = $linkPrefix . ($this->data['current'] - 1) . $anchorTag; 
         } else {
             $this->data['previous'] = ''; 
             $this->data['previousDisabled'] = 'true'; 
@@ -24,7 +33,7 @@ class Pagination extends \BladeComponentLibrary\Component\BaseController
 
         //Next data
         if((count($this->data['list'])) != $this->data['current']) {
-            $this->data['next'] = $linkPrefix . ($this->data['current'] + 1); 
+            $this->data['next'] = $linkPrefix . ($this->data['current'] + 1) . $anchorTag; 
         } else {
             $this->data['next'] = ''; 
             $this->data['nextDisabled'] = 'true'; 

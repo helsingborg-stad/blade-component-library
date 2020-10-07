@@ -8,6 +8,7 @@
         "listElement": "ul",
         "listItem": "li",
         "linkPrefix": "?pagination=",
+        "anchorTag": "#hello",
         "previousDisabled": "false",
         "nextDisabled": "false"
     },
@@ -18,7 +19,8 @@
         "componentElement": "The tag for the component",
         "listElement": "List element tag",
         "listItem": "List item tag",
-        "linkPrefix": "Pagination uses a link prefix on prev next buttons before the numeric index, add it here."
+        "linkPrefix": "Pagination uses a link prefix on prev next buttons before the numeric index, add it here.",
+        "anchorTag": "Adds the ability to add an anchor tag in the end of every link."
     },
     "view": "pagination.blade.php",
     "dependency": {
