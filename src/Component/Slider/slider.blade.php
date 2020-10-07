@@ -32,7 +32,8 @@
     @endbutton
 
     @if ($showStepper)
-        @steppers(['type' => 'dots'])
-        @endsteppers
+        <div class="{{$baseClass}}__steppers" js-slider__stepper>
+            <div class="{{$baseClass}}__dot"></div>
+        </div>
     @endif
 </div>
