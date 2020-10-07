@@ -4,13 +4,12 @@
         "title": "",
         "sub_title": "",
         "text": "",
-        "layout": "",
+        "layout": "center",
         "background_image": "",
         "background_video": false,
         "height": "md",
-        "color": "black",
-        "overlay": "",
-        "overlay_opacity": ""
+        "color": "white",
+        "containerColor": ""
     },
     "description": {
         "title": "A title for predefined layout",
@@ -21,8 +20,7 @@
         "background_video": "A video background for the segment",
         "height": "How tall the segment should be",
         "color": "Color of the text",
-        "overlay": "An overlay of the background",
-        "overlay_opacity": "Sets the opacity of the overlay"
+        "containerColor": "Color of container"
     },
     "view": "segment.blade.php",
     "dependency": {

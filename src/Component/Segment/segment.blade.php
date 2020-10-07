@@ -4,15 +4,42 @@
         @include('Segment.sub.video')
     @endif
 
-    @if (!empty($top) || !empty($title) || !empty($sub_title))
-        @include('Segment.sub.top')
-    @endif
+    @if ($slotHasData || $showContainer)
+        <div class="{{ $baseClass }}__container">
+            {{$slot}}
 
-    @if (!empty($slot) || !empty($main) || !empty($text))
-        @include('Segment.sub.main')
-    @endif
+            @if($title)
+                @typography(["variant" => "h1",
+                    "element" => "h2",
+                    'classList' => [$baseClass.'__heading']
+                ])
+                    {{ $title }}
+                @endtypography
+            @endif
+        
+            @if($sub_title)
+                @typography([
+                    'variant' => 'body',
+                    'element' => 'p',
+                    'classList' =>  [$baseClass.'__body']
+                ])
+                    {{ $sub_title }}
+                @endtypography
+            @endif
+        
+            @if(!empty($text))
+                @typography([
+                    'variant' => 'body',
+                    'element' => 'p',
+                    'classList' =>  [$baseClass.'__body']
+                ])
+                    {{ $text}}
+                @endtypography
+            @endif
 
-    @if (!empty($bottom))
-        @include('Segment.sub.bottom')
+            @if (isset($bottom))
+                {{ $bottom }}
+            @endif
+        </div>
     @endif
 </section>
