@@ -8,7 +8,7 @@
         "listElement": "ul",
         "listItem": "li",
         "linkPrefix": "?pagination=",
-        "anchorTag": "#hello",
+        "anchorTag": "",
         "previousDisabled": "false",
         "nextDisabled": "false"
     },
