@@ -1,4 +1,4 @@
-<div id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
+<{{$componentElement}} id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
     <div class="{{$baseClass}}__avatar">
         @avatar([
             'image' => ($avatar) ? $avatar : false,
@@ -9,23 +9,28 @@
     </div>
 
     <div class="{{$baseClass}}__content">
-        @typography([
-            "variant" => "subtitle",
-            "classList" => [
-                $baseClass.'__author'
-            ]
-        ])
-            {{$author}}
-        @endtypography
+        
+        @if($author)
+            @typography([
+                "variant" => "subtitle",
+                "classList" => [
+                    $baseClass.'__author'
+                ]
+            ])
+                {{$author}}
+            @endtypography
+        @endif
 
-        @typography([
-            "variant" => "byline",
-            "classList" => [
-                $baseClass.'__title'
-            ]
-        ])
-            Skribent
-        @endtypography
+        @if($authorRole && $author) 
+            @typography([
+                "variant" => "byline",
+                "classList" => [
+                    $baseClass.'__title'
+                ]
+            ])
+                {{$authorRole}}
+            @endtypography
+        @endif
 
         @if ($published)
             @typography([
@@ -49,4 +54,4 @@
             @endtypography
         @endif
     </div>
-</div>
+</{{$componentElement}}>

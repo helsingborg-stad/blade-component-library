@@ -29,6 +29,9 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
 
 		//Reset - Decides how to switch between data inputs
 		$this->renderMostImportant();
+
+		//Boolean for rendering
+		$this->determineToRender($this->compParams); 
 	}
 
 	/**
@@ -121,5 +124,34 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
 		}
 
 		return null;
+	}
+
+	/**
+	 * Determines if the component has enough data to render
+	 * @return bool
+	 */
+	public function determineToRender($compParams)
+	{
+		//Determine what not to check
+		$unsets = array_diff_key(
+			$compParams, 
+			array(
+				'name' => true, 
+				'icon'=> true, 
+				'image'=> true, 
+				'initials'=> true
+			)
+		);
+
+		//Remove everything that should not be checked
+		if(is_countable($unsets)) {
+			foreach($unsets as $key => $val) {
+				unset($compParams[$key]); 
+			}
+		}
+
+		//Check all for null/empty/false
+		return $this->data['displayAvatar'] = (bool) array_filter($compParams); 
+
 	}
 }

@@ -27,10 +27,7 @@ class Comment extends \BladeComponentLibrary\Component\BaseController {
         $allowedTextTags = '<b><strong><i><em><mark><small><del><ins><sub><sup>';
 
         if ($text !== strip_tags($text, $allowedTextTags)) {
-            $this->data['text'] = false; 
-            $this->data['slot'] = $text;
-        } else {
-            $this->data['slot'] = false;
+            $this->data['text'] = strip_tags($text, $allowedTextTags); 
         }
     }
 }

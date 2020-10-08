@@ -4,7 +4,6 @@
         "src": false,
         "alt": "",
         "caption": "",
-        "placeholderText": "Image missing",
         "fullWidth": false,
         "rounded": false,
         "roundedTopLeft": false,
@@ -12,7 +11,10 @@
         "roundedBottomLeft": false,
         "roundedBottomRight": false,
         "roundedRadius": "",
-        "openModal": false
+        "openModal": false,
+        "placeholderText": "Image missing",
+        "placeholderIcon": "broken_image",
+        "placeholderIconSize": "xl"
     },
     "description": {
         "rounded": "Image radius on all 4 corners",
@@ -21,7 +23,10 @@
         "roundedBottomLeft": "Image radius on bottom left corners",
         "roundedBottomRight": "Image radius on bottom right corners",
         "roundedRadius": "Radius size: xs, sm, md and lg",
-        "openModal": "If the image should be able to open in a modal"
+        "openModal": "If the image should be able to open in a modal",
+        "placeholderText": "Label to show if image is missing",
+        "placeholderIcon": "Icon to display if image is missing / false to hide",
+        "placeholderIconSize": "Icons size, please refer to image component for size."
     },
     "view": "image.blade.php",
     "dependency": {
@@ -29,7 +34,8 @@
             "components": [
                 "image",
                 "modal",
-                "button"
+                "button",
+                "icon"
             ]
         }
     }
