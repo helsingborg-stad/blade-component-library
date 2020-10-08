@@ -4,12 +4,14 @@
         "label": "",
         "required": false,
         "options": [],
-        "errorMessage": false
+        "errorMessage": false,
+        "preselected": false
     },
     "description": {
         "label": "The placeholder of the dropdown",
         "required": "If the element should be required",
-        "options": "The options which can be selected. The key if the item will be used as value of the option and the value will be used as a label"
+        "options": "The options which can be selected. The key if the item will be used as value of the option and the value will be used as a label",
+        "preselected": "Key of option to be preselected"
     },
     "view": "select.blade.php",
     "dependency": {
