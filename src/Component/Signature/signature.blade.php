@@ -21,7 +21,7 @@
             @endtypography
         @endif
 
-        @if($authorRole) 
+        @if($authorRole && $author) 
             @typography([
                 "variant" => "byline",
                 "classList" => [
