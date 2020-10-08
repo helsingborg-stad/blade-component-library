@@ -1,12 +1,11 @@
 <{{$componentElement}} id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
-    <div class="{{$baseClass}}__avatar">
-        @avatar([
-            'image' => ($avatar) ? $avatar : false,
-            'name' => $author,
-            'size' => $avatar_size
-        ])
-        @endavatar
-    </div>
+    
+    @avatar([
+        'image' => ($avatar) ? $avatar : false,
+        'name' => $author,
+        'size' => $avatar_size
+    ])
+    @endavatar
 
     <div class="{{$baseClass}}__content">
         
