@@ -60,7 +60,7 @@
             @endtypography
         @endif
 
-        @if($slot)
+        @if($slotHasData)
             <div class="{{$baseClass}}__bubble--inner">
                 {!! $slot !!}
             </div>
