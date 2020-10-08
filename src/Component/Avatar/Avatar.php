@@ -144,7 +144,7 @@ class Avatar extends \BladeComponentLibrary\Component\BaseController
 		);
 
 		//Remove everything that should not be checked
-		if(is_countable($unsets)) {
+		if(is_array($unsets) && !empty($unsets)) {
 			foreach($unsets as $key => $val) {
 				unset($compParams[$key]); 
 			}
