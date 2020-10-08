@@ -37,10 +37,13 @@
                 @endif
 
                 <tbody class="{{$baseClass}}__body" js-sort-data-container js-table-data-container>
+                    
                     @foreach($list as $row) 
-                        <tr class="{{$baseClass}}__line {{$baseClass}}__line-{{ $loop->index }}" js-table-sort--sortable js-table-filter-item @if(isset($row['href'])) js-row-href={{$row['href']}} @endif>
+                        <tr class="{{$baseClass}}__line {{$baseClass}}__line-{{ $loop->index }}" js-table-sort--sortable js-table-filter-item>
                             @foreach($row['columns'] as $column) 
-                                <td scope="row" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}" js-table-sort-data="{{ $loop->index }}" js-table-filter-data>{{ $column }}</td>
+                                <td scope="row" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}" js-table-sort-data="{{ $loop->index }}" js-table-filter-data>
+                                    {!! $column !!}
+                                </td>
                             @endforeach
                         </tr>
                     @endforeach
