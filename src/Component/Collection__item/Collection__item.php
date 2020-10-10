@@ -23,9 +23,11 @@ class Collection__Item extends \BladeComponentLibrary\Component\BaseController
         }
 
         if($link) {
-			$this->data['componentElement'] = "a"; 
+            $this->data['componentElement'] = "a"; 
+            $this->data['classList'][] = $this->getBaseClass() . '--action';
+            $this->data['action'] = false;
 		} else {
-			$this->data['componentElement'] = "div"; 
+            $this->data['componentElement'] = "div"; 
         }
  
     }

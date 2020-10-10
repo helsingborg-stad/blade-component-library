@@ -1,7 +1,8 @@
 {
     "slug": "collection",
     "default": {
-        "elementType": "ul",
+        "componentElement": "div",
+        "list": false,
         "compressed": false,
         "subCollection": false,
         "isOpen": false,

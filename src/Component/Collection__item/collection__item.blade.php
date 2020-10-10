@@ -1,5 +1,5 @@
 <!-- collection__item.blade.php -->
-<{{$elementType}} href="{{$link}}" id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
+<{{$componentElement}} href="{{$link}}" id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
     
     @if($prefix) 
         {!! $prefix !!}
@@ -39,4 +39,4 @@
         @endcollection
     @endif
 
-</{{$elementType}}>
+</{{$componentElement}}>
