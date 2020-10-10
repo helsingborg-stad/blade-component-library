@@ -2,7 +2,7 @@
     "slug":"link",
     "default":{
        "slot":"Undefined label",
-       "href":"#",
+       "href":"",
        "target":"_top"
     },
     "description":{

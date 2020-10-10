@@ -26,13 +26,10 @@
 
     @if($action) 
         <div class="c-collection__secondary">
-            @if($action['link'])
-                @button(['style' => 'basic', 'href' => $action['link'], 'icon' => $action['icon'], 'size' => 'md'])
-                @endbutton
-            @else
+            @link(['href' => $action['link']])
                 @icon(['icon' => $action['icon'], 'size' => 'md'])
                 @endicon
-            @endif
+            @endlink
         </div>
     @endif
 
