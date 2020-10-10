@@ -22,5 +22,11 @@ class Collection__Item extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . '--aligned'; 
         }
 
+        if($link) {
+			$this->data['componentElement'] = "a"; 
+		} else {
+			$this->data['componentElement'] = "div"; 
+        }
+ 
     }
 }

@@ -1,7 +1,13 @@
 {
     "slug": "collection__item",
     "default": {
-        "elementType": "li",
+        "prefix": "",
+        "icon": false,
+        "action": false,
+        "secondary": "",
+        "elementType": "span",
+        "componentElement": "div",
+        "link": "",
         "isCurrent": false,
         "isAligned": false,
         "subItem": "",

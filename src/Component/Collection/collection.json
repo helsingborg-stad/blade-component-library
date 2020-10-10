@@ -4,7 +4,13 @@
         "elementType": "ul",
         "compressed": false,
         "subCollection": false,
-        "isOpen": true
+        "isOpen": false,
+        "bordered": false,
+        "compact": false,
+        "sharpBottom": false,
+        "sharpTop": false,
+        "unbox": false,
+        "navigation": false
     },
     "description": {
         "elementType": "The type of list, ul, ol. Default: ul",
