@@ -2,7 +2,7 @@
     <a id="{{ $id }}" class="{{ $class }}" target="{{ $target }}" href="{{ $href }}" {!! $attribute !!}>
         {!! $slot !!}
     </a>
-@else 
+@elseif(!$href && $keepContent)
     <span id="{{ $id }}" class="{{ $class }}">    
         {!! $slot !!}
     </span>
