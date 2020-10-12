@@ -1,0 +1,27 @@
+{
+    "slug": "collection__item",
+    "default": {
+        "componentElement": "div",
+
+        "prefix": "",
+        "icon": false,
+        "action": false,
+        "secondary": "",
+        "link": ""
+    },
+    "description": {
+        "elementType": "The type of list item. Default: li",
+        "isCurrent": "Mark this as current",
+        "isAligned": "Do not flow around elements placed either side of content.",
+        "subItem": "Slot for providing subitems (automatically wrapped in new collection, with subcollection flag. )"
+    },
+    "view": "collection__item.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "collection",
+                "collection__item"
+            ]
+        }
+    }
+}

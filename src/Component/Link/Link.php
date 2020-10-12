@@ -12,7 +12,7 @@ class Link extends \BladeComponentLibrary\Component\BaseController
 
         //Default link
         if(!$href) {
-            $this->data['href'] = "#";
+            $this->data['href'] = "";
         }
     }
 }

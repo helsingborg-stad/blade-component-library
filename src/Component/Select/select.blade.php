@@ -2,9 +2,9 @@
     <label for="{{ $id }}" class="u-sr__only c-field__text--label">{{$label}}</label>
 
     <select name="{{ $label }}" id="{{ $id }}" class="{{ $class }} " {!! $attribute !!}>
-        <option class="c-select__option" disabled selected="selected" value="">{{$label}}</option>
+        <option class="c-select__option" {{ !$preselected ? 'selected="selected"' : ''}} value="">{{$label}}</option>
         @foreach ($options as $value => $name)
-            <option class="c-select__option" value="{{$value}}">{{$name}}</option>
+            <option class="c-select__option" value="{{$value}}" {{ $preselected === $value ? 'selected="selected"' : ''}}>{{$name}}</option>
         @endforeach
     </select>
 
@@ -22,7 +22,8 @@
             'c-select__icon'
         ],
         'icon' => 'expand_more',
-        'size' => 'md'
+        'size' => 'md',
     ])
     @endicon
+
 </div>

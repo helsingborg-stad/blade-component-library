@@ -1,0 +1,36 @@
+{
+    "slug": "collection",
+    "default": {
+        "componentElement": "div",
+        "list": false,
+        
+        "bordered": false,
+        "compact": false,
+        "sharp": false,
+        "sharpBottom": false,
+        "sharpTop": false,
+        "unbox": false
+    },
+    "description": {
+        "componentElement": "The element type of list.",
+        "list": "A array input list, contains 'content' and 'link' array keys.",
+        "bordered": "Adds borders.",
+        "compact": "If the list should be displayed in a compressed format.",
+        "sharp": "Every single edge as sharp as hell, be careful!",
+        "sharpBottom": "Makes the bottom really sharp. Yep.",
+        "sharpTop": "Makes the top really sharp. Yep.",
+        "unbox": "Removes the border."
+    },
+    "view": "collection.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "collection",
+                "collection__item",
+                "typography",
+                "link",
+                "icon"
+            ]
+        }
+    }
+}

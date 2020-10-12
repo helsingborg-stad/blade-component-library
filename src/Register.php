@@ -9,7 +9,7 @@ class Register
     public  $viewPaths = [];
     public  $controllerPaths = [];
     
-    private  $_reservedNames = ["data"];
+    private  $_reservedNames = ["data", "List"];
     
     private  $_controllers = [];
     
@@ -37,12 +37,12 @@ class Register
 
         //Check if valid slug name
         if ($this->sanitizeSlug($slug) != $slug) {
-            throw new \Exception("Invalid slug (" . $slug . ") provided, must be a lowercase string only containing letters and hypens.");
+            //throw new \Exception("Invalid slug (" . $slug . ") provided, must be a lowercase string only containing letters and hypens.");
         }
  
         //Check if valid view name
         if (($this->sanitizeSlug($view) . ".blade.php") != $view) {
-            throw new \Exception("Invalid view name (" . $view . ") provided, must be a lowercase string only containing letters and hypens (with exception for .blade.php filetype suffix).");
+            //throw new \Exception("Invalid view name (" . $view . ") provided, must be a lowercase string only containing letters and hypens (with exception for .blade.php filetype suffix).");
         }
 
         //Adds to full object

@@ -15,7 +15,7 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
     $this->data['collpaseID'] = uniqid();
 
-		$this->data['classList'][] = $baseClass . '--' . $color; 
+		$this->data['classList'][] = $this->getBaseClass() . '--' . $color; 
 
 		if(isset($image['padded']) && $image['padded']){
 			$this->data['paddedImage'] = $this->getBaseClass() . '__image-background--padded'; 	
