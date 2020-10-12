@@ -1,14 +1,20 @@
 {
     "slug": "date",
     "default": {
-        "date": "24/12/2019",
+        "timestamp": "1 January 2021",
+        "format": "Y-m-d H:i:s",
         "time_since": false,
-        "time_since_cap": "6 months"
+        "time_since_cap": "6 months",
+        "badge": false,
+        "badgeSize": "md"
     },
     "description": {
-        "date": "The date",
+        "timestamp": "The date and/or time. An array can be sumbitted to enable from/to in badge style.",
+        "format": "The prefered format to output. Till will not apply to badge or time since properties.",
         "time_since": "Will return the date since.",
-        "time_since_cap": "How long back to spell out time since"
+        "time_since_cap": "How long back to spell out time since",
+        "badge": "Display as badge",
+        "badgeSize": "Size of badge"
     },
     "view": "date.blade.php",
     "dependency": {
