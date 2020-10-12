@@ -37,14 +37,18 @@ class Collection extends \BladeComponentLibrary\Component\BaseController
         //Input list handling
         if($list) {
             foreach($this->data['list'] as &$item) {
+                
+                //Handle non multidimensional input
                 if(is_string($item)) {
                     $item = array(
                         'content' => $item,
                     ); 
                 }
 
+                //Set defaults.
                 $item = array_merge(
                     [
+                        'title' => false,
                         'content' => false, 
                         'link' => false
                     ],
