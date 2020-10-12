@@ -25,7 +25,11 @@
     "dependency": {
         "sass": {
             "components": [
-                "collection"
+                "collection",
+                "collection__item",
+                "typography",
+                "link",
+                "icon"
             ]
         }
     }
