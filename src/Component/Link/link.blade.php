@@ -3,7 +3,7 @@
         {!! $slot !!}
     </a>
 @elseif(!$href && $keepContent)
-    <span id="{{ $id }}" class="{{ $class }}">    
+    <{{$componentElement}} id="{{ $id }}" class="{{ $class }}">    
         {!! $slot !!}
-    </span>
+    </{{$componentElement}}>
 @endif

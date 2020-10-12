@@ -13,12 +13,22 @@ class Collection extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . '--compressed'; 
         }
 
-        if($isOpen) {
-            $this->data['classList'][] = $this->getBaseClass() . '--is-open'; 
-        }
+        if($list) {
+            foreach($this->data['list'] as &$item) {
+                if(is_string($item)) {
+                    $item = array(
+                        'content' => $item,
+                    ); 
+                }
 
-        if($subCollection) {
-            $this->data['classList'][] = $this->getBaseClass() . '--is-subcollection'; 
+                $item = array_merge(
+                    [
+                        'content' => false, 
+                        'link' => false
+                    ],
+                    $item
+                );
+            }
         }
     }
 }

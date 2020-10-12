@@ -9,11 +9,6 @@ class Collection__Item extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        //Key for if slot contains any data
-        if(is_object($this->data['subItem'])) {
-            $this->data['subItemExists'] = !empty(parent::accessProtected($this->data['subItem'], "html"));
-        } 
-
         if($isCurrent) {
             $this->data['classList'][] = $this->getBaseClass() . '--is-current'; 
         }
@@ -24,8 +19,9 @@ class Collection__Item extends \BladeComponentLibrary\Component\BaseController
 
         if($link) {
             $this->data['componentElement'] = "a"; 
+            $this->data['action'] = false; 
             $this->data['classList'][] = $this->getBaseClass() . '--action';
-            $this->data['action'] = false;
+            $this->data['attributeList']['href'] = $link; 
 		} else {
             $this->data['componentElement'] = "div"; 
         }

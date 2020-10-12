@@ -1,17 +1,16 @@
 {
     "slug": "collection__item",
     "default": {
+        "componentElement": "div",
+
         "prefix": "",
         "icon": false,
         "action": false,
         "secondary": "",
-        "elementType": "span",
-        "componentElement": "div",
         "link": "",
+        
         "isCurrent": false,
-        "isAligned": false,
-        "subItem": "",
-        "subItemExists": false
+        "isAligned": false
     },
     "description": {
         "elementType": "The type of list item. Default: li",

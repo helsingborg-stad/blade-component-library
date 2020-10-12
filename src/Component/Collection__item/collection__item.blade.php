@@ -1,6 +1,5 @@
 <!-- collection__item.blade.php -->
-<{{$componentElement}} href="{{$link}}" id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
-    
+<{{$componentElement}} id="{{$id}}" class="{{$class}}" {!!$attribute!!}>
     @if($prefix) 
         {!! $prefix !!}
     @endif
@@ -14,7 +13,7 @@
 
     @if($slotHasData)
         <div class="c-collection__content">
-            {!! $slot !!}
+            {!!$slot!!}
         </div>
     @endif
 
@@ -32,11 +31,4 @@
             @endlink
         </div>
     @endif
-
-    @if($subItemExists)
-        @collection(['subCollection' => true])
-            {!! $subItem !!}
-        @endcollection
-    @endif
-
 </{{$componentElement}}>

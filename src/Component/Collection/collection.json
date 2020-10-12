@@ -3,19 +3,21 @@
     "default": {
         "componentElement": "div",
         "list": false,
+        
         "compressed": false,
-        "subCollection": false,
-        "isOpen": false,
         "bordered": false,
-        "compact": false,
         "sharpBottom": false,
         "sharpTop": false,
-        "unbox": false,
-        "navigation": false
+        "unbox": false
     },
     "description": {
-        "elementType": "The type of list, ul, ol. Default: ul",
-        "compressed": "Display as a more space efficient variant. Default: false"
+        "componentElement": "The element type of list.",
+        "list": "A array input list, contains 'content' and 'link' array keys.",
+        "bordered": "Adds borders.",
+        "compressed": "If the list should be displayed in a compressed format.",
+        "sharpBottom": "Makes the bottom really sharp. Yep.",
+        "sharpTop": "Makes the top really sharp. Yep.",
+        "unbox": "Removes the border."
     },
     "view": "collection.blade.php",
     "dependency": {
