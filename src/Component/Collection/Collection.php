@@ -9,10 +9,32 @@ class Collection extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        if($compressed) {
-            $this->data['classList'][] = $this->getBaseClass() . '--compressed'; 
+        //Modifiers
+        if($bordered) {
+            $this->data['classList'][] = $this->getBaseClass() . '--bordered'; 
         }
 
+        if($compact) {
+            $this->data['classList'][] = $this->getBaseClass() . '--compact'; 
+        }
+
+        if($sharp) {
+            $this->data['classList'][] = $this->getBaseClass() . '--sharp'; 
+        }
+
+        if($sharpBottom) {
+            $this->data['classList'][] = $this->getBaseClass() . '--sharp-bot'; 
+        }
+
+        if($sharpTop) {
+            $this->data['classList'][] = $this->getBaseClass() . '--sharp-top'; 
+        }
+
+        if($unbox) {
+            $this->data['classList'][] = $this->getBaseClass() . '--unbox'; 
+        }
+
+        //Input list handling
         if($list) {
             foreach($this->data['list'] as &$item) {
                 if(is_string($item)) {

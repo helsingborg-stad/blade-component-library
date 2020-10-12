@@ -9,14 +9,7 @@ class Collection__Item extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        if($isCurrent) {
-            $this->data['classList'][] = $this->getBaseClass() . '--is-current'; 
-        }
-
-        if($isAligned) {
-            $this->data['classList'][] = $this->getBaseClass() . '--aligned'; 
-        }
-
+        //Link handling
         if($link) {
             $this->data['componentElement'] = "a"; 
             $this->data['action'] = false; 

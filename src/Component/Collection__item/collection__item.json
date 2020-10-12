@@ -7,10 +7,7 @@
         "icon": false,
         "action": false,
         "secondary": "",
-        "link": "",
-        
-        "isCurrent": false,
-        "isAligned": false
+        "link": ""
     },
     "description": {
         "elementType": "The type of list item. Default: li",

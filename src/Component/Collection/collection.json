@@ -4,8 +4,9 @@
         "componentElement": "div",
         "list": false,
         
-        "compressed": false,
         "bordered": false,
+        "compact": false,
+        "sharp": false,
         "sharpBottom": false,
         "sharpTop": false,
         "unbox": false
@@ -14,7 +15,8 @@
         "componentElement": "The element type of list.",
         "list": "A array input list, contains 'content' and 'link' array keys.",
         "bordered": "Adds borders.",
-        "compressed": "If the list should be displayed in a compressed format.",
+        "compact": "If the list should be displayed in a compressed format.",
+        "sharp": "Every single edge as sharp as hell, be careful!",
         "sharpBottom": "Makes the bottom really sharp. Yep.",
         "sharpTop": "Makes the top really sharp. Yep.",
         "unbox": "Removes the border."
