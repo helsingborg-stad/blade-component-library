@@ -37,7 +37,13 @@ class Date extends \BladeComponentLibrary\Component\BaseController
         //Badge style data
         if($badge) {
 
+            //Add badge mod
             $this->data['classList'][] = $this->getBaseClass() . "--badge"; 
+
+            //Modifier for size
+            if($badgeSize) {
+                $this->data['classList'][] = $this->getBaseClass() . "--badge-size-" . $badgeSize;
+            }
 
             //Get day number
             foreach(['Month' => 'M', 'Day' => 'j'] as $key => $dformat) {

@@ -1,6 +1,5 @@
 <!-- date.blade.php -->
 @if(!$badge) 
-  <!-- Simple Badge -->
   <time id="{{ $id }}" class="{{$class}}" {!! $attribute !!} datetime="{{ $htmlDate }}">{{ $refinedDate }}</time>
 @endif
 
@@ -9,7 +8,7 @@
   <time id="{{ $id }}" class="{{$class}}" {!! $attribute !!} datetime="{{ $htmlDate }}" >
 
     @if($day)
-      <span class="{{$baseClass}}__month">
+      <span class="{{$baseClass}}__day">
         {{ implode(" - ", $day) }}
       </span>
     @endif
