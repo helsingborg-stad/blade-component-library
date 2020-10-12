@@ -10,6 +10,8 @@ class Signature extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
+        $this->data['classList'][] = $this->getBaseClass() . "--space-" . count(array_filter([$updated, $published])); 
+
         //Component element
         if($link) {
             $this->data['componentElement'] = "a"; 
