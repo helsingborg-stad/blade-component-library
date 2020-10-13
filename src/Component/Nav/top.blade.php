@@ -7,6 +7,3 @@
     </li>
     @endforeach
 </ul>
-
-@divider(['size' => 'lg', 'style' => 'solid'])
-@enddivider
