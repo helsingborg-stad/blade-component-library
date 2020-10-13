@@ -1,5 +1,5 @@
 @if ($topLevel)
-    <ul class="{{$baseClass}}__subcontainer--top">
+    <ul class="{{$baseClass}}__container">
 @else
     <ul 
         class="{{$baseClass}}__subcontainer {{ $isExpanded ? $baseClass . '__item--is-expanded' : '' }}"
