@@ -1,0 +1,17 @@
+{
+    "slug":"nav",
+    "default":{
+        "items": []
+    },
+    "description":{
+        "items": "An nested array of items containing: id, label, active, ancestor, children(bool = async loading, or array), href."
+    },
+    "view":"nav.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "nav"
+            ]
+        }
+    }
+ }
