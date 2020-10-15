@@ -1,7 +1,7 @@
 <div class="c-select__container c-field">
     <label for="{{ $id }}" class="u-sr__only c-field__text--label">{{$label}}</label>
 
-    <select name="{{ $label }}" id="{{ $id }}" class="{{ $class }} " {!! $attribute !!}>
+    <select id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
         <option class="c-select__option" {{ !$preselected ? 'selected="selected"' : ''}} value="">{{$label}}</option>
         @foreach ($options as $value => $name)
             <option class="c-select__option" value="{{$value}}" {{ $preselected === $value ? 'selected="selected"' : ''}}>{{$name}}</option>
