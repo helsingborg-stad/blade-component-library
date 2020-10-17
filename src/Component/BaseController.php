@@ -47,16 +47,6 @@ class BaseController
         //Store locally
         $data = $this->data; 
 
-        //Applies a general wp filter
-        if(function_exists('apply_filters')) {
-            $data = apply_filters("BladeComponentLibrary/Component/Data", $data);
-        }
-
-        //Applies a general wp filter
-        if(function_exists('apply_filters')) {
-            $data = apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . "Data", $data);
-        }
-
         //Generate classes string
         $data['class'] = $this->getClass(); 
         $data['baseClass'] = $this->getBaseClass();
@@ -71,11 +61,21 @@ class BaseController
         //Key for if slot contains any data
         $data['slotHasData'] = !empty($this->accessProtected($this->data['slot'], "html"));
 
+        //Applies a general wp filter
+        if(function_exists('apply_filters')) {
+            $data = apply_filters("BladeComponentLibrary/Component/Data", $data);
+        }
+
+        //Applies a general wp filter
+        if(function_exists('apply_filters')) {
+            $data = apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . "Data", $data);
+        }
+
         //Applies single filter for each data item (class and data exepted)
         if(function_exists('apply_filters')) {
             if(is_array($data) && !empty($data)) {
                 foreach($data as $key => $item) {
-                    if(in_array($key, array("data", "classes"))) {
+                    if(!in_array($key, array("data", "classes"))) {
                         $data[$key] = apply_filters($this->createFilterName($this) . DIRECTORY_SEPARATOR . ucfirst($key), $data[$key]);
                     }
                 }
