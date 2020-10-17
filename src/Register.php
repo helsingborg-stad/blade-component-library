@@ -9,7 +9,7 @@ class Register
     public  $viewPaths = [];
     public  $controllerPaths = [];
     
-    private  $_reservedNames = ["data"];
+    private  $_reservedNames = ["data", "class", "list"];
     
     private  $_controllers = [];
     
