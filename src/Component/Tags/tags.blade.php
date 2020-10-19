@@ -1,4 +1,4 @@
-@if($tags)
+@if(!empty($tags))
     <{{ $componentElement }} id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
         @foreach($tags as $tag)
 
