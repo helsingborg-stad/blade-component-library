@@ -12,7 +12,7 @@
       "target":"_top",
       "componentElement":"button",
       "labelElement":"span",
-      "ripple":false,
+      "ripple": true,
       "pressed": "false",
       "toggle": false,
       "icon": false,
