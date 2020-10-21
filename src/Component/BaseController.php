@@ -163,6 +163,11 @@ class BaseController
      */
     protected function getBaseClass()
     {
+        //If base class is specified from component controller then use that
+        if($this->data['baseClass']) {
+            return $this->data['baseClass'];
+        }
+        
         //Get all parts of the location
         $namespaceParts = explode(
             "\\", 
