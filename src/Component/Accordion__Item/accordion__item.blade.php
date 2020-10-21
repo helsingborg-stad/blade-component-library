@@ -1,5 +1,5 @@
 {{-- Accordion Item --}}
-<{{$sectionElement}} class="{{$baseClass}}__section">
+<{{$sectionElement}} class="{{ $class }} {{$baseClass}}__section" {!! $attribute !!}>
     <{{$sectionHeadingElement}} class="{{$baseClass}}__button" aria-controls="{{ $baseClass }}__aria-{{ $id }}-hej" aria-expanded="false" js-expand-button>
         <span class="{{$baseClass}}__button-wrapper" tabindex="-1">
             {!!$beforeHeading!!}
