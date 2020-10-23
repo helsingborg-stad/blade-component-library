@@ -1,4 +1,4 @@
-<!-- collection__item.blade.php -->
+<!-- collection__Item.blade.php -->
 <{{$componentElement}} id="{{$id}}" class="{{$class}}" {!!$attribute!!}>
     @if($prefix) 
         {!! $prefix !!}

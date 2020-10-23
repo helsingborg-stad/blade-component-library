@@ -1,5 +1,5 @@
 {
-    "slug": "collection__item",
+    "slug": "collection__Item",
     "default": {
         "componentElement": "div",
 
@@ -20,7 +20,7 @@
         "sass": {
             "components": [
                 "collection",
-                "collection__item"
+                "collection__Item"
             ]
         }
     }
