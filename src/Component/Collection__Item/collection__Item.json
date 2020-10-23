@@ -15,7 +15,7 @@
         "isAligned": "Do not flow around elements placed either side of content.",
         "subItem": "Slot for providing subitems (automatically wrapped in new collection, with subcollection flag. )"
     },
-    "view": "collection__item.blade.php",
+    "view": "collection__Item.blade.php",
     "dependency": {
         "sass": {
             "components": [
