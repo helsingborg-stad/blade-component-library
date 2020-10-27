@@ -26,7 +26,7 @@
         "sass": {
             "components": [
                 "collection",
-                "collection__Item",
+                "collection__item",
                 "typography",
                 "link",
                 "icon"

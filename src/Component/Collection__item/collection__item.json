@@ -1,5 +1,5 @@
 {
-    "slug": "collection__Item",
+    "slug": "collection__item",
     "default": {
         "componentElement": "div",
 
@@ -15,12 +15,12 @@
         "isAligned": "Do not flow around elements placed either side of content.",
         "subItem": "Slot for providing subitems (automatically wrapped in new collection, with subcollection flag. )"
     },
-    "view": "collection__Item.blade.php",
+    "view": "collection__item.blade.php",
     "dependency": {
         "sass": {
             "components": [
                 "collection",
-                "collection__Item"
+                "collection__item"
             ]
         }
     }
