@@ -1,6 +1,6 @@
 <?php
 
-namespace BladeComponentLibrary\Component\Collection__item;
+namespace BladeComponentLibrary\Component\Collection__Item;
 
 class CollectionItem extends \BladeComponentLibrary\Component\BaseController  
 {
