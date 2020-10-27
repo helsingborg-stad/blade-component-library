@@ -2,7 +2,7 @@
 
 namespace BladeComponentLibrary\Component\Collection__Item;
 
-class CollectionItem extends \BladeComponentLibrary\Component\BaseController  
+class Collection__item extends \BladeComponentLibrary\Component\BaseController  
 {
     
     public function init() {
