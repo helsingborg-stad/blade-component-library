@@ -42,6 +42,10 @@
         </{{$sectionElement}}>
     @endforeach
     </{{$componentElement}}>
+@elseif($slotHasData)
+    <{{$componentElement}} id="{{ $id }}" class="{{ $class }}" js-expand-container {!! $attribute !!}>
+        {!! $slot !!}
+    </{{$componentElement}}>
 @else
     <!-- No accordion list data -->
 @endif

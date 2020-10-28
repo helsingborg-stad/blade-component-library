@@ -1,0 +1,38 @@
+{
+    "slug": "accordion__item",
+    "default": {
+        "id": "",
+        "beforeHeading": "",
+        "afterHeading": "",
+        "beforeContent": "",
+        "afterContent": "",
+        "sectionElement": "div",
+        "sectionHeadingElement": "button",
+        "sectionContentElement": "div",
+        "taxonomy": [],
+        "taxonomyPosition":  ""
+    },
+    "description": {
+        "id": "ID for the accordion",
+        "beforeHeading": "Insert before heading",
+        "afterHeading": "Insert after heading",
+        "beforeContent": "Insert before content",
+        "afterContent": "Insert after content",
+            "sectionElement": "Section element",
+        "sectionHeadingElement": "Section heading component",
+        "sectionContentElement": "Section content component",
+        "taxonomy": "Array of taxonomies such as tags",
+        "taxonomyPosition":  "Taxonomy position like top or below"
+    },
+    "view": "accordion__item.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+                "accordion",
+                "accordion__item",
+                "icon",
+                "tags"
+            ]
+        }
+    }
+}
