@@ -1,12 +1,12 @@
 <?php
 
-namespace BladeComponentLibrary\Component\Accordion__Item;
+namespace BladeComponentLibrary\Component\Accordion__item;
 
 /**
  * Class Accordion
  * @package BladeComponentLibrary\Component\Accordion
  */
-class Accordion__Item extends \BladeComponentLibrary\Component\BaseController
+class Accordion__item extends \BladeComponentLibrary\Component\BaseController
 {
     public function init() {
         //Extract array for eazy access (fetch only)
