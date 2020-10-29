@@ -1,8 +1,8 @@
 @if ($topLevel)
-    <ul class="{{$baseClass}}__container">
+    <ul class="{{$baseClass}}__container unlist">
 @else
     <ul 
-        class="{{$baseClass}}__subcontainer {{ $isExpanded ? $baseClass . '__item--is-expanded' : '' }}"
+        class="{{$baseClass}}__subcontainer {{ $isExpanded ? $baseClass . '__item--is-expanded' : '' }} unlist"
         js-toggle-item="{{$appendID}}"
         js-toggle-class="{{$baseClass}}__item--is-expanded">
 @endif
