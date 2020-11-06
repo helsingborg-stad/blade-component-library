@@ -61,6 +61,16 @@ class BaseController
         //Key for if slot contains any data
         $data['slotHasData'] = !empty($this->accessProtected($this->data['slot'], "html"));
 
+
+        //Public methods accesible within views
+        $data['buildAttributes'] = function ($attributes = array()) {
+            if (!is_array($attributes) || empty($attributes)) {
+                return (string) '';
+            }
+
+            return (string) self::buildAttributes($attributes);
+        };
+
         //Applies a general wp filter
         if (function_exists('apply_filters')) {
             $data = apply_filters("BladeComponentLibrary/Component/Data", $data);
@@ -205,14 +215,19 @@ class BaseController
         }
 
         //Return manipulated data array as string
+        return (string) self::buildAttributes($attribute);
+    }
+
+    public static function buildAttributes($attributes)
+    {
         return (string) implode(
             ' ',
             array_map(
                 function ($v, $k) {
                     return sprintf('%s="%s"', $k, $v);
                 },
-                array_values($attribute),
-                array_keys($attribute)
+                array_values($attributes),
+                array_keys($attributes)
             )
         );
     }
