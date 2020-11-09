@@ -19,5 +19,12 @@ class Signature extends \BladeComponentLibrary\Component\BaseController
 		} else {
 			$this->data['componentElement'] = "div"; 
         }
+
+        //Labels
+        $this->data['label'] = (object) [
+            'publish' => $publishedLabel,
+            'updated' => $updatedLabel
+        ]; 
+
     }
 }

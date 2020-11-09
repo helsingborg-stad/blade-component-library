@@ -7,7 +7,9 @@
         "avatar_size": "md",
         "published": "",
         "updated": "",
-        "link": ""
+        "link": "",
+        "updatedLabel": "Updated", 
+        "publishedLabel": "Published"
     },
     "description":{
         "author": "The name of the  author",
@@ -16,7 +18,9 @@
         "avatar_size": "Size of the avatar",
         "published": "A formatted published date",
         "updated": "A formatted update date",
-        "link": "Links the whole component to another place."
+        "link": "Links the whole component to another place.",
+        "updatedLabel": "Label text updated.", 
+        "publishedLabel": "Label text published."
     },
     "view":"signature.blade.php"
  }

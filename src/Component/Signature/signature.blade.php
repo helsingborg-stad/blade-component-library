@@ -11,6 +11,7 @@
         
         @if($author)
             @typography([
+                "element" => "span",
                 "variant" => "subtitle",
                 "classList" => [
                     $baseClass.'__author'
@@ -22,6 +23,7 @@
 
         @if($authorRole && $author) 
             @typography([
+                "element" => "span",
                 "variant" => "byline",
                 "classList" => [
                     $baseClass.'__title'
@@ -33,23 +35,25 @@
 
         @if ($published)
             @typography([
+                "element" => "span",
                 "variant" => "byline",
                 "classList" => [
                     $baseClass.'__published'
                 ]
             ])
-                Published: @date(['action' => 'formatDate','timestamp' => $published])@enddate
+                {{$label->publish}}: @date(['action' => 'formatDate','timestamp' => $published])@enddate
             @endtypography
         @endif
 
         @if ($updated)
             @typography([
+                "element" => "span",
                 "variant" => "byline",
                 "classList" => [
                     $baseClass.'__updated'
                 ]
             ])
-                Updated: @date(['action' => 'formatDate','timestamp' => $updated])@enddate
+                {{$label->updated}}: @date(['action' => 'formatDate','timestamp' => $updated])@enddate
             @endtypography
         @endif
     </div>
