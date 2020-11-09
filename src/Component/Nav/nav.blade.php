@@ -3,7 +3,7 @@
     <ul id="{{ $id }}" class="{{$class}} unlist" {!! $attribute !!}>
         @foreach ($items as $item)
             <li 
-                class="{{$baseClass}}__item {{$item['active'] ? 'is-current' : ''}} {{$item['children'] & $item['active'] ? 'is-open has-fetched' : ''}}"
+                class="{{$baseClass}}__item {{$item['active'] ? 'is-current' : ''}}{{$item['active'] && $item['children'] || $item['ancestor'] ? ' is-open has-fetched' : ''}}"
         
                 {{-- Append dynamic attributes --}}
                 {!! !empty($item['attributeList']) ? $buildAttributes($item['attributeList']) : '' !!}
@@ -25,13 +25,16 @@
                             'size' => 'lg',
                             'pressed' =>  $item['active'] ? 'true' : 'false',
                         ])
+                            @loader(['size' => 'sm'])
+                            @endloader
                         @endbutton
                     @endif
 
                     @if(is_array($item['children'])) 
                         @nav([
                             'items' => $item['children'],
-                            'isExpanded' => (boolval($item['active']) || boolval($item['ancestor']) ) ? true : false 
+                            'isExpanded' => (boolval($item['active']) || boolval($item['ancestor']) ) ? true : false,
+                            'includeToggle' => $includeToggle
                         ])
                         @endnav
                     @endif
