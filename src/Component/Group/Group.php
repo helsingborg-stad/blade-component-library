@@ -14,9 +14,9 @@ class Group extends \BladeComponentLibrary\Component\BaseController
 		extract($this->data);
 
 		if($direction == "vertical") {
-			$this->data["direction"] = "--vertical"; 
+			$this->data['classList'][] = $this->getBaseClass() . "--vertical"; 
 		} else {
-			$this->data["direction"] = "--horizontal"; 
+			$this->data['classList'][] = $this->getBaseClass() . "--horizontal"; 
 		}
 
 	}

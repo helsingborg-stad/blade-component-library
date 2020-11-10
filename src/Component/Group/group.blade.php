@@ -1,4 +1,4 @@
 <!-- group.blade.php -->
-<div class="{{ $baseClass }} {{ $baseClass }}{{ $direction }}">
+<div class="{{ $class }}">
     {!! $slot !!}
 </div>
