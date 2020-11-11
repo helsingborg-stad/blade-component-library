@@ -2,6 +2,8 @@
 
 namespace BladeComponentLibrary\Component\Nav;
 
+use SubItem; 
+
 class Nav extends \BladeComponentLibrary\Component\BaseController
 {
 
@@ -17,6 +19,9 @@ class Nav extends \BladeComponentLibrary\Component\BaseController
         if(isset($endpoint)) {
             $this->data['attributeList']['data-endpoint'] = $endpoint; 
         }
+
+        //Add unlist class
+        $this->data['classList'][] = "unlist"; 
 
         //Direction of nav
         if($direction) {

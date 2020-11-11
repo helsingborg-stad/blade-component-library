@@ -1,6 +1,6 @@
 <!-- nav.blade.php -->
 @if ($items) 
-    <ul id="{{ $id }}" class="{{$class}} unlist" {!! $attribute !!}>
+    <ul id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
         @foreach ($items as $item)
             <li 
                 class="{{$baseClass}}__item {{$item['active'] ? 'is-current' : ''}}{{$item['active'] && $item['children'] || $item['ancestor'] ? ' is-open has-fetched' : ''}}"
