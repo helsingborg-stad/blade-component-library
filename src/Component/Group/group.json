@@ -1,0 +1,16 @@
+{
+    "slug": "group",
+    "default": {
+        "direction": "horizontal"
+    },
+    "description": {
+        "direction": "What direction to group (horizontal or vertical)"
+    },
+    "view": "group.blade.php",
+    "dependency": {
+        "sass": {
+            "components": [
+            ]
+        }
+    }
+}
