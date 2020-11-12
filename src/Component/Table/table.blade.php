@@ -17,7 +17,7 @@
                                     'name' => 'search',
                                     'js-table-filter-input' => ''
                                 ],
-                                'label' => "Search"
+                                'label' => !empty($labels) && !empty($labels['searchPlaceholder']) ? $labels['searchPlaceholder'] : 'Search'
                             ])
                             @endfield
                         @endif

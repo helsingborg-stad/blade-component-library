@@ -13,7 +13,10 @@
         "isSmall": false,
         "filterable": false,
         "sortable": false,
-        "pagination": false
+        "pagination": false,
+        "labels": {
+            "searchPlaceholder" : "Search"
+        }
     },
     "description": {
         "list": "Array of items",
@@ -25,7 +28,8 @@
         "hasHoverEffect": "Highlight row on hover",
         "isBordered": "Has borders",
         "isLarge": "If is large",
-        "isSmall": "If is small"
+        "isSmall": "If is small",
+        "labels": "Label strings - replace for translation etc"
     },
     "view": "table.blade.php",
     "dependency": {
