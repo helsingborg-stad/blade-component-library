@@ -12,12 +12,12 @@
   
         @if($loop->last) 
           <span class="{{$baseClass}}__label" aria-current="page">
-            {{ $item['label'] }}
+            {!! $item['label']  !!}
           </span>
         @else 
           <a class="{{$baseClass}}__link" href="{{ $item['href'] }}">
             <span class="{{$baseClass}}__label">
-              {{ $item['label'] }}
+               {!! $item['label']  !!}
             </span>
           </a>
         @endif
