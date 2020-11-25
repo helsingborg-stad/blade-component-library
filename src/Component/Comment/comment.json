@@ -10,7 +10,9 @@
         "date": "01/02/2019",
         "date_suffix": "",
         "componentElement": "div",
-        "is_reply": false
+        "is_reply": false,
+        "filterHtml": false,
+        "allowedTags": "<b><strong><i><em><mark><small><del><ins><sub><sup>"
     },
     "description": {
         "author": "Name of the commenter",
@@ -22,7 +24,9 @@
         "date": "The date when the comment was posted",
         "date_suffix": "Time elapsed 'since' ",
         "componentElement": "Element of the component",
-        "is_reply": "If true the comment will be displayed as a reply"
+        "is_reply": "If true the comment will be displayed as a reply",
+        "filterHtml": "If set to true the comment will be filtered from html tags",
+        "allowedTags": "Which tags should be excluded from filtration"
     },
     "view": "comment.blade.php",
     "dependency": {
