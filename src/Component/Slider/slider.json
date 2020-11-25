@@ -4,13 +4,15 @@
         "showStepper": true,
         "autoSlide": true,
         "peekSlides": false,
-        "navigationHover": true
+        "navigationHover": true,
+        "ratio": "16:9"
     },
     "description": {
         "showStepper": "Option to hide or show stepper.",
         "autoSlide": "If set to true, slider will auto slide with default delay. Can also receive an int to set delay in seconds",
         "peekSlides": "Adds some padding to show a peek of next and previous slides",
-        "navigationHover": "Only show navigation when hovering over the slider"
+        "navigationHover": "Only show navigation when hovering over the slider",
+        "ratio": "The size ratio of the slider"
     },
     "view": "slider.blade.php",
     "dependency": {
