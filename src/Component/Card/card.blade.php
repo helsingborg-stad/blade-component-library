@@ -1,5 +1,5 @@
 <!-- card.blade.php -->
-<{{ $componentElement }} href="{{ $link }}" id="{{ $id }}" class="{{$class}}" {!! $attribute !!} data-observe-resizes>
+<{{ $componentElement }} href="{{ $link }}" id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
     @includeWhen(!$slotHasData, 'Card.views.base')
 
     {!! $slot !!}

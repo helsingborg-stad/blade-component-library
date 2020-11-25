@@ -61,7 +61,6 @@ class BaseController
         //Key for if slot contains any data
         $data['slotHasData'] = !empty($this->accessProtected($this->data['slot'], "html"));
 
-
         //Public methods accesible within views
         $data['buildAttributes'] = function ($attributes = array()) {
             if (!is_array($attributes) || empty($attributes)) {
@@ -165,6 +164,21 @@ class BaseController
     }
 
     /**
+     * Get setting of container awareness
+     *
+     * @return boolean Boolean to indicate if container awareness is on or off
+     */
+    private function getContainerAware()
+    {
+        //Store locally
+        if (isset($this->data['containerAware'])) {
+            return (bool) $this->data['containerAware'];
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Returns the first class assigned, used as base class
      *
      * @return string A single css class
@@ -194,6 +208,11 @@ class BaseController
             $attribute = (array) $this->data['attributeList'];
         } else {
             $attribute = array();
+        }
+
+        //Add attribute for container awareness
+        if($this->getContainerAware() == true) {
+            $attribute['data-observe-resizes'] = "";
         }
 
         //Add unique id
