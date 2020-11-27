@@ -1,7 +1,7 @@
 <!-- segment.blade.php -->
 <section id="{{ $id }}" class="{{ $class }}" {!! $attribute !!} js-slider-slide>
     @if ($background_video)
-        @include('Segment.sub.video')
+        @include('Slider__item.sub.video')
     @endif
 
     @if ($slotHasData || $showContainer)

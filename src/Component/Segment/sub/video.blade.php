@@ -23,7 +23,7 @@
         'c-segment__video--play__btn'
     ],
     'attributeList' => [
-        'js-segment__video--play' => ''
+        'js-video-control' => ''
     ]
 ])
 @endbutton
