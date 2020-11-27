@@ -10,7 +10,10 @@
         "linkPrefix": "?pagination=",
         "anchorTag": "",
         "previousDisabled": "false",
-        "nextDisabled": "false"
+        "nextDisabled": "false",
+        "useJS": false,
+        "perPage": 10,
+        "maxPages": false
     },
     "description": {
         "list": "Array with pages",
@@ -20,7 +23,10 @@
         "listElement": "List element tag",
         "listItem": "List item tag",
         "linkPrefix": "Pagination uses a link prefix on prev next buttons before the numeric index, add it here.",
-        "anchorTag": "Adds the ability to add an anchor tag in the end of every link."
+        "anchorTag": "Adds the ability to add an anchor tag in the end of every link.",
+        "useJS": "If the item should use default JS to supply pagination",
+        "perPage": "How many items per page",
+        "maxPages": "Maximum amount of pages"
     },
     "view": "pagination.blade.php",
     "dependency": {
