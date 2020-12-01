@@ -11,19 +11,15 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 	public function init()
 	{
 		//Extract array for eazy access (fetch only)
-		extract($this->data);
+    extract($this->data);
 
-		$this->data['collpaseID'] = uniqid();
+    $this->data['collpaseID'] = uniqid();
 
-		$this->data['classList'][] = $this->getBaseClass() . '--' . $color; 
+		$this->data['classList'][] = $baseClass . '--' . $color; 
 
 		if(isset($image['padded']) && $image['padded']){
 			$this->data['paddedImage'] = $this->getBaseClass() . '__image-background--padded'; 	
-		}
-		
-		if(isset($image['square']) && $image['square']){
-			$this->data['classList'][] = $this->getBaseClass() . '--square-image'; 
-		}
+		} 
 
 		if($imageFirst){
 			$this->data['classList'][] = $this->getBaseClass() . '--image-first'; 
@@ -31,8 +27,13 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 		if($collapsible && $content){
 			$this->data['collapsible'] = $this->getBaseClass() . '--collapse';
+<<<<<<< Updated upstream
+    }
+=======
 		}
-	
+
+>>>>>>> Stashed changes
+
 		if($image && !isset($image['backgroundColor'])) {
 			$this->data['image']['backgroundColor'] = 'white';
 		}
@@ -45,6 +46,6 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 			$this->data['componentElement'] = "a"; 
 		} else {
 			$this->data['componentElement'] = "div"; 
-    	}
-  	}
+    }
+  }
 }
