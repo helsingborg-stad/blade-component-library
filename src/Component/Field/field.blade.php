@@ -1,5 +1,11 @@
 <!-- field.blade.php -->
 <div id="{{ $id }}" class="{{$class}} c-field__{{$type}}">
+
+    @if($icon)
+        @icon($icon)
+        @endicon
+    @endif
+
     <input id="input_{{ $id }}"
            value="{{$value}}"
            {!! $attribute !!}
