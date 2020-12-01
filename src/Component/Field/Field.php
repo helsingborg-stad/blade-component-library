@@ -14,30 +14,11 @@ class Field extends \BladeComponentLibrary\Component\Form\Form
             'type' => $type ?? 'text',
             'required' => $required ?? false,
             'invalidMessage' => $invalidMessage ?? '',
-            'value' => $value ?? ''
+            'value' => $value ?? '',
         ];
 
-        //Handle icon
-        $this->data['icon'] = $this->getIcon($icon, $size); 
-        if($this->data['icon']) {
-            $this->data['classList'][] = $this->getBaseClass() . "--icon"; 
-        }
-
-        //Handle size
-        if(!in_array($size, ['sm', 'md', 'lg'])) {
-            $size = "md"; 
-        }
-        $this->data['classList'][] = $this->getBaseClass() . "--" . $size; 
-        
-        //Handle radius
-        if($this->data['radius']) {
-            $this->data['classList'][] = $this->getBaseClass() . "--radius-" . $this->data['radius']; 
-        }
-
-        //Set data
         $this->setData();
 
-        //Hsandle datepicker exceptions
         if ($type == 'datepicker') {
 
             $this->compParams = [
@@ -62,47 +43,13 @@ class Field extends \BladeComponentLibrary\Component\Form\Form
         
     }
 
-    /**
-     * Get a icon, set default vars. 
-     *
-     * @param array|bool $icon
-     * @return array|bool
-     */
-    public function getIcon($icon, $size) {
-        
-        if(is_array($icon) && !empty($icon)) {
-            return array_merge([
-                'size' => $this->getIconSize($size),
-                'icon' => 'search'
-            ], $icon); 
-        }
-
-        return false; 
-    }
-
-    /**
-     * Select appropriate icon size based on field size
-     *
-     * @param string $fieldSize
-     * @return string
-     */
-    public function getIconSize($fieldSize) {
-        switch ($fieldSize) {
-            case 'sm':
-                return 'sm'; 
-                break;
-            default:
-                return 'md';
-            break;  
-        }
-    }
-
     public function setData(){
         $this->data['label'] = $this->compParams['label'];
         $this->data['type'] = $this->compParams['type'];
         $this->data['required'] = $this->compParams['required'];
         $this->data['invalidMessage'] = $this->compParams['invalidMessage'];
         $this->data['value'] = $this->compParams['value'];
+
     }
 
     public function setMinAndMaxDate($minDate, $maxDate) {
