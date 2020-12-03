@@ -4,23 +4,21 @@
         "title": "",
         "sub_title": "",
         "text": "",
-        "layout": "center",
+        "layout": "bottom",
+        "theme": "base",
         "background_image": "",
         "background_video": false,
-        "height": "md",
-        "color": "white",
-        "containerColor": ""
+        "mobile_image": ""
     },
     "description": {
         "title": "A title for predefined layout",
         "sub_title": "A sub-title for predefined layout",
         "text": "A text for predefined layout",
         "layout": "Which layouts to use",
+        "theme": "The color palette to be used",
         "background_image": "An url or path to an image to use as background for the segment",
         "background_video": "A video background for the segment",
-        "height": "How tall the segment should be",
-        "color": "Color of the text",
-        "containerColor": "Color of container"
+        "mobile_image": "URL to mobile image"
     },
     "view": "slider__item.blade.php",
     "dependency": {

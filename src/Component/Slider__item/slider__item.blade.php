@@ -4,12 +4,17 @@
         @include('Slider__item.sub.video')
     @endif
 
+    @if ($mobile_image)
+        <img class="{{ $baseClass }}__image" src="{{ $mobile_image }}"/>
+    @endif
+
     @if ($slotHasData || $showContainer)
         <div class="{{ $baseClass }}__container">
             {{$slot}}
 
             @if($title)
-                @typography(["variant" => "h1",
+                @typography([
+                    "variant" => "marketing",
                     "element" => "h2",
                     'classList' => [$baseClass.'__heading']
                 ])
@@ -17,7 +22,7 @@
                 @endtypography
             @endif
         
-            @if($sub_title)
+            {{-- @if($sub_title)
                 @typography([
                     'variant' => 'body',
                     'element' => 'p',
@@ -25,7 +30,7 @@
                 ])
                     {{ $sub_title }}
                 @endtypography
-            @endif
+            @endif --}}
         
             @if(!empty($text))
                 @typography([
