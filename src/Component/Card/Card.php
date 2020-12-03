@@ -27,18 +27,13 @@ class Card extends \BladeComponentLibrary\Component\BaseController
 
 		if($collapsible && $content){
 			$this->data['collapsible'] = $this->getBaseClass() . '--collapse';
-<<<<<<< Updated upstream
-    }
-=======
 		}
-
->>>>>>> Stashed changes
-
+		
 		if($image && !isset($image['backgroundColor'])) {
 			$this->data['image']['backgroundColor'] = 'white';
 		}
 
-		if($image && !isset($image['src'])) {
+		if($image && !isset($image['src']) || (isset($image['src']) && empty($image['src']))) {
 			$this->data['image'] = false;
 		}
 
