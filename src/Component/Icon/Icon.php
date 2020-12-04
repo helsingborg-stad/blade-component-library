@@ -9,6 +9,7 @@ namespace BladeComponentLibrary\Component\Icon;
 class Icon extends \BladeComponentLibrary\Component\BaseController {
 
     public function init() {
+
         //Extract array for easy access (fetch only)
         extract($this->data);
 
@@ -42,7 +43,7 @@ class Icon extends \BladeComponentLibrary\Component\BaseController {
 	 */
     public function setColor() {
         // Set color based on provided name
-        if(isset($this->compParams['color'])) {
+        if(isset($this->compParams['color']) && !empty($this->compParams['color'])) {
             $this->data['classList'][] =
                 $this->getBaseClass()."--color-". strtolower($this->compParams['color']);
         }
