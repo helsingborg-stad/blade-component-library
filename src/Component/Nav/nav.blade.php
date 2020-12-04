@@ -13,6 +13,12 @@
                     href="{{$item['href']}}" 
                     aria-label="{{$item['label']}}" 
                 >
+
+                    @if(isset($item['icon']))
+                        @icon($item['icon'])
+                        @endicon
+                    @endif
+
                     {{$item['label']}}
                 </a>
 
