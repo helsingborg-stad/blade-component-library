@@ -10,8 +10,12 @@ class Slider__item extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        if (!empty($theme)) {
-            $this->data['classList'][] = $this->getBaseClass() . "--" . $theme;
+        if (!empty($containerColor)) {
+            $this->data['classList'][] = $this->getBaseClass() . "--bg-" . $containerColor;
+        }
+
+        if (!empty($textColor)) {
+            $this->data['classList'][] = $this->getBaseClass() . "--text-" . $textColor;
         }
 
         if (!empty($layout)) {

@@ -8,7 +8,9 @@
         "theme": "base",
         "background_image": "",
         "background_video": false,
-        "mobile_image": ""
+        "mobile_image": "",
+        "link": false,
+        "containerColor": "none"
     },
     "description": {
         "title": "A title for predefined layout",
@@ -18,7 +20,9 @@
         "theme": "The color palette to be used",
         "background_image": "An url or path to an image to use as background for the segment",
         "background_video": "A video background for the segment",
-        "mobile_image": "URL to mobile image"
+        "mobile_image": "URL to mobile image",
+        "link": "Where the slide should link to",
+        "containerColor": "Determines what color the container and text should be"
     },
     "view": "slider__item.blade.php",
     "dependency": {

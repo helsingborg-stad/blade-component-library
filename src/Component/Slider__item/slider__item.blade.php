@@ -1,5 +1,8 @@
 <!-- segment.blade.php -->
 <section id="{{ $id }}" class="{{ $class }}" {!! $attribute !!} js-slider-slide>
+    @if ($link)
+        <a class="{{ $baseClass }}__link" href="{{ $link }}">
+    @endif
     @if ($background_video)
         @include('Slider__item.sub.video')
     @endif
@@ -46,5 +49,9 @@
                 {{ $bottom }}
             @endif
         </div>
+    @endif
+
+    @if ($link)
+        </a>
     @endif
 </section>
