@@ -17,7 +17,7 @@
 
             @if($title)
                 @typography([
-                    "variant" => "marketing",
+                    "variant" => "h2",
                     "element" => "h2",
                     'classList' => [$baseClass.'__heading']
                 ])
