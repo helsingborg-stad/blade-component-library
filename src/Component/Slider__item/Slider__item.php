@@ -22,6 +22,10 @@ class Slider__item extends \BladeComponentLibrary\Component\BaseController
             $this->data['classList'][] = $this->getBaseClass() . "--layout-" . $layout;
         }
 
+        if(!empty($desktop_image) && empty($mobile_image)) {
+            $this->data['classList'][] = $this->getBaseClass() . "--no-mobile-image";
+        }
+
         if (!empty($background_image)) {
             $this->data['attributeList']['style'] = "background-image: url('".$background_image."');";
         }
