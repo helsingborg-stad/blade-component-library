@@ -6,7 +6,10 @@
           'style' => 'basic',
           'color' => 'primary',
           'icon' => 'chevron_left',
-          'attributeList' => ['disabled' => $previousDisabled],
+          'attributeList' => [
+              'disabled' => $previousDisabled,
+              'js-pagination-prev' => ''
+            ],
           'href' => $previous,
           'classList' => [$baseClass . '__item--previous', $baseClass . '__item']
         ])
@@ -14,10 +17,12 @@
 
         @includeWhen($firstItem, 'Pagination.Partials.less_indicator')
 
+        <div class="u-display--flex" js-table-pagination--links>
+
         @foreach($list as $key => $item)
        
           @if($key +1 == $current)
-          <{{$listItem}} class="{{$baseClass}}__item {{$baseClass}}__item{{ $currentClass }}">
+          <{{$listItem}} class="{{$baseClass}}__item {{$baseClass}}__item{{ $currentClass }}" js-pagination-index="{{ $key +1 }}">
             <a class="{{$baseClass}}__link" href="{{ $item['href'] }}" aria-label="{{ $item['label'] }}" aria-current="true">
               <span class="{{$baseClass}}__label">
                 {{ $key +1 }}
@@ -25,7 +30,7 @@
             </a>
           </{{$listItem}}>
           @else
-          <{{$listItem}} class="{{$baseClass}}__item">
+          <{{$listItem}} class="{{$baseClass}}__item" js-pagination-index="{{ $key +1 }}">
             <a class="{{$baseClass}}__link" href="{{ $item['href'] }}" aria-label="{{ $item['label'] }}">
               <span class="{{$baseClass}}__label">
                 {{ $key +1 }}
@@ -34,6 +39,7 @@
           </{{$listItem}}>
           @endif
         @endforeach
+        </div>
 
         @includeWhen($lastItem, 'Pagination.Partials.more_indicator')
 
@@ -41,7 +47,10 @@
           'style' => 'basic',
           'color' => 'primary',
           'icon' => 'chevron_right',
-          'attributeList' => ['disabled' => $nextDisabled],
+          'attributeList' => [
+              'disabled' => $nextDisabled,
+            'js-pagination-next' => ''
+          ],
           'href' => $next,
           'classList' => [$baseClass . '__item--next', $baseClass . '__item']
         ])

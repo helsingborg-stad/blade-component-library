@@ -10,7 +10,11 @@ class Comment extends \BladeComponentLibrary\Component\BaseController {
         $this->data['id'] = uniqid("", true);
 
         $this->isReply($is_reply);
-        $this->hasHtml($text);
+
+        if($filterHtml) {
+            $this->filterTags($text, $allowedTags);
+        }
+        
     }
 
     /**
@@ -22,7 +26,7 @@ class Comment extends \BladeComponentLibrary\Component\BaseController {
         }
     }
 
-    public function hasHtml($text) {
+    public function filterTags($text, $allowedTextTags) {
 
         $allowedTextTags = '<b><strong><i><em><mark><small><del><ins><sub><sup>';
 

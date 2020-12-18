@@ -43,6 +43,13 @@ class Pagination extends \BladeComponentLibrary\Component\BaseController
         $this->data['list'] = $this->overflow();
         $this->data['firstItem'] = $this->firstItem();
         $this->data['lastItem'] = $this->lastItem();
+
+        if($this->data['useJS']) {
+            $this->data['attributeList']['js-pagination'] = '';
+            $this->data['attributeList']['js-pagination-per-page'] = $this->data['perPage'];
+            $this->data['attributeList']['js-pagination-max-pages'] = $this->data['maxPages'];
+        }
+
     }
 
     public function overflow()
