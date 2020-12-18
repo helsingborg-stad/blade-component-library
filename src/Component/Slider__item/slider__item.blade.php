@@ -3,12 +3,17 @@
     @if ($link)
         <a class="{{ $baseClass }}__link" href="{{ $link }}">
     @endif
+
     @if ($background_video)
         @include('Slider__item.sub.video')
     @endif
 
+    @if ($desktop_image)
+        <img class="{{ $baseClass }}__image" src="{{ $desktop_image }}"/>
+    @endif
+
     @if ($mobile_image)
-        <img class="{{ $baseClass }}__image" src="{{ $mobile_image }}"/>
+        <img class="{{ $baseClass }}__image__mobile" src="{{ $mobile_image }}"/>
     @endif
 
     @if ($slotHasData || $showContainer)

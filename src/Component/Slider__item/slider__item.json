@@ -8,6 +8,7 @@
         "theme": "base",
         "background_image": "",
         "background_video": false,
+        "desktop_image": "",
         "mobile_image": "",
         "link": false,
         "containerColor": "none"
@@ -18,7 +19,8 @@
         "text": "A text for predefined layout",
         "layout": "Which layouts to use",
         "theme": "The color palette to be used",
-        "background_image": "An url or path to an image to use as background for the segment",
+        "desktop_image": "An url or path to an image to use as background for the segment",
+        "background_image": "An url or path to an image to use as mobile background for the segment",
         "background_video": "A video background for the segment",
         "mobile_image": "URL to mobile image",
         "link": "Where the slide should link to",
