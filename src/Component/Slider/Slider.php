@@ -15,6 +15,10 @@ class Slider extends \BladeComponentLibrary\Component\BaseController
         $this->data['attributeList']['js-slider'] = 0;
         $this->data['attributeList']['js-slider-index'] = 0;
         $this->data['attributeList']['js-slider-index'] = 0;
+        $this->data['attributeList']['js-slider-repeat'] = $repeatSlide;
+        
+        $ratio = preg_replace('/:/i', '-', $ratio);
+        $this->data['classList'][] = 'c-slider--' . $ratio;
 
         if ($peekSlides) {
             $this->data['classList'][] = 'c-slider__peek';

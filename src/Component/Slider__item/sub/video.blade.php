@@ -3,7 +3,7 @@
     'isMuted' => true,
     'shouldAutoplay' => true,
     'attributeList' => [
-        'loop' => true
+        'loop' => true,
     ],
     'classList' => [
         $baseClass."__background--video"
@@ -20,7 +20,7 @@
     'size'          => 'md',
     'color'         => 'secondary',
     'classList'     => [
-        'c-segment__video--play__btn'
+        $baseClass.'__background--video__play__btn'
     ],
     'attributeList' => [
         'js-video-control' => ''

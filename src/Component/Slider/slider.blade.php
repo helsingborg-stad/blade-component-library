@@ -1,6 +1,8 @@
 <div id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
-    <div class="{{$baseClass}}__inner" js-slider-inner>
-        {{ $slot }}
+    <div class="{{$baseClass}}__container">
+        <div class="{{$baseClass}}__inner" js-slider-inner>
+            {{ $slot }}
+        </div>
     </div>
 
     @button([
