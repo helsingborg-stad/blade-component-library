@@ -14,5 +14,8 @@ class Accordion__item extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
         $this->data['baseClass'] = 'c-accordion';
         $this->data['id'] = uniqid();
+
+        $this->data['headingType'] = ( is_array($this->heading) ) ? $this->data['baseClass'] . '__heading-is-array' : '';
+
     }
 }
