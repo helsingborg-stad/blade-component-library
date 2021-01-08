@@ -7,7 +7,7 @@
         "showHeader": true,
         "showCaption": false,
         "hasZebraStripes": true,
-        "hasHoverEffect": false,
+        "hasHoverEffect": true,
         "isBordered": true,
         "isLarge": false,
         "isSmall": false,

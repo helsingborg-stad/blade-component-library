@@ -17,6 +17,7 @@
                                     'name' => 'search',
                                     'js-table-filter-input' => ''
                                 ],
+                                'classList' => ['table__sort'],
                                 'label' => !empty($labels) && !empty($labels['searchPlaceholder']) ? $labels['searchPlaceholder'] : 'Search'
                             ])
                             @endfield
@@ -24,7 +25,7 @@
                         
                         <tr class="{{$baseClass}}__line">
                             @foreach($headings as $heading)
-                                <th scope="col" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}" js-table-sort--btn="{{ $loop->index }}">
+                                <th scope="col" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}" js-sort-button="{{ $loop->index }}">
                                     {{ $heading }}
                                     @if($sortable)
                                         @icon(['icon' => 'swap_vert', 'size' => 'md'])
@@ -36,12 +37,12 @@
                     </thead>
                 @endif
 
-                <tbody class="{{$baseClass}}__body" js-sort-data-container js-table-data-container>
+                <tbody class="{{$baseClass}}__body" js-sort-data-container>
                     
                     @foreach($list as $row) 
-                        <tr class="{{$baseClass}}__line {{$baseClass}}__line-{{ $loop->index }}" js-table-sort--sortable js-table-filter-item>
+                        <tr class="{{$baseClass}}__line {{$baseClass}}__line-{{ $loop->index }}" js-sort-sortable js-table-filter-item>
                             @foreach($row['columns'] as $column) 
-                                <td scope="row" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}" js-table-sort-data="{{ $loop->index }}" js-table-filter-data>
+                                <td scope="row" class="{{$baseClass}}__column {{$baseClass}}__column-{{ $loop->index }}" js-sort-data="{{$loop->index}}" js-table-filter-data>
                                     {!! $column !!}
                                 </td>
                             @endforeach

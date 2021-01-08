@@ -9,6 +9,12 @@ class Table extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
+        /* foreach($this->data['list'] as $listItem) {
+            foreach($listItem['columns'] as $index => $column) {
+                $listItem['columns'][$index]
+            }
+        } */
+
         //Zebra stripes
         if($hasZebraStripes) {
             $this->data['classList'][] = "table-striped";  
@@ -39,8 +45,9 @@ class Table extends \BladeComponentLibrary\Component\BaseController
         }
 
         if($sortable) {
-            $this->data['attributeList']['js-table-sort'] = '';
         }
+        $this->data['attributeList']['js-sort-container'] = '';
+        $this->data['attributeList']['js-sort-order'] = 'asc';
 
         if($pagination) {
             $this->data['attributeList']['js-table-pagination'] = $pagination;
