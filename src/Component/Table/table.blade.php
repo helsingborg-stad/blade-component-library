@@ -12,6 +12,9 @@
                         @if($filterable)
                             @field([
                                 'type' => 'text',
+                                'classList' => [
+                                    'u-margin--2'
+                                ],
                                 'attributeList' => [
                                     'type' => 'search',
                                     'name' => 'search',
