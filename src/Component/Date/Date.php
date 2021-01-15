@@ -25,7 +25,6 @@ class Date extends \BladeComponentLibrary\Component\BaseController
 
     private function formatDate($timestamp) {
         $format = 'D d M Y';
-        $date;
 
         if(function_exists('wp_date')) {
             $date = wp_date($format, $timestamp);
