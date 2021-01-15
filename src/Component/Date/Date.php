@@ -9,6 +9,7 @@ namespace BladeComponentLibrary\Component\Date;
 class Date extends \BladeComponentLibrary\Component\BaseController
 {
 
+    
     public function init() {
         //Extract array for eazy access (fetch only)
         extract($this->data);
@@ -24,7 +25,14 @@ class Date extends \BladeComponentLibrary\Component\BaseController
 
     private function formatDate($timestamp) {
         $format = 'D d M Y';
-        return date ($format, $timestamp );
+
+        if(function_exists('wp_date')) {
+            $date = wp_date($format, $timestamp);
+        } else {
+            $date = date ($format, $timestamp );
+        }
+
+        return $date;
     }
 
     /**
