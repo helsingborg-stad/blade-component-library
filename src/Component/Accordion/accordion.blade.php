@@ -4,7 +4,7 @@
     @foreach($list as $section)
         <{{$sectionElement}} class="{{$baseClass}}__section">
 
-        <{{$sectionHeadingElement}} class="{{$baseClass}}__button" aria-controls="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-expanded="false" js-expand-button>
+        <{{$sectionHeadingElement}} class="{{$baseClass}}__button" role="button" aria-controls="{{ $baseClass }}__aria-{{ $id }}-{{ $loop->index }}" aria-expanded="false" js-expand-button>
         <span class="{{$baseClass}}__button-wrapper" tabindex="-1">
                 {!!$beforeHeading!!}
 
