@@ -1,9 +1,10 @@
 <!-- modal.blade.php -->
-<div id="{{ $id }}" class="{{ $parentClass }}">
+<div id="{{ $id }}" class="{{ $parentClass }}" role="dialog" aria-modal="true" aria-labelledby="modal__label__{{$id}}">
     <div class="{{$class}}"  {!! $attribute !!}>
         <header class="{{$baseClass}}__header">
             @if ($heading)
                 @typography([
+                    "id" => "modal__label__".$id,
                     "variant" => "h2",
                     "element" => "h2",
                 ])
