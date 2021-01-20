@@ -12,10 +12,12 @@
            @if($required)
                required
                data-required="1"
+               aria-required="true"
            @endif
            placeholder="{{$label}}"
+           aria-labelledby="label_{{$id}}"
     />
-    <label class="c-field__text--label" for="input_{{ $id }}">{{$label}}</label>
+    <label class="c-field__text--label" id="label_{{ $id }}" for="input_{{ $id }}">{{$label}}</label>
     <div id="error_input_{{ $id }}_message" class="c-field__input-invalid-message">
         @icon([
             'icon' => 'error',

@@ -1,11 +1,15 @@
 <!-- textarea.blade.php -->
-<div class="{{$class}}">
+<div class="{{$class}}" role="textarea">
     <textarea {!! $attribute !!}
+            aria-multiline="true"
               placeholder="{{$label}}"
+              aria-placebolder="{{$label}}"
+              aria-label="{{$label}}"
               id="{{ $id }}"
               @if($required)
                   required
                   data-required="1"
+                  aria-required="true"
               @endif
     >{{$value}}</textarea>
     <label class="c-textarea--label">{{$label}}</label>
