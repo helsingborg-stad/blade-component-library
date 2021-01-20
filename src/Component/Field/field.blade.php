@@ -12,6 +12,7 @@
            @if($required)
                required
                data-required="1"
+               aria-required="true"
            @endif
            placeholder="{{$label}}"
            aria-labelledby="label_{{$id}}"
