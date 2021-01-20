@@ -1,6 +1,6 @@
 {{-- Accordion Item --}}
 <{{$sectionElement}} class="{{ $class }} {{$baseClass}}__section" {!! $attribute !!}>
-    <{{$sectionHeadingElement}} class="{{$baseClass}}__button" aria-controls="{{ $baseClass }}__aria-{{ $id }}-hej" aria-expanded="false" js-expand-button>
+    <{{$sectionHeadingElement}} class="{{$baseClass}}__button" aria-controls="{{ $baseClass }}__aria-{{ $id }}" aria-expanded="false" js-expand-button>
         <span class="{{$baseClass}}__button-wrapper {{$headingType}} " tabindex="-1">
             {!!$beforeHeading!!}
             @if (is_array($heading))
@@ -26,7 +26,7 @@
 
         </{{$sectionHeadingElement}}>
 
-            <{{$sectionContentElement}} class="{{$baseClass}}__content" id="{{ $baseClass }}__aria-{{ $id }}-hej" aria-hidden="true">
+            <{{$sectionContentElement}} class="{{$baseClass}}__content" id="{{ $baseClass }}__aria-{{ $id }}" aria-hidden="true">
             
             {!!$beforeContent!!}
                 {!! $slot !!}
