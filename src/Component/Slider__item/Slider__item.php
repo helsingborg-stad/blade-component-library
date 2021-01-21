@@ -30,6 +30,7 @@ class Slider__item extends \BladeComponentLibrary\Component\BaseController
             $this->data['attributeList']['style'] = "background-image: url('".$background_image."');";
         }
 
+        $this->data['showContainer'] = false;
         if (!empty($title) || !empty($sub_title) ||!empty($text) || !empty($bottom)) {
             $this->data['showContainer'] = true;
         }
