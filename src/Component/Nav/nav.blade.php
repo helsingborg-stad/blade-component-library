@@ -1,15 +1,18 @@
 <!-- nav.blade.php -->
 @if ($items) 
-    <ul id="{{ $id }}" class="{{$class}}" {!! $attribute !!}>
+    <ul id="{{ $id }}" class="{{$class}}" {!! $attribute !!} role="menu">
         @foreach ($items as $item)
             <li 
                 class="{{$baseClass}}__item {{$item['active'] ? 'is-current' : ''}}{{$item['active'] && $item['children'] || $item['ancestor'] ? ' is-open has-fetched' : ''}}"
         
                 {{-- Append dynamic attributes --}}
                 {!! !empty($item['attributeList']) ? $buildAttributes($item['attributeList']) : '' !!}
+                role="menuitem"
+                aria-labeledby="{{$id}}-{{$loop->index}}__label"
             >
                 
-                <a  class="{{$baseClass}}__link" 
+                <a  id="{{$id}}-{{$loop->index}}__label"
+                    class="{{$baseClass}}__link" 
                     href="{{$item['href']}}" 
                     aria-label="{{$item['label']}}" 
                 >
