@@ -44,7 +44,10 @@
                 @typography([
                     'variant' => 'body',
                     'element' => 'p',
-                    'classList' =>  [$baseClass.'__body']
+                    'classList' =>  [
+                        $baseClass.'__body',
+                        !($title) ? 'u-margin__top--0' : '',
+                    ]
                 ])
                     {{ $text}}
                 @endtypography
