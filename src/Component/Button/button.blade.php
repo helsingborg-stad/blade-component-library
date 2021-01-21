@@ -1,4 +1,4 @@
-<{{$componentElement}} id="{{ $id }}" class="{{ $class }}" href="{{$href}}" target="{{ $target }}" aria-pressed="{{$pressed}}" {!! $attribute !!}>   
+<{{$componentElement}} id="{{ $id }}" class="{{ $class }}" href="{{$href}}" target="{{ $target }}" {!! $attribute !!}>   
     <{{$labelElement}} class="{{$baseClass}}__label">
     
         @if($text && $icon)

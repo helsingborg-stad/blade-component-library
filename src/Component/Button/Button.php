@@ -34,7 +34,8 @@ class Button extends \BladeComponentLibrary\Component\BaseController
 		if($href) {
 			$this->data['componentElement'] = "a"; 
 		} else {
-			$this->data['componentElement'] = "button"; 
+			$this->data['componentElement'] = "button";
+			$this->data['attributeList']['aria-pressed'] = $pressed;  
 		}
 	}
 	
