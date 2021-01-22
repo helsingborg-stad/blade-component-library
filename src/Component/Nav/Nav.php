@@ -27,6 +27,9 @@ class Nav extends \BladeComponentLibrary\Component\BaseController
         if($direction) {
             $this->data['classList'][] = $this->getBaseClass() . "--" . $direction; 
         }
+
+        //Attributes
+        $this->data['attributeList']['aria-orientation'] = $direction; 
     }
 
     public function fillItemsData($items)
