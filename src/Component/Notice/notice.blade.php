@@ -1,6 +1,6 @@
 <!-- notice.blade.php -->
 
-    <div id="{{ $id }}" class="{{ $class }}" {!! $attribute !!} aria-labeledby="notice__text__{{ $id }}">
+    <div id="{{ $id }}" class="{{ $class }}" {!! $attribute !!} aria-labelledby="notice__text__{{ $id }}">
         @if(isset($icon) && is_array($icon) && !empty($icon))
             <span class="{{$baseClass}}__icon">
                 @icon(['icon' => $icon['name'], 'size' => $icon['size']])

@@ -20,6 +20,18 @@ class Textarea extends \BladeComponentLibrary\Component\BaseController
         ];
 
         $this->setData();
+
+        //Populate attributes
+        $this->data['attributeList']['aria-multiline'] = "true"; 
+        $this->data['attributeList']['placeholder'] = $label; 
+        $this->data['attributeList']['aria-placeholder'] = $label; 
+
+        //Is required props
+        if($required) {
+            $this->data['attributeList']['required'] = "required"; 
+            $this->data['attributeList']['data-required'] = "1"; 
+            $this->data['attributeList']['aria-required'] = "true"; 
+        }
     }
 
     /**

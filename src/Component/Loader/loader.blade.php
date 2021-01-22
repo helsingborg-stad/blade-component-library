@@ -1,6 +1,6 @@
 <!-- loader.blade.php -->
 
-<{{$componentElement}} id="{{ $id }}" class="{{ $class }}" {!! $attribute !!} role="alert" aria-busy="true" @if($text) aria-labeledby="loader__label__{{$id}}" @endif>
+<{{$componentElement}} id="{{ $id }}" class="{{ $class }}" {!! $attribute !!}>
 </{{$componentElement}}>
 @if ($text)
     @typography([

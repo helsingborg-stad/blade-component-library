@@ -1,5 +1,5 @@
 <!-- field.blade.php -->
-<div id="{{ $id }}" class="{{$class}} c-field__{{$type}}">
+<div id="{{ $id }}" class="{{$class}}">
 
     @if($icon)
         @icon($icon)
