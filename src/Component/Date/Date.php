@@ -21,6 +21,16 @@ class Date extends \BladeComponentLibrary\Component\BaseController
         } else if ($action == "timeuntil") {
             $this->data['refinedDate'] = $this->convertToHumanReadableUnit(strtotime($timestamp));
         }
+
+        //Display tipbox with exact time, if relative shown. 
+        if(in_array($action, ['timesince', 'timeuntil'])) {
+            $this->data['tooltipDate'] = $this->formatDate(strtotime($timestamp), $format);
+        } else {
+            $this->data['tooltipDate'] = false; 
+        }
+
+        //Add excact date as metadata
+        $this->data['metaDate'] = $this->formatDate(strtotime($timestamp), "Y-m-d H:i:s");
     }
 
     private function formatDate($timestamp, $format) {
