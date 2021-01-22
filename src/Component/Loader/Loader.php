@@ -11,9 +11,20 @@ class Loader extends \BladeComponentLibrary\Component\BaseController
 
         $this->data['text'] = ($text) ? $text : '';
 
-
         $this->setColor($shape, $color);
         $this->setSize($shape, $size);
+
+        //Labeld by attribute
+        if($text) {
+            $this->data['attributeList']['aria-labeledby'] = $id;   
+        }
+
+        //Indicates that this is busy
+        $this->data['attributeList']['aria-busy'] = "true"; 
+
+        //Role
+        $this->data['attributeList']['role'] = "progressbar"; 
+
     }
 
     private function setColor($shape, $color)
