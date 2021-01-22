@@ -17,6 +17,9 @@ class Field extends \BladeComponentLibrary\Component\Form\Form
             'value' => $value ?? ''
         ];
 
+        //Set type
+        $this->data['classList'][] = $this->getBaseClass() . "__" . $type; 
+
         //Handle icon
         $this->data['icon'] = $this->getIcon($icon, $size); 
         if($this->data['icon']) {
