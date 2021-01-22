@@ -15,7 +15,7 @@ class Date extends \BladeComponentLibrary\Component\BaseController
         extract($this->data);
 
         if ($action == "formatDate") {
-            $this->data['refinedDate'] = $this->formatDate(strtotime($timestamp));
+            $this->data['refinedDate'] = $this->formatDate(strtotime($timestamp), $format);
         } else if ($action == "timesince") {
             $this->data['refinedDate'] = $this->convertToHumanReadableUnit(strtotime($timestamp), true);
         } else if ($action == "timeuntil") {
@@ -23,8 +23,8 @@ class Date extends \BladeComponentLibrary\Component\BaseController
         }
     }
 
-    private function formatDate($timestamp) {
-        $format = 'D d M Y';
+    private function formatDate($timestamp, $format) {
+        $format = $format ? $format : 'D d M Y';
 
         if(function_exists('wp_date')) {
             $date = wp_date($format, $timestamp);
