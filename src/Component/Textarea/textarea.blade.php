@@ -1,6 +1,6 @@
 <!-- textarea.blade.php -->
 <div class="{{$class}}" role="textarea">
-    <textarea id={{$id}} {!! $attribute !!}>{{$value}}</textarea>
+    <textarea id="{{$id}}" {!! $attribute !!}>{{$value}}</textarea>
     <label class="c-textarea--label">{{$label}}</label>
     <div id="error_{{ $id }}_message" class="c-textarea-invalid-message">
         @icon([
