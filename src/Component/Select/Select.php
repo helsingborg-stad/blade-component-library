@@ -10,7 +10,15 @@ class Select extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        $this->data['id'] = uniqid();
+        $this->data['id'] = $id ?? uniqid();
+
+        if ($multiple) {
+            $this->data['attributeList']['multiple'] = 'multiple';
+        }
+
+        if ($name) {
+            $this->data['attributeList']['name'] = $name;
+        }
 
         if ($errorMessage) {
             $this->data['data-invalid-message'] = $errorMessage;
