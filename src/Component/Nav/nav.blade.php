@@ -8,7 +8,7 @@
                 {{-- Append dynamic attributes --}}
                 {!! !empty($item['attributeList']) ? $buildAttributes($item['attributeList']) : '' !!}
                 role="menuitem"
-                aria-labeledby="{{$id}}-{{$loop->index}}__label"
+                aria-labelledby="{{$id}}-{{$loop->index}}__label"
             >
                 
                 <a  id="{{$id}}-{{$loop->index}}__label"

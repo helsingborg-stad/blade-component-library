@@ -16,7 +16,7 @@ class Loader extends \BladeComponentLibrary\Component\BaseController
 
         //Labeld by attribute
         if($text) {
-            $this->data['attributeList']['aria-labeledby'] = $id;   
+            $this->data['attributeList']['aria-labelledby'] = $id;   
         }
 
         //Indicates that this is busy
