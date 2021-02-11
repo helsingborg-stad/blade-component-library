@@ -5,13 +5,17 @@
         "required": false,
         "options": [],
         "errorMessage": false,
-        "preselected": false
+        "preselected": false,
+        "multiple": false,
+        "name": false
     },
     "description": {
         "label": "The placeholder of the dropdown",
         "required": "If the element should be required",
         "options": "The options which can be selected. The key if the item will be used as value of the option and the value will be used as a label",
-        "preselected": "Key of option to be preselected"
+        "preselected": "Key of option to be preselected",
+        "multiple": "Sets the select box to a multiple select",
+        "name": "The name attribute for the select component"
     },
     "view": "select.blade.php",
     "dependency": {

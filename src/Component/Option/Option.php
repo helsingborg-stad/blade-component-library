@@ -13,7 +13,10 @@ class Option extends \BladeComponentLibrary\Component\BaseController
         //Extract array for eazy access (fetch only)
         extract($this->data);
 
-        $this->data['id'] = uniqid();
+        if(!isset($this->data['id']) ) {
+            $this->data['id'] = uniqid();
+        }
+        
 
         $this->compParams = [
             'label' => $label ?? '',
